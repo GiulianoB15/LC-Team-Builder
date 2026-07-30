@@ -107,7 +107,11 @@ const convertirPasiva = (p) => ({
 const ref = extraerPasivas();
 const pasivasPorId = new Map();
 const pasivaEgoPorId = new Map();
+const skillsLctbPorId = new Map();
 let fechaLctb = null;
+
+/* Contadores del injerto de números de skill, para el resumen. */
+const statsSkills = { conNumeros: 0, ambiguas: 0, conflicto: 0, sinFuente: 0 };
 
 if (ref.salida) {
   const mod = await import(pathToFileURL(ref.salida).href);
@@ -121,6 +125,7 @@ if (ref.salida) {
   mod.Egos.forEach((e) => {
     if (e.Passive) pasivaEgoPorId.set(e.Id, convertirPasiva(e.Passive));
   });
+  mod.Identities.forEach((i) => skillsLctbPorId.set(i.Id, i.Skills));
   try {
     fechaLctb = execFileSync("git", ["-C", dirLctb, "log", "-1", "--format=%ad", "--date=short"]).toString().trim();
   } catch { /* el clon puede no tener .git */ }
@@ -135,13 +140,56 @@ function convertirIdentity(id, raw) {
     Ponderar por copias estima mejor la generación de recursos que contar
     skills sueltas, que es lo que hacía la versión anterior.
   */
-  const skills = (raw.skillTypes ?? []).map((s) => ({
-    id: s.id,
-    sin: capSin(s.type?.affinity),
-    tier: s.type?.tier ?? null,
-    tipoDanio: s.type?.type ?? null,
-    copias: s.num ?? 1,
-  }));
+  /*
+    Los números de cada skill (poder base, monedas, valor de moneda) no vienen
+    en el dump nuevo, pero sí en LCTeamBuilder. Se injertan igual que las
+    pasivas, matcheando por tier de ataque.
+
+    Ojo: SkillTierEnum de LCTeamBuilder arranca en 1, no en 0. Asumir lo
+    contrario hacía que casi nada matcheara.
+
+    Si la fuente da más de un candidato, o si la afinidad de las dos fuentes no
+    coincide, se deja en null en vez de elegir a dedo: un número inventado acá
+    contamina cualquier cálculo que se apoye en él.
+  */
+  const skillsLctb = (skillsLctbPorId.get(id) ?? []).filter((s) => s.SkillType === 0);
+
+  const skills = (raw.skillTypes ?? []).map((s) => {
+    const sin = capSin(s.type?.affinity);
+    const tier = s.type?.tier ?? null;
+
+    let numeros = null;
+    if (skillsLctb.length === 0) {
+      statsSkills.sinFuente += 1;
+    } else {
+      let cand = skillsLctb.filter((x) => x.SkillTier === tier);
+      if (cand.length > 1) cand = cand.filter((x) => SIN_POR_INDICE_LCTB[x.Affinity] === sin);
+
+      if (cand.length === 1 && SIN_POR_INDICE_LCTB[cand[0].Affinity] === sin) {
+        numeros = {
+          nombre: cand[0].Name,
+          poderBase: cand[0].BaseValue,
+          monedas: cand[0].Coins,
+          valorMoneda: cand[0].CoinValue,
+          pesoAtaque: cand[0].AttackWeight,
+        };
+        statsSkills.conNumeros += 1;
+      } else if (cand.length === 1) {
+        statsSkills.conflicto += 1; // las dos fuentes discrepan en la afinidad
+      } else {
+        statsSkills.ambiguas += 1;
+      }
+    }
+
+    return {
+      id: s.id,
+      sin,
+      tier,
+      tipoDanio: s.type?.type ?? null,
+      copias: s.num ?? 1,
+      ...(numeros ?? { nombre: null, poderBase: null, monedas: null, valorMoneda: null, pesoAtaque: null }),
+    };
+  });
 
   const skillsDefensa = (raw.defenseSkillTypes ?? []).map((s) => ({
     id: s.id,
@@ -328,3 +376,7 @@ const egosSinArquetipo = egos.filter((e) => e.arquetipos.length === 0).length;
 console.log(`E.G.O con pasiva: ${meta.conteo.egosConPasiva}   sin arquetipo derivable: ${egosSinArquetipo}`);
 console.log("Mapeo estado→arquetipo derivado:",
   Object.entries(mapeoEstados).map(([k, v]) => `${k}→${v.arquetipo}(${v.precision})`).join(", "));
+
+const totalSkills = identities.reduce((a, i) => a + i.skills.length, 0);
+console.log(`Skills con números injertados: ${statsSkills.conNumeros}/${totalSkills}` +
+  `  (ambiguas ${statsSkills.ambiguas}, conflicto de afinidad ${statsSkills.conflicto}, sin fuente ${statsSkills.sinFuente})`);

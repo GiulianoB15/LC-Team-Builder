@@ -105,21 +105,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Deflect",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1010102",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "End-stop Stab",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1010103",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Enjamb",
+     "poderBase": 6,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -207,21 +222,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Flèche",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1010203",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Riposte",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1010202",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Moulinet",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -310,21 +340,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Striker's Stance",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1010302",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Heel Turn",
+     "poderBase": 7,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1010303",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Flank Trust",
+     "poderBase": 8,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -410,21 +455,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Sprouting Bud",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1010402",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Moment's Floral Breeze",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1010403",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Bloodsteeped Scent",
+     "poderBase": 6,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -511,21 +571,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Stay Calm",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1010502",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Gamble",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     },
     {
      "id": "1010503",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Grinding the Molars",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -612,21 +687,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Dimensional Slit",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1010602",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Energy Cycle",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1010603",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Dimensional Rift",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -717,21 +807,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Impale",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1010702",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Relentless Stabbing",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1010703",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Ambush",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -818,21 +923,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Expend Knowledge",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1010802",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Seal Shut",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1010803",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Grace of Knowledge",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -920,21 +1040,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Paint Over",
+     "poderBase": 2,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1010902",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Sanguine Pointillism",
+     "poderBase": 8,
+     "monedas": 1,
+     "valorMoneda": 8,
+     "pesoAtaque": 1
     },
     {
      "id": "1010903",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Hematic Coloring",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -1033,21 +1168,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Celebration for the Departed",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1011002",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Solemn Lament for the Living",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1011003",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Goodbye Now, A Sorrow In You",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -1144,21 +1294,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Though it must be prefaced that E.G.O gears are standardized equipment,",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1011102",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "when juxtaposed with E.G.O gear from L Corp., depending on the degree of attunement to the Abnormality,",
+     "poderBase": 8,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1011103",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "the idiosyncrasies of the source may be utilized with greater flexibility",
+     "poderBase": 16,
+     "monedas": 3,
+     "valorMoneda": -5,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -1249,21 +1414,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Flame Hew",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1011202",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Frontal Assault",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1011203",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Flow of the Sword",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -1349,21 +1529,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "See Through Defenses",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1011302",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Punch Through",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1011303",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Target Readjustment Fire",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 7,
+     "pesoAtaque": 2
     }
    ],
    "skillsDefensa": [
@@ -1460,28 +1655,48 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1011402",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1011403",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1011405",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -1560,28 +1775,48 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1011502",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1011503",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1011505",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -1682,28 +1917,48 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1011602",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1011603",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1011605",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -1774,21 +2029,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Downward Slash",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1020102",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Upward Slash",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1020103",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Drilling Stab",
+     "poderBase": 7,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -1874,21 +2144,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Energy Cycle",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 8,
+     "pesoAtaque": 1
     },
     {
      "id": "1020202",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Leap",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1020203",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Overcharge",
+     "poderBase": 6,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -1976,21 +2261,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1020302",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1020303",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -2080,21 +2380,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Cackle",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1020402",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "The Gripping",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1020403",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Execution",
+     "poderBase": 6,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -2185,21 +2500,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Patrolling",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1020502",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Client Protection",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1020503",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Law and Order",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -2285,21 +2615,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Predictive Analysis",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1020602",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Dissect Target",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1020603",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Profiling",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -2388,21 +2733,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Contracting Straight-jacket",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1020702",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Metallic Ringing",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1020703",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Unleashed Violence",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -2495,21 +2855,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Moonlit Blade Dance",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1020802",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Acupuncture",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1020803",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Red Plum Blossoms Scatter",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -2600,21 +2975,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Confiscation",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1020902",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Interloper Reception",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1020903",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Reception Arts 4: Heartseal",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -2702,21 +3092,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "40Y-3 Activation",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021002",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Charge Countercurrent",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021003",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "40Y-3 Charge",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -2803,28 +3208,48 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Ignition",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021102",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "E.G.O - A.B.S. Activation",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021103",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021105",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -2917,28 +3342,48 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Blinkstep",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021202",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Clearing the Path, My Lord.",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1021203",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021205",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -3049,28 +3494,48 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021302",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021303",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021305",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -3146,21 +3611,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021402",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021403",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -3233,42 +3713,72 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021502",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021503",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021505",
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021506",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021507",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -3358,35 +3868,60 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021602",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021603",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021605",
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1021606",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -3469,21 +4004,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Joust",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1030102",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Galloping Tilt",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     },
     {
      "id": "1030103",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "For Justice!",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -3572,21 +4122,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Rip",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1030202",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Leap",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1030203",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Rip Space",
+     "poderBase": 1,
+     "monedas": 5,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -3673,21 +4238,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Catch Breath",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1030302",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Dual Strike",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1030303",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Overbreathe",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 21,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -3773,21 +4353,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Rightful Purge",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1030402",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Enacment!",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     },
     {
      "id": "1030403",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Fanatical Judgement",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -3878,21 +4473,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Remise",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1030502",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Flèche",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1030503",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Salut!",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -3977,21 +4587,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Checking the Book",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1030602",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Proof of Loyalty",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1030603",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "A Just Vengeance",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -4079,21 +4704,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "I Shall Nibble Thee!",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1030702",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Flashing Lure",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1030703",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Whirlwind Om-Nom-Nom!",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -4181,21 +4821,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Draw of the Sword",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1030802",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Blade Arc",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1030803",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Fare Thee Well!",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -4280,21 +4935,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Let Us Prepare To Collect",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1030902",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "T Corp. Accelerated Amputator",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1030903",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "I Command Thee, Halt!",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -4386,42 +5056,72 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031002",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031003",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031005",
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031006",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031007",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -4539,21 +5239,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Fa Jin",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031102",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Virescent Flame Palm",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031103",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Salut!",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -4648,42 +5363,72 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031202",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031203",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031205",
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031206",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031207",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -4786,21 +5531,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031302",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031303",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -4870,42 +5630,72 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031402",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031403",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031405",
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031406",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1031407",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -4992,21 +5782,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Paint",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1040102",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Splatter",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1040103",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Brushstroke",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5094,21 +5899,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Slash",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 8,
+     "pesoAtaque": 1
     },
     {
      "id": "1040202",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Upper Slash",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 14,
+     "pesoAtaque": 1
     },
     {
      "id": "1040203",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Swash",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5197,21 +6017,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Focus Strike",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1040302",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Clean Up",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1040303",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Lenticular Swirl",
+     "poderBase": 8,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5300,21 +6135,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "P.C.",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1040402",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "I.H.",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1040403",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "I Can Cook Anything",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5406,21 +6256,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "E.C.",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1040502",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Leap",
+     "poderBase": 2,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1040503",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "D.D.E.D.R.",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5507,21 +6372,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Shove",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1040602",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "T.N.",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1040603",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "O.O.F",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5614,21 +6494,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "All-out War",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1040702",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Fiery Knifehand",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1040703",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Flame Cleave",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5714,21 +6609,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Receiving Arts 1: The Hunt",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1040802",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Receiving Arts 7: Capture",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1040803",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Receiving Arts 2: S.Y.N.C.",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5818,21 +6728,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Got a Screw Loose?",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1040902",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Compression Wind-up Spanner",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1040903",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Percussive Maintenance",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5918,28 +6843,48 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Both of You, Shut Up",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041002",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "S.H. / S.F.",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041003",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041005",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -6043,21 +6988,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Blinkstep",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041102",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "As Written",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1041103",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "I'll gut you with a curse-engraved sword",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -6145,35 +7105,60 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041202",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041203",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041205",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041206",
      "sin": "Pride",
      "tier": 4,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -6248,21 +7233,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041302",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041303",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -6327,35 +7327,60 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041402",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041403",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041405",
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041406",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -6428,49 +7453,84 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041502",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041503",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041505",
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041506",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041507",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1041508",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -6549,21 +7609,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Un, Deux",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1050102",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Nailing Fist",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 9,
+     "pesoAtaque": 1
     },
     {
      "id": "1050103",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Des Coups",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -6652,21 +7727,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Assault",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1050202",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Stalwart Stance",
+     "poderBase": 7,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1050203",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Perfected Death Fist",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -6751,21 +7841,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Rip",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1050302",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Energy Cycle",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1050303",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Energy Current",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -6853,21 +7958,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Drive",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 1,
+     "pesoAtaque": 1
     },
     {
      "id": "1050402",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "You Are Cleansed of Sin",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1050403",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Annihilate Heretics",
+     "poderBase": 8,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -6957,21 +8077,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Saddled Tasks",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1050502",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Forced Break",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1050503",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Finishing Runup",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -7059,21 +8194,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Weighty Bash",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1050602",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Demolish",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1050603",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Rhino Ram",
+     "poderBase": 6,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -7159,21 +8309,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "We Remember",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1050702",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Chains of Loyalty",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1050703",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Recording",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -7263,21 +8428,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Draw of the Sword",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1050802",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Acupuncture",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1050803",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Yield My Flesh",
+     "poderBase": 20,
+     "monedas": 1,
+     "valorMoneda": -8,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -7378,21 +8558,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Bat Strike",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1050902",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Smackdown",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1050903",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Relentless",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -7478,21 +8673,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Studious Dedication",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1051002",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Moment of Erudition",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1051003",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Scorch Knowledge",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -7580,21 +8790,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Allez",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1051102",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Fente",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1051103",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Salut",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -7686,28 +8911,48 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Double Slash - Blast [爆]",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1051202",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Triple Slash - Blast [爆]",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1051203",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1051205",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -7810,28 +9055,48 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1051302",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1051303",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1051305",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -7904,21 +9169,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1051402",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1051403",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -7989,21 +9269,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1051502",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1051503",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -8075,21 +9370,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Downward Cleave",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1060102",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Dual Strike",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1060103",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Whirlwind",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -8179,21 +9489,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Cleave",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1060202",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Cloud Cutter",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1060203",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Cloudburst",
+     "poderBase": 7,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -8280,21 +9605,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Throat Slit",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 8,
+     "pesoAtaque": 1
     },
     {
      "id": "1060302",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Shank",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1060303",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Mutilate",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 25,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -8380,21 +9720,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Warm Up",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1060402",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Flowing Flame",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1060403",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Crimson Blaze Fist",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -8478,21 +9833,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Impede the Intruder",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1060502",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Decay Blade",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1060503",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Excise Target",
+     "poderBase": 8,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -8578,21 +9948,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Energy Cycle",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1060602",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Cleanup Support",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1060603",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Deploy Charge Barrier",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -8681,21 +10066,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Track",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1060702",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Goin' First",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1060703",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Rampage",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -8782,21 +10182,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Expend Knowledge",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1060802",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Unveil",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1060803",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Cyclical Knowledge",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -8884,21 +10299,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Deduction Start",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1060902",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Morph Cane Technique",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1060903",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "You're the Culprit!",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -8988,21 +10418,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Slam",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061002",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Bonecrusher",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1061003",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "A Cheerful Hunt's End",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -9090,42 +10535,72 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Take the Shot",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1061102",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061103",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061105",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061106",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061108",
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": "Melee Support",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -9230,21 +10705,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Energy Strike",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061202",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Mind Whip",
+     "poderBase": 2,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1061203",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Concentration",
+     "poderBase": 8,
+     "monedas": 1,
+     "valorMoneda": 10,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -9331,35 +10821,60 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061302",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061303",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061305",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061306",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -9446,42 +10961,72 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061402",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061403",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061405",
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061408",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061406",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -9569,21 +11114,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061502",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1061503",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -9655,21 +11215,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Bat Bash",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1070102",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Smackdown",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1070103",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Upheaval",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 8,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -9757,21 +11332,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Extreme Edge",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1070202",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Flying Sword",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 10,
+     "pesoAtaque": 1
     },
     {
      "id": "1070203",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Flashing Strike",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -9857,21 +11447,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Graze the Grass",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1070302",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Concentrated Fire",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1070303",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Quick Suppression",
+     "poderBase": 3,
+     "monedas": 5,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -9964,21 +11569,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Gawky Nailing",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1070402",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Puri...fy!",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 8,
+     "pesoAtaque": 1
     },
     {
      "id": "1070403",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Infirm Retribution",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -10066,21 +11686,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Umbrella Thwack",
+     "poderBase": 6,
+     "monedas": 3,
+     "valorMoneda": -2,
+     "pesoAtaque": 1
     },
     {
      "id": "1070502",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Puddle Stomp",
+     "poderBase": 10,
+     "monedas": 4,
+     "valorMoneda": -3,
+     "pesoAtaque": 1
     },
     {
      "id": "1070503",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Spread Out!",
+     "poderBase": 18,
+     "monedas": 3,
+     "valorMoneda": -7,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -10173,21 +11808,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Intuition",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1070602",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "The Wrap—Up",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 10,
+     "pesoAtaque": 1
     },
     {
      "id": "1070603",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Forensics",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -10272,21 +11922,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Stalk Prey",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1070702",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Snagharpoon",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1070703",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Sever Knot",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -10373,21 +12038,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Execution Advised",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1070802",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Final Warning",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1070803",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Execution Sentencing",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -10476,21 +12156,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "4OS-2 Activation",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1070902",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Photoelectric Mark",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1070903",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Photoelectric Harpoon",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -10583,28 +12278,48 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Beheading",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1071002",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Memorial Procession",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1071003",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071005",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -10703,28 +12418,48 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Return Fire",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1071102",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Headshot",
+     "poderBase": 10,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     },
     {
      "id": "1071103",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071105",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -10833,21 +12568,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Lenticular Rend",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1071202",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Stormcloud",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1071203",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Thundercleave",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -10946,21 +12696,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071302",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071303",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -11026,28 +12791,48 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071402",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071403",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071405",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -11118,28 +12903,48 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071502",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071503",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071505",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -11213,28 +13018,48 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071602",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071603",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1071606",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -11316,21 +13141,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Loggerhead",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1080102",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Slide",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 9,
+     "pesoAtaque": 1
     },
     {
      "id": "1080103",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Shield Bash",
+     "poderBase": 8,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -11418,21 +13258,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Mind Strike",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1080202",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Flaying Surge",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     },
     {
      "id": "1080203",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Mind Whip",
+     "poderBase": 2,
+     "monedas": 4,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -11519,21 +13374,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Flying Sword",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1080302",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Flashing Strike",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1080303",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Catch Breath",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -11618,21 +13488,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Shove",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1080402",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Quake Rounds",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1080403",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Suppress",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -11723,21 +13608,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "It's Heavy...!",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1080502",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "It's Churning...!",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1080503",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Corrosive Splash",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 16,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -11825,21 +13725,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Red Kick",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1080602",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Frontal Assault",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1080603",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Inner Gate Elbow Strike",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -11926,21 +13841,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Ready to Crush",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1080702",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Explosive Blast",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1080703",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Risky Judgement",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -12031,21 +13961,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "To Me!",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1080802",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Pursue Them to the End",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1080803",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Harpoon of Obsession",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -12150,21 +14095,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Sweeping Redirection",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1080902",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Housekeeping",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1080903",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Restraining Technique",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -12255,21 +14215,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Zwei Knight's Greatsword Form",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081002",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Can't Let You Through.",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081003",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Ward",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -12362,21 +14337,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Clean Up",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081102",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Sharpened Blade",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1081103",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Ink Over",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -12478,28 +14468,48 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1081202",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Crimson Phoenix",
+     "poderBase": 2,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1081203",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Crimson Spring",
+     "poderBase": 8,
+     "monedas": 1,
+     "valorMoneda": 14,
+     "pesoAtaque": 1
     },
     {
      "id": "1081205",
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -12600,28 +14610,48 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1081302",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1081303",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1081305",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -12697,21 +14727,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1081402",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1081403",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -12782,35 +14827,60 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1081502",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1081503",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1081505",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1081506",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -12891,21 +14961,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Strike Down",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1090102",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Axe Combo",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1090103",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Slay",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -12991,21 +15076,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Sharpened Blade",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1090202",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Scattering Slash",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1090203",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Sky-clearing Cut",
+     "poderBase": 7,
+     "monedas": 1,
+     "valorMoneda": 18,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13099,21 +15199,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Bludgeon",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1090302",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Thrust",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 1,
+     "pesoAtaque": 1
     },
     {
      "id": "1090303",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Suppress",
+     "poderBase": 7,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13199,21 +15314,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Devoted Hammering",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1090402",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Zealous Purge",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1090403",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Ironclad Retribution",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13303,21 +15433,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Rev Up",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1090502",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Vibration Compression",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1090503",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Let's Rack Up Some Scores",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13406,21 +15551,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Careful Obstruction",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1090602",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Focused Defense",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1090603",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Subdue Threat",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13506,21 +15666,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Illuminate Thy Vacuity",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1090702",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Weight of Knowledge",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1090703",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Excruciating Study",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13610,21 +15785,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Flaming Fists",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1090802",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Fiery Knifehand-Combust",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1090803",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Pinpoint Blitz",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13712,21 +15902,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Prepare To Collect",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1090902",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "T Corp. Martial Suppression",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1090903",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Execute Collections",
+     "poderBase": 2,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13814,21 +16019,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Courier Trunk - Decay Knife",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091002",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Courier Trunk - Gadget Reveal",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091003",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "I Trust Ya, Polu!",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13929,28 +16149,48 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Begone…",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091102",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "In Finely Ground Mistfall",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091103",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091105",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -14058,21 +16298,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Serpent Glint",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091202",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Snake Fang",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091203",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Serpent's Mortal Flurry",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -14166,42 +16421,72 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091302",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091303",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091305",
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091306",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091307",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -14328,21 +16613,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091402",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091403",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -14406,28 +16706,48 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091502",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091503",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091505",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -14508,42 +16828,72 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091602",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091603",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091605",
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091606",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1091607",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -14633,21 +16983,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Downward Swing",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1100102",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Halberd Combo",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1100103",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Ravaging Cut",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -14734,21 +17099,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Slice then Stab",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1100202",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Slash Series",
+     "poderBase": 6,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1100203",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "To Claim Their Bones",
+     "poderBase": 8,
+     "monedas": 1,
+     "valorMoneda": 18,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -14838,21 +17218,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Baton",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1100302",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Supress",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1100303",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Strong Strike",
+     "poderBase": 7,
+     "monedas": 1,
+     "valorMoneda": 13,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -14940,21 +17335,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Baile y Rola",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1100402",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Danza de Pasión",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 1,
+     "pesoAtaque": 1
     },
     {
      "id": "1100403",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Pañata Party",
+     "poderBase": 8,
+     "monedas": 1,
+     "valorMoneda": 11,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -15042,21 +17452,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Coerced Judgement",
+     "poderBase": 8,
+     "monedas": 2,
+     "valorMoneda": -2,
+     "pesoAtaque": 1
     },
     {
      "id": "1100502",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Amoral Enacment",
+     "poderBase": 16,
+     "monedas": 4,
+     "valorMoneda": -4,
+     "pesoAtaque": 1
     },
     {
      "id": "1100503",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Self-destructive Purge",
+     "poderBase": 30,
+     "monedas": 3,
+     "valorMoneda": -12,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -15145,21 +17570,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Magnify Wound",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1100602",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Proliferating Talismans",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1100603",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Rupturing Talisman",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -15246,21 +17686,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Fierce Assault",
+     "poderBase": 2,
+     "monedas": 4,
+     "valorMoneda": 1,
+     "pesoAtaque": 1
     },
     {
      "id": "1100702",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Steady",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     },
     {
      "id": "1100703",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Gamble",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -15347,21 +17802,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Remise",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1100802",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Engagement",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1100803",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Contre Attaque",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -15452,28 +17922,48 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Fierce Charge",
+     "poderBase": 3,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1100902",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Sunset Blade",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1100903",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1100905",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -15564,21 +18054,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Suppressing.",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1101002",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Combat Preparation",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1101003",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Fence",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -15671,21 +18176,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Courier Trunk - Decay Hammer",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1101102",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Courier Trunk - Demolition Gadget",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1101103",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Poludnitsa… I trust you!",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -15786,21 +18306,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Is it You?!",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1101202",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Payback with Interest",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1101203",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Write 'em all down",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -15890,21 +18425,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Adherence to Propriety.",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1101302",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Respect the Thumb.",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1101303",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Thruster Compression",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -16006,21 +18556,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1101402",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1101403",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -16093,21 +18658,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1101502",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1101503",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -16182,21 +18762,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Pulled Blade",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1110102",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1110103",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -16283,21 +18878,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Draw of the Sword",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1110202",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Acupuncture",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1110203",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Decisive dive",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -16383,21 +18993,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Order",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1110302",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Onslaught Command",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 10,
+     "pesoAtaque": 1
     },
     {
      "id": "1110303",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Focus",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 16,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -16485,21 +19110,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Predictive Analysis",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1110402",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Field Command",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1110403",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Exploit the Gap",
+     "poderBase": 6,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -16591,21 +19231,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Wait Up!",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1110502",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Slice",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1110503",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Daring Decision",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -16690,21 +19345,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Marche",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1110602",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Punition",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1110603",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Balestra Fente",
+     "poderBase": 8,
+     "monedas": 1,
+     "valorMoneda": 14,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -16794,21 +19464,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Ignition",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1110702",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Detonate Magic Bullet",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1110703",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Magic Bullet Fire",
+     "poderBase": 15,
+     "monedas": 1,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -16897,21 +19582,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Knocking",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1110802",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Dusting",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1110803",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "As Mistress Commands",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -17000,21 +19700,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Dotting",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1110902",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Sanguine Painting",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1110903",
      "sin": "Gluttony",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Artwork Inspection",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -17115,21 +19830,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Ripple",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1111002",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Charged Leap",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1111003",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Rip Dimension",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -17220,21 +19950,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Sewing",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1111102",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Scission",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1111103",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "I'll Make You a New Dress!",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -17331,21 +20076,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Blinkstep",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1111202",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Perforating Kill",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1111203",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Cursewrit Butcherblade",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -17435,21 +20195,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Prepare To Collect",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1111302",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "T Corp. Microcavity Module",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1111303",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "T-3 Collector Mace Max Activation",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -17543,21 +20318,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1111402",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1111403",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -17630,56 +20420,96 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1111502",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1111503",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1111505",
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1111506",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1111507",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1111508",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1111509",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -17768,21 +20598,36 @@
      "sin": "Gloom",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Swipe",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1120102",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Jag",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 10,
+     "pesoAtaque": 1
     },
     {
      "id": "1120103",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Chop Up",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -17870,21 +20715,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Single-point Stab",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1120202",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Rush Down",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1120203",
      "sin": "Sloth",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Perfected Palm Strike",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -17971,21 +20831,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Hack",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1120302",
      "sin": "Sloth",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Dismember",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 10,
+     "pesoAtaque": 1
     },
     {
      "id": "1120303",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Eviscerate",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18069,21 +20944,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Keep It Fresh",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1120402",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "You Fresh Enough?",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 8,
+     "pesoAtaque": 1
     },
     {
      "id": "1120403",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Butcher Viand",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 1,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18172,21 +21062,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Rev Up",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1120502",
      "sin": "Envy",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Grease Chains",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     },
     {
      "id": "1120503",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Let's Grind 'Em",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18274,21 +21179,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Standoff",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1120602",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Flexible Suppression",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1120603",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Guardian",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18375,21 +21295,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Negotiation Start",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1120702",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Unilateral Business",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1120703",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Foregone Conclusion",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18480,21 +21415,36 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Lenticular Rend",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1120802",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Shadow Cloud",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1120803",
      "sin": "Gloom",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Shadowcloud Shattercleave",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18583,21 +21533,36 @@
      "sin": "Envy",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Sabre Slash",
+     "poderBase": 5,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1120902",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Remise",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1120903",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Nightmare Hunt",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18685,21 +21650,36 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Sacrifice for the Family",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121002",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Suffocating Guilt",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1121003",
      "sin": "Lust",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Nightmare Hunt",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18797,21 +21777,36 @@
      "sin": "Lust",
      "tier": 1,
      "tipoDanio": "blunt",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Flamethrow",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121102",
      "sin": "Wrath",
      "tier": 2,
      "tipoDanio": "blunt",
-     "copias": 2
+     "copias": 2,
+     "nombre": "I'll burn away every last drop of your filthy blood",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1121103",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "blunt",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Firefist",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18905,21 +21900,36 @@
      "sin": "Pride",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": "Snake Fang",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121202",
      "sin": "Gluttony",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": "Blindsiding Cleave",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121203",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": "Serpentshear Puncturing Arm",
+     "poderBase": 8,
+     "monedas": 1,
+     "valorMoneda": 14,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -19013,35 +22023,60 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121302",
      "sin": "Lust",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121303",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121305",
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121306",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -19116,21 +22151,36 @@
      "sin": "Wrath",
      "tier": 1,
      "tipoDanio": "pierce",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121402",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "pierce",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121403",
      "sin": "Pride",
      "tier": 3,
      "tipoDanio": "pierce",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -19207,28 +22257,48 @@
      "sin": "Gluttony",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121502",
      "sin": "Gloom",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121503",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121505",
      "sin": "Envy",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
@@ -19299,28 +22369,48 @@
      "sin": "Sloth",
      "tier": 1,
      "tipoDanio": "slash",
-     "copias": 3
+     "copias": 3,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121602",
      "sin": "Pride",
      "tier": 2,
      "tipoDanio": "slash",
-     "copias": 2
+     "copias": 2,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121603",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 1
+     "copias": 1,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     },
     {
      "id": "1121605",
      "sin": "Wrath",
      "tier": 3,
      "tipoDanio": "slash",
-     "copias": 0
+     "copias": 0,
+     "nombre": null,
+     "poderBase": null,
+     "monedas": null,
+     "valorMoneda": null,
+     "pesoAtaque": null
     }
    ],
    "skillsDefensa": [
