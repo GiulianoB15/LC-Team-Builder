@@ -1,30 +1,60 @@
 import React, { useState, useMemo } from "react";
-import { IDENTITIES } from "../data/identities.js";
+import { IDENTITIES, EGOS } from "../data/identities.js";
 import { SINNERS } from "../data/constants.js";
 import IdCard from "./IdCard.jsx";
+import EgoCard from "./EgoCard.jsx";
 import { styles } from "../styles.js";
 
-export default function ColeccionTab({ owned, toggleOwned, saveError }) {
+const SECCIONES = [
+  { key: "identities", label: "Identities" },
+  { key: "egos", label: "E.G.O" },
+];
+
+const coincide = (texto, q) => texto.toLowerCase().includes(q);
+
+export default function ColeccionTab({ owned, toggleOwned, toggleOwnedEgo, saveError }) {
+  const [seccion, setSeccion] = useState("identities");
   const [filtro, setFiltro] = useState("");
+
+  const esEgo = seccion === "egos";
+  const lista = esEgo ? EGOS : IDENTITIES;
+  const marcadas = esEgo ? owned.egos : owned.identities;
+  const toggle = esEgo ? toggleOwnedEgo : toggleOwned;
 
   const visibles = useMemo(() => {
     const q = filtro.trim().toLowerCase();
-    if (!q) return IDENTITIES;
-    return IDENTITIES.filter(
-      (i) =>
-        i.nombre.toLowerCase().includes(q) ||
-        i.sinner.toLowerCase().includes(q) ||
-        i.arquetipos.some((a) => a.toLowerCase().includes(q))
+    if (!q) return lista;
+    return lista.filter(
+      (x) =>
+        coincide(x.nombre, q) ||
+        coincide(x.sinner, q) ||
+        x.arquetipos.some((a) => coincide(a, q)) ||
+        (esEgo && coincide(x.rango ?? "", q))
     );
-  }, [filtro]);
+  }, [filtro, lista, esEgo]);
 
-  const totalTenidas = IDENTITIES.filter((i) => owned[i.id]).length;
+  const total = lista.filter((x) => marcadas[x.id]).length;
 
   return (
     <section>
+      <div style={styles.subTabBar}>
+        {SECCIONES.map((s) => (
+          <button
+            key={s.key}
+            onClick={() => { setSeccion(s.key); setFiltro(""); }}
+            style={{ ...styles.subTab, ...(seccion === s.key ? styles.subTabActiva : {}) }}
+          >
+            {s.label}
+            <span style={styles.subTabCount}>
+              {(s.key === "egos" ? EGOS : IDENTITIES).filter((x) => (s.key === "egos" ? owned.egos : owned.identities)[x.id]).length}
+            </span>
+          </button>
+        ))}
+      </div>
+
       <p style={styles.helpText}>
-        Marcá qué Identidades tenés. Se guarda automáticamente en este navegador.{" "}
-        <strong>{totalTenidas}</strong> de {IDENTITIES.length} marcadas.
+        Marcá qué {esEgo ? "E.G.O" : "Identidades"} tenés. Se guarda automáticamente en este
+        navegador. <strong>{total}</strong> de {lista.length} marcados.
       </p>
 
       {saveError && (
@@ -35,16 +65,20 @@ export default function ColeccionTab({ owned, toggleOwned, saveError }) {
         type="search"
         value={filtro}
         onChange={(e) => setFiltro(e.target.value)}
-        placeholder="Buscar por nombre, Sinner o arquetipo (Bleed, Rupture…)"
+        placeholder={
+          esEgo
+            ? "Buscar por nombre, Sinner, rango (HE, WAW…) o arquetipo"
+            : "Buscar por nombre, Sinner o arquetipo (Bleed, Rupture…)"
+        }
         style={styles.buscador}
       />
 
       {/* Lista fija de 12 Sinners: así se nota cuáles no tienen datos. */}
       {SINNERS.map((sinner) => {
-        const delSinner = visibles.filter((i) => i.sinner === sinner);
+        const delSinner = visibles.filter((x) => x.sinner === sinner);
         if (filtro && delSinner.length === 0) return null;
 
-        const tenidas = delSinner.filter((i) => owned[i.id]).length;
+        const tenidas = delSinner.filter((x) => marcadas[x.id]).length;
         return (
           <div key={sinner} style={styles.sinnerBlock}>
             <div style={styles.sinnerHeader}>
@@ -54,18 +88,27 @@ export default function ColeccionTab({ owned, toggleOwned, saveError }) {
               </span>
             </div>
             {delSinner.length === 0 ? (
-              <div style={styles.sinnerVacio}>Sin Identidades cargadas todavía.</div>
+              <div style={styles.sinnerVacio}>Sin datos cargados todavía.</div>
             ) : (
               <div style={styles.idGrid}>
-                {delSinner.map((id) => (
-                  <IdCard
-                    key={id.id}
-                    id={id}
-                    checked={!!owned[id.id]}
-                    onChange={() => toggleOwned(id.id)}
-                    estiloActivo={styles.idCardOwned}
-                  />
-                ))}
+                {delSinner.map((x) =>
+                  esEgo ? (
+                    <EgoCard
+                      key={x.id}
+                      ego={x}
+                      checked={!!marcadas[x.id]}
+                      onChange={() => toggle(x.id)}
+                    />
+                  ) : (
+                    <IdCard
+                      key={x.id}
+                      id={x}
+                      checked={!!marcadas[x.id]}
+                      onChange={() => toggle(x.id)}
+                      estiloActivo={styles.idCardOwned}
+                    />
+                  )
+                )}
               </div>
             )}
           </div>

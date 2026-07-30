@@ -6,7 +6,7 @@ import { IDENTITIES, EGOS, META, validateIdentities, identityPorNombre } from ".
 import { SINS, SINNERS, ARQUETIPOS, esPuntoBlando } from "../src/data/constants.js";
 import {
   recursosDeSin, estadoPasivas, perfilResistencias, perfilArquetipos,
-  sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo,
+  sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo, estadoEgo, egosDelEquipo,
 } from "../src/lib/engine.js";
 import { toggleSeleccion } from "../src/lib/seleccion.js";
 import { migrar } from "../src/lib/storage.js";
@@ -64,13 +64,44 @@ check("los arquetipos son solo los 7 oficiales",
 
 check("los E.G.O traen costo de Sin", EGOS.filter((e) => e.costo.length > 0).length >= 100);
 check("los E.G.O traen resistencias por Sin", EGOS.every((e) => e.resistenciasSin.length === 7 || e.resistenciasSin.length === 0));
+check("los 96 E.G.O de LCTeamBuilder tienen su pasiva", EGOS.filter((e) => e.tienePasiva).length === 96);
+
+/*
+  Arquetipos de E.G.O: el dump solo trae estados con nombres internos
+  ("Laceration", "Burst"), no los arquetipos que ve el jugador. El mapeo se
+  deriva de las Identities, donde conviven ambos campos.
+*/
+check("el meta publica el mapeo de estados para poder auditarlo",
+  META.mapeoEstados && Object.keys(META.mapeoEstados).length >= 8);
+check("el mapeo traduce los nombres internos que no son obvios",
+  META.mapeoEstados.Laceration?.arquetipo === "Bleed" &&
+  META.mapeoEstados.Burst?.arquetipo === "Rupture" &&
+  META.mapeoEstados.Breath?.arquetipo === "Poise" &&
+  META.mapeoEstados.Vibration?.arquetipo === "Tremor");
+check("todo par del mapeo llega al umbral de precisión",
+  Object.values(META.mapeoEstados).every((v) => v.precision >= 0.85 && v.soporte >= 8));
+check("93 de 110 E.G.O quedan con arquetipo", EGOS.filter((e) => e.arquetipos.length).length === 93);
+check("los arquetipos de E.G.O son de los 7 oficiales",
+  EGOS.every((e) => e.arquetipos.every((a) => ARQUETIPOS.includes(a))));
+
+/*
+  Los E.G.O sin arquetipo no son un agujero del mapeo: infligen buffs y debuffs
+  genéricos, no estados de arquetipo. Si alguno tuviera un estado ya mapeado y
+  aun así quedara vacío, eso sí sería un bug.
+*/
+check("ningún E.G.O sin arquetipo tiene un estado que el mapeo conoce",
+  EGOS.filter((e) => !e.arquetipos.length).every((e) => e.estados.every((s) => !META.mapeoEstados[s])));
 
 /* --- Migración del guardado --- */
 
 const migrado = migrar(1, { "yisang-ring": true, "faust-lcb": true, "clave-inventada": true });
-check("migra claves v1 al id numérico del juego", migrado[10109] === true && migrado[10201] === true, JSON.stringify(migrado));
-check("descarta claves desconocidas sin romper", !("clave-inventada" in migrado) && Object.keys(migrado).length === 2);
-check("migrar es idempotente sobre datos v2", JSON.stringify(migrar(2, { 10109: true })) === JSON.stringify({ 10109: true }));
+check("migra claves v1 al id numérico del juego",
+  migrado.identities[10109] === true && migrado.identities[10201] === true, JSON.stringify(migrado));
+check("descarta claves desconocidas sin romper",
+  !("clave-inventada" in migrado.identities) && Object.keys(migrado.identities).length === 2);
+check("toda migración devuelve la forma v3, con E.G.O vacíos",
+  !!migrado.egos && Object.keys(migrado.egos).length === 0);
+check("migrar v2 conserva las identities", migrar(2, { 10109: true }).identities[10109] === true);
 
 /* --- Selección --- */
 
@@ -133,5 +164,31 @@ check("el orden está ordenado por aporte descendente",
 
 const perfilArq = perfilArquetipos([ring]);
 check("el perfil de arquetipos cuenta Bleed", perfilArq.Bleed === 1 && perfilArq.Burn === 0);
+
+
+
+
+/* --- E.G.O y recursos de Sin --- */
+
+const egoCaro = EGOS.find((e) => e.costo.reduce((a, c) => a + c.cantidad, 0) >= 10);
+const sinNada = Object.fromEntries(SINS.map((s) => [s, 0]));
+const conTodo = Object.fromEntries(SINS.map((s) => [s, 99]));
+
+check("un E.G.O no alcanza sin recursos", !estadoEgo(egoCaro, sinNada).alcanza);
+check("y reporta qué Sin le falta y cuánto hay",
+  estadoEgo(egoCaro, sinNada).faltantes.every((f) => f.disponible === 0 && f.cantidad > 0));
+check("con recursos de sobra, alcanza", estadoEgo(egoCaro, conTodo).alcanza);
+
+const egosDeYiSang = EGOS.filter((e) => e.sinner === "Yi Sang");
+const soloYiSang = egosDelEquipo(egosDeYiSang, new Set(["Yi Sang"]), conTodo);
+check("solo se listan E.G.O de Sinners desplegados",
+  soloYiSang.length === egosDeYiSang.length &&
+  egosDelEquipo(egosDeYiSang, new Set(["Faust"]), conTodo).length === 0);
+check("los que alcanzan van primero",
+  (() => {
+    const mixto = egosDelEquipo(egosDeYiSang, new Set(["Yi Sang"]), { ...sinNada, Sloth: 99 });
+    const idx = mixto.findIndex((x) => !x.alcanza);
+    return idx === -1 || mixto.slice(idx).every((x) => !x.alcanza);
+  })());
 
 console.log(fallos === 0 ? "\nTodo verde." : `\n${fallos} chequeo(s) fallando.`);

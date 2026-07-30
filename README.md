@@ -29,9 +29,9 @@ src/
     identities.json    184 Identities  ← generado, no editar a mano
     egos.json          110 E.G.O       ← generado, no editar a mano
   lib/
-    engine.js          motor: recursos de Sin, pasivas, resistencias, puntajes
+    engine.js          motor: recursos de Sin, pasivas, E.G.O, resistencias, puntajes
     seleccion.js       alta/baja de IDs con tope y una-por-Sinner
-    storage.js         persistencia en localStorage, versionada y migrable
+    storage.js         persistencia en localStorage, versionada y migrable (Identities y E.G.O)
   components/          una pestaña por archivo
 scripts/
   build-dataset.mjs    fusiona las dos fuentes y genera los JSON
@@ -66,8 +66,27 @@ node scripts/build-dataset.mjs --nuevo <dir con identities.json y egos.json> --l
   ese 74% idéntico es un valor por defecto que nunca completaron.
 - **Pero el dump nuevo no tiene pasivas**, y sin ellas se cae la mitad del motor.
 
+### E.G.O
+
+Los 110 E.G.O tienen costo en recursos de Sin, resistencias por Sin, rango y tipo de
+daño. La app te deja marcar cuáles tenés y, al armar equipo, te muestra **cuáles
+podés usar de verdad**: solo los de Sinners desplegados (los de la banca no cuentan),
+con su costo contrastado contra los recursos que genera el equipo.
+
+Sus arquetipos **no venían en el dump**: el único campo temático es `statuses`, con
+los nombres internos del juego (`Laceration`, `Burst`, `Breath`), que no coinciden con
+los que ve el jugador (Bleed, Rupture, Poise). El mapeo no se escribió a mano: se
+deriva de las Identities, donde conviven `estados` internos y `arquetipos` oficiales,
+quedándose solo con los pares de precisión ≥ 0.85 y respaldo ≥ 8 IDs. El resultado se
+publica en `meta.mapeoEstados` para poder auditarlo.
+
+Cubre **93 de 110**. Los 17 restantes no son un agujero del mapeo: infligen buffs y
+debuffs genéricos (`Binding`, `Protection`, `Agility`), no estados de arquetipo — hay
+un chequeo que lo verifica.
+
 ### Limitaciones conocidas, verificadas
 
+- **14 E.G.O no tienen datos de pasiva**, por el mismo corte que las Identities.
 - **37 Identities no tienen datos de pasivas**: son posteriores al corte de
   LCTeamBuilder (2025-08-06). Quedan marcadas con `tienePasivas: false` y la UI las
   muestra con una etiqueta "sin pasivas", para que no parezcan analizadas igual que
@@ -92,6 +111,7 @@ Todo lo que puntúa sale de datos verificables del juego:
 | Pasivas de combate vs. soporte | `PassiveType` del dataset (las de soporte rinden desde la banca) |
 | Puntos blandos del equipo | multiplicadores de resistencia (0.5 resiste, 1 normal, 2 fatal) |
 | Sinergia temática | `skillKeywordList`, los 7 arquetipos oficiales |
+| Si un E.G.O es usable | su costo en Sin contra los recursos del equipo, solo para Sinners desplegados |
 
 **La única excepción, y está marcada como tal en la UI:** el *orden* de despliegue es
 una **heurística**, no un dato. El dataset no tiene ningún campo que diga qué ID
@@ -126,7 +146,6 @@ está escrito en pantalla para que se pueda juzgar.
 
 **Al fusionar el dump actualizado (184 IDs):**
 
-
 9. Las resistencias de LCTeamBuilder eran un valor por defecto en el 74% de las IDs
    (109 de 147 con el mismo perfil). El motor venía puntuando resistencias sobre dato
    malo. Ahora salen del dump nuevo.
@@ -148,6 +167,4 @@ Todo esto está cubierto por `scripts/tests.js`.
   comunidad, con fuente y fecha. Es lo que convertiría el orden de heurística en
   recomendación. El meta cambia por temporada, así que cada receta necesita su
   `actualizadoEn` visible.
-- **Usar los E.G.O.** Ya están en `egos.json` con costo de Sin y resistencias, pero el
-  motor todavía no los considera.
 - **Importar/exportar la colección**, para no tildar 184 IDs a mano y poder compartirla.

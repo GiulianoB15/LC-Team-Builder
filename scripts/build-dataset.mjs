@@ -85,7 +85,7 @@ function extraerPasivas() {
   // LobotomyCorpRemnantFaust existe como archivo pero nunca se agregó al índice
   // de su propio repo, así que se importa aparte.
   writeFileSync(entrada, [
-    `export { Identities } from ${JSON.stringify(path.join(dirLctb, "src/Constants/Equipables"))};`,
+    `export { Identities, Egos } from ${JSON.stringify(path.join(dirLctb, "src/Constants/Equipables"))};`,
     `export { LobotomyCorpRemnantFaust } from ${JSON.stringify(path.join(dirLctb, "src/Constants/Sinners/Faust/Identities/LobotomyCorpRemnantFaust"))};`,
   ].join("\n"));
 
@@ -106,6 +106,7 @@ const convertirPasiva = (p) => ({
 
 const ref = extraerPasivas();
 const pasivasPorId = new Map();
+const pasivaEgoPorId = new Map();
 let fechaLctb = null;
 
 if (ref.salida) {
@@ -116,6 +117,9 @@ if (ref.salida) {
       combate: ps.filter((p) => p._tipo === "combat").map(({ _tipo, ...r }) => r),
       soporte: ps.filter((p) => p._tipo === "support").map(({ _tipo, ...r }) => r),
     });
+  });
+  mod.Egos.forEach((e) => {
+    if (e.Passive) pasivaEgoPorId.set(e.Id, convertirPasiva(e.Passive));
   });
   try {
     fechaLctb = execFileSync("git", ["-C", dirLctb, "log", "-1", "--format=%ad", "--date=short"]).toString().trim();
@@ -196,10 +200,52 @@ const convertirCostoSin = (obj) =>
     .filter((c) => c.sin)
     .sort((a, b) => b.cantidad - a.cantidad);
 
-function convertirEgo(id, raw) {
+/*
+  Los E.G.O no traen keywords: su único campo temático es `statuses`, con los
+  nombres INTERNOS del juego ("Laceration", "Burst", "Breath"…), que no coinciden
+  con los arquetipos que ve el jugador ("Bleed", "Rupture", "Poise").
+
+  El mapeo no se escribe a mano: se deriva de las Identities, donde conviven
+  `estados` (internos) y `arquetipos` (oficiales). Se queda solo con los pares
+  que tienen precisión y respaldo altos, y el resultado se publica en el meta
+  para poder auditarlo.
+*/
+function derivarMapeoEstados(identities, { minPrecision = 0.85, minSoporte = 8 } = {}) {
+  const co = {};
+  identities.forEach((i) => {
+    (i.estados ?? []).forEach((s) => {
+      co[s] ??= { total: 0, arq: {} };
+      co[s].total += 1;
+      (i.arquetipos ?? []).forEach((a) => (co[s].arq[a] = (co[s].arq[a] || 0) + 1));
+    });
+  });
+
+  const mapeo = {};
+  Object.entries(co).forEach(([estado, v]) => {
+    if (v.total < minSoporte) return;
+    const [arquetipo, n] = Object.entries(v.arq).sort((a, b) => b[1] - a[1])[0] ?? [];
+    if (!arquetipo) return;
+    const precision = n / v.total;
+    if (precision >= minPrecision) {
+      mapeo[estado] = { arquetipo, precision: Number(precision.toFixed(2)), soporte: v.total };
+    }
+  });
+  return mapeo;
+}
+
+function convertirEgo(id, raw, mapeoEstados) {
+  const estados = raw.statuses ?? [];
+  const arquetipos = [
+    ...new Set(estados.map((s) => mapeoEstados[s]?.arquetipo).filter(Boolean)),
+  ].sort();
+  const pasiva = pasivaEgoPorId.get(id) ?? null;
+
   return {
     id,
     nombre: raw.name,
+    arquetipos,
+    pasiva,
+    tienePasiva: !!pasiva,
     sinner: SINNER_POR_ID[raw.sinnerId] ?? null,
     rango: raw.rank ?? null,
     fecha: raw.date ?? null,
@@ -226,8 +272,10 @@ const identities = Object.entries(nuevoIds)
   .map(([k, v]) => convertirIdentity(Number(k), v))
   .sort((a, b) => a.id - b.id);
 
+const mapeoEstados = derivarMapeoEstados(identities);
+
 const egos = Object.entries(nuevoEgos)
-  .map(([k, v]) => convertirEgo(Number(k), v))
+  .map(([k, v]) => convertirEgo(Number(k), v, mapeoEstados))
   .sort((a, b) => a.id - b.id);
 
 const fechas = identities.map((i) => i.fecha).filter(Boolean).sort();
@@ -241,7 +289,15 @@ const meta = {
     { nombre: "LCTeamBuilder", rol: "solo pasivas (combate/soporte y costo de Sin)", repo: "https://github.com/LCTeamBuilder/LCTeamBuilder.github.io", licencia: "MIT", copyright: "© 2024 SuenoImposible", ultimoCommit: fechaLctb },
   ],
   advertencia: `${identities.length - conPasivas} Identities no tienen datos de pasivas: son posteriores al corte de LCTeamBuilder.`,
-  conteo: { identities: identities.length, egos: egos.length, conPasivas, sinPasivas: identities.length - conPasivas },
+  conteo: {
+    identities: identities.length,
+    egos: egos.length,
+    conPasivas,
+    sinPasivas: identities.length - conPasivas,
+    egosConPasiva: egos.filter((e) => e.tienePasiva).length,
+  },
+  /* Mapeo derivado, publicado para poder auditarlo. Ver derivarMapeoEstados(). */
+  mapeoEstados,
 };
 
 mkdirSync(path.join(RAIZ, "src/data"), { recursive: true });
@@ -267,3 +323,8 @@ console.log(`Sin arquetipo (esperable en tanques/soporte): ${sinArquetipo.length
 const porArquetipo = {};
 identities.forEach((i) => i.arquetipos.forEach((a) => (porArquetipo[a] = (porArquetipo[a] || 0) + 1)));
 console.log("IDs por arquetipo:", porArquetipo);
+
+const egosSinArquetipo = egos.filter((e) => e.arquetipos.length === 0).length;
+console.log(`E.G.O con pasiva: ${meta.conteo.egosConPasiva}   sin arquetipo derivable: ${egosSinArquetipo}`);
+console.log("Mapeo estado→arquetipo derivado:",
+  Object.entries(mapeoEstados).map(([k, v]) => `${k}→${v.arquetipo}(${v.precision})`).join(", "));

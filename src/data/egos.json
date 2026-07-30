@@ -23,13 +23,69 @@
    "identities": 184,
    "egos": 110,
    "conPasivas": 147,
-   "sinPasivas": 37
+   "sinPasivas": 37,
+   "egosConPasiva": 96
+  },
+  "mapeoEstados": {
+   "Sinking": {
+    "arquetipo": "Sinking",
+    "precision": 0.91,
+    "soporte": 35
+   },
+   "Burst": {
+    "arquetipo": "Rupture",
+    "precision": 0.96,
+    "soporte": 52
+   },
+   "Breath": {
+    "arquetipo": "Poise",
+    "precision": 0.87,
+    "soporte": 47
+   },
+   "Vibration": {
+    "arquetipo": "Tremor",
+    "precision": 0.88,
+    "soporte": 41
+   },
+   "VibrationExplosion": {
+    "arquetipo": "Tremor",
+    "precision": 0.93,
+    "soporte": 30
+   },
+   "Charge": {
+    "arquetipo": "Charge",
+    "precision": 1,
+    "soporte": 25
+   },
+   "Laceration": {
+    "arquetipo": "Bleed",
+    "precision": 0.96,
+    "soporte": 52
+   },
+   "Combustion": {
+    "arquetipo": "Burn",
+    "precision": 0.88,
+    "soporte": 32
+   },
+   "Switch_Vibration": {
+    "arquetipo": "Tremor",
+    "precision": 1,
+    "soporte": 12
+   }
   }
  },
  "egos": [
   {
    "id": 20101,
    "nombre": "Crow’s Eye View",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Silence",
+    "descripcion": "When hit by an attack, gain 3 [Bind] next turn, and deal +20% damage when attacking with a type or Affinity the target is Weak or Fatal to. (Once per turn.)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Yi Sang",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -89,6 +145,16 @@
   {
    "id": 20102,
    "nombre": "4th Match Flame",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "Ember",
+    "descripcion": "On clash win, inflict [Burn] by (Wrath A-Reson. / 2). (Once per skill.)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Yi Sang",
    "rango": "TETH",
    "fecha": "2023-02-27",
@@ -155,6 +221,14 @@
   {
    "id": 20103,
    "nombre": "Wishing Cairn",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Dol Hareubang",
+    "descripcion": "At the start of the turn, gain 3 [Blunt Protection] and [Sloth Protection].",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Yi Sang",
    "rango": "TETH",
    "fecha": "2023-02-27",
@@ -219,6 +293,17 @@
   {
    "id": 20104,
    "nombre": "Dimension Shredder",
+   "arquetipos": [
+    "Charge",
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Rambling Man",
+    "descripcion": "At the start of the turn, if this unit took no damage last turn, gain +4 [Charge] Count. After successfully hitting an enemy with lower Speed, inflict +1 [Rupture] Count. (3 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Yi Sang",
    "rango": "HE",
    "fecha": "2023-05-18",
@@ -281,6 +366,14 @@
   {
    "id": 20105,
    "nombre": "Sunshower",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Ray of Sun After Rain",
+    "descripcion": "At the start of the turn, all allies heal 3 SP",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Yi Sang",
    "rango": "WAW",
    "fecha": "2023-06-15",
@@ -353,6 +446,16 @@
   {
    "id": 20106,
    "nombre": "Bygone Days",
+   "arquetipos": [
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "Fractured Yesterday",
+    "descripcion": "If the target has 6+ [Sinking] Potency, Clash Power +1<br>If the target has 4+ [Sinking] Count, Clash Power +1",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Yi Sang",
    "rango": "ZAYIN",
    "fecha": "2024-04-04",
@@ -414,6 +517,17 @@
   {
    "id": 20107,
    "nombre": "Fell Bullet",
+   "arquetipos": [
+    "Bleed",
+    "Poise"
+   ],
+   "pasiva": {
+    "nombre": "Next",
+    "descripcion": "After Attack: if the target is killed, gain +2 [Poise] Count (2 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Yi Sang",
    "rango": "HE",
    "fecha": "2024-11-14",
@@ -476,6 +590,13 @@
   {
    "id": 20108,
    "nombre": "Great Trichiliocosm [三千大世界]",
+   "arquetipos": [
+    "Burn",
+    "Poise",
+    "Sinking"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Yi Sang",
    "rango": "WAW",
    "fecha": "2026-01-15",
@@ -548,6 +669,12 @@
   {
    "id": 20109,
    "nombre": "Solemn Lament",
+   "arquetipos": [
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Yi Sang",
    "rango": "HE",
    "fecha": "2026-07-09",
@@ -622,6 +749,14 @@
   {
    "id": 20201,
    "nombre": "Representation Emitter",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Ennui",
+    "descripcion": "If an enemy is staggered during this unit's attack, 1 ally with the lowest SP has +2 [SP Heal Efficiency] next turn. (Max 3 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Faust",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -679,6 +814,14 @@
   {
    "id": 20202,
    "nombre": "Fluid Sac",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Liquid Veil",
+    "descripcion": "At the start of the turn, apply 2 [Protection] to the ally with the least HP. (Including self.)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Faust",
    "rango": "HE",
    "fecha": "2023-02-27",
@@ -744,6 +887,14 @@
   {
    "id": 20203,
    "nombre": "Hex Nail",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "It Hurts!",
+    "descripcion": "Deal +10% damage for every negative status effect on this unit. (Up to 50%)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Faust",
    "rango": "TETH",
    "fecha": "2023-02-27",
@@ -803,6 +954,16 @@
   {
    "id": 20204,
    "nombre": "Telepole",
+   "arquetipos": [
+    "Charge"
+   ],
+   "pasiva": {
+    "nombre": "Adaptive Release",
+    "descripcion": "While this unit has [Charge], deal +2% damage per [Charge] Count.<br>Skills spend -2 [Charge] Count.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Faust",
    "rango": "HE",
    "fecha": "2023-04-06",
@@ -870,6 +1031,16 @@
   {
    "id": 20205,
    "nombre": "9:2",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "Flamebrand",
+    "descripcion": "On Heads Hit with a Lust affinity Skill, inflict 1 [Burn] on target (6 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Faust",
    "rango": "TETH",
    "fecha": "2023-11-23",
@@ -936,6 +1107,16 @@
   {
    "id": 20206,
    "nombre": "Everlasting",
+   "arquetipos": [
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Running Time",
+    "descripcion": "When this unit uses a Skill to trigger [Tremor Burst] on an enemy, gain 1 [Haste] next turn. (4 times per turn, including E.G.O Skills)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Faust",
    "rango": "WAW",
    "fecha": "2024-06-13",
@@ -1008,6 +1189,16 @@
   {
    "id": 20207,
    "nombre": "Lasso",
+   "arquetipos": [
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Sprawling Lasso",
+    "descripcion": "After Attack, if the target is Staggered or defeated, inflict +1 [Rupture] Count against 2 random enemies (once per turn, cannot stack, in Focused Encounters, against 2 random Parts)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Faust",
    "rango": "TETH",
    "fecha": "2024-10-17",
@@ -1075,6 +1266,11 @@
   {
    "id": 20208,
    "nombre": "Thoracalgia",
+   "arquetipos": [
+    "Poise"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Faust",
    "rango": "HE",
    "fecha": "2025-02-20",
@@ -1142,6 +1338,12 @@
   {
    "id": 20209,
    "nombre": "Command : Meltdown",
+   "arquetipos": [
+    "Burn",
+    "Rupture"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Faust",
    "rango": "HE",
    "fecha": "2025-09-25",
@@ -1210,6 +1412,11 @@
   {
    "id": 20210,
    "nombre": "Ardor Blossom Star",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Faust",
    "rango": "HE",
    "fecha": "2026-03-19",
@@ -1277,6 +1484,16 @@
   {
    "id": 20301,
    "nombre": "La Sangre de Sancho",
+   "arquetipos": [
+    "Bleed"
+   ],
+   "pasiva": {
+    "nombre": "Immoderate Passion",
+    "descripcion": "On hit, if the target had [Bleed], heal 3 HP.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Don Quixote",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -1334,6 +1551,17 @@
   {
    "id": 20302,
    "nombre": "Fluid Sac",
+   "arquetipos": [
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Wave of Depression",
+    "descripcion": "The target of the rightmost skill on the Dashboard loses SP by (2x Gloom A-Reson.) after the attack.<br>(Targets without SP values take Gloom damage instead.)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Don Quixote",
    "rango": "HE",
    "fecha": "2023-02-27",
@@ -1400,6 +1628,17 @@
   {
    "id": 20303,
    "nombre": "Telepole",
+   "arquetipos": [
+    "Charge",
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Haphazard Discharge",
+    "descripcion": "At the start of the combat phase, a random ally with [Charge] gains +(Envy A-Reson. / 2) [Charge] Count.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Don Quixote",
    "rango": "HE",
    "fecha": "2023-03-30",
@@ -1466,6 +1705,16 @@
   {
    "id": 20304,
    "nombre": "Lifetime Stew",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "Cauldron of Gorging",
+    "descripcion": "At the start of the turn, convert 2 random non-Lust E.G.O resources into 1 Lust resource.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Don Quixote",
    "rango": "TETH",
    "fecha": "2023-04-20",
@@ -1522,6 +1771,18 @@
   {
    "id": 20305,
    "nombre": "Wishing Cairn",
+   "arquetipos": [
+    "Bleed",
+    "Poise",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Fallen Stone Pagoda",
+    "descripcion": "Gain 2 [Poise] and +2 [Poise] Count when defeating an enemy with [Bleed] (3 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Don Quixote",
    "rango": "TETH",
    "fecha": "2024-02-15",
@@ -1590,6 +1851,16 @@
   {
    "id": 20306,
    "nombre": "Electric Screaming",
+   "arquetipos": [
+    "Charge"
+   ],
+   "pasiva": {
+    "nombre": "Tempestuous Screaming",
+    "descripcion": "If the target is defeated at this unit's Slash or Envy Affinity Skill End, gain 1 [Attack Power Up] next turn (once per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Don Quixote",
    "rango": "TETH",
    "fecha": "2024-04-11",
@@ -1651,6 +1922,16 @@
   {
    "id": 20307,
    "nombre": "Yearning-Mircalla",
+   "arquetipos": [
+    "Bleed"
+   ],
+   "pasiva": {
+    "nombre": "Spiring Crimson Blossom",
+    "descripcion": "Every time 10 [Bleed] damage occurs, heal 1 SP on self (10 per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Don Quixote",
    "rango": "WAW",
    "fecha": "2024-10-24",
@@ -1724,6 +2005,16 @@
   {
    "id": 20308,
    "nombre": "Red Sheet",
+   "arquetipos": [
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Enfeebling Talisman",
+    "descripcion": "On Hit with this unit's Skills: if the target either has 15+ [Rupture], or if this unit dealt a Critical Hit, inflict 1 [Defense Level Down] (max 6)<br>- When this Passive activates, its effects do not stack with the effects of E.G.O Gift \"Old Wooden Doll\".",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Don Quixote",
    "rango": "HE",
    "fecha": "2025-05-22",
@@ -1794,6 +2085,18 @@
   {
    "id": 20309,
    "nombre": "In the Name of Love and Hate",
+   "arquetipos": [
+    "Charge",
+    "Rupture",
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "Arcana Aptitude Circuit",
+    "descripcion": "Gain 1 [Charge] every time this unit consumes 10 cumulative [Charge] Count<br>- If this unit already gains [Charge] by consuming [Charge] Count on self, this effect does not stack with that effect<br>- This unit's Base Attack Skills that consume [Charge] Count, deal +5% damage for every [Charge] on self (max 25%)<br><br>If this unit is Lobotomy E.G.O::In the Name of Love and Hate Don Quixote, gain 1 additional Skill 3 use",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Don Quixote",
    "rango": "WAW",
    "fecha": "2025-07-17",
@@ -1871,6 +2174,16 @@
   {
    "id": 20401,
    "nombre": "Forest for the Flames",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "Art",
+    "descripcion": "Deal and take +5% damage for each enemy this unit defeated last turn.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ryōshū",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -1929,6 +2242,16 @@
   {
    "id": 20402,
    "nombre": "4th Match Flame",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "4th Match Flame",
+    "descripcion": "Every 4th skill used gains +4 Final Power and inflicts 4 [Burn] with each of its attacks.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ryōshū",
    "rango": "HE",
    "fecha": "2023-02-27",
@@ -1991,6 +2314,14 @@
   {
    "id": 20403,
    "nombre": "Red Eyes",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Spider's Webs",
+    "descripcion": "On clash win, inflict 1 [Bind] next turn. (3 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ryōshū",
    "rango": "TETH",
    "fecha": "2023-06-29",
@@ -2057,6 +2388,14 @@
   {
    "id": 20404,
    "nombre": "Red Eyes (Open)",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Predator",
+    "descripcion": "If this unit healed more than 10% of its Max HP this turn, gain 1 [Attack Power Up] next turn.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ryōshū",
    "rango": "HE",
    "fecha": "2023-06-29",
@@ -2122,6 +2461,16 @@
   {
    "id": 20405,
    "nombre": "Soda",
+   "arquetipos": [
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "Opened Can",
+    "descripcion": "On hit, if the target has 5+ [Sinking], inflict 1 [Defense Power Down]. (5 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ryōshū",
    "rango": "ZAYIN",
    "fecha": "2023-07-27",
@@ -2189,6 +2538,17 @@
   {
    "id": 20406,
    "nombre": "Blind Obsession",
+   "arquetipos": [
+    "Charge",
+    "Poise"
+   ],
+   "pasiva": {
+    "nombre": "Dream Devouring",
+    "descripcion": "On Crit with a Pride affinity Skill, gain 1 [Poise] Count (3 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ryōshū",
    "rango": "TETH",
    "fecha": "2023-11-30",
@@ -2254,6 +2614,16 @@
   {
    "id": 20407,
    "nombre": "Contempt, Awe",
+   "arquetipos": [
+    "Bleed"
+   ],
+   "pasiva": {
+    "nombre": "Mark of the Gaze",
+    "descripcion": "Whenever this unit uses a base Attack Skill against an enemy, gain 1 additional E.G.O resource for a random, least-owned Affinity that doesn't correspond to the Affinity of the Attack Skill used",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ryōshū",
    "rango": "WAW",
    "fecha": "2024-07-11",
@@ -2323,6 +2693,16 @@
   {
    "id": 20408,
    "nombre": "Thoracalgia",
+   "arquetipos": [
+    "Poise"
+   ],
+   "pasiva": {
+    "nombre": "Breath",
+    "descripcion": "Next Turn Start after using this E.G.O Skill: gain 1 [Nebulizer Beta] (once per turn)<br>- If this Skill defeated enemies, gain additional [Nebulizer Beta] equal to the number of targets defeated<br>- If this Skill defeated allies, gain (targets defeated x 2) additional [Nebulizer Beta]<br>- This value Stacks over this Encounter's duration",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ryōshū",
    "rango": "HE",
    "fecha": "2025-01-23",
@@ -2389,6 +2769,13 @@
   {
    "id": 20409,
    "nombre": "Great Trichiliocosm [三千大世界]",
+   "arquetipos": [
+    "Bleed",
+    "Burn",
+    "Poise"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Ryōshū",
    "rango": "WAW",
    "fecha": "2026-01-15",
@@ -2459,6 +2846,14 @@
   {
    "id": 20501,
    "nombre": "Chains of Others",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Refusal to Judge",
+    "descripcion": "At the start of the combat phase, gain 3 [Protection] if the unit is targeted by 3 or more skills.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Meursault",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -2522,6 +2917,14 @@
   {
    "id": 20502,
    "nombre": "Screwloose Wallop",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Final Augment",
+    "descripcion": "If the E.G.O Skill is used at less than 25% HP, gain 3 [Attack Power Up], [Defense Power Up], and [Haste] every turn, but then die in 3 turns.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Meursault",
    "rango": "TETH",
    "fecha": "2023-02-27",
@@ -2591,6 +2994,16 @@
   {
    "id": 20503,
    "nombre": "Pursuance",
+   "arquetipos": [
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Revelation from Above",
+    "descripcion": "After winning a clash with the leftmost skill on the Dashboard, apply 1 [Attack Power Up] or 1 [Defense Power Up] to a random ally next turn.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Meursault",
    "rango": "HE",
    "fecha": "2023-02-27",
@@ -2660,6 +3073,17 @@
   {
    "id": 20504,
    "nombre": "Capote",
+   "arquetipos": [
+    "Burn",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Untempered Agitation",
+    "descripcion": "At the start of the combat phase, if targeted by 2 or more skills, this unit's skills have +1 Base Power, when hit, inflict 1 [Burn] on the attacker. (5 times per turn.)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Meursault",
    "rango": "HE",
    "fecha": "2023-06-01",
@@ -2729,6 +3153,16 @@
   {
    "id": 20505,
    "nombre": "Regret",
+   "arquetipos": [
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Bound Wrath",
+    "descripcion": "This unit's leftmost skill on the Dashboard loses 1 Base Power and gains 2 Coin Power<br>At the start of the turn, if at 4- Speed, gain 1 [Blunt Power Up]",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Meursault",
    "rango": "TETH",
    "fecha": "2023-10-26",
@@ -2792,6 +3226,17 @@
   {
    "id": 20506,
    "nombre": "Electric Screaming",
+   "arquetipos": [
+    "Charge",
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Overloading Cables",
+    "descripcion": "Combat Start: At 4+ Reson., gain 2 [Offense Level Up] and 2 [Defense Level Up]<br>If the Reson. was an Envy Reson., apply the above effects to 2 units adjacent to this unit on the Dashboard as well",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Meursault",
    "rango": "TETH",
    "fecha": "2024-04-11",
@@ -2857,6 +3302,16 @@
   {
    "id": 20507,
    "nombre": "Yearning-Mircalla",
+   "arquetipos": [
+    "Bleed"
+   ],
+   "pasiva": {
+    "nombre": "Bloodthirsty Banquet",
+    "descripcion": "When this unit deals or takes [Bleed] damage, heal HP equal to the [Bleed] damage (max 10 per turn)<br>- When activating a Skill/Coin effect that inflicts [Bleed], if the target has [Rose Wedge], inflict 1 [Bleed] against the target. (2 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Meursault",
    "rango": "WAW",
    "fecha": "2024-10-24",
@@ -2923,6 +3378,16 @@
   {
    "id": 20508,
    "nombre": "Crushbound Past",
+   "arquetipos": [
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Metronome",
+    "descripcion": "Turn Start: in odd-numbered turns, gain 1 [Damage Up]; in even-numbered turns, gain 1 [Protection]<br>- Does not stack with the Metronome E.G.O Gift. (If the said E.G.O Gift is at an enhanced state, its effect subtracts the values gained from this effect)<br>- Does not affect the instances of its effect applied to other allies<br><br>When using E.G.O Skill, gain 1 [Accumulated Past] next turn (once per Encounter)<br>- Gain 1 [Accumulated Past] at every subsequent Turn End",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Meursault",
    "rango": "WAW",
    "fecha": "2025-07-31",
@@ -2996,6 +3461,12 @@
   {
    "id": 20509,
    "nombre": "Shadow-vested Bladesinger [着影揮刀]",
+   "arquetipos": [
+    "Bleed",
+    "Poise"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Meursault",
    "rango": "HE",
    "fecha": "2026-06-11",
@@ -3068,6 +3539,16 @@
   {
    "id": 20601,
    "nombre": "Land of Illusion",
+   "arquetipos": [
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "Ripple",
+    "descripcion": "At the start of the combat phase, heal SP by the count of your highest A-Reson. value, excluding those in Panic.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Hong Lu",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -3125,6 +3606,14 @@
   {
    "id": 20602,
    "nombre": "Roseate Desire",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Binding Ribbons",
+    "descripcion": "The target of the leftmost skill on the Dashboard is inflicted with (Lust A-Reson. / 4) [Lust Fragility] next turn.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Hong Lu",
    "rango": "TETH",
    "fecha": "2023-02-27",
@@ -3188,6 +3677,16 @@
   {
    "id": 20603,
    "nombre": "Dimension Shredder",
+   "arquetipos": [
+    "Charge"
+   ],
+   "pasiva": {
+    "nombre": "Entangled Phenomena Restoration",
+    "descripcion": "When hitting an enemy with negative status effects, this unit gains +1 [Charge] Count.<br>(Max +4 per turn.)<br>When HP falls to 0 for the first time during battle, spend all [Charge] and heal in proportion to the amount spent. (Cannot heal over 25% Max HP.)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Hong Lu",
    "rango": "HE",
    "fecha": "2023-05-18",
@@ -3251,6 +3750,16 @@
   {
    "id": 20604,
    "nombre": "Soda",
+   "arquetipos": [
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Seagull Squawking Of The Distant Seas",
+    "descripcion": "When an enemy is defeated, the ally with the least SP heals 1 SP. Whenever an enemy is defeated, the amount of SP healed increases by 2. (Max 9) The amount is reset at the start of a new wave.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Hong Lu",
    "rango": "TETH",
    "fecha": "2023-07-27",
@@ -3316,6 +3825,16 @@
   {
    "id": 20605,
    "nombre": "Effervescent Corrosion",
+   "arquetipos": [
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Green Slime",
+    "descripcion": "If struck at less than 50% HP, inflict 1 [Rupture] on the attacker. (Activates (Highest Gluttony A-Reson) times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Hong Lu",
    "rango": "HE",
    "fecha": "2023-11-23",
@@ -3378,6 +3897,16 @@
   {
    "id": 20606,
    "nombre": "Cavernous Wailing",
+   "arquetipos": [
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Gloominess",
+    "descripcion": "When this unit uses a Skill to trigger [Tremor Burst] on an enemy, inflict 1 [Offense Level Down] and 2 [Defense Level Down] on the enemy next turn. (3 times per turn, including E.G.O Skills)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Hong Lu",
    "rango": "TETH",
    "fecha": "2024-05-30",
@@ -3447,6 +3976,17 @@
   {
    "id": 20607,
    "nombre": "Lasso",
+   "arquetipos": [
+    "Bleed",
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Time to Hunt",
+    "descripcion": "If an enemy or an ally is killed due to [Rupture] or [Bleed] damage, inflict 2 [Lasso] against a random enemy, and gain 1 [Haste] next turn (once per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Hong Lu",
    "rango": "TETH",
    "fecha": "2024-10-17",
@@ -3515,6 +4055,16 @@
   {
    "id": 20608,
    "nombre": "Tears of the Tarnished Blood [汚血泣淚]",
+   "arquetipos": [
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Crying Tears",
+    "descripcion": "If the target is defeated after this unit's Attack or Counter Skills:<br>- Gain 2 [Haste] next turn (once per turn)<br>- To all allies, including this unit: next turn, apply 1 DMG Up to the Damage Type & Affinity of the Skill used to activate this effect (once per turn)<br>- Inflict 1 [Attack Power Down] to all enemies next turn (once per turn)<br><br>When this unit dies:<br>- Apply 1 [Gluttony DMG Up] and [Pierce DMG Up] to all alies next turn (once per turn)<br>- Inflict 1 [Attack Power Down] to all enemies next turn (once per turn)<br>",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Hong Lu",
    "rango": "WAW",
    "fecha": "2025-05-29",
@@ -3586,6 +4136,12 @@
   {
    "id": 20609,
    "nombre": "To Remain Oneself [宁作吾]",
+   "arquetipos": [
+    "Poise",
+    "Sinking"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Hong Lu",
    "rango": "HE",
    "fecha": "2025-09-25",
@@ -3654,6 +4210,14 @@
   {
    "id": 20701,
    "nombre": "Bodysack",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Vying Spirit",
+    "descripcion": "When another ally defeats an enemy, gain 1 [Attack Power Up] and 1 [Haste] at the start of the next turn. (Max 3)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Heathcliff",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -3712,6 +4276,16 @@
   {
    "id": 20702,
    "nombre": "Telepole",
+   "arquetipos": [
+    "Charge"
+   ],
+   "pasiva": {
+    "nombre": "Roar",
+    "descripcion": "After defeating an enemy, gain [Charge] by half that turn's Envy A-Reson.<br>(Envy A-Reson. / 2)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Heathcliff",
    "rango": "HE",
    "fecha": "2023-02-27",
@@ -3777,6 +4351,16 @@
   {
    "id": 20703,
    "nombre": "AEDD",
+   "arquetipos": [
+    "Charge"
+   ],
+   "pasiva": {
+    "nombre": "Temperamental Discharge",
+    "descripcion": "When hit, spend 1 [Charge] Count to heal 2.5% of Max HP<br>At less than 40% HP, gain 1 [Charge] Count before activating the healing effect. (Can gain up to 10 [Charge] Count per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Heathcliff",
    "rango": "TETH",
    "fecha": "2023-06-08",
@@ -3840,6 +4424,14 @@
   {
    "id": 20704,
    "nombre": "Ya Śūnyatā Tad Rūpam",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Dhyāna",
+    "descripcion": "Raise Max HP by 15% of this Identity's base Max HP when recovering from Staggered state.<br>Then, heal by 15% of current Max HP. If at less than 30% of current Max HP, heal by 25% instead.<br>(3 times per encounter. At Encounter End, revert to base Max HP. Current HP value will be adjusted to reflect the HP percentage at the time of Encounter End.)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Heathcliff",
    "rango": "HE",
    "fecha": "2023-10-12",
@@ -3912,6 +4504,22 @@
   {
    "id": 20705,
    "nombre": "Holiday",
+   "arquetipos": [
+    "Bleed",
+    "Burn",
+    "Charge",
+    "Poise",
+    "Rupture",
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Infinite Hatred",
+    "descripcion": "When this unit has a status effect or a negative effect, and if the main target or the attacker has a positive effect:<br>- Inflict +1 more [Burn], [Bleed], [Tremor], [Rupture], and [Sinking] Potency to self and enemies with Skill effects or Coin effects<br>- Gain +1 more [Poise] and [Charge] Count with Skill effects or Coin effects",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Heathcliff",
    "rango": "ZAYIN",
    "fecha": "2023-12-28",
@@ -3978,6 +4586,17 @@
   {
    "id": 20706,
    "nombre": "Binds",
+   "arquetipos": [
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Chains of Binding",
+    "descripcion": "- Combat Start: At 4+ highest Reson. that includes this unit's Skills, apply 3 [Offense Level Up] and 3 [Defense Level Up] to self and all allies who were a part of the Reson.<br>- If the said Reson. was an A-Reson., apply 2 additional [Offense Level Up] and [Defense Level Up]",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Heathcliff",
    "rango": "WAW",
    "fecha": "2024-04-11",
@@ -4055,6 +4674,18 @@
   {
    "id": 20707,
    "nombre": "Fell Bullet",
+   "arquetipos": [
+    "Bleed",
+    "Poise",
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "Crushed Pendant",
+    "descripcion": "Combat Start: At 3+ highest Reson., gain 3 [Poise]",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Heathcliff",
    "rango": "TETH",
    "fecha": "2024-07-25",
@@ -4123,6 +4754,16 @@
   {
    "id": 20708,
    "nombre": "Asymmetrical Inertia",
+   "arquetipos": [
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Broken Bell",
+    "descripcion": "Inflict [Fragile] this turn on enemies who were hit by [Tremor Burst] from Skill, Coin, or Passive effects.<br>- Does not stack with E.G.O Gifts that inflict [Fragile] upon triggering [Tremor Burst]. (If the said E.G.O Gifts have been enhanced, subtract this effect's value from the final value before inflicting it.)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Heathcliff",
    "rango": "HE",
    "fecha": "2024-11-28",
@@ -4196,6 +4837,12 @@
   {
    "id": 20709,
    "nombre": "Move-in Reg.",
+   "arquetipos": [
+    "Burn",
+    "Charge"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Heathcliff",
    "rango": "TETH",
    "fecha": "2026-01-08",
@@ -4263,6 +4910,16 @@
   {
    "id": 20801,
    "nombre": "Snagharpoon",
+   "arquetipos": [
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Compulsion",
+    "descripcion": "Clash Power +2 in clashes whose win rate is in the unit's favor. Clash Power -2 in clashes whose win rate is against the unit's favor.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ishmael",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -4322,6 +4979,14 @@
   {
    "id": 20802,
    "nombre": "Roseate Desire",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Pink Ribbons",
+    "descripcion": "On clash win, inflict 1 [Pink Ribbons]",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ishmael",
    "rango": "TETH",
    "fecha": "2023-02-27",
@@ -4385,6 +5050,16 @@
   {
    "id": 20803,
    "nombre": "Ardor Blossom Star",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "Shower of Fire",
+    "descripcion": "On hit, if the target had [Burn], inflict 1 [Burn] on 3 random enemies.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ishmael",
    "rango": "HE",
    "fecha": "2023-02-27",
@@ -4449,6 +5124,17 @@
   {
    "id": 20804,
    "nombre": "Capote",
+   "arquetipos": [
+    "Burn",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Slaying Amid Cheers",
+    "descripcion": "When attacking a target with less than 30% HP, Wrath skills deal +20% damage.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ishmael",
    "rango": "TETH",
    "fecha": "2023-06-01",
@@ -4517,6 +5203,18 @@
   {
    "id": 20805,
    "nombre": "Blind Obsession",
+   "arquetipos": [
+    "Charge",
+    "Poise",
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "Temeritous Voyage",
+    "descripcion": "At the end of the turn, inflict 5 [Sinking] to 1 other ally with the lowest HP, Apply 1 [Haste] and 3 [Offense Level Up] next turn",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ishmael",
    "rango": "WAW",
    "fecha": "2023-11-30",
@@ -4592,6 +5290,16 @@
   {
    "id": 20806,
    "nombre": "Wingbeat",
+   "arquetipos": [
+    "Bleed"
+   ],
+   "pasiva": {
+    "nombre": "Gluttony",
+    "descripcion": "If the main target took HP damage this turn and isn't at max HP at Skill Use:<br>On Hit,<br>- When this unit is at max HP, deal +5~+10% more damage.<br>- When this unit isn't at max HP, heal 2~5 HP.<br>(7 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ishmael",
    "rango": "HE",
    "fecha": "2024-05-02",
@@ -4660,6 +5368,16 @@
   {
    "id": 20807,
    "nombre": "Bygone Days",
+   "arquetipos": [
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "Interloper Reception",
+    "descripcion": "If the target has [The Uninvited] or any of the Panic Type changing effects, Clash Power +1.<br>On Hit against the said target, heal 1 ally with the least SP for 5 SP. (once per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ishmael",
    "rango": "TETH",
    "fecha": "2024-09-19",
@@ -4728,6 +5446,17 @@
   {
    "id": 20808,
    "nombre": "Christmas Nightmare",
+   "arquetipos": [
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "A Gaze in the Shadows",
+    "descripcion": "Allies gain +1 more [Tremor] Count from Skills or Coin effects (2 times per turn)<br>- If the ally's target is in Staggered, Low Morale, or Panic states, gain +2 more instead<br>- Effect does not stack with E.G.O Gifts of an identical effect.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ishmael",
    "rango": "HE",
    "fecha": "2024-12-26",
@@ -4794,6 +5523,17 @@
   {
    "id": 20809,
    "nombre": "Hundred-Footed Death Maggot [蝍蛆殺]",
+   "arquetipos": [
+    "Rupture",
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "Reversal Death by Gu Poison",
+    "descripcion": "Whenever this unit inflicts [Sinking] Potency, [Sinking] Count, or 'Unique Sinking' using its Attack Skills, gain 1 [Offense Level Up] next turn (max 2)<br>- At 3+ Reson., with the same conditionals, gain 1 [Offense Level Up] next turn instead (max 3)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Ishmael",
    "rango": "ZAYIN",
    "fecha": "2025-05-22",
@@ -4857,6 +5597,12 @@
   {
    "id": 20810,
    "nombre": "Tidal Elegy",
+   "arquetipos": [
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Ishmael",
    "rango": "HE",
    "fecha": "2025-09-25",
@@ -4924,6 +5670,16 @@
   {
    "id": 20901,
    "nombre": "What is Cast",
+   "arquetipos": [
+    "Bleed"
+   ],
+   "pasiva": {
+    "nombre": "Severance",
+    "descripcion": "+1 [SP Heal Efficiency], -1 [SP Loss Efficiency]",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Rodion",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -4983,6 +5739,16 @@
   {
    "id": 20902,
    "nombre": "4th Match Flame",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "Spark of Flame",
+    "descripcion": "After defeating an enemy that has [Burn], heal HP by (Wrath A-Reson.)% of Max HP.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Rodion",
    "rango": "HE",
    "fecha": "2023-02-27",
@@ -5051,6 +5817,17 @@
   {
    "id": 20903,
    "nombre": "Rime Shank",
+   "arquetipos": [
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Coldness",
+    "descripcion": "On hit, if the target has 5+ [Sinking], inflict 1 [Bind] and [Attack Power Down]. (3 times per unit.)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Rodion",
    "rango": "TETH",
    "fecha": "2023-02-27",
@@ -5114,6 +5891,16 @@
   {
    "id": 20904,
    "nombre": "Effervescent Corrosion",
+   "arquetipos": [
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Sticky Filth",
+    "descripcion": "On Heads Hit with a Pierce Skill, inflict 1 [Bind] (2 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Rodion",
    "rango": "TETH",
    "fecha": "2023-11-30",
@@ -5180,6 +5967,14 @@
   {
    "id": 20905,
    "nombre": "Pursuance",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Sentencing from Above",
+    "descripcion": "Whenever the enemy is Staggered, the ally with the least HP percentage heals 4% of their Max HP",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Rodion",
    "rango": "HE",
    "fecha": "2023-12-14",
@@ -5240,6 +6035,16 @@
   {
    "id": 20906,
    "nombre": "Sanguine Desire",
+   "arquetipos": [
+    "Bleed"
+   ],
+   "pasiva": {
+    "nombre": "Obsession",
+    "descripcion": "This unit's leftmost Skill on the Dashboard inflicts double the [Bleed] Potency (once per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Rodion",
    "rango": "WAW",
    "fecha": "2024-05-02",
@@ -5308,6 +6113,16 @@
   {
    "id": 20907,
    "nombre": "Hex Nail",
+   "arquetipos": [
+    "Bleed"
+   ],
+   "pasiva": {
+    "nombre": "Iron Stake against the Heart",
+    "descripcion": "When inflicting [Bleed] or 'Unique Bleed' against an enemy with Base Attack Skills, inflict 1 [Defense Level Down] (once per turn)<br>- If the target has [Bleed] or 'Unique Bleed', inflict additional 2 [Bleed] (once per turn)<br><br>If an ally, including this unit, takes direct HP damage from the enemy, inflict 1 [Curse] against the target enemy (2 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Rodion",
    "rango": "HE",
    "fecha": "2024-10-24",
@@ -5376,6 +6191,16 @@
   {
    "id": 20908,
    "nombre": "Indicant's Trial",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "Blazing Amusement",
+    "descripcion": "When a target with 10+ [Burn] Count is defeated, inflict the [Burn] Count on target between all enemies and heal 8 SP on self (in Focused Encounters, between all Parts; 3 max per target, 2 times per turn)<br>- At max SP, heal 5 SP for 1 ally with the least SP instead",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Rodion",
    "rango": "WAW",
    "fecha": "2025-04-17",
@@ -5440,6 +6265,12 @@
   {
    "id": 20909,
    "nombre": "Into the Sunset",
+   "arquetipos": [
+    "Bleed",
+    "Burn"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Rodion",
    "rango": "ZAYIN",
    "fecha": "2026-04-30",
@@ -5505,6 +6336,16 @@
   {
    "id": 21001,
    "nombre": "Branch of Knowledge",
+   "arquetipos": [
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Unstable",
+    "descripcion": "If a skill's Coin hits with a different side from the previous Coin in the same skill, lose 5 SP and gain 1 [Damage Up] this turn. (3 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Sinclair",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -5565,6 +6406,16 @@
   {
    "id": 21002,
    "nombre": "Impending Day",
+   "arquetipos": [
+    "Bleed"
+   ],
+   "pasiva": {
+    "nombre": "Live Offering",
+    "descripcion": "After defeating an enemy with an attack or counter skill, gain 5 E.G.O resources of that skill's Affinity.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Sinclair",
    "rango": "TETH",
    "fecha": "2023-02-27",
@@ -5626,6 +6477,16 @@
   {
    "id": 21003,
    "nombre": "Lifetime Stew",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "Stew Spewage",
+    "descripcion": "Tails Coins inflict 1 [Burn] if hitting an enemy.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Sinclair",
    "rango": "TETH",
    "fecha": "2023-04-20",
@@ -5692,6 +6553,16 @@
   {
    "id": 21004,
    "nombre": "Lantern",
+   "arquetipos": [
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Fairy Lure",
+    "descripcion": "After defeating an enemy that mainly targets this unit at the start of the combat phase, heal 3% of Max HP + (Gluttony A-Reson.)% of Max HP",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Sinclair",
    "rango": "HE",
    "fecha": "2023-10-05",
@@ -5757,6 +6628,16 @@
   {
    "id": 21005,
    "nombre": "9:2",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "Prophecy of Ruin",
+    "descripcion": "On Heads Hit with a Lust affinity Skill, lower this unit and the target's SP by 4.<br>(Does not work against without Sanity)<br>Gain 5 Lust E.G.O resource On Kill with a Lust affinity Skill",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Sinclair",
    "rango": "HE",
    "fecha": "2023-11-30",
@@ -5824,6 +6705,16 @@
   {
    "id": 21006,
    "nombre": "Cavernous Wailing",
+   "arquetipos": [
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "Tear Film",
+    "descripcion": "Turn Start: If this unit has Shield, gain 1 [Protection]<br>If this unit is under [Blubberbubble]'s effect, gain 1 additional [Protection]",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Sinclair",
    "rango": "ZAYIN",
    "fecha": "2024-05-30",
@@ -5891,6 +6782,16 @@
   {
    "id": 21007,
    "nombre": "Hex Nail",
+   "arquetipos": [
+    "Bleed"
+   ],
+   "pasiva": {
+    "nombre": "Grimy Hide",
+    "descripcion": "Combat Start: if this unit has a negative effect, gain 1 [Clash Power Up] and 1 [Defense Power Up]<br>- Gain 1 [Protection] for every 3 negative effect on self (max 2)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Sinclair",
    "rango": "TETH",
    "fecha": "2024-10-24",
@@ -5963,6 +6864,16 @@
   {
    "id": 21008,
    "nombre": "Tears of the Tarnished Blood [汚血泣淚]",
+   "arquetipos": [
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Crying Tears",
+    "descripcion": "- Turn End: If this unit had a negative effect or lost its HP or SP, heal 5 SP.<br>- If this unit or an ally is defeated, inflict 1 [Fragile] to all enemies next turn (once per turn)<br>",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Sinclair",
    "rango": "WAW",
    "fecha": "2025-05-29",
@@ -6030,6 +6941,12 @@
   {
    "id": 21009,
    "nombre": "Harmony",
+   "arquetipos": [
+    "Bleed",
+    "Burn"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Sinclair",
    "rango": "HE",
    "fecha": "2026-03-05",
@@ -6109,6 +7026,16 @@
   {
    "id": 21101,
    "nombre": "To Páthos Máthos",
+   "arquetipos": [
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Tactical Perfection",
+    "descripcion": "If the unit did not get hit at all during a turn, gain 1 [Damage Up] next turn. (Max 3 stacks)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Outis",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -6167,6 +7094,17 @@
   {
    "id": 21102,
    "nombre": "Ebony Stem",
+   "arquetipos": [
+    "Bleed",
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Stem of Distrust",
+    "descripcion": "At the start of the turn, gain 1 [Pierce DMG Up]. On hit with a Heads coin, inflict 1 [Bind] and +1 [Rupture] Count next turn.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Outis",
    "rango": "HE",
    "fecha": "2023-02-27",
@@ -6239,6 +7177,14 @@
   {
    "id": 21103,
    "nombre": "Ya Śūnyatā Tad Rūpam",
+   "arquetipos": [],
+   "pasiva": {
+    "nombre": "Emptying",
+    "descripcion": "At the start of the turn, gain 1 [Lust DMG Up].<br>Gain 1 more when below 0 SP.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Outis",
    "rango": "TETH",
    "fecha": "2023-02-27",
@@ -6306,6 +7252,19 @@
   {
    "id": 21104,
    "nombre": "Sunshower",
+   "arquetipos": [
+    "Poise",
+    "Rupture",
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Breath of the Hunt",
+    "descripcion": "After a clash, gain 2 [Poise]<br>When staggered, gain 2 [Protection], when recovering from stagger, gain 5 [Poise]",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Outis",
    "rango": "TETH",
    "fecha": "2023-06-08",
@@ -6375,6 +7334,20 @@
   {
    "id": 21105,
    "nombre": "Holiday",
+   "arquetipos": [
+    "Bleed",
+    "Burn",
+    "Rupture",
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Fair Presents",
+    "descripcion": "When applying positive effects to other allies with Skill effects or Coin effects, randomly select one of the following effects:<br>[Burn], [Bleed], [Tremor], [Rupture], or [Sinking]. Then, inflict 1 Potency of the selected effect to 1 random enemy. (Activates 5 times per Turn. Can be applied up to 5 times per enemy. For abnormalities, applied to a random Part.)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Outis",
    "rango": "HE",
    "fecha": "2023-12-28",
@@ -6447,6 +7420,16 @@
   {
    "id": 21106,
    "nombre": "Binds",
+   "arquetipos": [
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Grand Welcome",
+    "descripcion": "After Attack from this unit: if the target is Staggered or defeated, gain +1 Pride E.G.O resource and +1 E.G.O resource for 1 other random Affinity (3 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Outis",
    "rango": "WAW",
    "fecha": "2024-04-11",
@@ -6518,6 +7501,16 @@
   {
    "id": 21107,
    "nombre": "Dimension Shredder",
+   "arquetipos": [
+    "Charge"
+   ],
+   "pasiva": {
+    "nombre": "Rambling Man",
+    "descripcion": "Max [Charge] Count +5<br>Skills that consume [Charge] Count deal +2% more damage for every ([Charge] -1) (max 10%)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Outis",
    "rango": "HE",
    "fecha": "2024-08-08",
@@ -6589,6 +7582,16 @@
   {
    "id": 21108,
    "nombre": "Magic Bullet",
+   "arquetipos": [
+    "Burn"
+   ],
+   "pasiva": {
+    "nombre": "Seven Bullets",
+    "descripcion": "- On Hit with Base Attack Skills: inflict ([Magic Bullet] / 3) [Burn] (3 times per turn)<br>- For Lobotomy E.G.O::Magic Bullet Identity, inflict [Burn] equal to [Magic Bullet] instead (3 times per turn)<br>- If the target has 30+ [Burn], inflict [Dark Flame] instead (2 times per turn)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Outis",
    "rango": "HE",
    "fecha": "2025-01-09",
@@ -6662,6 +7665,9 @@
   {
    "id": 21109,
    "nombre": "I'll Go fer Scissors. How 'Bout You?",
+   "arquetipos": [],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Outis",
    "rango": "ZAYIN",
    "fecha": "2026-01-08",
@@ -6726,6 +7732,20 @@
   {
    "id": 21201,
    "nombre": "Suddenly, One Day",
+   "arquetipos": [
+    "Bleed",
+    "Burn",
+    "Rupture",
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Uncontrolled Morph",
+    "descripcion": "At the start of the turn, if below 25% HP, heal 15 HP and gain 2 [Protection]. When this effect activates, inflict 1 random other ally & 1 random enemy with +2 [SP Loss Efficiency].",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Gregor",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -6789,6 +7809,17 @@
   {
    "id": 21202,
    "nombre": "Legerdemain",
+   "arquetipos": [
+    "Bleed",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Maggots",
+    "descripcion": "On hit, inflict 5 [Maggots] at a (Gluttony A-Reson. x8)% chance.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Gregor",
    "rango": "ZAYIN",
    "fecha": "2023-02-27",
@@ -6853,6 +7884,16 @@
   {
    "id": 21203,
    "nombre": "Lantern",
+   "arquetipos": [
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Nutrient Absorption",
+    "descripcion": "After defeating an enemy that has [Rupture], heal HP by (Gluttony A-Reson.)% of Max HP.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Gregor",
    "rango": "TETH",
    "fecha": "2023-02-27",
@@ -6913,6 +7954,16 @@
   {
    "id": 21204,
    "nombre": "AEDD",
+   "arquetipos": [
+    "Charge"
+   ],
+   "pasiva": {
+    "nombre": "Alternating Discharge",
+    "descripcion": "On hit with a Heads coin, spend 2 [Charge] Count to give +1 [Charge] Count to the Charge-possessing ally with the lowest [Charge] Count",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Gregor",
    "rango": "HE",
    "fecha": "2023-06-15",
@@ -6974,6 +8025,16 @@
   {
    "id": 21205,
    "nombre": "Garden of Thorns",
+   "arquetipos": [
+    "Rupture"
+   ],
+   "pasiva": {
+    "nombre": "Crown of Thorns",
+    "descripcion": "Turn Start: Inflict 2 [Rupture] Potency on a random enemy (In Focused Encounters, all parts)<br>When activating Absolute Resonance, inflict 2 [Rupture] Potency on all enemies at Combat Start",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Gregor",
    "rango": "WAW",
    "fecha": "2024-03-14",
@@ -7056,6 +8117,16 @@
   {
    "id": 21206,
    "nombre": "Bygone Days",
+   "arquetipos": [
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "If I Could Go Back…",
+    "descripcion": "After Attack: If the target is defeated after this unit's attack, gain 1 E.G.O resource for the least-owned E.G.O resource.<br>Gain 1 additional E.G.O resource for every 5 ([Sinking] Potency + Count) (max 3)<br>(If there are 2 or more \"least-owned E.G.O resource\", select 1 of those Affinities at random to gain an E.G.O resource)",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Gregor",
    "rango": "TETH",
    "fecha": "2024-04-04",
@@ -7118,6 +8189,16 @@
   {
    "id": 21207,
    "nombre": "Solemn Lament",
+   "arquetipos": [
+    "Sinking"
+   ],
+   "pasiva": {
+    "nombre": "Lament",
+    "descripcion": "Turn End: if this unit has a negative effect, gain 1 [Attack Power Up] next turn<br>When attacking targets that are either in Panic or in E.G.O Corrosion: deal +15% more damage",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Gregor",
    "rango": "HE",
    "fecha": "2024-09-05",
@@ -7188,6 +8269,17 @@
   {
    "id": 21208,
    "nombre": "Christmas Nightmare",
+   "arquetipos": [
+    "Sinking",
+    "Tremor"
+   ],
+   "pasiva": {
+    "nombre": "Insomniac Night",
+    "descripcion": "Combat Start: against all enemies, inflict 1 [Offense Level Down] or 1 [Defense Level Down] to all enemies (# of enemies in Staggered, Low Morale, or Panic states) times. (2 times per turn)<br>- Effect does not stack with E.G.O Gifts with the same effect.",
+    "costo": [],
+    "tipoCosto": null
+   },
+   "tienePasiva": true,
    "sinner": "Gregor",
    "rango": "HE",
    "fecha": "2024-12-26",
@@ -7262,6 +8354,12 @@
   {
    "id": 21209,
    "nombre": "Unbrilliant Glory",
+   "arquetipos": [
+    "Burn",
+    "Tremor"
+   ],
+   "pasiva": null,
+   "tienePasiva": false,
    "sinner": "Gregor",
    "rango": "WAW",
    "fecha": "2025-09-25",

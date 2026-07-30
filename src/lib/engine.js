@@ -78,6 +78,44 @@ export function pasivasActivasDelEquipo(team, recursos = recursosDeSin(team)) {
 }
 
 /* ------------------------------------------------------------------ *
+   E.G.O
+ * ------------------------------------------------------------------ */
+
+/*
+  Un E.G.O se paga con recursos de Sin del equipo. Acá se compara su costo
+  contra el perfil de recursos, con la MISMA aproximación que se usa para las
+  pasivas: el perfil estima capacidad de generación, no el stock exacto de un
+  turno. Sirve para saber si un E.G.O es realista con el equipo armado, no para
+  predecir el turno 3.
+
+  Solo tiene sentido para E.G.O de Sinners que estén desplegados: si el Sinner
+  no está en combate, su E.G.O no se puede usar.
+*/
+export function estadoEgo(ego, recursos) {
+  const faltantes = ego.costo
+    .map((c) => ({ ...c, disponible: recursos[c.sin] ?? 0 }))
+    .filter((c) => c.disponible < c.cantidad);
+
+  const costoTotal = ego.costo.reduce((a, c) => a + c.cantidad, 0);
+  return { ego, alcanza: faltantes.length === 0, faltantes, costoTotal };
+}
+
+/*
+  E.G.O de la colección que pertenecen a Sinners desplegados, ordenados por si
+  alcanzan y después por costo. `sinnersDesplegados` es un Set de nombres.
+*/
+export function egosDelEquipo(egosPropios, sinnersDesplegados, recursos) {
+  return egosPropios
+    .filter((e) => sinnersDesplegados.has(e.sinner))
+    .map((e) => estadoEgo(e, recursos))
+    .sort((a, b) =>
+      Number(b.alcanza) - Number(a.alcanza) ||
+      b.costoTotal - a.costoTotal ||
+      a.ego.nombre.localeCompare(b.ego.nombre)
+    );
+}
+
+/* ------------------------------------------------------------------ *
    Resistencias
  * ------------------------------------------------------------------ */
 

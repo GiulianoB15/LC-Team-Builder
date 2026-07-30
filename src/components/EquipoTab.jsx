@@ -3,10 +3,12 @@ import {
   DAMAGE_TYPES, DAMAGE_LABEL, SIN_LABEL, SLOTS_DESPLIEGUE, etiquetaResistencia,
 } from "../data/constants.js";
 import IdCard from "./IdCard.jsx";
+import { CostoSin } from "./EgoCard.jsx";
 import { styles } from "../styles.js";
 
 export default function EquipoTab({
-  ownedIdentities, equipoIds, onToggle, orden, recursos, resistencias, arquetipos, pasivas, max,
+  ownedIdentities, equipoIds, onToggle, orden, recursos, resistencias, arquetipos, pasivas,
+  egosEquipo, tieneEgos, max,
 }) {
   if (ownedIdentities.length === 0) {
     return (
@@ -72,6 +74,44 @@ export default function EquipoTab({
             <strong>{pasivas.activas}</strong> de {pasivas.totales} pasivas del equipo llegan a su
             costo de recursos de Sin. Es una estimación basada en las afinidades de las skills.
           </p>
+
+          <h2 style={styles.sectionTitle}>E.G.O disponibles</h2>
+          {!tieneEgos ? (
+            <p style={styles.helpText}>
+              No marcaste ningún E.G.O en tu colección todavía.
+            </p>
+          ) : egosEquipo.length === 0 ? (
+            <p style={styles.helpText}>
+              Ninguno de tus E.G.O pertenece a los {SLOTS_DESPLIEGUE} Sinners desplegados. Los de la
+              banca no se pueden usar.
+            </p>
+          ) : (
+            <>
+              <p style={styles.helpText}>
+                Solo los de Sinners desplegados. Si alcanza o no es una estimación sobre los
+                recursos que genera el equipo, igual que con las pasivas.
+              </p>
+              <div style={styles.candidateList}>
+                {egosEquipo.map(({ ego, alcanza, faltantes }) => (
+                  <div
+                    key={ego.id}
+                    style={{ ...styles.candidateCard, ...(alcanza ? {} : styles.egoNoAlcanza) }}
+                  >
+                    <div style={styles.candidateHeader}>
+                      <div style={styles.idName}>{ego.nombre}</div>
+                      <div style={alcanza ? styles.egoOk : styles.egoFalta}>
+                        {alcanza ? "alcanza" : "no alcanza"}
+                      </div>
+                    </div>
+                    <div style={styles.idTags}>
+                      {[ego.sinner, ego.rango, ...ego.arquetipos].join(" · ")}
+                    </div>
+                    <CostoSin costo={ego.costo} faltantes={faltantes} />
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
 
           <h2 style={styles.sectionTitle}>Recursos de Sin (6 desplegados)</h2>
           {sinsActivos.length === 0 ? (

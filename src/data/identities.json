@@ -23,7 +23,55 @@
    "identities": 184,
    "egos": 110,
    "conPasivas": 147,
-   "sinPasivas": 37
+   "sinPasivas": 37,
+   "egosConPasiva": 96
+  },
+  "mapeoEstados": {
+   "Sinking": {
+    "arquetipo": "Sinking",
+    "precision": 0.91,
+    "soporte": 35
+   },
+   "Burst": {
+    "arquetipo": "Rupture",
+    "precision": 0.96,
+    "soporte": 52
+   },
+   "Breath": {
+    "arquetipo": "Poise",
+    "precision": 0.87,
+    "soporte": 47
+   },
+   "Vibration": {
+    "arquetipo": "Tremor",
+    "precision": 0.88,
+    "soporte": 41
+   },
+   "VibrationExplosion": {
+    "arquetipo": "Tremor",
+    "precision": 0.93,
+    "soporte": 30
+   },
+   "Charge": {
+    "arquetipo": "Charge",
+    "precision": 1,
+    "soporte": 25
+   },
+   "Laceration": {
+    "arquetipo": "Bleed",
+    "precision": 0.96,
+    "soporte": 52
+   },
+   "Combustion": {
+    "arquetipo": "Burn",
+    "precision": 0.88,
+    "soporte": 32
+   },
+   "Switch_Vibration": {
+    "arquetipo": "Tremor",
+    "precision": 1,
+    "soporte": 12
+   }
   }
  },
  "identities": [

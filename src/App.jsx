@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { IDENTITIES, META } from "./data/identities.js";
+import { IDENTITIES, EGOS, META } from "./data/identities.js";
 import { SLOTS_DESPLIEGUE } from "./data/constants.js";
 import { loadCollection, saveCollection } from "./lib/storage.js";
 import {
   recursosDeSin, perfilResistencias, perfilArquetipos,
-  sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo,
+  sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo, egosDelEquipo,
 } from "./lib/engine.js";
 import { toggleSeleccion } from "./lib/seleccion.js";
 import ColeccionTab from "./components/ColeccionTab.jsx";
@@ -25,7 +25,7 @@ const MAX_BASE_COMPLETAR = 3;
 
 export default function App() {
   const [tab, setTab] = useState("coleccion");
-  const [owned, setOwned] = useState({});
+  const [owned, setOwned] = useState({ identities: {}, egos: {} });
   const [loaded, setLoaded] = useState(false);
   const [equipoIds, setEquipoIds] = useState([]);
   const [baseIds, setBaseIds] = useState([]);
@@ -42,11 +42,17 @@ export default function App() {
   }, []);
 
   const toggleOwned = useCallback(
-    (id) => persist({ ...owned, [id]: !owned[id] }),
+    (id) => persist({ ...owned, identities: { ...owned.identities, [id]: !owned.identities[id] } }),
     [owned, persist]
   );
 
-  const ownedIdentities = useMemo(() => IDENTITIES.filter((i) => owned[i.id]), [owned]);
+  const toggleOwnedEgo = useCallback(
+    (id) => persist({ ...owned, egos: { ...owned.egos, [id]: !owned.egos[id] } }),
+    [owned, persist]
+  );
+
+  const ownedIdentities = useMemo(() => IDENTITIES.filter((i) => owned.identities[i.id]), [owned]);
+  const ownedEgos = useMemo(() => EGOS.filter((e) => owned.egos[e.id]), [owned]);
 
   const equipo = useMemo(
     () => equipoIds.map((id) => IDENTITIES.find((i) => i.id === id)).filter(Boolean),
@@ -66,6 +72,12 @@ export default function App() {
   const resistencias = useMemo(() => perfilResistencias(desplegados), [desplegados]);
   const arquetipos = useMemo(() => perfilArquetipos(equipo), [equipo]);
   const pasivas = useMemo(() => pasivasActivasDelEquipo(equipo, recursos), [equipo, recursos]);
+
+  // Un E.G.O solo se puede usar si su Sinner está desplegado, no en banca.
+  const egosEquipo = useMemo(() => {
+    const sinners = new Set(desplegados.map((i) => i.sinner));
+    return egosDelEquipo(ownedEgos, sinners, recursos);
+  }, [ownedEgos, desplegados, recursos]);
 
   const candidatas = useMemo(() => {
     const sinnersUsados = new Set(base.map((i) => i.sinner));
@@ -112,7 +124,12 @@ export default function App() {
         {!loaded && <div style={styles.loading}>Cargando expediente…</div>}
 
         {loaded && tab === "coleccion" && (
-          <ColeccionTab owned={owned} toggleOwned={toggleOwned} saveError={saveError} />
+          <ColeccionTab
+            owned={owned}
+            toggleOwned={toggleOwned}
+            toggleOwnedEgo={toggleOwnedEgo}
+            saveError={saveError}
+          />
         )}
 
         {loaded && tab === "equipo" && (
@@ -125,6 +142,8 @@ export default function App() {
             resistencias={resistencias}
             arquetipos={arquetipos}
             pasivas={pasivas}
+            egosEquipo={egosEquipo}
+            tieneEgos={ownedEgos.length > 0}
             max={MAX_EQUIPO}
           />
         )}
