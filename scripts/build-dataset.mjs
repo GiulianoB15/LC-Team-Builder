@@ -67,6 +67,21 @@ const leerJson = (p) => JSON.parse(readFileSync(p, "utf8"));
 const nuevoIds = leerJson(path.join(dirNuevo, "identities.json"));
 const nuevoEgos = leerJson(path.join(dirNuevo, "egos.json"));
 
+/*
+  Tercera fuente: datos transcritos a mano desde capturas del juego, para lo que
+  ninguna fuente automática publica. Vive en su propio archivo y lo cargado así
+  queda marcado con fuente: "captura", para poder distinguirlo y reemplazarlo.
+*/
+const capturas = (() => {
+  try {
+    return leerJson(path.join(RAIZ, "src/data/capturas.json"));
+  } catch {
+    return { identities: {}, egos: {} };
+  }
+})();
+
+const marcarCaptura = (p) => ({ ...p, fuente: "captura" });
+
 /* --- Fuente secundaria: pasivas de LCTeamBuilder --- */
 
 function extraerPasivas() {
@@ -207,7 +222,20 @@ function convertirIdentity(id, raw) {
   // La velocidad viene por uptie; se usa el último, que es el nivel jugable.
   const vel = (raw.speedList ?? []).at(-1) ?? [null, null];
 
-  const pasivas = pasivasPorId.get(id) ?? null;
+  /*
+    Igual que con los E.G.O: la fuente automática manda y la captura solo cubre
+    lo que falta. `combate` y `soporte` se toman como bloque, no se mezclan
+    parcialmente, para no terminar con una ID mitad de una fuente y mitad de otra.
+  */
+  const cap = capturas.identities?.[String(id)];
+  const pasivas =
+    pasivasPorId.get(id) ??
+    (cap?.pasivas
+      ? {
+          combate: (cap.pasivas.combate ?? []).map(marcarCaptura),
+          soporte: (cap.pasivas.soporte ?? []).map(marcarCaptura),
+        }
+      : null);
 
   return {
     id,
@@ -286,7 +314,14 @@ function convertirEgo(id, raw, mapeoEstados) {
   const arquetipos = [
     ...new Set(estados.map((s) => mapeoEstados[s]?.arquetipo).filter(Boolean)),
   ].sort();
-  const pasiva = pasivaEgoPorId.get(id) ?? null;
+
+  /*
+    La automática manda; la captura solo rellena lo que no vino de LCTeamBuilder.
+    Así, si mañana el repo de origen suma este E.G.O, gana el dato automático sin
+    que haya que borrar la captura a mano.
+  */
+  const capturada = capturas.egos?.[String(id)]?.pasiva;
+  const pasiva = pasivaEgoPorId.get(id) ?? (capturada ? marcarCaptura(capturada) : null);
 
   return {
     id,
@@ -373,7 +408,12 @@ identities.forEach((i) => i.arquetipos.forEach((a) => (porArquetipo[a] = (porArq
 console.log("IDs por arquetipo:", porArquetipo);
 
 const egosSinArquetipo = egos.filter((e) => e.arquetipos.length === 0).length;
+const deCaptura = {
+  egos: egos.filter((e) => e.pasiva?.fuente === "captura").length,
+  identities: identities.filter((i) => [...i.pasivas.combate, ...i.pasivas.soporte].some((p) => p.fuente === "captura")).length,
+};
 console.log(`E.G.O con pasiva: ${meta.conteo.egosConPasiva}   sin arquetipo derivable: ${egosSinArquetipo}`);
+console.log(`Cargado desde capturas: ${deCaptura.identities} Identities, ${deCaptura.egos} E.G.O`);
 console.log("Mapeo estado→arquetipo derivado:",
   Object.entries(mapeoEstados).map(([k, v]) => `${k}→${v.arquetipo}(${v.precision})`).join(", "));
 

@@ -1,0 +1,56 @@
+{
+  "_comentario": [
+    "Datos transcritos a mano desde capturas del juego, para lo que ninguna fuente automática publica.",
+    "Se mezclan en el dataset por scripts/build-dataset.mjs y quedan marcados con fuente: 'captura'.",
+    "REGLA: nada se completa de memoria. Si algo no se lee en la captura va null y se reporta.",
+    "Si mañana aparece una fuente automática mejor, esto se puede borrar sin tocar el resto."
+  ],
+  "egos": {
+    "20208": {
+      "_ref": "[Thoracalgia] Faust · Uptie IV",
+      "pasiva": {
+        "nombre": "Breath",
+        "descripcion": "[Turn Start] After using this E.G.O Skill: gain 1 [Nebulizer α] (once per turn)\n- This value stacks throughout the Encounter\n\n[Combat Start] Gain 1 [Nebulizer α] every time this unit applies 10 [Poise] Count to allies with [Nebulizer α] effects\n\n[Turn End] Starting from allies with the lowest HP percentages, heal ([Nebulizer α] Stack)% HP for (highest Reson.) allies (max 6)\n- If the unit receiving healing has 20+ [Poise] Potency, activate healing 1 more time",
+        "costo": [],
+        "tipoCosto": null
+      }
+    },
+    "20209": {
+      "_ref": "[Command : Meltdown] Faust · Uptie IV",
+      "pasiva": {
+        "nombre": "Doctor",
+        "descripcion": "[Turn Start] heal self and 1 ally with the lowest HP percentage by ([Hardened Shell-Barrier])% of this unit's max HP\n- If this unit is at max HP, heal 2 other allies with the lowest HP percentages instead\n- If the heal-receiving units are at 25% or lower HP, or are Staggered, multiply this effect's healing by 1.5\n\n[Turn End] If the last E.G.O Skill Faust used during this Encounter was [Command: Meltdown] Faust, lose only 1 Stack of [Hardened Shell-Barrier] at [Turn End] instead\n- This effect activates in the same turn the E.G.O Skill is used",
+        "costo": [],
+        "tipoCosto": null
+      }
+    },
+    "20609": {
+      "_ref": "[To Remain Oneself 【宁作吾】] Hong Lu · Uptie IV",
+      "pasiva": {
+        "nombre": "So is Writ, an Ode to Wine",
+        "descripcion": "[Turn End] Among the E.G.O resources consumed to use [To Remain Oneself 【宁作吾】] Hong Lu (Sloth, Gloom, Pride), gain 1 E.G.O resource of the least-owned Affinity.\n\nDeal +1% damage for every [Thunderer] or [Higher Thunderer] Stack lost or consumed in this Encounter (max 15%)",
+        "costo": [],
+        "tipoCosto": null
+      }
+    },
+    "20810": {
+      "_ref": "[Tidal Elegy] Ishmael · Uptie IV",
+      "pasiva": {
+        "nombre": "Abyssal Dance",
+        "descripcion": "[Combat Start] If there is just a single enemy, this unit's leftmost Attack Skill on the Dashboard gains +1 Clash Power, and deals +11.5% damage on [Hit after] [Clash Win] (including E.G.O Skills)\n- For the turns in which this unit Returned or Substituted in: Min and Max Speed +1, +1 Clash Power",
+        "costo": [],
+        "tipoCosto": null
+      }
+    },
+    "21209": {
+      "_ref": "[Unbrilliant Glory] Gregor · Uptie IV",
+      "pasiva": {
+        "nombre": "Wanderer",
+        "descripcion": "Gain [Man in Scabbard] when meeting one of the following conditions:\n- Gain 1 for every 3 HP damage taken from getting hit\n- Gain 1 for every 5 Shield HP damage taken from getting hit\n- Gain 10 per Staggered ally when other allies become Staggered\n- Gain 20 per dead ally when other allies are killed\n\n[Turn Start] If this unit is Staggered due to damage, and if this unit has 40+ [Man in Scabbard], fix all of this unit's Resistance values to 2 for the turn and recover from Stagger (once per Encounter; excluding forced Staggers)",
+        "costo": [],
+        "tipoCosto": null
+      }
+    }
+  },
+  "identities": {}
+}

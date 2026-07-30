@@ -65,7 +65,8 @@ check("los arquetipos son solo los 7 oficiales",
 
 check("los E.G.O traen costo de Sin", EGOS.filter((e) => e.costo.length > 0).length >= 100);
 check("los E.G.O traen resistencias por Sin", EGOS.every((e) => e.resistenciasSin.length === 7 || e.resistenciasSin.length === 0));
-check("los 96 E.G.O de LCTeamBuilder tienen su pasiva", EGOS.filter((e) => e.tienePasiva).length === 96);
+check("los E.G.O con pasiva automática siguen siendo 96",
+  EGOS.filter((e) => e.tienePasiva && e.pasiva?.fuente !== "captura").length === 96);
 
 /*
   Arquetipos de E.G.O: el dump solo trae estados con nombres internos
@@ -300,5 +301,22 @@ check("el tier del injerto se alinea con el del dump nuevo",
 const sinFuente = IDENTITIES.filter((i) => !i.tienePasivas).flatMap((i) => i.skills);
 check("las Identities nuevas quedan con números en null, no en cero",
   sinFuente.every((s) => s.poderBase === null && s.nombre === null));
+
+
+
+/* --- Datos transcritos de capturas --- */
+
+const egoCapturado = EGOS.find((e) => e.id === 20208);
+check("una pasiva de captura entra al dataset", egoCapturado?.tienePasiva && egoCapturado.pasiva?.nombre === "Breath");
+check("y queda marcada con su fuente, distinguible del dato automático",
+  egoCapturado.pasiva.fuente === "captura");
+check("la fuente automática no queda marcada como captura",
+  EGOS.find((e) => e.id === 20101)?.pasiva?.fuente === undefined);
+check("se cargaron los 5 E.G.O de la primera tanda",
+  EGOS.filter((e) => e.pasiva?.fuente === "captura").length === 5);
+check("E.G.O con pasiva pasó de 96 a 101", EGOS.filter((e) => e.tienePasiva).length === 101);
+check("las pasivas capturadas conservan la forma del resto",
+  EGOS.filter((e) => e.pasiva?.fuente === "captura").every((e) =>
+    typeof e.pasiva.nombre === "string" && Array.isArray(e.pasiva.costo) && "tipoCosto" in e.pasiva));
 
 console.log(fallos === 0 ? "\nTodo verde." : `\n${fallos} chequeo(s) fallando.`);
