@@ -141,11 +141,15 @@ export default function App() {
       </main>
 
       <footer style={styles.footer}>
-        {META.conteo.identities} Identities y {META.conteo.egos} E.G.O · datos al{" "}
-        <strong>{META.fuente.ultimoCommit}</strong> — las publicadas después no están.
+        {META.conteo.identities} Identities y {META.conteo.egos} E.G.O · última al{" "}
+        <strong>{META.ultimaIdentity}</strong>.
         <br />
-        Datos de <a href={META.fuente.repo} style={styles.footerLink}>LCTeamBuilder</a> ({META.fuente.licencia}, {META.fuente.copyright}).
-        No afiliado a Project Moon.
+        {META.conteo.sinPasivas} sin datos de pasivas (posteriores al corte de la fuente que las
+        aporta). Pasivas de{" "}
+        <a href="https://github.com/LCTeamBuilder/LCTeamBuilder.github.io" style={styles.footerLink}>
+          LCTeamBuilder
+        </a>{" "}
+        (MIT, © 2024 SuenoImposible). No afiliado a Project Moon.
       </footer>
     </div>
   );

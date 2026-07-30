@@ -17,9 +17,18 @@ export const EGOS = egosDataset.egos;
 
 export const identityPorId = (id) => IDENTITIES.find((i) => i.id === id) ?? null;
 
-/* Índice por nombre+sinner, para migrar guardados viejos que usaban claves de texto. */
+/*
+  Índice por nombre+sinner, para migrar guardados viejos que usaban claves de
+  texto. La comparación normaliza espacios y mayúsculas: las fuentes escriben el
+  mismo nombre distinto ("LCE E.G.O::Dimension Shredder" vs "LCE E.G.O:: …").
+*/
+const normalizar = (s) => String(s).replace(/\s+/g, " ").replace(/\s*::\s*/g, "::").trim().toLowerCase();
+
 export function identityPorNombre(nombre, sinner) {
-  return IDENTITIES.find((i) => i.nombre === nombre && (!sinner || i.sinner === sinner)) ?? null;
+  const objetivo = normalizar(nombre);
+  return IDENTITIES.find(
+    (i) => normalizar(i.nombre) === objetivo && (!sinner || i.sinner === sinner)
+  ) ?? null;
 }
 
 export function validateIdentities(list = IDENTITIES) {

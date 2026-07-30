@@ -1,22 +1,31 @@
 /*
-  Genera src/data/identities.json y src/data/egos.json a partir del repo
-  LCTeamBuilder (MIT, © 2024 SuenoImposible).
+  Genera src/data/identities.json y src/data/egos.json fusionando DOS fuentes.
 
   Uso:
-    git clone --depth 1 https://github.com/LCTeamBuilder/LCTeamBuilder.github.io.git /tmp/lctb
-    node scripts/build-dataset.mjs --src /tmp/lctb
+    node scripts/build-dataset.mjs --nuevo <dir> [--lctb <clon>]
 
-  Por qué así y no scrapeando la wiki: el JSON queda estático y versionado en el
-  repo, la app no le pega a nada en runtime (sin CORS, sin rate limits, anda
-  offline) y este script se vuelve a correr solo cuando sale contenido nuevo.
+    --nuevo  carpeta con identities.json y egos.json del dump actualizado.
+             Es la fuente PRIMARIA: 184 IDs y 110 E.G.O, con fechas de estreno.
+    --lctb   clon de LCTeamBuilder.github.io (MIT, © 2024 SuenoImposible).
+             Fuente SECUNDARIA, solo para las pasivas: es la única de las dos
+             que trae la separación combate/soporte y el costo en recursos de
+             Sin, que es lo que pide el §3.1 del handoff.
 
-  Los datos de LCTeamBuilder son objetos TypeScript, un archivo por ID. En vez
-  de parsearlos con regex —frágil— se bundlean con esbuild y se evalúan, así que
-  lo que sale es exactamente lo que su app usa.
+  Por qué se fusionan y no se elige una:
+
+  - El dump nuevo gana en cobertura (184 vs 147), trae `skillKeywordList`
+    OFICIAL en vez de keywords derivados del texto, y sus resistencias son
+    correctas. Las de LCTeamBuilder no: 109 de sus 147 IDs comparten el mismo
+    perfil (1, 0.5, 2), o sea un valor por defecto que nunca completaron.
+  - Pero el dump nuevo NO tiene pasivas, y sin ellas se cae la mitad del motor.
+
+  Así que la base es el dump nuevo y las pasivas se injertan desde LCTeamBuilder
+  donde el id coincide. Las 37 IDs nuevas quedan sin pasivas, marcadas con
+  `tienePasivas: false` para que la UI y el motor no las traten como completas.
 */
 
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
+import { mkdtempSync, writeFileSync, readFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -24,270 +33,237 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const args = process.argv.slice(2);
-const src = path.resolve(args[args.indexOf("--src") + 1] ?? "");
-if (args.indexOf("--src") === -1 || !src) {
-  console.error("Falta --src <ruta al clon de LCTeamBuilder.github.io>");
+const arg = (n) => (args.indexOf(n) === -1 ? null : path.resolve(args[args.indexOf(n) + 1] ?? ""));
+const dirNuevo = arg("--nuevo");
+const dirLctb = arg("--lctb");
+
+if (!dirNuevo) {
+  console.error("Falta --nuevo <carpeta con identities.json y egos.json>");
   process.exit(1);
 }
 
-/* --- Mapeos de enums. El orden replica el de los enums de LCTeamBuilder. --- */
+/* --- Mapeos --- */
 
-const SINNER_POR_INDICE = [
-  "Yi Sang", "Faust", "Don Quixote", "Ryōshū", "Meursault", "Hong Lu",
-  "Heathcliff", "Ishmael", "Rodion", "Sinclair", "Outis", "Gregor",
-];
+const SINNER_POR_ID = {
+  1: "Yi Sang", 2: "Faust", 3: "Don Quixote", 4: "Ryōshū", 5: "Meursault", 6: "Hong Lu",
+  7: "Heathcliff", 8: "Ishmael", 9: "Rodion", 10: "Sinclair", 11: "Outis", 12: "Gregor",
+};
 
-// Ojo: este orden NO es el mismo que el de nuestro constants.js.
-// Se respeta el de ellos porque es el que da valor a los enums numéricos.
-const SIN_POR_INDICE = ["Wrath", "Lust", "Sloth", "Gluttony", "Gloom", "Pride", "Envy"];
+/* El dump nuevo usa los Sins en minúscula; internamente van capitalizados. */
+const SIN_CANONICO = {
+  wrath: "Wrath", lust: "Lust", sloth: "Sloth", gluttony: "Gluttony",
+  gloom: "Gloom", pride: "Pride", envy: "Envy",
+};
 
-const TIPO_DANIO_POR_INDICE = ["slash", "pierce", "blunt"];
-const TIPO_SKILL_POR_INDICE = ["attack", "defense"];
-const TIPO_PASIVA_POR_INDICE = ["combat", "support", "ego"];
-const TIPO_COSTO_POR_INDICE = ["owned", "resonance"];
+const SIN_POR_INDICE_LCTB = ["Wrath", "Lust", "Sloth", "Gluttony", "Gloom", "Pride", "Envy"];
+const TIPO_PASIVA = ["combat", "support", "ego"];
+const TIPO_COSTO = ["owned", "resonance"];
 
-/*
-  Arquetipos de equipo: los estados alrededor de los cuales la comunidad arma
-  equipos. Son los que usa el motor para puntuar sinergia.
-  Salen de los tokens más frecuentes del propio dataset, no de memoria.
-*/
-const ARQUETIPOS = ["Bleed", "Burn", "Rupture", "Tremor", "Sinking", "Poise", "Charge", "Bloodfeast"];
+const capSin = (s) => SIN_CANONICO[String(s).toLowerCase()] ?? null;
 
-/*
-  Marcadores de momento/disparo. Aparecen entre corchetes igual que los
-  keywords, pero no describen qué hace la ID sino cuándo. Se excluyen.
-*/
-const ES_MARCADOR_DE_TIMING = (token) =>
-  /^(On |Before |After |Heads |Tails |Clash |Combat |Turn |Round )/.test(token);
+/* --- Fuente primaria --- */
 
-/* --- Extracción --- */
+const leerJson = (p) => JSON.parse(readFileSync(p, "utf8"));
+const nuevoIds = leerJson(path.join(dirNuevo, "identities.json"));
+const nuevoEgos = leerJson(path.join(dirNuevo, "egos.json"));
 
-function bundlearDataset() {
+/* --- Fuente secundaria: pasivas de LCTeamBuilder --- */
+
+function extraerPasivas() {
+  if (!dirLctb || !existsSync(dirLctb)) {
+    console.warn("⚠ Sin --lctb: el dataset sale sin pasivas.");
+    return { porId: new Map(), fecha: null };
+  }
+
   const tmp = mkdtempSync(path.join(tmpdir(), "lctb-"));
   const stub = path.join(tmp, "jquery-stub.mjs");
   const entrada = path.join(tmp, "entrada.ts");
   const salida = path.join(tmp, "dataset.mjs");
 
-  // Los Handlers de su app importan jquery; el dataset no lo necesita.
   writeFileSync(stub, "const $ = new Proxy(function(){}, { get: () => $, apply: () => $ });\nexport default $;\n");
 
-  /*
-    LobotomyCorpRemnantFaust existe como archivo válido pero nunca fue agregada
-    a Equipables.ts en el repo de origen, así que su propia app no la muestra.
-    Se importa aparte para no perderla: son 147 IDs, no 146.
-  */
-  writeFileSync(
-    entrada,
-    [
-      `export { Identities, Egos } from ${JSON.stringify(path.join(src, "src/Constants/Equipables"))};`,
-      `export { LobotomyCorpRemnantFaust } from ${JSON.stringify(path.join(src, "src/Constants/Sinners/Faust/Identities/LobotomyCorpRemnantFaust"))};`,
-    ].join("\n")
-  );
+  // LobotomyCorpRemnantFaust existe como archivo pero nunca se agregó al índice
+  // de su propio repo, así que se importa aparte.
+  writeFileSync(entrada, [
+    `export { Identities } from ${JSON.stringify(path.join(dirLctb, "src/Constants/Equipables"))};`,
+    `export { LobotomyCorpRemnantFaust } from ${JSON.stringify(path.join(dirLctb, "src/Constants/Sinners/Faust/Identities/LobotomyCorpRemnantFaust"))};`,
+  ].join("\n"));
 
-  const esbuild = path.join(RAIZ, "node_modules/esbuild/bin/esbuild");
-  execFileSync(esbuild, [
+  execFileSync(path.join(RAIZ, "node_modules/esbuild/bin/esbuild"), [
     entrada, "--bundle", "--format=esm", "--platform=node",
     `--alias:jquery=${stub}`, `--outfile=${salida}`, "--log-level=error",
   ]);
 
-  return { salida, limpiar: () => rmSync(tmp, { recursive: true, force: true }) };
+  return { salida, tmp };
 }
 
-/* --- Transformación --- */
+const convertirPasiva = (p) => ({
+  nombre: p.Name,
+  descripcion: p.Description,
+  costo: (p.Cost ?? []).map((c) => ({ sin: SIN_POR_INDICE_LCTB[c.sin] ?? null, cantidad: c.amount })),
+  tipoCosto: p.CostType === undefined ? null : TIPO_COSTO[p.CostType],
+});
 
-const textoDeSkill = (skill) => (skill.SkillDescription ?? []).map((p) => p.Text).join(" ");
+const ref = extraerPasivas();
+const pasivasPorId = new Map();
+let fechaLctb = null;
 
-function tokensDe(texto) {
-  return [...texto.matchAll(/\[([^\]]+)\]/g)].map((m) => m[1]);
+if (ref.salida) {
+  const mod = await import(pathToFileURL(ref.salida).href);
+  [...mod.Identities, mod.LobotomyCorpRemnantFaust].forEach((i) => {
+    const ps = i.Passives.map((p) => ({ ...convertirPasiva(p), _tipo: TIPO_PASIVA[p.Type] }));
+    pasivasPorId.set(i.Id, {
+      combate: ps.filter((p) => p._tipo === "combat").map(({ _tipo, ...r }) => r),
+      soporte: ps.filter((p) => p._tipo === "support").map(({ _tipo, ...r }) => r),
+    });
+  });
+  try {
+    fechaLctb = execFileSync("git", ["-C", dirLctb, "log", "-1", "--format=%ad", "--date=short"]).toString().trim();
+  } catch { /* el clon puede no tener .git */ }
+  rmSync(ref.tmp, { recursive: true, force: true });
 }
 
-/*
-  Algunas IDs tienen skills que infligen "1 de los siguientes efectos" al azar y
-  nombran cinco estados. Derivar keywords del texto crudo las etiqueta con los
-  cinco, que es falso: son IDs de un solo arquetipo.
+/* --- Conversión de Identities --- */
 
-  El propio juego lo aclara en una pasiva ("only counts as an 'Identity that
-  inflicts [X]'"), así que se usa esa frase para fijar el arquetipo real en vez
-  de adivinar. Hoy afecta a 2 de 147 IDs (las dos Ring Pointillist Student).
-*/
-function arquetipoForzadoPorPasiva(identity) {
-  for (const p of identity.Passives) {
-    const m = /only counts as an .Identity that inflicts \[([^\]]+)\]/i.exec(p.Description ?? "");
-    if (m) return m[1];
-  }
-  return null;
-}
-
-function derivarKeywords(identity) {
-  const textos = [
-    ...identity.Skills.map(textoDeSkill),
-    ...identity.Passives.map((p) => p.Description ?? ""),
-  ];
-  const encontrados = new Set();
-  textos.forEach((t) => tokensDe(t).forEach((tok) => {
-    if (!ES_MARCADOR_DE_TIMING(tok)) encontrados.add(tok);
+function convertirIdentity(id, raw) {
+  /*
+    `num` son las copias de cada skill en el mazo y suman 6 en todas las IDs.
+    Ponderar por copias estima mejor la generación de recursos que contar
+    skills sueltas, que es lo que hacía la versión anterior.
+  */
+  const skills = (raw.skillTypes ?? []).map((s) => ({
+    id: s.id,
+    sin: capSin(s.type?.affinity),
+    tier: s.type?.tier ?? null,
+    tipoDanio: s.type?.type ?? null,
+    copias: s.num ?? 1,
   }));
-  return [...encontrados].sort();
-}
 
-function convertirSkill(skill) {
-  return {
-    nombre: skill.Name,
-    tipo: TIPO_SKILL_POR_INDICE[skill.SkillType] ?? null,
-    tier: (skill.SkillTier ?? 0) + 1,
-    sin: SIN_POR_INDICE[skill.Affinity] ?? null,
-    tipoDanio: skill.DamageType === undefined ? null : TIPO_DANIO_POR_INDICE[skill.DamageType],
-    poderBase: skill.BaseValue,
-    monedas: skill.Coins,
-    valorMoneda: skill.CoinValue,
-    pesoAtaque: skill.AttackWeight,
-    descripcion: (skill.SkillDescription ?? []).map((p) => ({ moneda: p.Coin, texto: p.Text })),
-  };
-}
+  const skillsDefensa = (raw.defenseSkillTypes ?? []).map((s) => ({
+    id: s.id,
+    sin: capSin(s.type?.affinity),
+    tipo: s.type?.type ?? null,
+  }));
 
-const convertirCosto = (cost) =>
-  (cost ?? []).map((c) => ({ sin: SIN_POR_INDICE[c.sin] ?? null, cantidad: c.amount }));
-
-function convertirPasiva(p) {
-  return {
-    nombre: p.Name,
-    descripcion: p.Description,
-    costo: convertirCosto(p.Cost),
-    tipoCosto: p.CostType === undefined ? null : TIPO_COSTO_POR_INDICE[p.CostType],
-  };
-}
-
-function convertirIdentity(identity) {
-  const skills = identity.Skills.map(convertirSkill);
-
-  // Afinidad por skill: es el dato que permite chequear recursos de Sin de
-  // verdad. El prototipo guardaba una sola "afinidad dominante" y perdía esto.
   const afinidades = {};
   skills.forEach((s) => {
-    if (s.sin) afinidades[s.sin] = (afinidades[s.sin] || 0) + 1;
+    if (s.sin) afinidades[s.sin] = (afinidades[s.sin] || 0) + s.copias;
   });
   const dominante =
     Object.entries(afinidades).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] ?? null;
 
-  const pasivas = identity.Passives.map((p) => ({ ...convertirPasiva(p), _tipo: TIPO_PASIVA_POR_INDICE[p.Type] }));
-  const keywords = derivarKeywords(identity);
+  // La velocidad viene por uptie; se usa el último, que es el nivel jugable.
+  const vel = (raw.speedList ?? []).at(-1) ?? [null, null];
 
-  const forzado = arquetipoForzadoPorPasiva(identity);
-  const arquetipos = forzado
-    ? ARQUETIPOS.filter((a) => a === forzado)
-    : ARQUETIPOS.filter((a) => keywords.includes(a));
+  const pasivas = pasivasPorId.get(id) ?? null;
 
   return {
-    id: identity.Id,
-    nombre: identity.Name,
-    sinner: SINNER_POR_INDICE[identity.Sinner] ?? null,
-    rareza: identity.Rarity,
-    saludBase: identity.BaseHealth,
-    saludPorNivel: identity.HealthPerLevel,
-    velocidad: { min: identity.SpeedMin, max: identity.SpeedMax },
-    nivelDefensa: identity.DefenseLevel,
-    /*
-      Multiplicador de daño recibido, tal como viene del juego:
-      0.5 resiste, 1 normal, 2 fatal. MÁS BAJO ES MEJOR.
-      Se guarda el número y no una etiqueta para poder promediar y comparar.
-    */
+    id,
+    nombre: raw.name,
+    sinner: SINNER_POR_ID[raw.sinnerId] ?? null,
+    rareza: raw.rank ?? null,
+    fecha: raw.date ?? null,
+    temporada: raw.season ?? null,
+    saludBase: raw.hp?.base ?? null,
+    saludPorNivel: raw.hp?.level ?? null,
+    velocidad: { min: vel[0], max: vel[1] },
+    nivelDefensa: raw.defCorrection ?? null,
+    umbralesQuiebre: raw.breakSection ?? [],
+    /* Multiplicador de daño recibido: 0.5 resiste, 1 normal, 2 fatal. Más bajo, mejor. */
     resistencias: {
-      slash: identity.SlashResist,
-      pierce: identity.PierceResist,
-      blunt: identity.BluntResist,
+      slash: raw.resists?.slash ?? 1,
+      pierce: raw.resists?.pierce ?? 1,
+      blunt: raw.resists?.blunt ?? 1,
     },
     skills,
+    skillsDefensa,
     afinidades,
     afinidadDominante: dominante,
-    pasivas: {
-      combate: pasivas.filter((p) => p._tipo === "combat").map(({ _tipo, ...r }) => r),
-      soporte: pasivas.filter((p) => p._tipo === "support").map(({ _tipo, ...r }) => r),
-    },
-    keywords,
-    arquetipos,
-    imagenes: { completa: identity.FullImageDir, retrato: identity.PortraitImageDir },
+    /* Keywords OFICIALES del dump, no derivados del texto. */
+    arquetipos: raw.skillKeywordList ?? [],
+    etiquetas: raw.tags ?? [],
+    estados: raw.statuses ?? [],
+    pasivas: pasivas ?? { combate: [], soporte: [] },
+    tienePasivas: !!pasivas,
   };
 }
 
-function convertirEgo(ego) {
-  const pasiva = ego.Passive ? convertirPasiva(ego.Passive) : null;
-  const textos = [
-    ego.AwakeningSkill ? textoDeSkill(ego.AwakeningSkill) : "",
-    ego.CorrosionSkill ? textoDeSkill(ego.CorrosionSkill) : "",
-    pasiva?.descripcion ?? "",
-  ];
-  const keywords = [...new Set(textos.flatMap(tokensDe).filter((t) => !ES_MARCADOR_DE_TIMING(t)))].sort();
+/* --- Conversión de E.G.O --- */
 
+const convertirCostoSin = (obj) =>
+  Object.entries(obj ?? {})
+    .map(([sin, cantidad]) => ({ sin: capSin(sin), cantidad }))
+    .filter((c) => c.sin)
+    .sort((a, b) => b.cantidad - a.cantidad);
+
+function convertirEgo(id, raw) {
   return {
-    id: ego.Id,
-    nombre: ego.Name,
-    sinner: SINNER_POR_INDICE[ego.Sinner] ?? null,
-    nivelRiesgo: ego.RiskLevel,
-    costo: convertirCosto(ego.Cost),
-    resistenciasSin: (ego.Resistances ?? []).map((r) => ({
-      sin: SIN_POR_INDICE[r.sin] ?? null,
-      resistencia: r.resistance,
-    })),
-    skillDespertar: ego.AwakeningSkill ? convertirSkill(ego.AwakeningSkill) : null,
-    costoCorduraDespertar: ego.AwakeningSanityCost ?? null,
-    skillCorrosion: ego.CorrosionSkill ? convertirSkill(ego.CorrosionSkill) : null,
-    costoCorduraCorrosion: ego.CorrosionSanityCost ?? null,
-    pasiva,
-    keywords,
-    arquetipos: ARQUETIPOS.filter((a) => keywords.includes(a)),
-    imagenes: { completa: ego.FullImageDir },
+    id,
+    nombre: raw.name,
+    sinner: SINNER_POR_ID[raw.sinnerId] ?? null,
+    rango: raw.rank ?? null,
+    fecha: raw.date ?? null,
+    temporada: raw.season ?? null,
+    extraible: !!raw.extractable,
+    costo: convertirCostoSin(raw.cost),
+    /* Resistencias por Sin, no por tipo de daño: los E.G.O usan otra escala. */
+    resistenciasSin: Object.entries(raw.resists ?? {})
+      .map(([sin, valor]) => ({ sin: capSin(sin), valor }))
+      .filter((r) => r.sin),
+    despertar: raw.awakeningType
+      ? { sin: capSin(raw.awakeningType.affinity), tipoDanio: raw.awakeningType.type }
+      : null,
+    corrosion: raw.corrosionType
+      ? { sin: capSin(raw.corrosionType.affinity), tipoDanio: raw.corrosionType.type }
+      : null,
+    estados: raw.statuses ?? [],
   };
 }
 
-/* --- Main --- */
+/* --- Generación --- */
 
-const { salida, limpiar } = bundlearDataset();
-const mod = await import(pathToFileURL(salida).href);
+const identities = Object.entries(nuevoIds)
+  .map(([k, v]) => convertirIdentity(Number(k), v))
+  .sort((a, b) => a.id - b.id);
 
-const identidadesCrudas = [...mod.Identities, mod.LobotomyCorpRemnantFaust];
-const identities = identidadesCrudas.map(convertirIdentity).sort((a, b) => a.id - b.id);
-const egos = mod.Egos.map(convertirEgo).sort((a, b) => a.id - b.id);
+const egos = Object.entries(nuevoEgos)
+  .map(([k, v]) => convertirEgo(Number(k), v))
+  .sort((a, b) => a.id - b.id);
 
-let fechaFuente = "desconocida";
-try {
-  fechaFuente = execFileSync("git", ["-C", src, "log", "-1", "--format=%ad", "--date=short"]).toString().trim();
-} catch {
-  /* el clon puede no tener .git */
-}
+const fechas = identities.map((i) => i.fecha).filter(Boolean).sort();
+const conPasivas = identities.filter((i) => i.tienePasivas).length;
 
 const meta = {
   generadoEn: new Date().toISOString().slice(0, 10),
-  fuente: {
-    nombre: "LCTeamBuilder",
-    repo: "https://github.com/LCTeamBuilder/LCTeamBuilder.github.io",
-    licencia: "MIT",
-    copyright: "© 2024 SuenoImposible",
-    ultimoCommit: fechaFuente,
-  },
-  advertencia:
-    "Dataset congelado a la fecha de ultimoCommit. Las Identities publicadas después no están.",
-  conteo: { identities: identities.length, egos: egos.length },
+  ultimaIdentity: fechas.at(-1) ?? null,
+  fuentes: [
+    { nombre: "Dump actualizado", rol: "base: stats, resistencias, skills, keywords oficiales", identities: identities.length, egos: egos.length },
+    { nombre: "LCTeamBuilder", rol: "solo pasivas (combate/soporte y costo de Sin)", repo: "https://github.com/LCTeamBuilder/LCTeamBuilder.github.io", licencia: "MIT", copyright: "© 2024 SuenoImposible", ultimoCommit: fechaLctb },
+  ],
+  advertencia: `${identities.length - conPasivas} Identities no tienen datos de pasivas: son posteriores al corte de LCTeamBuilder.`,
+  conteo: { identities: identities.length, egos: egos.length, conPasivas, sinPasivas: identities.length - conPasivas },
 };
 
 mkdirSync(path.join(RAIZ, "src/data"), { recursive: true });
 writeFileSync(path.join(RAIZ, "src/data/identities.json"), JSON.stringify({ meta, identities }, null, 1));
 writeFileSync(path.join(RAIZ, "src/data/egos.json"), JSON.stringify({ meta, egos }, null, 1));
-limpiar();
 
-/* --- Resumen y chequeos de sanidad --- */
+/* --- Resumen y chequeos --- */
+
+console.log(`Identities: ${identities.length}   E.G.O: ${egos.length}`);
+console.log(`Última Identity: ${meta.ultimaIdentity}`);
+console.log(`Con pasivas: ${conPasivas}   sin pasivas: ${identities.length - conPasivas}`);
 
 const sinSinner = identities.filter((i) => !i.sinner);
 const sinSkills = identities.filter((i) => i.skills.length === 0);
-const sinSoporte = identities.filter((i) => i.pasivas.soporte.length === 0);
-const conArquetipo = identities.filter((i) => i.arquetipos.length > 0);
+const sinArquetipo = identities.filter((i) => i.arquetipos.length === 0);
+const copiasMal = identities.filter((i) => i.skills.reduce((a, s) => a + s.copias, 0) !== 6);
 
-console.log(`Identities: ${identities.length}   E.G.O: ${egos.length}`);
-console.log(`Fuente: LCTeamBuilder @ ${fechaFuente} (MIT)`);
-console.log(`Con al menos un arquetipo: ${conArquetipo.length}/${identities.length}`);
-console.log(`Sin pasiva de soporte: ${sinSoporte.length}`);
 if (sinSinner.length) console.warn(`⚠ ${sinSinner.length} sin Sinner mapeado`);
 if (sinSkills.length) console.warn(`⚠ ${sinSkills.length} sin skills`);
+if (copiasMal.length) console.warn(`⚠ ${copiasMal.length} cuyas copias de skill no suman 6`);
+console.log(`Sin arquetipo (esperable en tanques/soporte): ${sinArquetipo.length}`);
 
 const porArquetipo = {};
-ARQUETIPOS.forEach((a) => (porArquetipo[a] = identities.filter((i) => i.arquetipos.includes(a)).length));
+identities.forEach((i) => i.arquetipos.forEach((a) => (porArquetipo[a] = (porArquetipo[a] || 0) + 1)));
 console.log("IDs por arquetipo:", porArquetipo);

@@ -3,7 +3,7 @@
   scripts/smoke-test.mjs, porque estos módulos importan JSON como hace Vite.
 */
 import { IDENTITIES, EGOS, META, validateIdentities, identityPorNombre } from "../src/data/identities.js";
-import { SINS, SINNERS, esPuntoBlando } from "../src/data/constants.js";
+import { SINS, SINNERS, ARQUETIPOS, esPuntoBlando } from "../src/data/constants.js";
 import {
   recursosDeSin, estadoPasivas, perfilResistencias, perfilArquetipos,
   sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo,
@@ -23,28 +23,47 @@ const porId = (id) => IDENTITIES.find((i) => i.id === id);
 
 const problemas = validateIdentities();
 check("el dataset no tiene problemas de integridad", problemas.length === 0, problemas.slice(0, 3).join("; "));
-check("hay 147 Identities y 96 E.G.O", IDENTITIES.length === 147 && EGOS.length === 96, `${IDENTITIES.length}/${EGOS.length}`);
+check("hay 184 Identities y 110 E.G.O", IDENTITIES.length === 184 && EGOS.length === 110, `${IDENTITIES.length}/${EGOS.length}`);
 check("todas tienen Sinner de la lista de 12", IDENTITIES.every((i) => SINNERS.includes(i.sinner)));
 check("todas tienen al menos una skill", IDENTITIES.every((i) => i.skills.length > 0));
-check("todas tienen pasiva de soporte", IDENTITIES.every((i) => i.pasivas.soporte.length > 0));
 check("los ids son únicos", new Set(IDENTITIES.map((i) => i.id)).size === IDENTITIES.length);
-check("el meta declara la fuente y su fecha", !!META.fuente.repo && !!META.fuente.ultimoCommit);
+check("el meta declara las dos fuentes y su rol", META.fuentes.length === 2 && META.fuentes.every((f) => !!f.rol));
+check("el meta declara la fecha de la Identity más nueva", META.ultimaIdentity === "2026-07-23");
 
-// Verificación puntual contra el archivo fuente de LCTeamBuilder que se leyó a mano.
+/* Las copias de skill son 3+2+1 en todas las IDs: sirve de checksum del dump. */
+check("las copias de skill suman 6 en todas",
+  IDENTITIES.every((i) => i.skills.reduce((a, s) => a + s.copias, 0) === 6));
+
+/* Cobertura de pasivas: solo las anteriores al corte de LCTeamBuilder las tienen. */
+const conPasivas = IDENTITIES.filter((i) => i.tienePasivas);
+check("147 con pasivas y 37 sin", conPasivas.length === 147 && IDENTITIES.length - conPasivas.length === 37);
+check("las que declaran tener pasivas, las tienen de verdad",
+  conPasivas.every((i) => i.pasivas.soporte.length > 0));
+check("las que no, quedan con listas vacías y no rompen",
+  IDENTITIES.filter((i) => !i.tienePasivas).every((i) => i.pasivas.combate.length === 0 && i.pasivas.soporte.length === 0));
+
 const ring = porId(10109);
-check("Ring Yi Sang: resistencias correctas", ring.resistencias.slash === 1 && ring.resistencias.pierce === 0.5 && ring.resistencias.blunt === 2);
-check("Ring Yi Sang: 4 skills con su afinidad", ring.skills.length === 4 && ring.afinidades.Lust === 2 && ring.afinidades.Gloom === 1 && ring.afinidades.Sloth === 1);
-check("Ring Yi Sang: pasivas separadas combate/soporte", ring.pasivas.combate.length === 2 && ring.pasivas.soporte.length === 1);
-check("Ring Yi Sang: la pasiva de soporte tiene costo de Sin", ring.pasivas.soporte[0].costo[0]?.sin === "Lust" && ring.pasivas.soporte[0].costo[0]?.cantidad === 4);
+check("Ring Yi Sang: resistencias del dump nuevo", ring.resistencias.slash === 1 && ring.resistencias.pierce === 0.5 && ring.resistencias.blunt === 2);
+check("Ring Yi Sang: afinidades ponderadas por copias", ring.afinidades.Gloom === 3 && ring.afinidades.Lust === 2 && ring.afinidades.Sloth === 1, JSON.stringify(ring.afinidades));
+check("Ring Yi Sang: la dominante sale de las copias, no del conteo de skills", ring.afinidadDominante === "Gloom");
+check("Ring Yi Sang: pasivas injertadas desde LCTeamBuilder", ring.pasivas.combate.length === 2 && ring.pasivas.soporte.length === 1);
+check("Ring Yi Sang: la pasiva de soporte conserva su costo de Sin", ring.pasivas.soporte[0].costo[0]?.sin === "Lust" && ring.pasivas.soporte[0].costo[0]?.cantidad === 4);
+check("Ring Yi Sang: arquetipo oficial Bleed", ring.arquetipos.join(",") === "Bleed");
 
-/* El bug de derivación: sus skills nombran 5 estados al azar, pero es solo Bleed. */
-check("Ring Yi Sang: arquetipo único Bleed pese a nombrar 5 estados",
-  ring.arquetipos.length === 1 && ring.arquetipos[0] === "Bleed", ring.arquetipos.join(","));
-check("ninguna ID tiene más de 3 arquetipos", IDENTITIES.every((i) => i.arquetipos.length <= 3),
-  IDENTITIES.filter((i) => i.arquetipos.length > 3).map((i) => i.nombre).join(", "));
+/* Las 3 IDs semilla del prototipo que faltaban por desfasaje ahora están. */
+check("está Heishou Pack - Wu Branch Adept (2025-08-28)", !!identityPorNombre("Heishou Pack - Wu Branch Adept", "Yi Sang"));
+check("está Shi Assoc. East Section 3 (2025-10-09)", !!identityPorNombre("Shi Assoc. East Section 3", "Faust"));
+check("está Dimension Shredder, pese a los espacios en el nombre", !!identityPorNombre("LCE E.G.O::Dimension Shredder", "Yi Sang"));
 
-/* La ID que el repo de origen dejó fuera de su propio índice. */
-check("incluye LobotomyCorpRemnantFaust, que su repo no exporta", !!identityPorNombre("Lobotomy Corp. Remnant", "Faust"));
+const nueva = porId(10116);
+check("una ID posterior al corte queda marcada sin pasivas", nueva && !nueva.tienePasivas && nueva.fecha === "2026-07-23");
+
+check("los arquetipos son solo los 7 oficiales",
+  IDENTITIES.every((i) => i.arquetipos.every((a) => ARQUETIPOS.includes(a))),
+  [...new Set(IDENTITIES.flatMap((i) => i.arquetipos).filter((a) => !ARQUETIPOS.includes(a)))].join(","));
+
+check("los E.G.O traen costo de Sin", EGOS.filter((e) => e.costo.length > 0).length >= 100);
+check("los E.G.O traen resistencias por Sin", EGOS.every((e) => e.resistenciasSin.length === 7 || e.resistenciasSin.length === 0));
 
 /* --- Migración del guardado --- */
 
@@ -67,7 +86,7 @@ check("con el cupo lleno, una ID de otro Sinner queda bloqueada",
 
 const equipoRing = [ring];
 const recursos = recursosDeSin(equipoRing);
-check("los recursos de Sin cuentan skills, no IDs", recursos.Lust === 2 && recursos.Gloom === 1, JSON.stringify(recursos));
+check("los recursos de Sin ponderan por copias de skill", recursos.Gloom === 3 && recursos.Lust === 2, JSON.stringify(recursos));
 check("suma los recursos de todo el equipo",
   recursosDeSin([ring, porId(10101)]).Lust >= recursos.Lust);
 

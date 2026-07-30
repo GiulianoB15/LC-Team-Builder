@@ -30,8 +30,13 @@ export const DAMAGE_LABEL = {
   blunt: "Contundente",
 };
 
+/*
+  Los 7 arquetipos oficiales, tal como los declara `skillKeywordList` en el
+  dataset. Antes se derivaban del texto de las skills y esa lista incluía
+  "Bloodfeast", que el juego no expone como keyword de arquetipo.
+*/
 export const ARQUETIPOS = [
-  "Bleed", "Burn", "Rupture", "Tremor", "Sinking", "Poise", "Charge", "Bloodfeast",
+  "Bleed", "Burn", "Rupture", "Tremor", "Sinking", "Poise", "Charge",
 ];
 
 /*

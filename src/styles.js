@@ -26,6 +26,7 @@ export const styles = {
   orderItemBanca: { opacity: 0.62, borderStyle: "dashed" },
   bancaTag: { fontFamily: "system-ui, sans-serif", fontSize: 10.5, textTransform: "uppercase", letterSpacing: 1, color: "#8a847e", border: "1px solid #3a3840", borderRadius: 10, padding: "1px 7px", marginLeft: 8 },
   footerLink: { color: "#8a847e" },
+  sinDatos: { fontFamily: "system-ui, sans-serif", fontSize: 10, textTransform: "uppercase", letterSpacing: 0.8, color: "#a8823c", border: "1px solid #6b5220", borderRadius: 10, padding: "1px 6px", marginLeft: 8, verticalAlign: "middle" },
   sinnerVacio: { fontFamily: "system-ui, sans-serif", fontSize: 12.5, color: "#5c5852", fontStyle: "italic", padding: "4px 0 2px" },
   idGrid: { display: "grid", gridTemplateColumns: "1fr", gap: 8 },
   idCard: { display: "flex", gap: 10, alignItems: "flex-start", background: "#17161a", border: "1px solid #2a2830", borderRadius: 6, padding: "10px 12px", cursor: "pointer" },

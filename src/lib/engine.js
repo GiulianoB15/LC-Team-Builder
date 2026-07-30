@@ -35,7 +35,9 @@ export function recursosDeSin(team) {
   SINS.forEach((s) => (out[s] = 0));
   team.forEach((id) => {
     id.skills.forEach((s) => {
-      if (s.sin && s.sin in out) out[s.sin] += 1;
+      // Ponderado por copias en el mazo (3+2+1 = 6 por ID). Contar skills
+      // sueltas subestimaba al Sin de la skill más repetida.
+      if (s.sin && s.sin in out) out[s.sin] += s.copias ?? 1;
     });
   });
   return out;
@@ -157,7 +159,7 @@ export function sugerirOrden(team) {
   const aporte = (id) => {
     let total = 0;
     id.skills.forEach((s) => {
-      if (s.sin && demanda[s.sin]) total += 1;
+      if (s.sin && demanda[s.sin]) total += s.copias ?? 1;
     });
     return total;
   };
@@ -169,8 +171,8 @@ export function sugerirOrden(team) {
       const sinsQueAporta = [...new Set(id.skills.map((s) => s.sin).filter((s) => s && demanda[s]))];
       const motivo = n === 0
         ? "No aporta recursos de los Sins que piden las pasivas del equipo."
-        : `Aporta ${n} skill${n === 1 ? "" : "s"} de ${sinsQueAporta.map((s) => SIN_LABEL[s]).join(", ")}, que las pasivas del equipo necesitan.`;
-      return { id, motivo, aporte: n, banca: idx >= 6 };
+        : `Aporta ${n} copia${n === 1 ? "" : "s"} de skill de ${sinsQueAporta.map((s) => SIN_LABEL[s]).join(", ")}, que las pasivas del equipo necesitan.`;
+      return { id, motivo, aporte: n, banca: idx >= 6, sinDatos: !id.tienePasivas };
     });
 }
 

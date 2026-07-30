@@ -41,37 +41,44 @@ scripts/
 
 ## El dataset
 
-**Fuente:** [LCTeamBuilder](https://github.com/LCTeamBuilder/LCTeamBuilder.github.io),
-licencia MIT, © 2024 SuenoImposible. Se eligió por ser la única fuente evaluada que
-es a la vez completa, licenciada de forma permisiva y accesible sin backend.
+**184 Identities y 110 E.G.O**, la más nueva del 2026-07-23. Sale de fusionar dos
+fuentes, porque ninguna de las dos alcanza sola:
+
+| Fuente | Rol | Aporta |
+|---|---|---|
+| Dump actualizado | **base** | 184 IDs, stats, resistencias, skills con afinidad y copias, keywords oficiales, fechas de estreno |
+| [LCTeamBuilder](https://github.com/LCTeamBuilder/LCTeamBuilder.github.io) (MIT, © 2024 SuenoImposible) | **solo pasivas** | separación combate/soporte y costo en recursos de Sin |
 
 Para regenerar:
 
 ```bash
 git clone --depth 1 https://github.com/LCTeamBuilder/LCTeamBuilder.github.io.git /tmp/lctb
-node scripts/build-dataset.mjs --src /tmp/lctb
+node scripts/build-dataset.mjs --nuevo <dir con identities.json y egos.json> --lctb /tmp/lctb
 ```
 
-Sus datos son objetos TypeScript, un archivo por ID. El conversor los bundlea con
-esbuild y los evalúa en vez de parsearlos con regex, así que lo que sale es
-exactamente lo que su app usa.
+### Por qué se fusionan y no se elige una
+
+- **El dump nuevo gana en casi todo**: 184 IDs contra 147, trae `skillKeywordList`
+  oficial en vez de keywords derivados del texto, y sus resistencias son correctas.
+- **Las resistencias de LCTeamBuilder no sirven**: 109 de sus 147 IDs comparten el
+  mismo perfil (`1, 0.5, 2`). Los seis perfiles posibles son las permutaciones de
+  {0.5, 1, 2}, y el reparto del dump nuevo es plausible (43/37/34/32/19/19), así que
+  ese 74% idéntico es un valor por defecto que nunca completaron.
+- **Pero el dump nuevo no tiene pasivas**, y sin ellas se cae la mitad del motor.
 
 ### Limitaciones conocidas, verificadas
 
-- **Congelado al 2025-08-06.** Ese es el último commit del repo de origen. Tiene 147
-  Identities; el roster actual ronda las 185, así que **faltan unas 38**. La app
-  muestra la fecha en el pie para que se note. Los ids son contiguos y sin huecos,
-  o sea que el dataset está completo *hasta* su fecha de corte.
-- **Los keywords venían vacíos.** `KeywordEnum` es un enum vacío en el repo de origen
-  y las 147 IDs tienen `Keywords: []`. Los arquetipos de este proyecto se **derivan**
-  del texto de skills y pasivas, que sí está completo.
-- **Una ID quedó fuera de su propio índice.** `LobotomyCorpRemnantFaust` existe como
-  archivo válido pero nunca se agregó a `Equipables.ts`, así que su propia app no la
-  muestra. El conversor la importa aparte: son 147, no 146.
+- **37 Identities no tienen datos de pasivas**: son posteriores al corte de
+  LCTeamBuilder (2025-08-06). Quedan marcadas con `tienePasivas: false` y la UI las
+  muestra con una etiqueta "sin pasivas", para que no parezcan analizadas igual que
+  el resto.
+- **Una ID quedó fuera del índice de LCTeamBuilder.** `LobotomyCorpRemnantFaust`
+  existe como archivo válido pero nunca se agregó a `Equipables.ts`, así que su propia
+  app no la muestra. El conversor la importa aparte.
 
 ### Regla del dataset
 
-**No se completan datos de memoria.** Todo sale de la fuente. Si algo está mal, se
+**No se completan datos de memoria.** Todo sale de las fuentes. Si algo está mal, se
 corrige el conversor y se regenera — nunca se edita el JSON a mano.
 
 ## Qué hace el motor, y con qué datos
@@ -80,7 +87,7 @@ Todo lo que puntúa sale de datos verificables del juego:
 
 | Señal | De dónde sale |
 |---|---|
-| Recursos de Sin del equipo | afinidad de cada skill |
+| Recursos de Sin del equipo | afinidad de cada skill, ponderada por copias en el mazo (3+2+1) |
 | Qué pasivas se activan | `costo: [{sin, cantidad}]` de cada pasiva |
 | Pasivas de combate vs. soporte | `PassiveType` del dataset (las de soporte rinden desde la banca) |
 | Puntos blandos del equipo | multiplicadores de resistencia (0.5 resiste, 1 normal, 2 fatal) |
@@ -121,9 +128,9 @@ Todo esto está cubierto por `scripts/tests.js`.
 
 ## Pendiente
 
-- **Completar las ~38 Identities faltantes.** Alternativa evaluada:
-  `limbus-assets.eldritchtools.com/data/identities.json` es más reciente (abril 2026)
-  pero no tiene licencia declarada.
+- **Pasivas de las 37 Identities nuevas.** Es el único hueco de datos que queda.
+  Hace falta una fuente que publique pasivas con su tipo (combate/soporte) y su costo
+  en recursos de Sin, posterior a agosto 2025.
 - **Capa de recetas / arquetipos curados** (§3.2 del handoff): combos conocidos de la
   comunidad, con fuente y fecha. Es lo que convertiría el orden de heurística en
   recomendación. El meta cambia por temporada, así que cada receta necesita su
@@ -131,3 +138,15 @@ Todo esto está cubierto por `scripts/tests.js`.
 - **Usar los E.G.O.** Ya están en `egos.json` con costo de Sin y resistencias, pero el
   motor todavía no los considera.
 - **Importar/exportar la colección**, para no tildar 147 IDs a mano y poder compartirla.
+
+**Al fusionar el dump actualizado (184 IDs):**
+
+9. Las resistencias de LCTeamBuilder eran un valor por defecto en el 74% de las IDs
+   (109 de 147 con el mismo perfil). El motor venía puntuando resistencias sobre dato
+   malo. Ahora salen del dump nuevo.
+10. Los arquetipos derivados del texto acertaban 134 de 147 contra los keywords
+    oficiales (91%). Se reemplazaron por `skillKeywordList`, que es el dato real.
+11. Los recursos de Sin contaban skills sueltas. Ahora ponderan por copias en el mazo,
+    que es lo que determina cuántos recursos genera de verdad una ID.
+12. Las fuentes escriben el mismo nombre distinto (`LCE E.G.O::Dimension Shredder` vs
+    `LCE E.G.O:: Dimension Shredder`). La migración del guardado normaliza espacios.

@@ -15,6 +15,9 @@ export default function IdCard({ id, checked, onChange, estiloActivo, mostrarSin
         <div style={styles.idName}>
           {id.nombre}
           <span style={styles.rareza}>{"★".repeat(id.rareza)}</span>
+          {/* Las IDs posteriores al corte de LCTeamBuilder no tienen pasivas.
+              Se avisa para que no parezcan analizadas igual que el resto. */}
+          {!id.tienePasivas && <span style={styles.sinDatos} title="Sin datos de pasivas">sin pasivas</span>}
         </div>
         <div style={styles.idTags}>{detalle.join(" · ")}</div>
       </div>
