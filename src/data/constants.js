@@ -1,15 +1,11 @@
 /*
   Constantes del dominio.
 
-  Decisión de diseño (arreglo del bug de afinidades):
-  el dataset original mezclaba idiomas —"Pride" en una ID y "Orgullo" en otra
-  para el MISMO Sin—, así que el conteo de afinidades los contaba por separado
-  y los umbrales daban mal. Acá las claves internas son SIEMPRE en inglés
-  (que es como las nombra la comunidad y como vienen en cualquier dataset que
-  importemos), y la traducción al español vive solo en la capa de UI.
+  Las claves internas son SIEMPRE en inglés —así vienen del dataset y así las
+  nombra la comunidad—; la traducción al español vive solo en la capa de UI.
 */
 
-export const SINS = ["Wrath", "Lust", "Sloth", "Gluttony", "Gloom", "Envy", "Pride"];
+export const SINS = ["Wrath", "Lust", "Sloth", "Gluttony", "Gloom", "Pride", "Envy"];
 
 export const SIN_LABEL = {
   Wrath: "Ira",
@@ -17,27 +13,13 @@ export const SIN_LABEL = {
   Sloth: "Pereza",
   Gluttony: "Gula",
   Gloom: "Abatimiento",
-  Envy: "Envidia",
   Pride: "Orgullo",
+  Envy: "Envidia",
 };
 
-/*
-  Los 12 Sinners, fijos. Antes esta lista se derivaba del dataset, así que la
-  pestaña Colección mostraba solo los Sinners que tenían datos cargados (2 de 12).
-*/
 export const SINNERS = [
-  "Yi Sang",
-  "Faust",
-  "Don Quixote",
-  "Ryōshū",
-  "Meursault",
-  "Hong Lu",
-  "Heathcliff",
-  "Ishmael",
-  "Rodion",
-  "Sinclair",
-  "Outis",
-  "Gregor",
+  "Yi Sang", "Faust", "Don Quixote", "Ryōshū", "Meursault", "Hong Lu",
+  "Heathcliff", "Ishmael", "Rodion", "Sinclair", "Outis", "Gregor",
 ];
 
 export const DAMAGE_TYPES = ["slash", "pierce", "blunt"];
@@ -48,20 +30,31 @@ export const DAMAGE_LABEL = {
   blunt: "Contundente",
 };
 
+export const ARQUETIPOS = [
+  "Bleed", "Burn", "Rupture", "Tremor", "Sinking", "Poise", "Charge", "Bloodfeast",
+];
+
 /*
-  Escala de resistencias. Negativo = recibe más daño, positivo = lo aguanta.
-  Se guarda como número para poder promediar y comparar sin mapear a mano
-  en cada cálculo del motor.
+  Las resistencias son el MULTIPLICADOR de daño recibido que usa el juego, tal
+  como viene del dataset: 0.5 resiste, 1 normal, 2 fatal. Más bajo es mejor.
+
+  El prototipo usaba etiquetas de texto ("weak", "endure") y una escala propia
+  invertida. Guardar el número del juego evita tener que mapear en cada cálculo
+  y permite promediar.
 */
-export const RES_VALUE = { fatal: -1, weak: -0.5, normal: 0, endure: 0.5, immune: 1 };
+export const MULT_NORMAL = 1;
 
-export const RES_LABEL = {
-  fatal: "Fatal",
-  weak: "Débil",
-  normal: "Normal",
-  endure: "Resiste",
-  immune: "Inmune",
-};
+export function etiquetaResistencia(mult) {
+  if (mult == null) return "—";
+  if (mult <= 0.5) return "Resiste";
+  if (mult < 1) return "Aguanta";
+  if (mult === 1) return "Normal";
+  if (mult < 2) return "Débil";
+  return "Fatal";
+}
 
-/* Un miembro cuenta como "punto blando" del equipo si está en weak o peor. */
-export const WEAK_THRESHOLD = -0.5;
+/* Un miembro es punto blando de un tipo de daño si recibe más que lo normal. */
+export const esPuntoBlando = (mult) => mult > MULT_NORMAL;
+
+/* Cupos de despliegue. Ver §3.1: los 6 primeros combaten, el resto es banca. */
+export const SLOTS_DESPLIEGUE = 6;

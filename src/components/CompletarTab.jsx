@@ -2,7 +2,7 @@ import React from "react";
 import IdCard from "./IdCard.jsx";
 import { styles } from "../styles.js";
 
-export default function CompletarTab({ ownedIdentities, wishlistKeys, onToggle, candidates, max }) {
+export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candidatas, max }) {
   if (ownedIdentities.length === 0) {
     return (
       <p style={styles.helpText}>
@@ -17,40 +17,41 @@ export default function CompletarTab({ ownedIdentities, wishlistKeys, onToggle, 
         Elegí de 1 a {max} Identidades como punto de partida. El motor recomienda con qué
         completar, usando solo tu colección.
       </p>
+
       <div style={styles.idGrid}>
         {ownedIdentities.map((id) => (
           <IdCard
-            key={id.key}
+            key={id.id}
             id={id}
-            checked={wishlistKeys.includes(id.key)}
-            onChange={() => onToggle(id.key, id.sinner)}
+            checked={baseIds.includes(id.id)}
+            onChange={() => onToggle(id.id, id.sinner)}
             estiloActivo={styles.idCardSelected}
             mostrarSinner
           />
         ))}
       </div>
 
-      {wishlistKeys.length > 0 && (
+      {baseIds.length > 0 && (
         <>
           <h2 style={styles.sectionTitle}>Candidatas recomendadas</h2>
-          {candidates.length === 0 ? (
+          {candidatas.length === 0 ? (
             <p style={styles.helpText}>
               No quedan Identidades disponibles en tu colección para sumar (sinners repetidos o
               colección agotada).
             </p>
           ) : (
             <div style={styles.candidateList}>
-              {candidates.map(({ id, score, motivos }) => (
-                <div key={id.key} style={styles.candidateCard}>
+              {candidatas.map(({ id, score, motivos }) => (
+                <div key={id.id} style={styles.candidateCard}>
                   <div style={styles.candidateHeader}>
-                    <div style={styles.idName}>{id.name}</div>
+                    <div style={styles.idName}>{id.nombre}</div>
                     <div style={styles.scoreBadge}>
                       {score >= 0 ? "+" : ""}
                       {score}
                     </div>
                   </div>
                   <div style={styles.idTags}>
-                    {id.sinner} · {id.tags.join(" · ")}
+                    {[id.sinner, ...id.arquetipos].join(" · ")}
                   </div>
                   {motivos.length > 0 && (
                     <ul style={styles.reasonList}>

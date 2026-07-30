@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { IDENTITIES } from "./data/identities.js";
+import { IDENTITIES, META } from "./data/identities.js";
+import { SLOTS_DESPLIEGUE } from "./data/constants.js";
 import { loadCollection, saveCollection } from "./lib/storage.js";
-import { resistanceProfile, sinAffinityCounts, suggestOrder, candidateScore } from "./lib/engine.js";
+import {
+  recursosDeSin, perfilResistencias, perfilArquetipos,
+  sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo,
+} from "./lib/engine.js";
 import { toggleSeleccion } from "./lib/seleccion.js";
 import ColeccionTab from "./components/ColeccionTab.jsx";
 import EquipoTab from "./components/EquipoTab.jsx";
@@ -14,18 +18,19 @@ const TABS = [
   { key: "completar", label: "Completar equipo" },
 ];
 
-const MAX_EQUIPO = 6;
+// Hasta 12: los primeros 6 combaten, el resto es banca y sigue aportando
+// su pasiva de soporte (§3.1 del handoff).
+const MAX_EQUIPO = 12;
 const MAX_BASE_COMPLETAR = 3;
 
 export default function App() {
   const [tab, setTab] = useState("coleccion");
   const [owned, setOwned] = useState({});
   const [loaded, setLoaded] = useState(false);
-  const [selectedTeamKeys, setSelectedTeamKeys] = useState([]);
-  const [wishlistKeys, setWishlistKeys] = useState([]);
+  const [equipoIds, setEquipoIds] = useState([]);
+  const [baseIds, setBaseIds] = useState([]);
   const [saveError, setSaveError] = useState(false);
 
-  // localStorage es sincrónico, así que esto ya no necesita ser una promesa.
   useEffect(() => {
     setOwned(loadCollection());
     setLoaded(true);
@@ -37,46 +42,47 @@ export default function App() {
   }, []);
 
   const toggleOwned = useCallback(
-    (key) => persist({ ...owned, [key]: !owned[key] }),
+    (id) => persist({ ...owned, [id]: !owned[id] }),
     [owned, persist]
   );
 
-  const ownedIdentities = useMemo(() => IDENTITIES.filter((i) => owned[i.key]), [owned]);
+  const ownedIdentities = useMemo(() => IDENTITIES.filter((i) => owned[i.id]), [owned]);
 
-  const selectedTeam = useMemo(
-    () => selectedTeamKeys.map((k) => IDENTITIES.find((i) => i.key === k)).filter(Boolean),
-    [selectedTeamKeys]
+  const equipo = useMemo(
+    () => equipoIds.map((id) => IDENTITIES.find((i) => i.id === id)).filter(Boolean),
+    [equipoIds]
   );
 
-  const wishlistTeam = useMemo(
-    () => wishlistKeys.map((k) => IDENTITIES.find((i) => i.key === k)).filter(Boolean),
-    [wishlistKeys]
+  const base = useMemo(
+    () => baseIds.map((id) => IDENTITIES.find((i) => i.id === id)).filter(Boolean),
+    [baseIds]
   );
 
-  const orderSuggestion = useMemo(() => suggestOrder(selectedTeam), [selectedTeam]);
-  const resSummary = useMemo(() => resistanceProfile(selectedTeam), [selectedTeam]);
-  const sinSummary = useMemo(() => sinAffinityCounts(selectedTeam), [selectedTeam]);
+  // El análisis se hace sobre los 6 desplegados; la banca solo aporta soporte.
+  const desplegados = useMemo(() => equipo.slice(0, SLOTS_DESPLIEGUE), [equipo]);
 
-  const candidates = useMemo(() => {
-    const sinnersUsados = new Set(wishlistTeam.map((i) => i.sinner));
+  const orden = useMemo(() => sugerirOrden(equipo), [equipo]);
+  const recursos = useMemo(() => recursosDeSin(desplegados), [desplegados]);
+  const resistencias = useMemo(() => perfilResistencias(desplegados), [desplegados]);
+  const arquetipos = useMemo(() => perfilArquetipos(equipo), [equipo]);
+  const pasivas = useMemo(() => pasivasActivasDelEquipo(equipo, recursos), [equipo, recursos]);
+
+  const candidatas = useMemo(() => {
+    const sinnersUsados = new Set(base.map((i) => i.sinner));
     return ownedIdentities
-      .filter((i) => !sinnersUsados.has(i.sinner) && !wishlistKeys.includes(i.key))
-      .map((i) => ({ id: i, ...candidateScore(i, wishlistTeam) }))
+      .filter((i) => !sinnersUsados.has(i.sinner) && !baseIds.includes(i.id))
+      .map((i) => ({ id: i, ...puntuarCandidata(i, base) }))
       .sort((a, b) => b.score - a.score)
-      .slice(0, 6);
-  }, [ownedIdentities, wishlistTeam, wishlistKeys]);
+      .slice(0, 8);
+  }, [ownedIdentities, base, baseIds]);
 
   const toggleEquipo = useCallback(
-    (key, sinner) =>
-      setSelectedTeamKeys((prev) => toggleSeleccion(prev, key, sinner, MAX_EQUIPO, IDENTITIES)),
+    (id, sinner) => setEquipoIds((prev) => toggleSeleccion(prev, id, sinner, MAX_EQUIPO, IDENTITIES)),
     []
   );
 
-  const toggleWishlist = useCallback(
-    (key, sinner) =>
-      setWishlistKeys((prev) =>
-        toggleSeleccion(prev, key, sinner, MAX_BASE_COMPLETAR, IDENTITIES)
-      ),
+  const toggleBase = useCallback(
+    (id, sinner) => setBaseIds((prev) => toggleSeleccion(prev, id, sinner, MAX_BASE_COMPLETAR, IDENTITIES)),
     []
   );
 
@@ -112,11 +118,13 @@ export default function App() {
         {loaded && tab === "equipo" && (
           <EquipoTab
             ownedIdentities={ownedIdentities}
-            selectedTeamKeys={selectedTeamKeys}
+            equipoIds={equipoIds}
             onToggle={toggleEquipo}
-            orderSuggestion={orderSuggestion}
-            resSummary={resSummary}
-            sinSummary={sinSummary}
+            orden={orden}
+            recursos={recursos}
+            resistencias={resistencias}
+            arquetipos={arquetipos}
+            pasivas={pasivas}
             max={MAX_EQUIPO}
           />
         )}
@@ -124,17 +132,20 @@ export default function App() {
         {loaded && tab === "completar" && (
           <CompletarTab
             ownedIdentities={ownedIdentities}
-            wishlistKeys={wishlistKeys}
-            onToggle={toggleWishlist}
-            candidates={candidates}
+            baseIds={baseIds}
+            onToggle={toggleBase}
+            candidatas={candidatas}
             max={MAX_BASE_COMPLETAR}
           />
         )}
       </main>
 
       <footer style={styles.footer}>
-        Set de datos de ejemplo: Yi Sang &amp; Faust ({IDENTITIES.length} Identidades).
-        El resto del roster se agrega ampliando <code>src/data/identities.js</code>.
+        {META.conteo.identities} Identities y {META.conteo.egos} E.G.O · datos al{" "}
+        <strong>{META.fuente.ultimoCommit}</strong> — las publicadas después no están.
+        <br />
+        Datos de <a href={META.fuente.repo} style={styles.footerLink}>LCTeamBuilder</a> ({META.fuente.licencia}, {META.fuente.copyright}).
+        No afiliado a Project Moon.
       </footer>
     </div>
   );
