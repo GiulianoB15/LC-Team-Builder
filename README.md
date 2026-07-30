@@ -26,15 +26,15 @@ src/
   data/
     constants.js       Sins, Sinners, tipos de daño, arquetipos
     identities.js      carga del dataset + validación de integridad
-    identities.json    147 Identities  ← generado, no editar a mano
-    egos.json           96 E.G.O       ← generado, no editar a mano
+    identities.json    184 Identities  ← generado, no editar a mano
+    egos.json          110 E.G.O       ← generado, no editar a mano
   lib/
     engine.js          motor: recursos de Sin, pasivas, resistencias, puntajes
     seleccion.js       alta/baja de IDs con tope y una-por-Sinner
     storage.js         persistencia en localStorage, versionada y migrable
   components/          una pestaña por archivo
 scripts/
-  build-dataset.mjs    genera los JSON desde el repo de LCTeamBuilder
+  build-dataset.mjs    fusiona las dos fuentes y genera los JSON
   smoke-test.mjs       corre los chequeos
   tests.js             los chequeos en sí
 ```
@@ -91,7 +91,7 @@ Todo lo que puntúa sale de datos verificables del juego:
 | Qué pasivas se activan | `costo: [{sin, cantidad}]` de cada pasiva |
 | Pasivas de combate vs. soporte | `PassiveType` del dataset (las de soporte rinden desde la banca) |
 | Puntos blandos del equipo | multiplicadores de resistencia (0.5 resiste, 1 normal, 2 fatal) |
-| Sinergia temática | arquetipos derivados del texto |
+| Sinergia temática | `skillKeywordList`, los 7 arquetipos oficiales |
 
 **La única excepción, y está marcada como tal en la UI:** el *orden* de despliegue es
 una **heurística**, no un dato. El dataset no tiene ningún campo que diga qué ID
@@ -124,6 +124,19 @@ está escrito en pantalla para que se pueda juzgar.
    pasiva ("only counts as an 'Identity that inflicts [Bleed]'"), y el conversor usa
    esa frase. Afectaba a 2 de 147 IDs.
 
+**Al fusionar el dump actualizado (184 IDs):**
+
+
+9. Las resistencias de LCTeamBuilder eran un valor por defecto en el 74% de las IDs
+   (109 de 147 con el mismo perfil). El motor venía puntuando resistencias sobre dato
+   malo. Ahora salen del dump nuevo.
+10. Los arquetipos derivados del texto acertaban 134 de 147 contra los keywords
+    oficiales (91%). Se reemplazaron por `skillKeywordList`, que es el dato real.
+11. Los recursos de Sin contaban skills sueltas. Ahora ponderan por copias en el mazo,
+    que es lo que determina cuántos recursos genera de verdad una ID.
+12. Las fuentes escriben el mismo nombre distinto (`LCE E.G.O::Dimension Shredder` vs
+    `LCE E.G.O:: Dimension Shredder`). La migración del guardado normaliza espacios.
+
 Todo esto está cubierto por `scripts/tests.js`.
 
 ## Pendiente
@@ -137,16 +150,4 @@ Todo esto está cubierto por `scripts/tests.js`.
   `actualizadoEn` visible.
 - **Usar los E.G.O.** Ya están en `egos.json` con costo de Sin y resistencias, pero el
   motor todavía no los considera.
-- **Importar/exportar la colección**, para no tildar 147 IDs a mano y poder compartirla.
-
-**Al fusionar el dump actualizado (184 IDs):**
-
-9. Las resistencias de LCTeamBuilder eran un valor por defecto en el 74% de las IDs
-   (109 de 147 con el mismo perfil). El motor venía puntuando resistencias sobre dato
-   malo. Ahora salen del dump nuevo.
-10. Los arquetipos derivados del texto acertaban 134 de 147 contra los keywords
-    oficiales (91%). Se reemplazaron por `skillKeywordList`, que es el dato real.
-11. Los recursos de Sin contaban skills sueltas. Ahora ponderan por copias en el mazo,
-    que es lo que determina cuántos recursos genera de verdad una ID.
-12. Las fuentes escriben el mismo nombre distinto (`LCE E.G.O::Dimension Shredder` vs
-    `LCE E.G.O:: Dimension Shredder`). La migración del guardado normaliza espacios.
+- **Importar/exportar la colección**, para no tildar 184 IDs a mano y poder compartirla.
