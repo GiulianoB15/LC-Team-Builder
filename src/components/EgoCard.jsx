@@ -20,7 +20,7 @@ export function CostoSin({ costo, faltantes = [] }) {
   );
 }
 
-export default function EgoCard({ ego, checked, onChange, mostrarSinner }) {
+export default function EgoCard({ ego, checked, onChange, mostrarSinner, deshabilitado }) {
   const detalle = [
     mostrarSinner ? ego.sinner : null,
     ego.rango,
@@ -28,8 +28,8 @@ export default function EgoCard({ ego, checked, onChange, mostrarSinner }) {
   ].filter(Boolean);
 
   return (
-    <label style={{ ...styles.idCard, ...(checked ? styles.idCardOwned : {}) }}>
-      <input type="checkbox" checked={checked} onChange={onChange} style={styles.checkbox} />
+    <label style={{ ...styles.idCard, ...(checked ? styles.idCardOwned : {}), ...(deshabilitado ? styles.cardSoloLectura : {}) }}>
+      <input type="checkbox" checked={checked} onChange={onChange} disabled={deshabilitado} style={styles.checkbox} />
       <div style={{ flex: 1 }}>
         <div style={styles.idName}>
           {ego.nombre}

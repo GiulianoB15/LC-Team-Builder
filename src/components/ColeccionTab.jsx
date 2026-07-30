@@ -3,6 +3,7 @@ import { IDENTITIES, EGOS } from "../data/identities.js";
 import { SINNERS } from "../data/constants.js";
 import IdCard from "./IdCard.jsx";
 import EgoCard from "./EgoCard.jsx";
+import CompartirPanel from "./CompartirPanel.jsx";
 import { styles } from "../styles.js";
 
 const SECCIONES = [
@@ -12,7 +13,7 @@ const SECCIONES = [
 
 const coincide = (texto, q) => texto.toLowerCase().includes(q);
 
-export default function ColeccionTab({ owned, toggleOwned, toggleOwnedEgo, saveError }) {
+export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEgo, saveError, enVisita, onVisitar }) {
   const [seccion, setSeccion] = useState("identities");
   const [filtro, setFiltro] = useState("");
 
@@ -53,9 +54,18 @@ export default function ColeccionTab({ owned, toggleOwned, toggleOwnedEgo, saveE
       </div>
 
       <p style={styles.helpText}>
-        Marcá qué {esEgo ? "E.G.O" : "Identidades"} tenés. Se guarda automáticamente en este
-        navegador. <strong>{total}</strong> de {lista.length} marcados.
+        {enVisita
+          ? `Colección compartida: ${total} de ${lista.length} marcados. No se puede editar.`
+          : null}
+        {!enVisita && (
+          <>
+            Marcá qué {esEgo ? "E.G.O" : "Identidades"} tenés. Se guarda automáticamente en este
+            navegador. <strong>{total}</strong> de {lista.length} marcados.
+          </>
+        )}
       </p>
+
+      <CompartirPanel propia={propia} onVisitar={onVisitar} modoVisita={enVisita} />
 
       {saveError && (
         <div style={styles.errorBanner}>No se pudo guardar el último cambio. Probá de nuevo.</div>
@@ -98,6 +108,7 @@ export default function ColeccionTab({ owned, toggleOwned, toggleOwnedEgo, saveE
                       ego={x}
                       checked={!!marcadas[x.id]}
                       onChange={() => toggle(x.id)}
+                      deshabilitado={enVisita}
                     />
                   ) : (
                     <IdCard
@@ -106,6 +117,7 @@ export default function ColeccionTab({ owned, toggleOwned, toggleOwnedEgo, saveE
                       checked={!!marcadas[x.id]}
                       onChange={() => toggle(x.id)}
                       estiloActivo={styles.idCardOwned}
+                      deshabilitado={enVisita}
                     />
                   )
                 )}

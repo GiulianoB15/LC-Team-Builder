@@ -7,6 +7,8 @@ import {
   sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo, egosDelEquipo,
 } from "./lib/engine.js";
 import { toggleSeleccion } from "./lib/seleccion.js";
+import { decodificar } from "./lib/codigo.js";
+import { PropuestaVisita, BannerVisita } from "./components/Visita.jsx";
 import ColeccionTab from "./components/ColeccionTab.jsx";
 import EquipoTab from "./components/EquipoTab.jsx";
 import CompletarTab from "./components/CompletarTab.jsx";
@@ -25,31 +27,92 @@ const MAX_BASE_COMPLETAR = 3;
 
 export default function App() {
   const [tab, setTab] = useState("coleccion");
-  const [owned, setOwned] = useState({ identities: {}, egos: {} });
+  const [propia, setPropia] = useState({ identities: {}, egos: {} });
   const [loaded, setLoaded] = useState(false);
   const [equipoIds, setEquipoIds] = useState([]);
   const [baseIds, setBaseIds] = useState([]);
   const [saveError, setSaveError] = useState(false);
 
+  /*
+    Modo visita: una colección ajena cargada para mirar. Nunca se persiste y
+    nunca pisa la propia — adoptarla es una acción aparte y explícita.
+  */
+  const [visita, setVisita] = useState(null);
+  const [propuesta, setPropuesta] = useState(null);
+
   useEffect(() => {
-    setOwned(loadCollection());
+    setPropia(loadCollection());
     setLoaded(true);
   }, []);
 
+  /*
+    Un link compartido llega como #c=<código>. No se aplica solo: se propone y
+    decide el usuario. El hash se limpia enseguida para que un F5 no lo repita.
+  */
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const revisarHash = () => {
+      const m = /^#c=(.+)$/.exec(window.location.hash);
+      if (!m) return;
+      const r = decodificar(decodeURIComponent(m[1]));
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      setPropuesta(r.ok ? { identities: r.identities, egos: r.egos } : { error: r.error });
+    };
+
+    revisarHash();
+    /*
+      También hay que escuchar hashchange: si la app ya está abierta, clickear
+      un link compartido solo cambia el hash y el navegador no recarga, así que
+      sin esto el link no haría absolutamente nada.
+    */
+    window.addEventListener("hashchange", revisarHash);
+    return () => window.removeEventListener("hashchange", revisarHash);
+  }, []);
+
+  const owned = visita ?? propia;
+  const enVisita = visita !== null;
+
   const persist = useCallback((next) => {
-    setOwned(next);
+    setPropia(next);
     setSaveError(!saveCollection(next));
   }, []);
 
+  // En modo visita no se edita: la colección es de otro.
   const toggleOwned = useCallback(
-    (id) => persist({ ...owned, identities: { ...owned.identities, [id]: !owned.identities[id] } }),
-    [owned, persist]
+    (id) => {
+      if (enVisita) return;
+      persist({ ...propia, identities: { ...propia.identities, [id]: !propia.identities[id] } });
+    },
+    [propia, persist, enVisita]
   );
 
   const toggleOwnedEgo = useCallback(
-    (id) => persist({ ...owned, egos: { ...owned.egos, [id]: !owned.egos[id] } }),
-    [owned, persist]
+    (id) => {
+      if (enVisita) return;
+      persist({ ...propia, egos: { ...propia.egos, [id]: !propia.egos[id] } });
+    },
+    [propia, persist, enVisita]
   );
+
+  const salirDeVisita = useCallback(() => {
+    setVisita(null);
+    setEquipoIds([]);
+    setBaseIds([]);
+  }, []);
+
+  const adoptarVisitada = useCallback(() => {
+    if (!visita) return;
+    persist({ identities: { ...visita.identities }, egos: { ...visita.egos } });
+    salirDeVisita();
+  }, [visita, persist, salirDeVisita]);
+
+  const entrarEnVisita = useCallback((coleccion) => {
+    setVisita(coleccion);
+    setEquipoIds([]);
+    setBaseIds([]);
+    setPropuesta(null);
+  }, []);
 
   const ownedIdentities = useMemo(() => IDENTITIES.filter((i) => owned.identities[i.id]), [owned]);
   const ownedEgos = useMemo(() => EGOS.filter((e) => owned.egos[e.id]), [owned]);
@@ -108,6 +171,8 @@ export default function App() {
         </div>
       </header>
 
+      <BannerVisita visita={visita} onSalir={salirDeVisita} onAdoptar={adoptarVisitada} />
+
       <nav style={styles.tabBar}>
         {TABS.map((t) => (
           <button
@@ -123,12 +188,21 @@ export default function App() {
       <main style={styles.main}>
         {!loaded && <div style={styles.loading}>Cargando expediente…</div>}
 
+        <PropuestaVisita
+          propuesta={propuesta}
+          onAceptar={entrarEnVisita}
+          onDescartar={() => setPropuesta(null)}
+        />
+
         {loaded && tab === "coleccion" && (
           <ColeccionTab
             owned={owned}
+            propia={propia}
             toggleOwned={toggleOwned}
             toggleOwnedEgo={toggleOwnedEgo}
             saveError={saveError}
+            enVisita={enVisita}
+            onVisitar={entrarEnVisita}
           />
         )}
 

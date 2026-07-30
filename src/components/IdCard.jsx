@@ -2,15 +2,15 @@ import React from "react";
 import { styles } from "../styles.js";
 
 /* Tarjeta con checkbox, compartida por las tres pestañas. */
-export default function IdCard({ id, checked, onChange, estiloActivo, mostrarSinner }) {
+export default function IdCard({ id, checked, onChange, estiloActivo, mostrarSinner, deshabilitado }) {
   const detalle = [
     mostrarSinner ? id.sinner : null,
     ...(id.arquetipos.length ? id.arquetipos : ["Sin arquetipo"]),
   ].filter(Boolean);
 
   return (
-    <label style={{ ...styles.idCard, ...(checked ? estiloActivo : {}) }}>
-      <input type="checkbox" checked={checked} onChange={onChange} style={styles.checkbox} />
+    <label style={{ ...styles.idCard, ...(checked ? estiloActivo : {}), ...(deshabilitado ? styles.cardSoloLectura : {}) }}>
+      <input type="checkbox" checked={checked} onChange={onChange} disabled={deshabilitado} style={styles.checkbox} />
       <div>
         <div style={styles.idName}>
           {id.nombre}

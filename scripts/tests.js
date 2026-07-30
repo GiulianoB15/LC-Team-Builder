@@ -10,6 +10,7 @@ import {
 } from "../src/lib/engine.js";
 import { toggleSeleccion } from "../src/lib/seleccion.js";
 import { migrar } from "../src/lib/storage.js";
+import { codificar, decodificar, comparar, LARGO_CODIGO } from "../src/lib/codigo.js";
 
 export let fallos = 0;
 const check = (nombre, ok, detalle = "") => {
@@ -190,5 +191,84 @@ check("los que alcanzan van primero",
     const idx = mixto.findIndex((x) => !x.alcanza);
     return idx === -1 || mixto.slice(idx).every((x) => !x.alcanza);
   })());
+
+
+
+/* --- Código para compartir la colección --- */
+
+const coleccionEjemplo = {
+  identities: Object.fromEntries(IDENTITIES.slice(0, 40).map((i) => [i.id, true])),
+  egos: Object.fromEntries(EGOS.slice(0, 15).map((e) => [e.id, true])),
+};
+
+const { codigo, fueraDeRango } = codificar(coleccionEjemplo);
+check("ningún id del dataset queda fuera del esquema del código", fueraDeRango.length === 0, JSON.stringify(fueraDeRango));
+check(`el código es corto y de largo fijo (${codigo.length} chars)`, codigo.length === LARGO_CODIGO && codigo.length < 120);
+check("el código es seguro para una URL", /^[A-Za-z0-9_-]+$/.test(codigo));
+
+const vuelta = decodificar(codigo);
+check("decodificar devuelve exactamente lo que se codificó",
+  vuelta.ok &&
+  JSON.stringify(Object.keys(vuelta.identities).map(Number).sort((a, b) => a - b)) ===
+    JSON.stringify(Object.keys(coleccionEjemplo.identities).map(Number).sort((a, b) => a - b)) &&
+  JSON.stringify(Object.keys(vuelta.egos).map(Number).sort((a, b) => a - b)) ===
+    JSON.stringify(Object.keys(coleccionEjemplo.egos).map(Number).sort((a, b) => a - b)));
+
+const todo = codificar({
+  identities: Object.fromEntries(IDENTITIES.map((i) => [i.id, true])),
+  egos: Object.fromEntries(EGOS.map((e) => [e.id, true])),
+});
+check("una colección COMPLETA entra en el mismo largo", todo.codigo.length === LARGO_CODIGO);
+check("y decodifica las 184 + 110", (() => {
+  const d = decodificar(todo.codigo);
+  return d.ok && Object.keys(d.identities).length === 184 && Object.keys(d.egos).length === 110;
+})());
+
+check("una colección vacía va y vuelve",
+  (() => {
+    const d = decodificar(codificar({ identities: {}, egos: {} }).codigo);
+    return d.ok && Object.keys(d.identities).length === 0 && Object.keys(d.egos).length === 0;
+  })());
+
+/*
+  La propiedad que justifica el diseño: el código no depende de la posición en
+  el array, así que agregar Identities nuevas no invalida los códigos viejos.
+*/
+check("un código sobrevive a que el dataset sume Identities nuevas", (() => {
+  const antes = codificar({ identities: { 10109: true, 11216: true }, egos: {} }).codigo;
+  const d = decodificar(antes);
+  return d.ok && d.identities[10109] && d.identities[11216] && Object.keys(d.identities).length === 2;
+})());
+
+check("un id de una versión más nueva se decodifica igual y se puede detectar",
+  (() => {
+    const d = decodificar(codificar({ identities: { 10117: true }, egos: {} }).codigo);
+    const conocidos = new Set(IDENTITIES.map((i) => i.id));
+    return d.ok && d.identities[10117] === true && !conocidos.has(10117);
+  })());
+
+/* Errores: nunca tiran, siempre explican. */
+check("un código vacío da error claro", !decodificar("").ok && /Pegá un código/.test(decodificar("").error));
+check("un código truncado da error claro", !decodificar(codigo.slice(0, 20)).ok);
+check("un código con un carácter cambiado lo detecta el checksum", (() => {
+  const roto = codigo.slice(0, -2) + (codigo.at(-2) === "A" ? "B" : "A") + codigo.at(-1);
+  const d = decodificar(roto);
+  return !d.ok && typeof d.error === "string" && d.error.length > 0;
+})());
+check("decodificar basura no tira excepción", (() => {
+  try { return !decodificar("no soy un codigo!!!").ok; } catch { return false; }
+})());
+
+const comp = comparar(vuelta, { identities: { 10101: true }, egos: {} }, {
+  idsConocidos: new Set(IDENTITIES.map((i) => i.id)),
+  egosConocidos: new Set(EGOS.map((e) => e.id)),
+});
+check("comparar informa cuántas trae y cuántas tenés vos",
+  comp.identities === 40 && comp.egos === 15 && comp.propiasIdentities === 1);
+check("comparar detecta marcadas que tu dataset no conoce",
+  comparar(decodificar(codificar({ identities: { 10117: true }, egos: {} }).codigo),
+    { identities: {}, egos: {} },
+    { idsConocidos: new Set(IDENTITIES.map((i) => i.id)), egosConocidos: new Set(EGOS.map((e) => e.id)) }
+  ).desconocidas === 1);
 
 console.log(fallos === 0 ? "\nTodo verde." : `\n${fallos} chequeo(s) fallando.`);

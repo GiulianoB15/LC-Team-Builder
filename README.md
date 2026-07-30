@@ -30,6 +30,7 @@ src/
     egos.json          110 E.G.O       ← generado, no editar a mano
   lib/
     engine.js          motor: recursos de Sin, pasivas, E.G.O, resistencias, puntajes
+    codigo.js          codifica/decodifica la colección para compartirla
     seleccion.js       alta/baja de IDs con tope y una-por-Sinner
     storage.js         persistencia en localStorage, versionada y migrable (Identities y E.G.O)
   components/          una pestaña por archivo
@@ -100,6 +101,33 @@ un chequeo que lo verifica.
 **No se completan datos de memoria.** Todo sale de las fuentes. Si algo está mal, se
 corrige el conversor y se regenera — nunca se edita el JSON a mano.
 
+## Compartir la colección
+
+Tu colección entera —184 Identities y 110 E.G.O— entra en un **código de 99
+caracteres**. Se copia como texto o como link (`…#c=<código>`), así que se pasa por
+Discord o WhatsApp sin archivos de por medio.
+
+Funciona porque los ids del juego son regulares (`1·SS·NN` para Identities, `2·SS·NN`
+para E.G.O, SS = Sinner), así que la colección es un bitfield de posición fija: 32
+slots por Sinner para Identities y 16 para E.G.O.
+
+Lo que importa no es que sea corto, es que es **estable ante actualizaciones del
+dataset**: cuando salga la Identity 10117 solo prende un bit que antes estaba en cero,
+y los códigos que ya circularon siguen siendo válidos. Codificar "posición en el
+array" habría invalidado todos los códigos compartidos cada vez que se suma una ID.
+
+Lleva versión y checksum: un código truncado o mal copiado da un mensaje claro en vez
+de cargar una colección equivocada en silencio.
+
+### Modo visita
+
+Abrir el código de otro **nunca toca tu colección**. Entrás en modo visita: ves la
+ajena, podés armarle equipos y pedir recomendaciones con lo que esa persona tiene, y
+salís cuando querés. Mientras tanto los checkboxes están bloqueados y nada se
+persiste. Adoptarla como propia es un botón aparte, con confirmación.
+
+Un link compartido tampoco se aplica solo: la app te dice qué trae y decidís vos.
+
 ## Qué hace el motor, y con qué datos
 
 Todo lo que puntúa sale de datos verificables del juego:
@@ -156,6 +184,12 @@ está escrito en pantalla para que se pueda juzgar.
 12. Las fuentes escriben el mismo nombre distinto (`LCE E.G.O::Dimension Shredder` vs
     `LCE E.G.O:: Dimension Shredder`). La migración del guardado normaliza espacios.
 
+**Al sumar compartir:**
+
+13. El hash `#c=` solo se leía al montar el componente. Con la app ya abierta, clickear
+    un link compartido no hacía nada, porque el navegador no recarga cuando solo cambia
+    el hash. Ahora también se escucha `hashchange`.
+
 Todo esto está cubierto por `scripts/tests.js`.
 
 ## Pendiente
@@ -167,4 +201,3 @@ Todo esto está cubierto por `scripts/tests.js`.
   comunidad, con fuente y fecha. Es lo que convertiría el orden de heurística en
   recomendación. El meta cambia por temporada, así que cada receta necesita su
   `actualizadoEn` visible.
-- **Importar/exportar la colección**, para no tildar 184 IDs a mano y poder compartirla.
