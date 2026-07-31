@@ -215,6 +215,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": "temprano"
    }
@@ -341,6 +349,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -469,6 +485,20 @@
     "lee": [
      "Poise"
     ],
+    "combate": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": [
+      "Poise"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Poise"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -594,6 +624,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -722,6 +760,16 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -855,6 +903,19 @@
      "Charge",
      "Rupture"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Charge",
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -984,6 +1045,17 @@
      "Bleed",
      "Poise"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed",
+      "Poise"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -1111,6 +1183,16 @@
      "Sinking"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Sinking"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -1257,6 +1339,24 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [
+      "Bleed",
+      "Burn",
+      "Rupture",
+      "Sinking",
+      "Tremor"
+     ],
+     "lee": [
+      "Bleed"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -1397,6 +1497,16 @@
     "lee": [
      "Sinking"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Sinking"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -1526,6 +1636,16 @@
      "Rupture"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Rupture"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -1652,6 +1772,18 @@
      "Burn"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -1789,6 +1921,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -1959,6 +2099,16 @@
     "lee": [
      "Poise"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Poise"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -2176,6 +2326,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -2322,6 +2480,18 @@
     "lee": [
      "Charge"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Charge"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -2447,6 +2617,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -2576,6 +2754,18 @@
     "lee": [
      "Charge"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Charge"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -2704,6 +2894,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -2834,6 +3032,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -2957,6 +3163,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": "medio"
    }
@@ -3090,6 +3304,19 @@
     "lee": [
      "Rupture"
     ],
+    "combate": {
+     "aplica": [
+      "Poise",
+      "Rupture"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -3220,6 +3447,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -3349,6 +3584,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -3479,6 +3722,18 @@
     "lee": [
      "Sinking"
     ],
+    "combate": {
+     "aplica": [
+      "Sinking"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Sinking"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -3609,6 +3864,20 @@
     "lee": [
      "Charge"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": [
+      "Charge"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Charge"
+     ]
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -3758,6 +4027,18 @@
     "lee": [
      "Burn"
     ],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Burn"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -3920,6 +4201,16 @@
     "lee": [
      "Rupture"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -4080,6 +4371,16 @@
      "Bleed"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Bleed"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -4248,6 +4549,17 @@
      "Sinking"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Poise",
+      "Sinking"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -4459,6 +4771,20 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Bleed"
+     ],
+     "lee": [
+      "Bleed"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -4647,6 +4973,16 @@
      "Burn"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -4774,6 +5110,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -4902,6 +5246,16 @@
      "Charge"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -5026,6 +5380,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -5156,6 +5518,16 @@
      "Tremor"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Tremor"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -5280,6 +5652,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -5406,6 +5786,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -5531,6 +5919,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -5658,6 +6054,16 @@
     "lee": [
      "Poise"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Poise"
+     ]
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -5788,6 +6194,16 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -5983,6 +6399,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -6121,6 +6545,19 @@
     "lee": [
      "Burn"
     ],
+    "combate": {
+     "aplica": [
+      "Burn",
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Burn"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -6302,6 +6739,16 @@
      "Charge"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -6455,6 +6902,20 @@
      "Rupture",
      "Sinking"
     ],
+    "combate": {
+     "aplica": [
+      "Rupture",
+      "Sinking"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture",
+      "Sinking"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -6668,6 +7129,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -6794,6 +7263,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -6923,6 +7400,16 @@
     "lee": [
      "Rupture"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -7054,6 +7541,18 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [
+      "Bleed"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -7184,6 +7683,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -7312,6 +7819,18 @@
      "Charge"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -7446,6 +7965,20 @@
     "lee": [
      "Poise"
     ],
+    "combate": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": [
+      "Poise"
+     ]
+    },
+    "soporte": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -7572,6 +8105,18 @@
     "lee": [
      "Burn"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Burn"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Burn"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -7702,6 +8247,18 @@
      "Poise"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -7829,6 +8386,16 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -7986,6 +8553,16 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -8113,6 +8690,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -8294,6 +8879,23 @@
      "Bleed",
      "Tremor"
     ],
+    "combate": {
+     "aplica": [
+      "Bleed",
+      "Tremor"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Bleed",
+      "Tremor"
+     ],
+     "lee": [
+      "Bleed",
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -8433,6 +9035,16 @@
     "lee": [
      "Poise"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Poise"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -8609,6 +9221,21 @@
     "lee": [
      "Sinking"
     ],
+    "combate": {
+     "aplica": [
+      "Sinking",
+      "Tremor"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Tremor"
+     ],
+     "lee": [
+      "Sinking"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -8824,6 +9451,20 @@
     "lee": [
      "Poise"
     ],
+    "combate": {
+     "aplica": [
+      "Burn",
+      "Poise",
+      "Sinking"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Poise"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -8950,6 +9591,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -9078,6 +9727,18 @@
     "lee": [
      "Burn"
     ],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Burn"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -9209,6 +9870,18 @@
     "lee": [
      "Rupture"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -9336,6 +10009,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -9465,6 +10146,18 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -9592,6 +10285,18 @@
     "lee": [
      "Charge"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Charge"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -9720,6 +10425,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -9862,6 +10575,16 @@
     "lee": [
      "Poise"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Poise"
+     ]
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -9988,6 +10711,18 @@
     "lee": [
      "Rupture"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -10114,6 +10849,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -10247,6 +10990,16 @@
      "Poise"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -10403,6 +11156,16 @@
      "Burn"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -10569,6 +11332,16 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -10709,6 +11482,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -10853,6 +11634,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -10981,6 +11770,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -11108,6 +11905,16 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -11233,6 +12040,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -11360,6 +12175,18 @@
     "lee": [
      "Burn"
     ],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Burn"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -11483,6 +12310,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -11611,6 +12446,16 @@
     "lee": [
      "Charge"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Charge"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -11739,6 +12584,16 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -11864,6 +12719,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -11994,6 +12857,16 @@
      "Tremor"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Tremor"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -12126,6 +12999,22 @@
      "Bleed",
      "Rupture"
     ],
+    "combate": {
+     "aplica": [
+      "Rupture"
+     ],
+     "lee": [
+      "Bleed",
+      "Rupture"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed",
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -12305,6 +13194,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -12436,6 +13333,19 @@
     "lee": [
      "Charge"
     ],
+    "combate": {
+     "aplica": [
+      "Charge",
+      "Sinking"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Charge"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -12617,6 +13527,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -12819,6 +13737,18 @@
      "Charge"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Bleed"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -12959,6 +13889,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -13086,6 +14024,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -13209,6 +14155,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -13340,6 +14294,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -13467,6 +14429,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -13599,6 +14569,16 @@
      "Sinking"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Sinking"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -13728,6 +14708,18 @@
     "lee": [
      "Rupture"
     ],
+    "combate": {
+     "aplica": [
+      "Rupture"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -13852,6 +14844,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -13982,6 +14982,20 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [
+      "Tremor"
+     ],
+     "lee": [
+      "Tremor"
+     ]
+    },
+    "soporte": {
+     "aplica": [
+      "Tremor"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -14115,6 +15129,16 @@
      "Charge"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -14267,6 +15291,16 @@
      "Sinking"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Sinking"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -14432,6 +15466,18 @@
     "lee": [
      "Poise"
     ],
+    "combate": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Poise"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -14571,6 +15617,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -14710,6 +15764,18 @@
     "lee": [
      "Charge"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Charge"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -14875,6 +15941,16 @@
      "Burn"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -15036,6 +16112,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": "medio"
    }
@@ -15220,6 +16304,19 @@
      "Tremor"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Tremor"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Burn",
+      "Tremor"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -15346,6 +16443,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -15471,6 +16576,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -15596,6 +16709,16 @@
      "Poise"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -15727,6 +16850,16 @@
      "Tremor"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Tremor"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -15856,6 +16989,18 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Rupture"
+     ],
+     "lee": [
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -15985,6 +17130,18 @@
     "lee": [
      "Burn"
     ],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Burn"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -16119,6 +17276,21 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [
+      "Sinking"
+     ],
+     "lee": [
+      "Tremor"
+     ]
+    },
+    "soporte": {
+     "aplica": [
+      "Sinking",
+      "Tremor"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -16267,6 +17439,18 @@
     "lee": [
      "Poise"
     ],
+    "combate": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Poise"
+     ]
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -16400,6 +17584,16 @@
     "lee": [
      "Sinking"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Sinking"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -16531,6 +17725,16 @@
      "Tremor"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Tremor"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -16674,6 +17878,16 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
     "buffeaAliados": true,
     "posicion": "medio"
    }
@@ -16830,6 +18044,17 @@
      "Rupture"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Poise",
+      "Rupture"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -16997,6 +18222,16 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -17141,6 +18376,17 @@
      "Burn"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Bleed",
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -17322,6 +18568,16 @@
      "Poise"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -17449,6 +18705,16 @@
      "Bleed"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Bleed"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -17580,6 +18846,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -17704,6 +18978,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -17832,6 +19114,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -17962,6 +19252,16 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -18091,6 +19391,18 @@
     "lee": [
      "Poise"
     ],
+    "combate": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Poise"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -18217,6 +19529,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -18347,6 +19667,20 @@
     "lee": [
      "Burn"
     ],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": [
+      "Burn"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Burn"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -18476,6 +19810,16 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -18618,6 +19962,16 @@
      "Rupture"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Rupture"
+     ],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -18778,6 +20132,16 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -18914,6 +20278,16 @@
     "lee": [
      "Rupture"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -19119,6 +20493,16 @@
      "Sinking"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Sinking"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -19254,6 +20638,20 @@
     "lee": [
      "Charge"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Sinking"
+     ],
+     "lee": [
+      "Charge"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -19427,6 +20825,17 @@
      "Sinking"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Bleed",
+      "Sinking"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -19643,6 +21052,19 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [
+      "Burn",
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -19769,6 +21191,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -19897,6 +21327,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -20024,6 +21462,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": "medio"
    }
@@ -20149,6 +21595,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -20276,6 +21730,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -20402,6 +21864,18 @@
     "lee": [
      "Rupture"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -20530,6 +22004,18 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -20660,6 +22146,16 @@
      "Poise"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -20806,6 +22302,16 @@
      "Burn"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -20937,6 +22443,16 @@
      "Tremor"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Tremor"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -21080,6 +22596,16 @@
     "lee": [
      "Rupture"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -21207,6 +22733,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -21350,6 +22884,16 @@
      "Burn"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -21507,6 +23051,23 @@
      "Burn",
      "Rupture"
     ],
+    "combate": {
+     "aplica": [
+      "Burn",
+      "Rupture"
+     ],
+     "lee": [
+      "Burn",
+      "Rupture"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Burn",
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -21650,6 +23211,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -21775,6 +23344,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -21900,6 +23477,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -22027,6 +23612,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": "medio"
    }
@@ -22155,6 +23748,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -22282,6 +23883,16 @@
     "lee": [
      "Tremor"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -22408,6 +24019,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -22538,6 +24157,17 @@
      "Poise"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Burn",
+      "Poise"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -22665,6 +24295,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -22813,6 +24451,22 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [
+      "Bleed",
+      "Burn",
+      "Rupture",
+      "Sinking",
+      "Tremor"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -22946,6 +24600,18 @@
     "lee": [
      "Charge"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Charge"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -23086,6 +24752,18 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
+    "soporte": {
+     "aplica": [
+      "Bleed"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -23216,6 +24894,16 @@
     "lee": [
      "Rupture"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -23350,6 +25038,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -23492,6 +25188,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -23740,6 +25444,17 @@
      "Burn"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Bleed",
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -23865,6 +25580,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -23992,6 +25715,16 @@
      "Burn"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -24115,6 +25848,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -24241,6 +25982,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -24375,6 +26124,20 @@
      "Rupture",
      "Tremor"
     ],
+    "combate": {
+     "aplica": [
+      "Rupture",
+      "Tremor"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Rupture",
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -24498,6 +26261,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -24630,6 +26401,18 @@
      "Bleed",
      "Poise"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Poise"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -24761,6 +26544,18 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [
+      "Bleed"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -24891,6 +26686,16 @@
      "Sinking"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [
+      "Sinking"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -25029,6 +26834,16 @@
     "lee": [
      "Bleed"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Bleed"
+     ]
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -25165,6 +26980,18 @@
     "lee": [
      "Burn"
     ],
+    "combate": {
+     "aplica": [],
+     "lee": [
+      "Burn"
+     ]
+    },
+    "soporte": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -25299,6 +27126,16 @@
      "Poise"
     ],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [
+      "Poise"
+     ],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -25473,6 +27310,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -25625,6 +27470,14 @@
    "sinergia": {
     "aplica": [],
     "lee": [],
+    "combate": {
+     "aplica": [],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": []
+    },
     "buffeaAliados": false,
     "posicion": null
    }
@@ -25793,6 +27646,20 @@
     "lee": [
      "Charge"
     ],
+    "combate": {
+     "aplica": [
+      "Charge"
+     ],
+     "lee": [
+      "Charge"
+     ]
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Charge"
+     ]
+    },
     "buffeaAliados": true,
     "posicion": null
    }
@@ -25969,6 +27836,19 @@
      "Burn",
      "Tremor"
     ],
+    "combate": {
+     "aplica": [
+      "Burn"
+     ],
+     "lee": []
+    },
+    "soporte": {
+     "aplica": [],
+     "lee": [
+      "Burn",
+      "Tremor"
+     ]
+    },
     "buffeaAliados": false,
     "posicion": null
    }

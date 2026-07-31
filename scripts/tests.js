@@ -7,7 +7,7 @@ import { SINS, SINNERS, ARQUETIPOS, esPuntoBlando } from "../src/data/constants.
 import {
   recursosDeSin, estadoPasivas, perfilResistencias, perfilArquetipos,
   sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo, estadoEgo, egosDelEquipo,
-  perfilSinergia, perfilVelocidad, analizarArquetipo,
+  perfilSinergia, perfilVelocidad, analizarArquetipo, sugerirBanca,
 } from "../src/lib/engine.js";
 import { toggleSeleccion } from "../src/lib/seleccion.js";
 import { migrar } from "../src/lib/storage.js";
@@ -196,7 +196,15 @@ const equipo8 = IDENTITIES.slice(0, 8);
 const orden = sugerirOrden(equipo8);
 check("el orden no pierde ni duplica miembros",
   orden.length === 8 && new Set(orden.map((o) => o.id.id)).size === 8);
-check("marca como banca a partir del 7º", orden.filter((o) => o.banca).length === 2);
+/*
+  El cupo no es fijo: lo define cada encuentro y por eso es un parámetro. Se
+  chequea con los dos valores que más se usan.
+*/
+check("con 7 cupos, de un equipo de 8 queda 1 en banca",
+  sugerirOrden(equipo8, 7).filter((o) => o.banca).length === 1);
+check("con 6 cupos, quedan 2", sugerirOrden(equipo8, 6).filter((o) => o.banca).length === 2);
+check("el default es 7, el del Mirror Dungeon actual",
+  orden.filter((o) => o.banca).length === 1);
 check("todo miembro del orden trae su motivo", orden.every((o) => typeof o.motivo === "string" && o.motivo.length > 0));
 /*
   El aporte de recursos ordena, pero ya no manda sola: las pasivas posicionales
@@ -304,13 +312,15 @@ check("el diagnóstico cuenta Sinners distintos, no Identidades",
   analizarArquetipo("Bleed", dosDelMismo, IDENTITIES).sinnersCubiertos.length === 1,
   JSON.stringify(analizarArquetipo("Bleed", dosDelMismo, IDENTITIES).sinnersCubiertos));
 
-check("y por eso reporta que faltan 5 lugares, no 4",
-  analizarArquetipo("Bleed", dosDelMismo, IDENTITIES).faltanSinners === 5);
+check("y por eso reporta que faltan 6 lugares de 7, no 5",
+  analizarArquetipo("Bleed", dosDelMismo, IDENTITIES).faltanSinners === 6);
+check("y sigue el cupo cuando se le pasa otro",
+  analizarArquetipo("Bleed", dosDelMismo, IDENTITIES, 6).faltanSinners === 5);
 
 /* Con una colección vacía todo falta, y no debe romper. */
 const vacio = analizarArquetipo("Bleed", [], IDENTITIES);
 check("una colección vacía no rompe el diagnóstico",
-  vacio.faltanSinners === 6 && vacio.tuyas.length === 0 && vacio.candidatas.length > 0);
+  vacio.faltanSinners === 7 && vacio.tuyas.length === 0 && vacio.candidatas.length > 0);
 
 /* Nunca puede recomendar algo que ya tenés. */
 check("las candidatas son siempre Identidades que no tenés",
@@ -338,6 +348,43 @@ check("detecta que falta quien aplique el estado", dx.rolBuscado === "aplica", S
 check("y las mejores candidatas lo aplican",
   dx.candidatas.slice(0, 3).some((c) => c.aplica),
   dx.candidatas.slice(0, 3).map((c) => `${c.id.nombre}:${c.aplica}`).join(" | "));
+
+/*
+  --- Banca ---
+
+  Lo que se mide acá es que la banca se calcule por SINNER y sobre la pasiva de
+  SOPORTE. Las dos cosas son consecuencia de cómo funciona el juego, no
+  preferencias: el equipo son 12 Sinners con uno cada uno, y la pasiva de
+  combate solo corre si la ID está desplegada.
+*/
+const activos3 = [porId(10109), porId(10201), porId(10301)];
+const bancaSug = sugerirBanca(activos3, IDENTITIES);
+
+check("la banca es un lugar por cada Sinner que no entró",
+  bancaSug.length === SINNERS.length - 3, `${bancaSug.length} lugares`);
+check("y ninguno es de un Sinner que ya está peleando",
+  bancaSug.every((b) => !activos3.some((a) => a.sinner === b.sinner)));
+check("cada lugar propone una Identidad de ESE Sinner",
+  bancaSug.every((b) => !b.mejor || b.mejor.id.sinner === b.sinner));
+
+/*
+  Lo central: la recomendación mira la pasiva de soporte, no la de combate. Si
+  mirara la de combate estaría vendiendo algo que no va a pasar.
+*/
+check("el motivo habla de la pasiva de soporte, no de la de combate",
+  bancaSug.some((b) => b.mejor?.motivos.some((m) => /soporte/i.test(m))),
+  bancaSug.flatMap((b) => b.mejor?.motivos ?? []).slice(0, 3).join(" | "));
+check("y expone el estado de esa pasiva contra los recursos del equipo",
+  bancaSug.every((b) => !b.mejor || b.mejor.soporte.every((p) => "activa" in p)));
+
+/* Con una colección vacía hay lugares pero sin nadie que los ocupe. */
+const bancaVacia = sugerirBanca(activos3, []);
+check("sin colección, los lugares quedan pero sin candidato",
+  bancaVacia.length === SINNERS.length - 3 && bancaVacia.every((b) => b.mejor === null));
+
+/* Con los 12 desplegados no queda banca. */
+const unoPorSinner = SINNERS.map((s) => IDENTITIES.find((i) => i.sinner === s));
+check("con los 12 peleando no hay banca", sugerirBanca(unoPorSinner, IDENTITIES).length === 0);
 
 /* --- Velocidad --- */
 

@@ -408,24 +408,13 @@ const BUFFEA_ALIADOS = [
   /\ballies?\b[^.\n]{0,40}\b(gain|heal)\b/i,
 ];
 
-function derivarSinergia(identity, mapeoEstados) {
+/* Lee una lista de pasivas y devuelve qué arquetipos aplica y cuáles cobra. */
+function rolesDe(pasivas, mapeoEstados) {
   const aplica = new Set();
   const lee = new Set();
-  let posicion = null;
-  let buffeaAliados = false;
-
-  const pasivas = [...identity.pasivas.combate, ...identity.pasivas.soporte];
 
   pasivas.forEach((p) => {
-    const texto = p.descripcion ?? "";
-
-    if (!posicion) {
-      const hit = POSICION.find(([, re]) => re.test(texto));
-      if (hit) posicion = hit[0];
-    }
-    if (!buffeaAliados) buffeaAliados = BUFFEA_ALIADOS.some((re) => re.test(texto));
-
-    (texto.match(/[^.\n]+/g) ?? []).forEach((frase) => {
+    (p.descripcion ?? "").match(/[^.\n]+/g)?.forEach((frase) => {
       (frase.match(/\[([A-Za-z][A-Za-z ]*)\]/g) ?? []).forEach((token) => {
         const arquetipo = mapeoEstados[token.slice(1, -1)]?.arquetipo;
         if (!arquetipo) return;
@@ -437,9 +426,37 @@ function derivarSinergia(identity, mapeoEstados) {
     });
   });
 
+  return { aplica: [...aplica].sort(), lee: [...lee].sort() };
+}
+
+function derivarSinergia(identity, mapeoEstados) {
+  let posicion = null;
+  let buffeaAliados = false;
+
+  const todas = [...identity.pasivas.combate, ...identity.pasivas.soporte];
+  todas.forEach((p) => {
+    const texto = p.descripcion ?? "";
+    if (!posicion) {
+      const hit = POSICION.find(([, re]) => re.test(texto));
+      if (hit) posicion = hit[0];
+    }
+    if (!buffeaAliados) buffeaAliados = BUFFEA_ALIADOS.some((re) => re.test(texto));
+  });
+
+  /*
+    Se separa por tipo de pasiva, además del total, porque las dos NO están
+    activas a la vez: la de combate corre cuando la ID está desplegada y la de
+    soporte cuando NO lo está
+    (https://limbuscompany.wiki.gg/wiki/Identity_Support_Passives).
+
+    Para recomendar banca eso es justamente lo que hace falta: de una ID que no
+    va a pelear, lo único que aporta es su pasiva de soporte, así que mirar el
+    rol combinado diría que sirve por algo que no va a pasar.
+  */
   return {
-    aplica: [...aplica].sort(),
-    lee: [...lee].sort(),
+    ...rolesDe(todas, mapeoEstados),
+    combate: rolesDe(identity.pasivas.combate, mapeoEstados),
+    soporte: rolesDe(identity.pasivas.soporte, mapeoEstados),
     buffeaAliados,
     posicion,
   };

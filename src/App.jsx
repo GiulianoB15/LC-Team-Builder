@@ -5,7 +5,7 @@ import { loadCollection, saveCollection } from "./lib/storage.js";
 import {
   recursosDeSin, perfilResistencias, perfilArquetipos,
   sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo, egosDelEquipo,
-  perfilSinergia, perfilVelocidad,
+  perfilSinergia, perfilVelocidad, sugerirBanca,
 } from "./lib/engine.js";
 import { toggleSeleccion } from "./lib/seleccion.js";
 import { decodificar } from "./lib/codigo.js";
@@ -43,6 +43,12 @@ export default function App() {
   */
   const [fichaId, setFichaId] = useState(null);
   const [compararId, setCompararId] = useState(null);
+
+  /*
+    Cuántos entran a pelear. No es fijo en el juego: lo define cada encuentro.
+    El default es 7, el del Mirror Dungeon actual.
+  */
+  const [slots, setSlots] = useState(SLOTS_DESPLIEGUE);
 
   /*
     Modo visita: una colección ajena cargada para mirar. Nunca se persiste y
@@ -138,10 +144,15 @@ export default function App() {
     [baseIds]
   );
 
-  // El análisis se hace sobre los 6 desplegados; la banca solo aporta soporte.
-  const desplegados = useMemo(() => equipo.slice(0, SLOTS_DESPLIEGUE), [equipo]);
+  const orden = useMemo(() => sugerirOrden(equipo, slots), [equipo, slots]);
 
-  const orden = useMemo(() => sugerirOrden(equipo), [equipo]);
+  /*
+    Los que entran a pelear salen del ORDEN, no de los primeros N que elegiste:
+    el orden puede moverlos por las pasivas posicionales, así que cortar la
+    selección a mano dejaría fuera a alguien que el motor sí despliega.
+    La banca aporta únicamente su pasiva de soporte.
+  */
+  const desplegados = useMemo(() => orden.filter((o) => !o.banca).map((o) => o.id), [orden]);
   const recursos = useMemo(() => recursosDeSin(desplegados), [desplegados]);
   const resistencias = useMemo(() => perfilResistencias(desplegados), [desplegados]);
   const arquetipos = useMemo(() => perfilArquetipos(equipo), [equipo]);
@@ -149,6 +160,15 @@ export default function App() {
   const sinergia = useMemo(() => perfilSinergia(equipo), [equipo]);
   /* La velocidad solo la tiran los que entran a combate, no la banca. */
   const velocidad = useMemo(() => perfilVelocidad(desplegados), [desplegados]);
+  /*
+    La banca se calcula sobre TODA la colección, no sobre el equipo elegido: la
+    pregunta es a quién conviene tener ahí, y puede ser alguien que no habías
+    puesto.
+  */
+  const banca = useMemo(
+    () => sugerirBanca(desplegados, ownedIdentities, recursos),
+    [desplegados, ownedIdentities, recursos]
+  );
 
   // Un E.G.O solo se puede usar si su Sinner está desplegado, no en banca.
   const egosEquipo = useMemo(() => {
@@ -252,6 +272,9 @@ export default function App() {
             sinergia={sinergia}
             velocidad={velocidad}
             onVerDetalle={verDetalle}
+            banca={banca}
+            slots={slots}
+            onCambiarSlots={setSlots}
           />
         )}
 

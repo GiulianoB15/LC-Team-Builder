@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import {
-  DAMAGE_TYPES, DAMAGE_LABEL, SIN_LABEL, SLOTS_DESPLIEGUE, etiquetaResistencia,
+  DAMAGE_TYPES, DAMAGE_LABEL, SIN_LABEL, SLOTS_POSIBLES, SINNERS_TOTALES, etiquetaResistencia,
 } from "../data/constants.js";
 import IdCard from "./IdCard.jsx";
+import Retrato from "./Retrato.jsx";
 import { CostoSin } from "./EgoCard.jsx";
 import { descargarEquipo } from "../lib/estampa.js";
 import { styles } from "../styles.js";
 
 export default function EquipoTab({
   ownedIdentities, equipoIds, onToggle, orden, recursos, resistencias, arquetipos, pasivas,
-  egosEquipo, tieneEgos, max, sinergia, velocidad, onVerDetalle,
+  egosEquipo, tieneEgos, max, sinergia, velocidad, onVerDetalle, banca, slots, onCambiarSlots,
 }) {
   if (ownedIdentities.length === 0) {
     return (
@@ -39,10 +40,33 @@ export default function EquipoTab({
   return (
     <section>
       <p style={styles.helpText}>
-        Elegí hasta {max} Identidades (una por Sinner). Las primeras{" "}
-        <strong>{SLOTS_DESPLIEGUE}</strong> del orden entran a combate; el resto queda en banca y
-        sigue aportando su pasiva de soporte.
+        Elegí hasta {max} Identidades (una por Sinner). Las primeras <strong>{slots}</strong> del
+        orden entran a combate; el resto queda en banca y sigue aportando su pasiva de soporte.
       </p>
+
+      {/*
+        El cupo lo define cada encuentro, no es un número del juego: el Mirror
+        Dungeon actual va con 7 y otros capítulos con 6 o menos. Por eso se elige.
+      */}
+      <div style={styles.selectorSlots}>
+        <span style={styles.detalleSubtitulo}>Entran a pelear</span>
+        <div style={{ display: "flex", gap: 6 }}>
+          {SLOTS_POSIBLES.map((n) => (
+            <button
+              key={n}
+              onClick={() => onCambiarSlots(n)}
+              style={{ ...styles.chipRol, ...(slots === n ? styles.chipRolActivo : {}) }}
+              aria-pressed={slots === n}
+            >
+              {n}
+            </button>
+          ))}
+        </div>
+        <span style={styles.reasonText}>
+          Mirror Dungeon y Canto IX van con 7; el Canto VII y el Intervallo V, con 6. Los otros{" "}
+          {SINNERS_TOTALES - slots} quedan de banca.
+        </span>
+      </div>
 
       <div style={styles.idGrid}>
         {ownedIdentities.map((id) => (
@@ -150,6 +174,67 @@ export default function EquipoTab({
             </p>
           )}
 
+          <h2 style={styles.sectionTitle}>Quiénes conviene tener en la banca</h2>
+          <p style={styles.helpText}>
+            De un suplente lo único que llega a la mesa es su <strong>pasiva de soporte</strong>:
+            la de combate solo corre si está desplegado. Y como el equipo son {SINNERS_TOTALES}{" "}
+            Sinners con uno cada uno, la banca no es "cinco cualesquiera" sino{" "}
+            <strong>uno por cada Sinner que no entró</strong>.
+          </p>
+
+          {banca.length === 0 ? (
+            <p style={styles.helpText}>
+              Los {SINNERS_TOTALES} Sinners están desplegados, así que no queda banca.
+            </p>
+          ) : (
+            <div style={styles.candidateList}>
+              {banca.map(({ sinner, mejor, opciones }) => (
+                <div key={sinner} style={styles.candidateCard}>
+                  <div style={styles.candidateHeader}>
+                    <div style={styles.idName}>{sinner}</div>
+                    {opciones.length > 1 && (
+                      <span style={styles.reasonText}>{opciones.length} opciones tuyas</span>
+                    )}
+                  </div>
+
+                  {!mejor ? (
+                    <div style={styles.reasonText}>
+                      No tenés ninguna Identidad de {sinner} en tu colección.
+                    </div>
+                  ) : (
+                    <>
+                      <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 4, minWidth: 0 }}>
+                        <Retrato
+                          id={mejor.id.id}
+                          nombre={mejor.id.nombre}
+                          arquetipos={mejor.id.arquetipos}
+                          tamano={34}
+                        />
+                        <div style={{ minWidth: 0, flex: 1 }}>
+                          <div style={styles.idName}>{mejor.id.nombre}</div>
+                          {mejor.soporte[0] && (
+                            <div style={styles.idTags}>{mejor.soporte[0].nombre}</div>
+                          )}
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => onVerDetalle(mejor.id)}
+                          style={styles.botonFicha}
+                          aria-label={`Ver la ficha de ${mejor.id.nombre}`}
+                        >
+                          ficha
+                        </button>
+                      </div>
+                      {mejor.motivos.map((m, i) => (
+                        <div key={i} style={styles.reasonText}>{m}</div>
+                      ))}
+                    </>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
           <h2 style={styles.sectionTitle}>Pasivas que se activan</h2>
           <p style={styles.helpText}>
             <strong>{pasivas.activas}</strong> de {pasivas.totales} pasivas del equipo llegan a su
@@ -163,7 +248,7 @@ export default function EquipoTab({
             </p>
           ) : egosEquipo.length === 0 ? (
             <p style={styles.helpText}>
-              Ninguno de tus E.G.O pertenece a los {SLOTS_DESPLIEGUE} Sinners desplegados. Los de la
+              Ninguno de tus E.G.O pertenece a los {slots} Sinners desplegados. Los de la
               banca no se pueden usar.
             </p>
           ) : (
@@ -194,7 +279,7 @@ export default function EquipoTab({
             </>
           )}
 
-          <h2 style={styles.sectionTitle}>Recursos de Sin (6 desplegados)</h2>
+          <h2 style={styles.sectionTitle}>Recursos de Sin ({slots} desplegados)</h2>
           {sinsActivos.length === 0 ? (
             <p style={styles.helpText}>Sin recursos todavía.</p>
           ) : (
@@ -208,7 +293,7 @@ export default function EquipoTab({
             </div>
           )}
 
-          <h2 style={styles.sectionTitle}>Resistencias (6 desplegados)</h2>
+          <h2 style={styles.sectionTitle}>Resistencias ({slots} desplegados)</h2>
           <div style={styles.resRow}>
             {DAMAGE_TYPES.map((t) => (
               <div key={t} style={styles.resPill}>

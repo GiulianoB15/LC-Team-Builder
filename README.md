@@ -350,6 +350,33 @@ cualquier fan site. Fuente: `limbus-assets.eldritchtools.com`.
 **No se completan datos de memoria.** Todo sale de las fuentes. Si algo está mal, se
 corrige el conversor y se regenera — nunca se edita el JSON a mano.
 
+## Cuántos entran a pelear, y para qué sirve la banca
+
+**El cupo no es un número fijo del juego**: cada encuentro define su *Participant Limit*.
+Mirror of Immortality y el Canto IX van con **7**; el Canto VII y el Intervallo V, con 6; y
+hay encuentros con menos ([wiki, *Battles*](https://limbuscompany.wiki.gg/wiki/Battles) y
+las páginas de cada capítulo). Por eso se elige en la app, con 7 de default — el del Mirror
+Dungeon actual, que es donde armar equipo importa.
+
+El equipo siempre son 12, uno por Sinner. Los que no entran quedan de banca.
+
+### Por qué la banca no es un detalle
+
+De un suplente **lo único que llega a la mesa es su pasiva de soporte**: la de combate corre
+cuando la ID está desplegada y la de soporte cuando **no** lo está
+([wiki](https://limbuscompany.wiki.gg/wiki/Identity_Support_Passives)). Cualquier
+recomendación de banca que mire la pasiva de combate está vendiendo algo que no va a pasar.
+
+Por eso `sinergia` se guarda además **separada por tipo de pasiva**: 83 Identities tienen un
+rol derivable de su pasiva de soporte específicamente, y ése es el que se usa para la banca.
+
+Y como el equipo son 12 Sinners con uno cada uno, la banca no es "cinco cualesquiera" sino
+**uno por cada Sinner que no entró**. La pregunta no es "¿a quién bajo?" sino, por cada
+Sinner que quedó afuera, "¿cuál de mis Identidades de ese Sinner conviene tener ahí?".
+
+Se puntúa por dos cosas: que el equipo le cubra el costo de su pasiva de soporte, y que esa
+pasiva toque el arquetipo que el equipo está jugando.
+
 ## Filtrar por lo que hace, no por lo que es
 
 Además de Sinner, arquetipo y facción, la colección filtra por **rol**: quién aplica el
@@ -370,7 +397,7 @@ para decidir dónde gastar, no para jugar hoy.
 
 **Lo que cuenta son los Sinners, no las Identidades.** Diez de Bleed repartidas en tres
 Sinners no arman un equipo de Bleed: se despliegan 6 y no puede haber dos del mismo. Por eso
-el número grande es "Sinners cubiertos de 6", y una candidata cuyo Sinner ya está cubierto
+el número grande es "Sinners cubiertos" sobre el cupo, y una candidata cuyo Sinner ya está cubierto
 aparece atenuada — es una alternativa, no un lugar nuevo.
 
 Encima se mira el rol: si lo que tenés solo cobra el estado y nadie lo inflige, la
@@ -395,7 +422,7 @@ que sirve para decidir si conviene sacarla.
 
 ## Descargar el equipo como imagen
 
-Botón *Descargar imagen* en Armar equipo. Arma un PNG con los 6 desplegados numerados y la
+Botón *Descargar imagen* en Armar equipo. Arma un PNG con los desplegados numerados y la
 banca aparte y apagada — la distinción importa, y una imagen que las mezcle miente.
 
 Se dibuja en un `<canvas>` en el navegador: sin dependencias, sin servidor y sin subir nada

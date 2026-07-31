@@ -87,5 +87,21 @@ export function etiquetaResistencia(mult) {
 /* Un miembro es punto blando de un tipo de daño si recibe más que lo normal. */
 export const esPuntoBlando = (mult) => mult > MULT_NORMAL;
 
-/* Cupos de despliegue. Ver §3.1: los 6 primeros combaten, el resto es banca. */
-export const SLOTS_DESPLIEGUE = 6;
+/*
+  Cupos de despliegue.
+
+  NO es un número fijo del juego: el "Participant Limit" lo define cada
+  encuentro. Mirror of Immortality y el Canto IX van con 7, el Canto VII y el
+  Intervallo V con 6, y hay encuentros puntuales con menos
+  (https://limbuscompany.wiki.gg/wiki/Battles y las páginas de cada capítulo).
+
+  Por eso es configurable y esto es solo el default: 7, que es lo que usa el
+  Mirror Dungeon actual, que es donde armar equipo importa de verdad.
+
+  El equipo siempre son 12 —uno por Sinner— y los que no entran quedan de
+  banca aportando su pasiva de soporte, que está activa justamente cuando la ID
+  NO está desplegada (https://limbuscompany.wiki.gg/wiki/Identity_Support_Passives).
+*/
+export const SLOTS_DESPLIEGUE = 7;
+export const SLOTS_POSIBLES = [5, 6, 7];
+export const SINNERS_TOTALES = 12;

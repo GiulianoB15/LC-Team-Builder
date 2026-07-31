@@ -95,6 +95,7 @@ export const styles = {
   /* La candidata cuyo Sinner ya está cubierto no es mala, pero no agranda el equipo. */
   candidataTibia: { opacity: 0.72 },
 
+  selectorSlots: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", padding: "8px 10px", background: "#1b1917", border: "1px solid #2c2926", borderRadius: 6, marginBottom: 10 },
   chipRol: { fontFamily: "system-ui, sans-serif", fontSize: 11, color: "#b3ada6", background: "#1b1917", border: "1px solid #3a3631", borderRadius: 11, padding: "3px 9px", cursor: "pointer" },
   chipRolActivo: { color: "#151413", background: "#c9bfa8", borderColor: "#c9bfa8", fontWeight: 600 },
   tituloConAccion: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 10, flexWrap: "wrap" },

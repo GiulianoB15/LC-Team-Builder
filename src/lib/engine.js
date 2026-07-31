@@ -1,5 +1,5 @@
 import {
-  SINS, SIN_LABEL, DAMAGE_TYPES, DAMAGE_LABEL, ARQUETIPOS,
+  SINS, SIN_LABEL, SINNERS, DAMAGE_TYPES, DAMAGE_LABEL, ARQUETIPOS,
   esPuntoBlando, MULT_NORMAL, SLOTS_DESPLIEGUE,
 } from "../data/constants.js";
 
@@ -213,6 +213,82 @@ export function perfilSinergia(team) {
 }
 
 /* ------------------------------------------------------------------ *
+   Banca
+ * ------------------------------------------------------------------ */
+
+/*
+  A quién dejar en la banca, y por qué.
+
+  La clave está en que las dos pasivas de una ID NO están activas a la vez: la de
+  combate corre cuando está desplegada y la de soporte cuando NO lo está
+  (https://limbuscompany.wiki.gg/wiki/Identity_Support_Passives). O sea que de un
+  suplente lo único que llega a la mesa es su pasiva de soporte. Cualquier
+  recomendación que mire su pasiva de combate está vendiendo algo que no va a
+  pasar.
+
+  La otra mitad es una consecuencia del formato, no una preferencia: el equipo son
+  12 Sinners, uno cada uno, así que la banca no es "cinco cualesquiera" sino
+  exactamente UNA por cada Sinner que no entró. Entonces la pregunta no es "¿a
+  quiénes bajo?" sino, por cada Sinner que quedó afuera, "¿cuál de mis IDs de ese
+  Sinner conviene tener ahí?".
+
+  `activos` son los que pelean; `propias` toda la colección.
+*/
+export function sugerirBanca(activos, propias, recursos = recursosDeSin(activos)) {
+  const sinnersDesplegados = new Set(activos.map((i) => i.sinner));
+  const arquetiposDelEquipo = new Set(activos.flatMap((i) => i.arquetipos));
+
+  /*
+    Los Sinners que no entraron, en el orden fijo de siempre para que la lista no
+    baile entre renders.
+  */
+  const sinnersLibres = SINNERS.filter((s) => !sinnersDesplegados.has(s));
+
+  return sinnersLibres.map((sinner) => {
+    const opciones = propias
+      .filter((i) => i.sinner === sinner)
+      .map((i) => {
+        /* Solo la de soporte: es lo único que aporta desde afuera. */
+        const soporte = estadoPasivas(i, recursos).soporte;
+        const activas = soporte.filter((p) => p.activa);
+
+        const rol = i.sinergia?.soporte ?? { aplica: [], lee: [] };
+        const aportaAlArquetipo = [...rol.aplica, ...rol.lee].filter((a) => arquetiposDelEquipo.has(a));
+
+        let score = 0;
+        const motivos = [];
+
+        if (soporte.length === 0) {
+          motivos.push("No se le conoce pasiva de soporte.");
+        } else if (activas.length === soporte.length) {
+          score += 3;
+          motivos.push(`El equipo le cubre el costo de "${soporte[0].nombre}".`);
+        } else if (activas.length > 0) {
+          score += 1;
+          motivos.push(`Le alcanza para ${activas.length} de sus ${soporte.length} pasivas de soporte.`);
+        } else {
+          const falta = soporte[0].faltantes?.[0];
+          motivos.push(
+            falta
+              ? `El equipo no le llega al costo: le faltan ${falta.cantidad - falta.disponible} de ${SIN_LABEL[falta.sin]}.`
+              : "El equipo no le cubre el costo de su pasiva de soporte."
+          );
+        }
+
+        if (aportaAlArquetipo.length) {
+          score += 4;
+          motivos.push(`Su pasiva de soporte toca ${aportaAlArquetipo.join(", ")}, que es lo que juega el equipo.`);
+        }
+
+        return { id: i, score, soporte, aportaAlArquetipo, motivos };
+      })
+      .sort((a, b) => b.score - a.score || a.id.nombre.localeCompare(b.id.nombre));
+
+    return { sinner, opciones, mejor: opciones[0] ?? null };
+  });
+}
+
+/* ------------------------------------------------------------------ *
    Qué falta para un arquetipo
  * ------------------------------------------------------------------ */
 
@@ -228,12 +304,12 @@ export function perfilSinergia(team) {
   tenés solo cobra el estado y nadie lo inflige, la recomendación no es "más del
   mismo arquetipo" sino específicamente quien lo aplique.
 */
-export function analizarArquetipo(arquetipo, propias, todas) {
+export function analizarArquetipo(arquetipo, propias, todas, slots = SLOTS_DESPLIEGUE) {
   const delArquetipo = (x) => x.arquetipos.includes(arquetipo);
 
   const tuyas = propias.filter(delArquetipo);
   const sinnersCubiertos = new Set(tuyas.map((i) => i.sinner));
-  const faltanSinners = SLOTS_DESPLIEGUE - sinnersCubiertos.size;
+  const faltanSinners = slots - sinnersCubiertos.size;
 
   const aplican = tuyas.filter((i) => i.sinergia?.aplica.includes(arquetipo));
   const leen = tuyas.filter((i) => i.sinergia?.lee.includes(arquetipo));
@@ -333,7 +409,7 @@ export const arquetipoDominante = (team) => {
   a los Sins que las pasivas del equipo necesitan, porque son los que habilitan
   al resto. Es una aproximación razonable, no una recomendación del juego.
 */
-export function sugerirOrden(team) {
+export function sugerirOrden(team, slots = SLOTS_DESPLIEGUE) {
   if (team.length === 0) return [];
 
   const recursos = recursosDeSin(team);
@@ -404,7 +480,7 @@ export function sugerirOrden(team) {
          dos motivos que habla del slot y no de quién juega. */
       motivoPosicion: id.sinergia?.posicion ? MOTIVO_POSICION[id.sinergia.posicion] : null,
       aporte: n,
-      banca: idx >= SLOTS_DESPLIEGUE,
+      banca: idx >= slots,
       sinDatos: !id.tienePasivas,
     };
   });
