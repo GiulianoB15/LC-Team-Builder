@@ -235,12 +235,14 @@ node scripts/fetch-imagenes.mjs    # --forzar para rebajar todo
 En los dos casos se corre **a demanda**, no en cada push. Las imágenes quedan versionadas en `public/retratos/`
 y la app las sirve estáticas, así que no le pega al servidor de nadie en cada visita.
 
-**Identities: 184 de 184.** La URL sale del id, sin tabla de mapeo: las 12 base (id
-terminado en `01`) usan el sufijo `_normal` y el resto `_gacksung`. Con `sharp` pesan
-**0,46 MB** en total (96px WebP); sin `sharp` se guardan los originales, bastante más
+**294 de 294.** La URL sale del id, sin tabla de mapeo. Con `sharp` las 294 pesan
+**1,2 MB** en total (96px WebP); sin `sharp` se guardan los originales, bastante más
 pesados.
 
-**E.G.O: `<id>_awaken_profile.webp`.** No se deduce del patrón de Identities ni del
+**Identities:** las 12 base (id terminado en `01`) usan el sufijo `_normal` y el resto
+`_gacksung`.
+
+**E.G.O:** `<id>_awaken_profile.webp`. No se deduce del patrón de Identities ni del
 código de la fuente: es una mezcla de los dos. Lo que devolvió 404:
 
 | Patrón | De dónde salió |

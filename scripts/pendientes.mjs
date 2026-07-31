@@ -21,6 +21,7 @@ const egosFaltantes = egos.filter((e) => !e.tienePasivas).sort((a, b) => (a.fech
 
 const skills = identities.flatMap((i) => i.skills);
 const skillsSinNumeros = skills.filter((s) => s.poderBase == null);
+const retratos = leer("retratos.json").ids ?? [];
 
 /*
   Con las pasivas completas ya no queda nada que capturar a mano. En vez de
@@ -51,12 +52,15 @@ dato que falta y no un valor real.`
         : " Completo, cruzado por id de skill."
     }
 
-## Lo que sigue faltando
+## Retratos
 
-**Los retratos de los 110 E.G.O.** No es un problema de datos sino de no saber
-todavía con qué nombre de archivo los sirve el servidor de imágenes; los
-patrones probados están anotados en \`scripts/fetch-imagenes.mjs\`. Mientras
-tanto esas tarjetas muestran el marcador con las iniciales.
+**${retratos.length} de ${identities.length + egos.length}.**${
+      retratos.length >= identities.length + egos.length
+        ? ""
+        : `\n\nLo que falte muestra un marcador con las iniciales, nunca una imagen rota. Si es
+un patrón de URL que dejó de responder, \`node scripts/fetch-imagenes.mjs --probar\`
+dice cuál anda.`
+    }
 `
   );
   console.log(`PENDIENTES.md — sin pasivas pendientes; faltan números de ${skillsSinNumeros.length} skills`);

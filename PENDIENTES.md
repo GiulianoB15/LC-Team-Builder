@@ -13,9 +13,6 @@ aparecer sola con lo que falte.
 
 Poder base, monedas y valor de moneda: **618 de 618**. Completo, cruzado por id de skill.
 
-## Lo que sigue faltando
+## Retratos
 
-**Los retratos de los 110 E.G.O.** No es un problema de datos sino de no saber
-todavía con qué nombre de archivo los sirve el servidor de imágenes; los
-patrones probados están anotados en `scripts/fetch-imagenes.mjs`. Mientras
-tanto esas tarjetas muestran el marcador con las iniciales.
+**294 de 294.**
