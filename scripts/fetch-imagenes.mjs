@@ -33,18 +33,38 @@ const leer = (f) => JSON.parse(readFileSync(path.join(RAIZ, "src/data", f), "utf
 const { identities } = leer("identities.json");
 const { egos } = leer("egos.json");
 
-/* Las base (…01) usan _normal; todas las demás, _gacksung. */
-const urlIdentity = (id) => `${BASE}/identities/${id}_${String(id).endsWith("01") ? "normal" : "gacksung"}.webp`;
+/*
+  Siempre _gacksung. La regla real de la fuente (limbus-shared-library,
+  src/identity/identity.js) es:
+
+      type = (uptie > 2 || tags incluye "Base Identity") ? "gacksung" : "normal"
+
+  O sea: "normal" es el arte de uptie 1-2 y "gacksung" el de uptie 3-4. Como acá
+  se muestran las IDs a uptie máximo, corresponde gacksung para todas. La regla
+  anterior ("las que terminan en 01 usan normal") bajaba las 12 Identities base
+  con el arte sin subir de nivel.
+*/
+const urlIdentity = (id) => `${BASE}/identities/${id}_gacksung.webp`;
 
 /*
-  Para E.G.O el sufijo no está confirmado, así que se prueban variantes en orden
-  y se usa la primera que responda. El resultado se reporta al final para poder
-  fijar el patrón en la próxima corrida.
+  Para E.G.O el patrón es distinto y no se deduce del de Identities: la primera
+  corrida bajó 184 de 184 Identities y 0 de 110 E.G.O probando los sufijos que
+  parecían obvios (_gacksung, _normal, sin sufijo).
+
+  El correcto sale del código de la propia fuente
+  (github.com/eldritchtools/limbus-shared-library, src/ego/ego.js):
+
+      `${ASSETS_ROOT}/egos/${ego.id}_${type}_profile.png`   type: awaken | erosion
+
+  "awaken" es el arte base y "erosion" el de corrosión, que no todas tienen.
+  Se pide el de awaken. Se prueba primero la variante .webp porque para
+  Identities existe y pesa menos; si no está, se cae al .png que sí está
+  confirmado en el código de la fuente. sharp convierte cualquiera de las dos a
+  WebP de 96 px, así que el archivo que queda en disco es igual.
 */
 const urlsEgo = (id) => [
-  `${BASE}/egos/${id}_gacksung.webp`,
-  `${BASE}/egos/${id}.webp`,
-  `${BASE}/egos/${id}_normal.webp`,
+  `${BASE}/egos/${id}_awaken.webp`,
+  `${BASE}/egos/${id}_awaken_profile.png`,
 ];
 
 /* sharp es opcional: sin él se guardan los originales y se avisa. */
@@ -101,7 +121,7 @@ for (const o of objetivos) {
   }
 
   if (o.esEgo) {
-    const v = r.url.replace(/.*\/\d+/, "").replace(".webp", "") || "(sin sufijo)";
+    const v = r.url.replace(/.*\/\d+/, "") || "(sin sufijo)";
     variantesEgo[v] = (variantesEgo[v] || 0) + 1;
   }
 

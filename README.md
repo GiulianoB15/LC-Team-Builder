@@ -71,6 +71,7 @@ public/
 scripts/
   build-dataset.mjs    fusiona las fuentes y genera los JSON
   fetch-imagenes.mjs   baja los retratos y genera las miniaturas
+  fetch-pasivas.mjs    baja las pasivas, una por id, desde limbus-assets
   parse-pasivas-wiki.mjs  extrae las pasivas de soporte del HTML de la wiki
   smoke-test.mjs       corre los chequeos
   tests.js             los chequeos en sí
@@ -135,6 +136,30 @@ contra LCTeamBuilder en las 146 IDs que están en ambas fuentes: **coinciden 100
 Sin del costo y 100% en la cantidad**. Las 9 diferencias de nombre son tipográficas, y
 en varias la wiki es la correcta (LCTeamBuilder tiene `Conering` por `Cornering`).
 
+#### Una cuarta fuente, todavía sin integrar
+
+Los huecos de arriba existen porque el dump de `identities.json` no trae pasivas. Pero
+la fuente sí las publica: no en ese archivo, sino en **uno por id**.
+
+```
+https://limbus-assets.eldritchtools.com/data/identities/<id>.json   combatPassives, supportPassives
+https://limbus-assets.eldritchtools.com/data/egos/<id>.json         passiveList
+```
+
+Sale de su propio código: el componente que muestra "Combat Passives" hace
+`useData(`identities/${identity.id}`)` y lee `skillData.combatPassives`
+([`limbus-team-building-hub`](https://github.com/eldritchtools/limbus-team-building-hub),
+`src/app/components/SkillLoader.js`), y `useData` resuelve contra `DATA_ROOT`.
+
+`scripts/fetch-pasivas.mjs` las baja y las normaliza a `src/data/pasivas.json`. Se corre
+desde *Actions* → **Bajar pasivas**, por la misma razón que el de retratos.
+
+**Estado: el script está escrito y probado contra un servidor de prueba, pero todavía no
+se corrió contra la fuente real, así que `build-dataset.mjs` no lo consume.** Recién
+cuando el archivo generado esté a la vista se conecta. El `meta` del archivo guarda las
+claves que vinieron y lo que no se supo mapear, justamente para poder verificarlo antes
+de darlo por bueno.
+
 ### Limitaciones conocidas, verificadas
 
 - **9 E.G.O no tienen datos de pasiva.**
@@ -159,9 +184,18 @@ node scripts/fetch-imagenes.mjs    # --forzar para rebajar todo
 En los dos casos se corre **a demanda**, no en cada push. Las imágenes quedan versionadas en `public/retratos/`
 y la app las sirve estáticas, así que no le pega al servidor de nadie en cada visita.
 
-La URL sale del id, sin tabla de mapeo: las 12 Identities base (id terminado en `01`)
-usan el sufijo `_normal` y el resto `_gacksung`. Se verificó contra los 147 archivos de
-LCTeamBuilder, donde esos son los dos únicos sufijos que existen.
+La URL sale del id, sin tabla de mapeo:
+
+| | Patrón |
+|---|---|
+| Identity | `identities/<id>_gacksung.webp` |
+| E.G.O | `egos/<id>_awaken.webp`, y si no está, `egos/<id>_awaken_profile.png` |
+
+`gacksung` es el arte de uptie 3-4 y `normal` el de uptie 1-2, que es como se muestran
+las IDs acá. `awaken` es el arte base del E.G.O; `erosion` es el de corrosión, que no
+todos tienen y no se usa. Las dos reglas salen del código de la propia fuente
+([`limbus-shared-library`](https://github.com/eldritchtools/limbus-shared-library),
+`src/identity/identity.js` y `src/ego/ego.js`).
 
 Con `sharp` las 294 imágenes pesan **0,64 MB** en total (96px WebP). Sin `sharp` se
 guardan los originales, que son bastante más pesados.
