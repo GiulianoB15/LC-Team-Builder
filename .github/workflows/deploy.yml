@@ -41,12 +41,14 @@ jobs:
 
       - run: npm run build
 
-      # enablement: true habilita Pages por API en la primera corrida, así no
-      # hace falta ir a Settings a mano. Sin esto el workflow falla con
-      # "Get Pages site failed ... Not Found" hasta que alguien lo active.
+      # Pages tiene que estar habilitado a mano una vez, en
+      # Settings → Pages → Build and deployment → Source: GitHub Actions.
+      #
+      # No se puede automatizar: `enablement: true` existe, pero el GITHUB_TOKEN
+      # de Actions no tiene permiso para crear el sitio y falla con "Resource
+      # not accessible by integration". Haría falta un token personal, que no
+      # vale la pena guardar como secreto solo para esto.
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:

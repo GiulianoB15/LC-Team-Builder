@@ -25,7 +25,18 @@ Cada push a la rama por defecto dispara `.github/workflows/deploy.yml`, que corr
 chequeos, buildea y publica en GitHub Pages. Si los chequeos fallan **no se despliega**,
 así un dataset inconsistente no llega a la página.
 
-Hace falta habilitarlo una vez: **Settings → Pages → Source: GitHub Actions**.
+**Hay que habilitar Pages a mano una vez**, y no se puede automatizar: el `GITHUB_TOKEN`
+de Actions no tiene permiso para crear el sitio (`enablement: true` falla con *Resource
+not accessible by integration*). Haría falta un token personal guardado como secreto,
+que no vale la pena solo para esto.
+
+En el repo: **Settings** → barra lateral izquierda, grupo *Code and automation* →
+**Pages** → sección *Build and deployment* → desplegable **Source** → **GitHub Actions**.
+Link directo: `github.com/GiulianoB15/LC-Team-Builder/settings/pages`
+
+Hasta que eso esté hecho, el workflow falla en `configure-pages` con *Get Pages site
+failed ... Not Found*. Después basta con re-lanzarlo desde la pestaña Actions, sin
+necesidad de un commit nuevo.
 
 Queda en `https://giulianob15.github.io/LC-Team-Builder/`.
 
