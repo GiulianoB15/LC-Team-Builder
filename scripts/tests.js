@@ -37,10 +37,23 @@ check("las copias de skill suman 6 en todas",
 
 /* Cobertura de pasivas: solo las anteriores al corte de LCTeamBuilder las tienen. */
 const conPasivas = IDENTITIES.filter((i) => i.tienePasivas);
-check("147 con pasivas y 37 sin", conPasivas.length === 147 && IDENTITIES.length - conPasivas.length === 37);
+check("181 con pasivas y solo 3 sin", conPasivas.length === 181 && IDENTITIES.length - conPasivas.length === 3);
+check("147 completas (combate+soporte) y 34 solo de soporte",
+  IDENTITIES.filter((i) => i.pasivasCompletas).length === 147 &&
+  IDENTITIES.filter((i) => i.tienePasivas && !i.pasivasCompletas).length === 34);
+/* Las de la wiki traen soporte pero NO combate: eso es lo que las hace parciales. */
+check("las parciales tienen soporte y no combate",
+  IDENTITIES.filter((i) => i.tienePasivas && !i.pasivasCompletas)
+    .every((i) => i.pasivas.soporte.length > 0 && i.pasivas.combate.length === 0));
+check("toda pasiva de la wiki queda marcada con su fuente",
+  IDENTITIES.filter((i) => !i.pasivasCompletas && i.tienePasivas)
+    .every((i) => i.pasivas.soporte.every((p) => p.fuente === "captura")));
+check("y conservan costo en Sin utilizable por el motor",
+  IDENTITIES.filter((i) => i.tienePasivas && !i.pasivasCompletas)
+    .every((i) => i.pasivas.soporte[0].costo.every((c) => SINS.includes(c.sin) && c.cantidad > 0)));
 check("las que declaran tener pasivas, las tienen de verdad",
   conPasivas.every((i) => i.pasivas.soporte.length > 0));
-check("las que no, quedan con listas vacías y no rompen",
+check("las que siguen sin pasivas quedan con listas vacías y no rompen",
   IDENTITIES.filter((i) => !i.tienePasivas).every((i) => i.pasivas.combate.length === 0 && i.pasivas.soporte.length === 0));
 
 const ring = porId(10109);
@@ -56,8 +69,16 @@ check("está Heishou Pack - Wu Branch Adept (2025-08-28)", !!identityPorNombre("
 check("está Shi Assoc. East Section 3 (2025-10-09)", !!identityPorNombre("Shi Assoc. East Section 3", "Faust"));
 check("está Dimension Shredder, pese a los espacios en el nombre", !!identityPorNombre("LCE E.G.O::Dimension Shredder", "Yi Sang"));
 
+/*
+  10116 se estrenó el 2026-07-23, después del corte de LCTeamBuilder. Antes
+  quedaba sin ninguna pasiva; ahora la wiki aporta la de soporte, así que tiene
+  dato utilizable pero sigue sin la de combate.
+*/
 const nueva = porId(10116);
-check("una ID posterior al corte queda marcada sin pasivas", nueva && !nueva.tienePasivas && nueva.fecha === "2026-07-23");
+check("la ID más nueva ya tiene su pasiva de soporte",
+  nueva && nueva.tienePasivas && nueva.pasivas.soporte.length === 1 && nueva.fecha === "2026-07-23");
+check("y sigue marcada como incompleta por faltarle la de combate",
+  !nueva.pasivasCompletas && nueva.pasivas.combate.length === 0);
 
 check("los arquetipos son solo los 7 oficiales",
   IDENTITIES.every((i) => i.arquetipos.every((a) => ARQUETIPOS.includes(a))),

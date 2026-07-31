@@ -265,6 +265,12 @@ function convertirIdentity(id, raw) {
     estados: raw.statuses ?? [],
     pasivas: pasivas ?? { combate: [], soporte: [] },
     tienePasivas: !!pasivas,
+    /*
+      LCTeamBuilder trae combate Y soporte. La wiki solo publica las de
+      soporte, así que lo que venga de ahí queda marcado como parcial: la UI lo
+      muestra distinto para no aparentar un análisis que no tiene.
+    */
+    pasivasCompletas: pasivasPorId.has(id),
   };
 }
 
@@ -376,6 +382,8 @@ const meta = {
     identities: identities.length,
     egos: egos.length,
     conPasivas,
+    pasivasCompletas: identities.filter((i) => i.pasivasCompletas).length,
+    soloSoporte: identities.filter((i) => i.tienePasivas && !i.pasivasCompletas).length,
     sinPasivas: identities.length - conPasivas,
     egosConPasiva: egos.filter((e) => e.tienePasiva).length,
   },

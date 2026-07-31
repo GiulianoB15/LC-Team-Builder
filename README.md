@@ -80,7 +80,8 @@ fuentes, porque ninguna de las dos alcanza sola:
 | Fuente | Rol | Aporta |
 |---|---|---|
 | Dump actualizado | **base** | 184 IDs, stats, resistencias, skills con afinidad y copias, keywords oficiales, fechas de estreno |
-| [LCTeamBuilder](https://github.com/LCTeamBuilder/LCTeamBuilder.github.io) (MIT, © 2024 SuenoImposible) | **solo pasivas** | separación combate/soporte y costo en recursos de Sin |
+| [LCTeamBuilder](https://github.com/LCTeamBuilder/LCTeamBuilder.github.io) (MIT, © 2024 SuenoImposible) | pasivas y números de skill | separación combate/soporte, costo en Sin, poder base y monedas |
+| [Wiki de Limbus Company](https://limbuscompany.wiki.gg/wiki/Identity_Support_Passives) | pasivas de soporte de las nuevas | cubre 34 de las 37 que LCTeamBuilder no alcanza |
 
 Para regenerar:
 
@@ -117,13 +118,22 @@ Cubre **93 de 110**. Los 17 restantes no son un agujero del mapeo: infligen buff
 debuffs genéricos (`Binding`, `Protection`, `Agility`), no estados de arquetipo — hay
 un chequeo que lo verifica.
 
+### Cobertura de pasivas
+
+| Estado | Cuántas | Qué significa |
+|---|---|---|
+| Completas | 147 | Combate **y** soporte, de LCTeamBuilder |
+| Solo soporte | 34 | De la wiki, que no publica las de combate. Badge "solo soporte" |
+| Sin pasivas | 3 | Ni siquiera la wiki las tiene todavía |
+
+El parser de la wiki está en `scripts/parse-pasivas-wiki.mjs`. Se valida cruzando
+contra LCTeamBuilder en las 146 IDs que están en ambas fuentes: **coinciden 100% en el
+Sin del costo y 100% en la cantidad**. Las 9 diferencias de nombre son tipográficas, y
+en varias la wiki es la correcta (LCTeamBuilder tiene `Conering` por `Cornering`).
+
 ### Limitaciones conocidas, verificadas
 
-- **14 E.G.O no tienen datos de pasiva**, por el mismo corte que las Identities.
-- **37 Identities no tienen datos de pasivas**: son posteriores al corte de
-  LCTeamBuilder (2025-08-06). Quedan marcadas con `tienePasivas: false` y la UI las
-  muestra con una etiqueta "sin pasivas", para que no parezcan analizadas igual que
-  el resto.
+- **9 E.G.O no tienen datos de pasiva.**
 - **Una ID quedó fuera del índice de LCTeamBuilder.** `LobotomyCorpRemnantFaust`
   existe como archivo válido pero nunca se agregó a `Equipables.ts`, así que su propia
   app no la muestra. El conversor la importa aparte.

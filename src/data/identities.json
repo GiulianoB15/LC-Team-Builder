@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generadoEn": "2026-07-30",
+  "generadoEn": "2026-07-31",
   "ultimaIdentity": "2026-07-23",
   "fuentes": [
    {
@@ -18,12 +18,14 @@
     "ultimoCommit": "2025-08-06"
    }
   ],
-  "advertencia": "37 Identities no tienen datos de pasivas: son posteriores al corte de LCTeamBuilder.",
+  "advertencia": "3 Identities no tienen datos de pasivas: son posteriores al corte de LCTeamBuilder.",
   "conteo": {
    "identities": 184,
    "egos": 110,
-   "conPasivas": 147,
-   "sinPasivas": 37,
+   "conPasivas": 181,
+   "pasivasCompletas": 147,
+   "soloSoporte": 34,
+   "sinPasivas": 3,
    "egosConPasiva": 101
   },
   "mapeoEstados": {
@@ -191,7 +193,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10102,
@@ -308,7 +311,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10103,
@@ -423,7 +427,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10104,
@@ -539,7 +544,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10105,
@@ -656,7 +662,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10106,
@@ -775,7 +782,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10107,
@@ -892,7 +900,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10108,
@@ -1008,7 +1017,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10109,
@@ -1136,7 +1146,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10110,
@@ -1264,7 +1275,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10111,
@@ -1382,7 +1394,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10112,
@@ -1497,7 +1510,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10113,
@@ -1624,7 +1638,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10114,
@@ -1743,9 +1758,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Obsidian Exoskeleton Shall Rend and Protect My Flesh",
+      "descripcion": "Apply the following effect to 1 ally that has the highest max HP - Combat Start: Gain (affected unit's Speed difference between this turn and last turn x 2) Defense Level (max 5; if the affected unit was not an Active participant last turn, use its minimum base Speed value to calculate) - Combat Start: If the affected unit is at less than 50% HP, and if the Speed difference between this turn and last turn is 3 or higher, heal 50 HP (once per Encounter)",
+      "costo": [
+       {
+        "sin": "Gluttony",
+        "cantidad": 4
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10115,
@@ -1883,9 +1912,31 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Grace of God",
+      "descripcion": "Deal +5% damage with Slash, Pierce, and Blunt Base Attack Skills that are used for the first time by any ally each turn (once per type across all allies) - The Index Identities deal +10% damage instead - This effect's application is determined Before Attack",
+      "costo": [
+       {
+        "sin": "Gluttony",
+        "cantidad": 1
+       },
+       {
+        "sin": "Gloom",
+        "cantidad": 1
+       },
+       {
+        "sin": "Pride",
+        "cantidad": 1
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10116,
@@ -1995,9 +2046,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "LetManOutrunEvenTheRayOfLight",
+      "descripcion": "When 1 ally with the fastest Speed uses a Skill that gains or consumes Charge Count, gain 1 Haste next turn (once per turn)",
+      "costo": [
+       {
+        "sin": "Envy",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10201,
@@ -2113,7 +2178,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10202,
@@ -2229,7 +2295,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10203,
@@ -2348,7 +2415,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10204,
@@ -2469,7 +2537,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10205,
@@ -2583,7 +2652,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10206,
@@ -2702,7 +2772,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10207,
@@ -2823,7 +2894,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10208,
@@ -2943,7 +3015,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10209,
@@ -3060,7 +3133,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10210,
@@ -3177,7 +3251,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10211,
@@ -3312,7 +3387,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10212,
@@ -3462,7 +3538,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10213,
@@ -3578,9 +3655,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Aiming for the Bullseye",
+      "descripcion": "Turn End: Apply 1 Pierce DMG Up next turn to the ally who inflicted the most Bleed Potency to enemies with its Skills and Passives (includes those from E.G.O Skills; if multiple Identities share the highest Bleed inflicted record for the turn, select the Identity earliest in the Deployment order. Does not activate if no one inflicted Bleed Potency that turn)",
+      "costo": [
+       {
+        "sin": "Lust",
+        "cantidad": 4
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10214,
@@ -3680,9 +3771,31 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "As the Prescript Orders…",
+      "descripcion": "Effects apply to the Identity with the earliest Deployment order - Prioritizes The Index -faction Identities Combat Start: If this unit's leftmost Skill on the Dashboard and other allies target the same enemy Slot, said Skill deals +5% damage for every ally targeting the same Slot excluding this unit (max 15%, applies when this unit and allies both use Base Attack Skills to main-target enemy Slot)",
+      "costo": [
+       {
+        "sin": "Sloth",
+        "cantidad": 1
+       },
+       {
+        "sin": "Pride",
+        "cantidad": 1
+       },
+       {
+        "sin": "Gloom",
+        "cantidad": 1
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10215,
@@ -3835,9 +3948,27 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Iron Maiden - Spikes",
+      "descripcion": "When hit, allies that equipped Defense Skill on their Slots this turn inflict 4 Bleed on the attacker (2 times per turn) - If the attacker already has Bleed , inflict +2 Bleed Count instead",
+      "costo": [
+       {
+        "sin": "Lust",
+        "cantidad": 2
+       },
+       {
+        "sin": "Envy",
+        "cantidad": 2
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10216,
@@ -3970,9 +4101,27 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "The Lone Fixer",
+      "descripcion": "Combat Start: If there is only 1 surviving Identity, including Backup units, the said Identity gains 3 Offense Level Up and 3 Defense Level Up",
+      "costo": [
+       {
+        "sin": "Wrath",
+        "cantidad": 3
+       },
+       {
+        "sin": "Lust",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10301,
@@ -4090,7 +4239,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10302,
@@ -4207,7 +4357,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10303,
@@ -4322,7 +4473,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10304,
@@ -4441,7 +4593,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10305,
@@ -4556,7 +4709,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10306,
@@ -4673,7 +4827,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10307,
@@ -4789,7 +4944,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10308,
@@ -4905,7 +5061,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10309,
@@ -5024,7 +5181,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10310,
@@ -5207,7 +5365,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10311,
@@ -5331,7 +5490,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10312,
@@ -5500,7 +5660,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10313,
@@ -5597,9 +5758,27 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Flesh-Rending Horn Growth",
+      "descripcion": "Ally with the fastest Speed: On Hit using a Base Attack Skill against enemies that have 2+ Rupture Count or Sinking Count, inflict 1 Defense Level Down (2 times per turn)",
+      "costo": [
+       {
+        "sin": "Gluttony",
+        "cantidad": 3
+       },
+       {
+        "sin": "Gloom",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10314,
@@ -5748,9 +5927,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "This, too, is the Grace of the Great Magicked Beeper!",
+      "descripcion": "Combat Start: Heal 15 SP for the ally that has the lowest SP - This effect prioritizes Plus Coin Identities - If the affected unit is in The Index faction, they gain 1 Damage Up as well - This effect does not apply to units under effects that prevent SP recovery such as E.G.O Corrosion, Panic, etc.",
+      "costo": [
+       {
+        "sin": "Gloom",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10401,
@@ -5867,7 +6060,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10402,
@@ -5985,7 +6179,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10403,
@@ -6103,7 +6298,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10404,
@@ -6224,7 +6420,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10405,
@@ -6341,7 +6538,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10406,
@@ -6462,7 +6660,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10407,
@@ -6577,7 +6776,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10408,
@@ -6696,7 +6896,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10409,
@@ -6812,7 +7013,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10410,
@@ -6957,7 +7159,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10411,
@@ -7075,7 +7278,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10412,
@@ -7201,9 +7405,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "It flows and cries",
+      "descripcion": "If the ally with the earliest Deployment order hits an enemy using its attack, inflict 1 Bleed (once per enemy per turn) - If target has Bleed , inflict +1 Bleed Count as well If the ally with the earliest Deployment order is hit by an enemy, inflict 1 Tremor against the attacker (3 times per turn) - If the attacker has Tremor , inflict +1 Tremor Count as well",
+      "costo": [
+       {
+        "sin": "Lust",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10413,
@@ -7294,9 +7512,27 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Drifter",
+      "descripcion": "Combat Start: The ally with the earliest Deployment order gains 1 Shield for every Poise on self (max 10)",
+      "costo": [
+       {
+        "sin": "Gluttony",
+        "cantidad": 3
+       },
+       {
+        "sin": "Pride",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10414,
@@ -7421,9 +7657,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Spring's Genesis",
+      "descripcion": "When the ally with the fastest Speed hits an enemy using a Skill that inflicts Sinking Potency, Count, or 'Unique Sinking', inflict 2 Tremor and trigger Tremor Burst ; then, reduce target's Tremor Count by 1 (once per turn)",
+      "costo": [
+       {
+        "sin": "Sloth",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10415,
@@ -7578,7 +7828,8 @@
     "combate": [],
     "soporte": []
    },
-   "tienePasivas": false
+   "tienePasivas": false,
+   "pasivasCompletas": false
   },
   {
    "id": 10501,
@@ -7695,7 +7946,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10502,
@@ -7810,7 +8062,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10503,
@@ -7928,7 +8181,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10504,
@@ -8046,7 +8300,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10505,
@@ -8164,7 +8419,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10506,
@@ -8278,7 +8534,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10507,
@@ -8397,7 +8654,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10508,
@@ -8527,7 +8785,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10509,
@@ -8642,7 +8901,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10510,
@@ -8759,7 +9019,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10511,
@@ -8881,7 +9142,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10512,
@@ -9025,7 +9287,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10513,
@@ -9136,9 +9399,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Flood the Chalice",
+      "descripcion": "For the turn, the amount of Bloodfeast is multiplied by 1.5 (2 times per Encounter; rounded down)",
+      "costo": [
+       {
+        "sin": "Lust",
+        "cantidad": 5
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10514,
@@ -9236,9 +9513,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Worker Bee",
+      "descripcion": "Apply the following effects for this turn (2 times per Encounter) - Attack End of Ally Pierce Base Attack Skill: The said ally heals HP equal to 10% of HP damage dealt using the attack - If all Base Attack Skills equipped on allied Skill Slots are Pierce Skills, all allies heal 10 SP at Turn End",
+      "costo": [
+       {
+        "sin": "Wrath",
+        "cantidad": 4
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10515,
@@ -9336,9 +9627,27 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Impastoed Scar",
+      "descripcion": "1 ally with the fastest Speed: On Hit, inflict 1 Defense Level Down for every 2 types of negative effect on target (once per turn; max 3)",
+      "costo": [
+       {
+        "sin": "Lust",
+        "cantidad": 1
+       },
+       {
+        "sin": "Pride",
+        "cantidad": 1
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10601,
@@ -9457,7 +9766,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10602,
@@ -9573,7 +9883,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10603,
@@ -9689,7 +10000,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10604,
@@ -9803,7 +10115,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10605,
@@ -9917,7 +10230,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10606,
@@ -10034,7 +10348,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10607,
@@ -10151,7 +10466,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10608,
@@ -10267,7 +10583,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10609,
@@ -10386,7 +10703,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10610,
@@ -10504,7 +10822,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10611,
@@ -10673,7 +10992,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10612,
@@ -10790,7 +11110,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10613,
@@ -10929,9 +11250,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Please be traceless in your deeds.",
+      "descripcion": "Identity that has the least current HP percentage: Deal +(types of Deathrites on target x 3)% damage against the enemy (max 15%)",
+      "costo": [
+       {
+        "sin": "Gluttony",
+        "cantidad": 6
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10614,
@@ -11081,9 +11416,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Please, Do Stop Running and Be Seated",
+      "descripcion": "Turn End: Inflict 2 Offense Level Down and +1 Bleed Count next turn on 1 enemy with the fastest Speed (in Focused Encounters, the Part)",
+      "costo": [
+       {
+        "sin": "Lust",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10615,
@@ -11181,9 +11530,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Spiteful Pursuit",
+      "descripcion": "When 1 ally with the earliest Deployment order attacks an enemy that has Bind , deal +10% damage",
+      "costo": [
+       {
+        "sin": "Pride",
+        "cantidad": 5
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10701,
@@ -11301,7 +11664,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10702,
@@ -11415,7 +11779,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10703,
@@ -11537,7 +11902,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10704,
@@ -11655,7 +12021,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10705,
@@ -11776,7 +12143,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10706,
@@ -11892,7 +12260,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10707,
@@ -12007,7 +12376,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10708,
@@ -12124,7 +12494,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10709,
@@ -12246,7 +12617,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10710,
@@ -12386,7 +12758,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10711,
@@ -12537,7 +12910,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10712,
@@ -12666,7 +13040,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10713,
@@ -12759,9 +13134,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "One day I'll wear me Armour for Cancelled Trains",
+      "descripcion": "- Combat Start: If the unit with the earliest Deployment Order gains Charge Count past the Max Charge Count Cap by using a Skill, the unit gains 1 Charge Barrier next turn for every Charge Count that exceeds the Max Charge Count Cap (max 3, including E.G.O Skills)",
+      "costo": [
+       {
+        "sin": "Envy",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10714,
@@ -12871,9 +13260,27 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Backed Against a River",
+      "descripcion": "Turn End: if an ally with the lowest current HP percentage has less than 50% HP, that unit gains 1 Clash Power Up next turn",
+      "costo": [
+       {
+        "sin": "Wrath",
+        "cantidad": 3
+       },
+       {
+        "sin": "Gluttony",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10715,
@@ -12985,9 +13392,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Chains of Loyalty",
+      "descripcion": "If any of The Middle -faction allies are killed during combat this turn, all The Middle-faction allies gain 1 Attack Power Up this turn and next turn (once per turn)",
+      "costo": [
+       {
+        "sin": "Envy",
+        "cantidad": 4
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10716,
@@ -13108,9 +13529,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "In One-on-one Duels…",
+      "descripcion": "1 ally with the fastest Speed: On Clash Win using Base Attack Skills, inflict +1 Burn Count on target (once per turn) - Prioritizes \" The Thumb \" Identities - If the ally is \" The Thumb \" Identity, inflict +1 Burn Count and Tremor Count instead - Combat Start: If there is only 1 enemy on the field, (for Abnormalities, a Core), this effect inflicts +1 more Burn Count and Tremor Count",
+      "costo": [
+       {
+        "sin": "Wrath",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10801,
@@ -13227,7 +13662,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10802,
@@ -13343,7 +13779,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10803,
@@ -13457,7 +13894,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10804,
@@ -13577,7 +14015,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10805,
@@ -13693,7 +14132,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10806,
@@ -13809,7 +14249,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10807,
@@ -13929,7 +14370,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10808,
@@ -14063,7 +14505,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10809,
@@ -14185,7 +14628,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10810,
@@ -14305,7 +14749,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10811,
@@ -14436,7 +14881,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10812,
@@ -14579,7 +15025,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10813,
@@ -14694,9 +15141,27 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Relay",
+      "descripcion": "Combat Start: when 1 ally that has the least SP uses a Base Attack Skill to Heads Hit, it heals 5 SP (2 times per turn; excluding allies at -40 or lower SP)",
+      "costo": [
+       {
+        "sin": "Sloth",
+        "cantidad": 3
+       },
+       {
+        "sin": "Gloom",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10814,
@@ -14795,9 +15260,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Hey, Are Ya Into Fixers, Too?",
+      "descripcion": "Clash Power +1 for #1 Deployed Identity's Base Attack Skills (once per turn) If the Dashboard has Envy A-Reson., #1 Deployed Identity deals +10% damage with Base Skills",
+      "costo": [
+       {
+        "sin": "Envy",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10815,
@@ -14927,9 +15406,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Cut Down What Must Be Felled",
+      "descripcion": "1 ally with the fastest Speed deals +10% damage using Slash Skills - If the said ally has Haste , deal +15% damage using Slash Skills instead",
+      "costo": [
+       {
+        "sin": "Pride",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10901,
@@ -15045,7 +15538,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10902,
@@ -15167,7 +15661,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10903,
@@ -15282,7 +15777,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10904,
@@ -15401,7 +15897,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10905,
@@ -15520,7 +16017,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10906,
@@ -15636,7 +16134,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10907,
@@ -15753,7 +16252,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10908,
@@ -15870,7 +16370,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10909,
@@ -15988,7 +16489,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10910,
@@ -16118,7 +16620,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10911,
@@ -16266,7 +16769,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10912,
@@ -16391,7 +16895,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10913,
@@ -16582,7 +17087,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 10914,
@@ -16673,9 +17179,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Carol of Dying Comrades",
+      "descripcion": "1 ally with the lowest SP: Skills that consume Charge or Unique Charge and have effects that inflict Sinking against enemies deal +10% damage (except E.G.O Skills)",
+      "costo": [
+       {
+        "sin": "Gloom",
+        "cantidad": 4
+       }
+      ],
+      "tipoCosto": "owned",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10915,
@@ -16796,9 +17316,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Nice and Slow, Don't Let It Break…",
+      "descripcion": "Apply the following effects to the Identity with the earliest Deployment order: - If Lust Reson. is of an odd number, inflict +1 more Bleed Potency - If Lust Reson. is of an even number, inflict +1 more Sinking Potency - If the said Identity is in The Ring faction, it gains 1 Offense Level Up or 1 Defense Level Up at Combat Start",
+      "costo": [
+       {
+        "sin": "Lust",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 10916,
@@ -16949,9 +17483,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Weaklings, Not Worth Shit",
+      "descripcion": "1 ally with the fastest Speed: When triggering Tremor Burst on the enemy, gain 2 Offense Level Up next turn (once per turn) - If the said ally is \" The Thumb \" Identity, gain 1 Haste as well (once per turn)",
+      "costo": [
+       {
+        "sin": "Wrath",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 11001,
@@ -17068,7 +17616,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11002,
@@ -17187,7 +17736,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11003,
@@ -17305,7 +17855,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11004,
@@ -17421,7 +17972,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11005,
@@ -17539,7 +18091,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11006,
@@ -17654,7 +18207,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11007,
@@ -17771,7 +18325,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11008,
@@ -17890,7 +18445,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11009,
@@ -18024,7 +18580,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11010,
@@ -18144,7 +18701,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11011,
@@ -18275,7 +18833,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11012,
@@ -18393,7 +18952,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11013,
@@ -18524,7 +19084,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11014,
@@ -18627,7 +19188,8 @@
     "combate": [],
     "soporte": []
    },
-   "tienePasivas": false
+   "tienePasivas": false,
+   "pasivasCompletas": false
   },
   {
    "id": 11015,
@@ -18730,7 +19292,8 @@
     "combate": [],
     "soporte": []
    },
-   "tienePasivas": false
+   "tienePasivas": false,
+   "pasivasCompletas": false
   },
   {
    "id": 11101,
@@ -18846,7 +19409,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11102,
@@ -18962,7 +19526,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11103,
@@ -19080,7 +19645,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11104,
@@ -19199,7 +19765,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11105,
@@ -19315,7 +19882,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11106,
@@ -19432,7 +20000,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11107,
@@ -19550,7 +20119,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11108,
@@ -19668,7 +20238,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11109,
@@ -19798,7 +20369,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11110,
@@ -19918,7 +20490,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11111,
@@ -20044,7 +20617,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11112,
@@ -20163,7 +20737,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11113,
@@ -20288,7 +20863,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11114,
@@ -20388,9 +20964,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Eagle Eye",
+      "descripcion": "Combat Start: apply 1 Protection next turn to 1 ally with the lowest HP percentage",
+      "costo": [
+       {
+        "sin": "Gloom",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 11115,
@@ -20565,9 +21155,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Someone Mess With the Family?",
+      "descripcion": "Combat Start: Apply 1 Damage Up and 1 Protection on allies that equipped Counter Skills (2 times per Encounter; excluding Clashable Counters) - If the affected ally is in The Middle , apply 2 Envy DMG Up and 2 Protection instead",
+      "costo": [
+       {
+        "sin": "Envy",
+        "cantidad": 4
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 11201,
@@ -20683,7 +21287,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11202,
@@ -20799,7 +21404,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11203,
@@ -20913,7 +21519,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11204,
@@ -21030,7 +21637,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11205,
@@ -21149,7 +21757,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11206,
@@ -21263,7 +21872,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11207,
@@ -21383,7 +21993,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11208,
@@ -21501,7 +22112,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11209,
@@ -21620,7 +22232,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11210,
@@ -21746,7 +22359,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11211,
@@ -21868,7 +22482,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11212,
@@ -21991,7 +22606,8 @@
      }
     ]
    },
-   "tienePasivas": true
+   "tienePasivas": true,
+   "pasivasCompletas": true
   },
   {
    "id": 11213,
@@ -22119,9 +22735,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Aim for the Gap",
+      "descripcion": "1 ally with the highest Speed: When using a Base Attack Skill, if this unit's Speed is faster than the main target's, inflict Defense Power Down on the target for every 3 Speed difference (max 2 per turn)",
+      "costo": [
+       {
+        "sin": "Sloth",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 11214,
@@ -22224,9 +22854,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Were There More Lives to be Saved?",
+      "descripcion": "Turn End: Apply the following to the ally with the earliest Deployment order among those that have negative effects: - Gain +4 Aggro to the leftmost Slot next turn - Gain 1 Blunt DMG Up next turn",
+      "costo": [
+       {
+        "sin": "Wrath",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 11215,
@@ -22337,9 +22981,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Defibrillation",
+      "descripcion": "Turn End: 3 allies with the earliest Deployment order each heal HP equal to (the sum of Charge Count and 'Unique Charge' consumed by each of their own Attack Skills this turn, respectively) (max 10)",
+      "costo": [
+       {
+        "sin": "Envy",
+        "cantidad": 4
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   },
   {
    "id": 11216,
@@ -22457,9 +23115,23 @@
    ],
    "pasivas": {
     "combate": [],
-    "soporte": []
+    "soporte": [
+     {
+      "nombre": "Stigma Workshop Prosthesis",
+      "descripcion": "The ally who has the highest current HP inflicts 2 Tremor On Hit against enemies that have Burn (once per turn) - If said enemy has 10+ Burn , trigger Tremor Burst On final Coin Hit; then, reduce target's Tremor Count by 1 (once per turn) A prosthetic gear produced by Stigma Workshop—a Workshop normally specializing in bladed weaponry—designed specifically for the Fixer at the Crack of Dawn to use. Attempting to use this fiery equipment without understanding Stigma Workshop's precise quirks will be met with swift consequences: painful, flesh-melting burn marks seared into the user's body.",
+      "costo": [
+       {
+        "sin": "Wrath",
+        "cantidad": 3
+       }
+      ],
+      "tipoCosto": "resonance",
+      "fuente": "captura"
+     }
+    ]
    },
-   "tienePasivas": false
+   "tienePasivas": true,
+   "pasivasCompletas": false
   }
  ]
 }

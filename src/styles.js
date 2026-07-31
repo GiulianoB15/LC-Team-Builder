@@ -61,6 +61,7 @@ export const styles = {
   egoOk: { fontFamily: "system-ui, sans-serif", fontSize: 11, textTransform: "uppercase", letterSpacing: 0.8, color: "#7aa06a" },
   egoFalta: { fontFamily: "system-ui, sans-serif", fontSize: 11, textTransform: "uppercase", letterSpacing: 0.8, color: "#a86a52" },
   egoNoAlcanza: { opacity: 0.62 },
+  parcial: { fontFamily: "system-ui, sans-serif", fontSize: 10, textTransform: "uppercase", letterSpacing: 0.8, color: "#7f8fa8", border: "1px solid #3f4d63", borderRadius: 10, padding: "1px 6px", marginLeft: 8, verticalAlign: "middle" },
   sinDatos: { fontFamily: "system-ui, sans-serif", fontSize: 10, textTransform: "uppercase", letterSpacing: 0.8, color: "#a8823c", border: "1px solid #6b5220", borderRadius: 10, padding: "1px 6px", marginLeft: 8, verticalAlign: "middle" },
   sinnerVacio: { fontFamily: "system-ui, sans-serif", fontSize: 12.5, color: "#5c5852", fontStyle: "italic", padding: "4px 0 2px" },
   idGrid: { display: "grid", gridTemplateColumns: "1fr", gap: 8 },

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generadoEn": "2026-07-30",
+  "generadoEn": "2026-07-31",
   "ultimaIdentity": "2026-07-23",
   "fuentes": [
    {
@@ -18,12 +18,14 @@
     "ultimoCommit": "2025-08-06"
    }
   ],
-  "advertencia": "37 Identities no tienen datos de pasivas: son posteriores al corte de LCTeamBuilder.",
+  "advertencia": "3 Identities no tienen datos de pasivas: son posteriores al corte de LCTeamBuilder.",
   "conteo": {
    "identities": 184,
    "egos": 110,
-   "conPasivas": 147,
-   "sinPasivas": 37,
+   "conPasivas": 181,
+   "pasivasCompletas": 147,
+   "soloSoporte": 34,
+   "sinPasivas": 3,
    "egosConPasiva": 101
   },
   "mapeoEstados": {

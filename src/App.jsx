@@ -237,8 +237,8 @@ export default function App() {
         {META.conteo.identities} Identities y {META.conteo.egos} E.G.O · última al{" "}
         <strong>{META.ultimaIdentity}</strong>.
         <br />
-        {META.conteo.sinPasivas} sin datos de pasivas (posteriores al corte de la fuente que las
-        aporta). Pasivas de{" "}
+        {META.conteo.soloSoporte} con solo pasiva de soporte y {META.conteo.sinPasivas} sin
+        pasivas. Pasivas de{" "}
         <a href="https://github.com/LCTeamBuilder/LCTeamBuilder.github.io" style={styles.footerLink}>
           LCTeamBuilder
         </a>{" "}

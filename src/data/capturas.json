@@ -52,5 +52,696 @@
       }
     }
   },
-  "identities": {}
+  "identities": {
+    "10114": {
+      "_ref": "Heishou Pack - Wu Branch Adept Yi Sang · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Obsidian Exoskeleton Shall Rend and Protect My Flesh",
+            "descripcion": "Apply the following effect to 1 ally that has the highest max HP - Combat Start: Gain (affected unit's Speed difference between this turn and last turn x 2) Defense Level (max 5; if the affected unit was not an Active participant last turn, use its minimum base Speed value to calculate) - Combat Start: If the affected unit is at less than 50% HP, and if the Speed difference between this turn and last turn is 3 or higher, heal 50 HP (once per Encounter)",
+            "costo": [
+              {
+                "sin": "Gluttony",
+                "cantidad": 4
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10115": {
+      "_ref": "The House of Spiders: The Index Nursefather Yi Sang · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Grace of God",
+            "descripcion": "Deal +5% damage with Slash, Pierce, and Blunt Base Attack Skills that are used for the first time by any ally each turn (once per type across all allies) - The Index Identities deal +10% damage instead - This effect's application is determined Before Attack",
+            "costo": [
+              {
+                "sin": "Gluttony",
+                "cantidad": 1
+              },
+              {
+                "sin": "Gloom",
+                "cantidad": 1
+              },
+              {
+                "sin": "Pride",
+                "cantidad": 1
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10116": {
+      "_ref": "LCE E.G.O::Dimension Shredder Yi Sang · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "LetManOutrunEvenTheRayOfLight",
+            "descripcion": "When 1 ally with the fastest Speed uses a Skill that gains or consumes Charge Count, gain 1 Haste next turn (once per turn)",
+            "costo": [
+              {
+                "sin": "Envy",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10213": {
+      "_ref": "Shi Assoc. East Section 3 Faust · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Aiming for the Bullseye",
+            "descripcion": "Turn End: Apply 1 Pierce DMG Up next turn to the ally who inflicted the most Bleed Potency to enemies with its Skills and Passives (includes those from E.G.O Skills; if multiple Identities share the highest Bleed inflicted record for the turn, select the Identity earliest in the Deployment order. Does not activate if no one inflicted Bleed Potency that turn)",
+            "costo": [
+              {
+                "sin": "Lust",
+                "cantidad": 4
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10214": {
+      "_ref": "The Index Proselyte:【Paper Slip】Faust · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "As the Prescript Orders…",
+            "descripcion": "Effects apply to the Identity with the earliest Deployment order - Prioritizes The Index -faction Identities Combat Start: If this unit's leftmost Skill on the Dashboard and other allies target the same enemy Slot, said Skill deals +5% damage for every ally targeting the same Slot excluding this unit (max 15%, applies when this unit and allies both use Base Attack Skills to main-target enemy Slot)",
+            "costo": [
+              {
+                "sin": "Sloth",
+                "cantidad": 1
+              },
+              {
+                "sin": "Pride",
+                "cantidad": 1
+              },
+              {
+                "sin": "Gloom",
+                "cantidad": 1
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10215": {
+      "_ref": "The House of Spiders: The Ring Apprentice Faust · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Iron Maiden - Spikes",
+            "descripcion": "When hit, allies that equipped Defense Skill on their Slots this turn inflict 4 Bleed on the attacker (2 times per turn) - If the attacker already has Bleed , inflict +2 Bleed Count instead",
+            "costo": [
+              {
+                "sin": "Lust",
+                "cantidad": 2
+              },
+              {
+                "sin": "Envy",
+                "cantidad": 2
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10216": {
+      "_ref": "Dawn Office Fixer Faust · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "The Lone Fixer",
+            "descripcion": "Combat Start: If there is only 1 surviving Identity, including Backup units, the said Identity gains 3 Offense Level Up and 3 Defense Level Up",
+            "costo": [
+              {
+                "sin": "Wrath",
+                "cantidad": 3
+              },
+              {
+                "sin": "Lust",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10313": {
+      "_ref": "Heishou Pack - Wei Branch Don Quixote · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Flesh-Rending Horn Growth",
+            "descripcion": "Ally with the fastest Speed: On Hit using a Base Attack Skill against enemies that have 2+ Rupture Count or Sinking Count, inflict 1 Defense Level Down (2 times per turn)",
+            "costo": [
+              {
+                "sin": "Gluttony",
+                "cantidad": 3
+              },
+              {
+                "sin": "Gloom",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10314": {
+      "_ref": "The Index Proxy - Effloresced E.G.O::Procuration Don Quixote · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "This, too, is the Grace of the Great Magicked Beeper!",
+            "descripcion": "Combat Start: Heal 15 SP for the ally that has the lowest SP - This effect prioritizes Plus Coin Identities - If the affected unit is in The Index faction, they gain 1 Damage Up as well - This effect does not apply to units under effects that prevent SP recovery such as E.G.O Corrosion, Panic, etc.",
+            "costo": [
+              {
+                "sin": "Gloom",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10412": {
+      "_ref": "N Corp. E.G.O::Contempt, Awe Ryōshū · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "It flows and cries",
+            "descripcion": "If the ally with the earliest Deployment order hits an enemy using its attack, inflict 1 Bleed (once per enemy per turn) - If target has Bleed , inflict +1 Bleed Count as well If the ally with the earliest Deployment order is hit by an enemy, inflict 1 Tremor against the attacker (3 times per turn) - If the attacker has Tremor , inflict +1 Tremor Count as well",
+            "costo": [
+              {
+                "sin": "Lust",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10413": {
+      "_ref": "Drifting Blade of Hongyuan Ryōshū · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Drifter",
+            "descripcion": "Combat Start: The ally with the earliest Deployment order gains 1 Shield for every Poise on self (max 10)",
+            "costo": [
+              {
+                "sin": "Gluttony",
+                "cantidad": 3
+              },
+              {
+                "sin": "Pride",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10414": {
+      "_ref": "Lobotomy E.G.O::Faint Aroma & Solitude Ryōshū · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Spring's Genesis",
+            "descripcion": "When the ally with the fastest Speed hits an enemy using a Skill that inflicts Sinking Potency, Count, or 'Unique Sinking', inflict 2 Tremor and trigger Tremor Burst ; then, reduce target's Tremor Count by 1 (once per turn)",
+            "costo": [
+              {
+                "sin": "Sloth",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10513": {
+      "_ref": "The Prince of La Manchaland Meursault · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Flood the Chalice",
+            "descripcion": "For the turn, the amount of Bloodfeast is multiplied by 1.5 (2 times per Encounter; rounded down)",
+            "costo": [
+              {
+                "sin": "Lust",
+                "cantidad": 5
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10514": {
+      "_ref": "Lobotomy E.G.O::Hornet【Alteration】Meursault · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Worker Bee",
+            "descripcion": "Apply the following effects for this turn (2 times per Encounter) - Attack End of Ally Pierce Base Attack Skill: The said ally heals HP equal to 10% of HP damage dealt using the attack - If all Base Attack Skills equipped on allied Skill Slots are Pierce Skills, all allies heal 10 SP at Turn End",
+            "costo": [
+              {
+                "sin": "Wrath",
+                "cantidad": 4
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10515": {
+      "_ref": "The Ring Fauvist Student Meursault · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Impastoed Scar",
+            "descripcion": "1 ally with the fastest Speed: On Hit, inflict 1 Defense Level Down for every 2 types of negative effect on target (once per turn; max 3)",
+            "costo": [
+              {
+                "sin": "Lust",
+                "cantidad": 1
+              },
+              {
+                "sin": "Pride",
+                "cantidad": 1
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10613": {
+      "_ref": "The Lord of Hongyuan Hong Lu · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Please be traceless in your deeds.",
+            "descripcion": "Identity that has the least current HP percentage: Deal +(types of Deathrites on target x 3)% damage against the enemy (max 15%)",
+            "costo": [
+              {
+                "sin": "Gluttony",
+                "cantidad": 6
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10614": {
+      "_ref": "The House of Spiders: The Ring Nursefather Hong Lu · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Please, Do Stop Running and Be Seated",
+            "descripcion": "Turn End: Inflict 2 Offense Level Down and +1 Bleed Count next turn on 1 enemy with the fastest Speed (in Focused Encounters, the Part)",
+            "costo": [
+              {
+                "sin": "Lust",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10615": {
+      "_ref": "S Corp. Ch'unokkun Hong Lu · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Spiteful Pursuit",
+            "descripcion": "When 1 ally with the earliest Deployment order attacks an enemy that has Bind , deal +10% damage",
+            "costo": [
+              {
+                "sin": "Pride",
+                "cantidad": 5
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10713": {
+      "_ref": "W Corp. L4 Cleanup Agent - CCA Heathcliff · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "One day I'll wear me Armour for Cancelled Trains",
+            "descripcion": "- Combat Start: If the unit with the earliest Deployment Order gains Charge Count past the Max Charge Count Cap by using a Skill, the unit gains 1 Charge Barrier next turn for every Charge Count that exceeds the Max Charge Count Cap (max 3, including E.G.O Skills)",
+            "costo": [
+              {
+                "sin": "Envy",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10714": {
+      "_ref": "Heishou Pack - You Branch Adept Heathcliff · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Backed Against a River",
+            "descripcion": "Turn End: if an ally with the lowest current HP percentage has less than 50% HP, that unit gains 1 Clash Power Up next turn",
+            "costo": [
+              {
+                "sin": "Wrath",
+                "cantidad": 3
+              },
+              {
+                "sin": "Gluttony",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10715": {
+      "_ref": "The Middle Big Brother Heathcliff · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Chains of Loyalty",
+            "descripcion": "If any of The Middle -faction allies are killed during combat this turn, all The Middle-faction allies gain 1 Attack Power Up this turn and next turn (once per turn)",
+            "costo": [
+              {
+                "sin": "Envy",
+                "cantidad": 4
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10716": {
+      "_ref": "The House of Spiders: The Thumb Apprentice Heathcliff · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "In One-on-one Duels…",
+            "descripcion": "1 ally with the fastest Speed: On Clash Win using Base Attack Skills, inflict +1 Burn Count on target (once per turn) - Prioritizes \" The Thumb \" Identities - If the ally is \" The Thumb \" Identity, inflict +1 Burn Count and Tremor Count instead - Combat Start: If there is only 1 enemy on the field, (for Abnormalities, a Core), this effect inflicts +1 more Burn Count and Tremor Count",
+            "costo": [
+              {
+                "sin": "Wrath",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10813": {
+      "_ref": "Jeong's Office Rep Ishmael · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Relay",
+            "descripcion": "Combat Start: when 1 ally that has the least SP uses a Base Attack Skill to Heads Hit, it heals 5 SP (2 times per turn; excluding allies at -40 or lower SP)",
+            "costo": [
+              {
+                "sin": "Sloth",
+                "cantidad": 3
+              },
+              {
+                "sin": "Gloom",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10814": {
+      "_ref": "The House of Spiders: The Middle Apprentice Ishmael · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Hey, Are Ya Into Fixers, Too?",
+            "descripcion": "Clash Power +1 for #1 Deployed Identity's Base Attack Skills (once per turn) If the Dashboard has Envy A-Reson., #1 Deployed Identity deals +10% damage with Base Skills",
+            "costo": [
+              {
+                "sin": "Envy",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10815": {
+      "_ref": "LCD OSIR Team Ishmael · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Cut Down What Must Be Felled",
+            "descripcion": "1 ally with the fastest Speed deals +10% damage using Slash Skills - If the said ally has Haste , deal +15% damage using Slash Skills instead",
+            "costo": [
+              {
+                "sin": "Pride",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10914": {
+      "_ref": "R Corp. 4th Pack Reindeer Rodion · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Carol of Dying Comrades",
+            "descripcion": "1 ally with the lowest SP: Skills that consume Charge or Unique Charge and have effects that inflict Sinking against enemies deal +10% damage (except E.G.O Skills)",
+            "costo": [
+              {
+                "sin": "Gloom",
+                "cantidad": 4
+              }
+            ],
+            "tipoCosto": "owned"
+          }
+        ]
+      }
+    },
+    "10915": {
+      "_ref": "The Ring Fauvist Docent Rodion · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Nice and Slow, Don't Let It Break…",
+            "descripcion": "Apply the following effects to the Identity with the earliest Deployment order: - If Lust Reson. is of an odd number, inflict +1 more Bleed Potency - If Lust Reson. is of an even number, inflict +1 more Sinking Potency - If the said Identity is in The Ring faction, it gains 1 Offense Level Up or 1 Defense Level Up at Combat Start",
+            "costo": [
+              {
+                "sin": "Lust",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "10916": {
+      "_ref": "The House of Spiders: The Thumb Nursefather Rodion · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Weaklings, Not Worth Shit",
+            "descripcion": "1 ally with the fastest Speed: When triggering Tremor Burst on the enemy, gain 2 Offense Level Up next turn (once per turn) - If the said ally is \" The Thumb \" Identity, gain 1 Haste as well (once per turn)",
+            "costo": [
+              {
+                "sin": "Wrath",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "11114": {
+      "_ref": "LCA Udjat Vanguard Team 3 Leader Outis · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Eagle Eye",
+            "descripcion": "Combat Start: apply 1 Protection next turn to 1 ally with the lowest HP percentage",
+            "costo": [
+              {
+                "sin": "Gloom",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "11115": {
+      "_ref": "The House of Spiders: The Middle Nursefather Outis · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Someone Mess With the Family?",
+            "descripcion": "Combat Start: Apply 1 Damage Up and 1 Protection on allies that equipped Counter Skills (2 times per Encounter; excluding Clashable Counters) - If the affected ally is in The Middle , apply 2 Envy DMG Up and 2 Protection instead",
+            "costo": [
+              {
+                "sin": "Envy",
+                "cantidad": 4
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "11213": {
+      "_ref": "Night Awls Capitano Gregor · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Aim for the Gap",
+            "descripcion": "1 ally with the highest Speed: When using a Base Attack Skill, if this unit's Speed is faster than the main target's, inflict Defense Power Down on the target for every 3 Speed difference (max 2 per turn)",
+            "costo": [
+              {
+                "sin": "Sloth",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "11214": {
+      "_ref": "Lobotomy E.G.O::Lamp Gregor · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Were There More Lives to be Saved?",
+            "descripcion": "Turn End: Apply the following to the ally with the earliest Deployment order among those that have negative effects: - Gain +4 Aggro to the leftmost Slot next turn - Gain 1 Blunt DMG Up next turn",
+            "costo": [
+              {
+                "sin": "Wrath",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "11215": {
+      "_ref": "LCE E.G.O::AEDD Gregor · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Defibrillation",
+            "descripcion": "Turn End: 3 allies with the earliest Deployment order each heal HP equal to (the sum of Charge Count and 'Unique Charge' consumed by each of their own Attack Skills this turn, respectively) (max 10)",
+            "costo": [
+              {
+                "sin": "Envy",
+                "cantidad": 4
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    },
+    "11216": {
+      "_ref": "Dawn Office Rep Gregor · wiki Identity_Support_Passives",
+      "pasivas": {
+        "combate": [],
+        "soporte": [
+          {
+            "nombre": "Stigma Workshop Prosthesis",
+            "descripcion": "The ally who has the highest current HP inflicts 2 Tremor On Hit against enemies that have Burn (once per turn) - If said enemy has 10+ Burn , trigger Tremor Burst On final Coin Hit; then, reduce target's Tremor Count by 1 (once per turn) A prosthetic gear produced by Stigma Workshop—a Workshop normally specializing in bladed weaponry—designed specifically for the Fixer at the Crack of Dawn to use. Attempting to use this fiery equipment without understanding Stigma Workshop's precise quirks will be met with swift consequences: painful, flesh-melting burn marks seared into the user's body.",
+            "costo": [
+              {
+                "sin": "Wrath",
+                "cantidad": 3
+              }
+            ],
+            "tipoCosto": "resonance"
+          }
+        ]
+      }
+    }
+  }
 }

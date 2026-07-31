@@ -28,9 +28,17 @@ export default function IdCard({
         <div style={styles.idName}>
           {id.nombre}
           <span style={styles.rareza}>{"★".repeat(id.rareza)}</span>
-          {/* Las IDs posteriores al corte de LCTeamBuilder no tienen pasivas.
-              Se avisa para que no parezcan analizadas igual que el resto. */}
+          {/*
+            Tres estados, y se distinguen: completa (LCTeamBuilder trae combate
+            y soporte), solo soporte (la wiki únicamente publica esa), o nada.
+            Mostrarlos igual haría parecer que todas están analizadas igual.
+          */}
           {!id.tienePasivas && <span style={styles.sinDatos} title="Sin datos de pasivas">sin pasivas</span>}
+          {id.tienePasivas && !id.pasivasCompletas && (
+            <span style={styles.parcial} title="Solo se conoce la pasiva de soporte; falta la de combate">
+              solo soporte
+            </span>
+          )}
         </div>
 
         {mostrarSinner && <div style={styles.idTags}>{id.sinner}</div>}
