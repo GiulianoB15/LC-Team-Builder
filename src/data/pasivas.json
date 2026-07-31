@@ -1,5 +1,5 @@
 {
- "_comentario": "Generado por scripts/fetch-pasivas.mjs. No editar a mano.",
+ "_comentario": "Generado por scripts/fetch-datos.mjs. No editar a mano.",
  "meta": {
   "generado": "2026-07-31",
   "fuente": "https://limbus-assets.eldritchtools.com/data",
@@ -15,6 +15,7 @@
    "notes",
    "passiveList"
   ],
+  "fallidos": [],
   "clavesPasiva": [
    "condition",
    "desc",
@@ -25,7 +26,6 @@
    "res"
   ],
   "sinsDesconocidos": [],
-  "fallidos": [],
   "conteo": {
    "identitiesPedidas": 184,
    "identitiesConPasivas": 184,

@@ -1,0 +1,6636 @@
+{
+ "_comentario": "Generado por scripts/fetch-datos.mjs. No editar a mano.",
+ "meta": {
+  "generado": "2026-07-31",
+  "fuente": "https://limbus-assets.eldritchtools.com/data",
+  "clavesIdentity": [
+   "combatPassives",
+   "notes",
+   "passiveData",
+   "skills",
+   "supportPassives"
+  ],
+  "clavesEgo": [
+   "awakeningSkills",
+   "notes",
+   "passiveList"
+  ],
+  "fallidos": [],
+  "clavesSkill": [
+   "affinity",
+   "atkType",
+   "atkWeight",
+   "baseValue",
+   "bonuses",
+   "clashable",
+   "coinValue",
+   "coins",
+   "defType",
+   "desc",
+   "iconId",
+   "id",
+   "levelCorrection",
+   "name",
+   "uptie"
+  ],
+  "incompletas": [],
+  "conteo": {
+   "skills": 824,
+   "completas": 824
+  }
+ },
+ "skills": {
+  "1010101": {
+   "nombre": "Deflect",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010102": {
+   "nombre": "End-stop Stab",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010103": {
+   "nombre": "Enjamb",
+   "poderBase": 6,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010104": {
+   "nombre": "Guard",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010201": {
+   "nombre": "Flèche",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010202": {
+   "nombre": "Moulinet",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010203": {
+   "nombre": "Riposte",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010204": {
+   "nombre": "Guard",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010301": {
+   "nombre": "Striker’s Stance",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010302": {
+   "nombre": "Heel Turn",
+   "poderBase": 7,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010303": {
+   "nombre": "Flank Thrust",
+   "poderBase": 8,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010304": {
+   "nombre": "Counter",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010401": {
+   "nombre": "Sprouting Bud",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010402": {
+   "nombre": "Moment's Floral Breeze",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010403": {
+   "nombre": "Bloodsteeped Scent",
+   "poderBase": 6,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010404": {
+   "nombre": "Scattering Aroma",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010501": {
+   "nombre": "Stay Calm",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010502": {
+   "nombre": "Gamble",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010503": {
+   "nombre": "Grinding the Molars",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010504": {
+   "nombre": "Guard",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010601": {
+   "nombre": "Dimensional Slit",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010602": {
+   "nombre": "Energy Cycle",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010603": {
+   "nombre": "Dimensional Rift",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010604": {
+   "nombre": "Hollow Dimension",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010701": {
+   "nombre": "Impale",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010702": {
+   "nombre": "Relentless Stabbing",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010703": {
+   "nombre": "Ambush",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010704": {
+   "nombre": "Evade",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010801": {
+   "nombre": "Expend Knowledge",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010802": {
+   "nombre": "Seal Shut",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010803": {
+   "nombre": "Grace of Knowledge",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010804": {
+   "nombre": "Fixated Study",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010901": {
+   "nombre": "Paint Over",
+   "poderBase": 2,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010902": {
+   "nombre": "Sanguine Pointillism",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010903": {
+   "nombre": "Hematic Coloring",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1010904": {
+   "nombre": "Beat the Brush",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011001": {
+   "nombre": "Celebration for the Departed",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011002": {
+   "nombre": "Solemn Lament for the Living",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011003": {
+   "nombre": "Goodbye Now, a Sorrow in You",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011004": {
+   "nombre": "FromTheCoffinAButterflyTakesFlight",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011101": {
+   "nombre": "Though it must be prefaced that E.G.O gears are standardized equipment,",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011102": {
+   "nombre": "when juxtaposed with E.G.O gear from L Corp., depending on the degree of attunement to the Abnormality,",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011103": {
+   "nombre": "the idiosyncrasies of the source may be utilized with greater flexibility",
+   "poderBase": 16,
+   "monedas": 3,
+   "valorMoneda": -5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011104": {
+   "nombre": "Yet, the degree to which that attunement and synchronization are achieved may resultantly allow the user to be devoured",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011201": {
+   "nombre": "Flame Hew",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011202": {
+   "nombre": "Frontal Assault",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011203": {
+   "nombre": "Flow of the Sword",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011204": {
+   "nombre": "Flame Counter",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011301": {
+   "nombre": "See Through Defenses",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011302": {
+   "nombre": "Punch Through",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011303": {
+   "nombre": "Target Readjustment Fire",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 7,
+   "pesoAtaque": 2,
+   "fuente": "eldritchtools"
+  },
+  "1011304": {
+   "nombre": "Front Line Support",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011401": {
+   "nombre": "Cut Down and Trample",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011402": {
+   "nombre": "Crescent Blade Strike [月刀擊]",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011403": {
+   "nombre": "Cavalry's Vanguard Charge",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011404": {
+   "nombre": "Preparation Afore the Charge.",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011405": {
+   "nombre": "Obsidian Stormrider's Crescent Decapitator [黑風馬脚月斬]",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1011501": {
+   "nombre": "\"Enwrap 330 Times in Long Swaths of Frozen Blood\"",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011502": {
+   "nombre": "\"Revel with Soundless Applause, Impale in Voiceless Sorrow\"",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011503": {
+   "nombre": "\"Raise and Laugh the Blade, Cry the Waterfall Like the Scent of Fallen Leaves\"",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011504": {
+   "nombre": "By Unpredictable Whim",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011505": {
+   "nombre": "Furioso-Replica",
+   "poderBase": 3,
+   "monedas": 9,
+   "valorMoneda": 3,
+   "pesoAtaque": 7,
+   "fuente": "eldritchtools"
+  },
+  "1011601": {
+   "nombre": "Dimensional Slice",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011602": {
+   "nombre": "Consecutive Dimensional Slice",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011603": {
+   "nombre": "Rip Space",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011604": {
+   "nombre": "Sidestep",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1011605": {
+   "nombre": "Four-dimensional Refraction Time Series Severance",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 4,
+   "fuente": "eldritchtools"
+  },
+  "1020101": {
+   "nombre": "Downward Slash",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020102": {
+   "nombre": "Upward Slash",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020103": {
+   "nombre": "Drilling Stab",
+   "poderBase": 7,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020104": {
+   "nombre": "Evade",
+   "poderBase": 2,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020201": {
+   "nombre": "Energy Cycle",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020202": {
+   "nombre": "Leap",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020203": {
+   "nombre": "Overcharge",
+   "poderBase": 6,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020204": {
+   "nombre": "Guard",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020301": {
+   "nombre": "Sole Strike",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020302": {
+   "nombre": "Deep Cuts",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020303": {
+   "nombre": "Opportunistic Slash",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020304": {
+   "nombre": "Evade",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020401": {
+   "nombre": "Cackle",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020402": {
+   "nombre": "The Gripping",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020403": {
+   "nombre": "Execution",
+   "poderBase": 6,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020404": {
+   "nombre": "Such Filth",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020501": {
+   "nombre": "Patrolling",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020502": {
+   "nombre": "Client Protection",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020503": {
+   "nombre": "Law and Order",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020504": {
+   "nombre": "Guard",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020601": {
+   "nombre": "Predictive Analysis",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020602": {
+   "nombre": "Dissect Target",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020603": {
+   "nombre": "Profiling",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020604": {
+   "nombre": "Let's Wrap It Up",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020701": {
+   "nombre": "Contracting Straight-jacket",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020702": {
+   "nombre": "Metallic Ringing",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020703": {
+   "nombre": "Unleashed Violence",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020704": {
+   "nombre": "Gathering Spite",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020801": {
+   "nombre": "Moonlit Blade Dance",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020802": {
+   "nombre": "Acupuncture",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020803": {
+   "nombre": "Red Plum Blossoms Scatter",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020804": {
+   "nombre": "Redirect",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020901": {
+   "nombre": "Confiscation",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020902": {
+   "nombre": "Interloper Reception",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020903": {
+   "nombre": "Reception Arts 4: Heartseal",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1020904": {
+   "nombre": "Hunting Plans",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021001": {
+   "nombre": "40Y-3 Activation",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021002": {
+   "nombre": "Charge Countercurrent",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021003": {
+   "nombre": "40Y-3 Charge",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021004": {
+   "nombre": "Charge",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021101": {
+   "nombre": "Ignition",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021102": {
+   "nombre": "E.G.O - A.B.S Activation",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021103": {
+   "nombre": "Drawn by Flame",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021104": {
+   "nombre": "Resonating by Raising A.B.S Attunement.",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021105": {
+   "nombre": "A.B.S Max Attunement 【Degraded Corrosion】",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021201": {
+   "nombre": "Blinkstep",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021202": {
+   "nombre": "Clearing the Path, My Lord.",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021203": {
+   "nombre": "Traceless to Sight and Sound Alike.",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021204": {
+   "nombre": "It Shall Be Done.",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021205": {
+   "nombre": "Ascendant Heishou - Mao Technique: Cloudsplitting Manifestation",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021206": {
+   "nombre": "Swiftfeet Protection",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021301": {
+   "nombre": "Cleave",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021302": {
+   "nombre": "Positioning Maneuver",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021303": {
+   "nombre": "Glimmering Bow [弓閃]",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021304": {
+   "nombre": "Unfold Bowblade [弓刀]",
+   "poderBase": 14,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021305": {
+   "nombre": "Bow's Glimmer [閃弓]",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021306": {
+   "nombre": "Evade",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021401": {
+   "nombre": "Unerringly, as the Prescript Demands",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021402": {
+   "nombre": "Undertake the Prescript, Again Undertake",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021403": {
+   "nombre": "As the Prescript Demands, You Will Be Eliminated.",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021404": {
+   "nombre": "Prescript-granted, Prescript-woven Fabric",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021501": {
+   "nombre": "Butcher - Ribs",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021502": {
+   "nombre": "Fascia Hungers",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021503": {
+   "nombre": "Repressed Flesh",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021504": {
+   "nombre": "Exhibition Arrangements",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021505": {
+   "nombre": "Butcher - Ribs",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021506": {
+   "nombre": "Time for Your Meal, Fascia",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021507": {
+   "nombre": "Liberation of the Repressed Flesh",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021508": {
+   "nombre": "The Exhibition Begins",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021509": {
+   "nombre": "No Acts of Vandalism Allowed.",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021601": {
+   "nombre": "Flash of Sunup",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021602": {
+   "nombre": "Butterfly Slash",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021603": {
+   "nombre": "Eject",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021604": {
+   "nombre": "Stigmatize",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021605": {
+   "nombre": "Seconded Offensive",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1021606": {
+   "nombre": "Eject - High Noon",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1021607": {
+   "nombre": "Dismemberment at High Noon",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1030101": {
+   "nombre": "Joust",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030102": {
+   "nombre": "Galloping Tilt",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030103": {
+   "nombre": "For Justice!",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030104": {
+   "nombre": "Evade",
+   "poderBase": 2,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030201": {
+   "nombre": "Rip",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030202": {
+   "nombre": "Leap",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030203": {
+   "nombre": "Rip Space",
+   "poderBase": 1,
+   "monedas": 5,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030204": {
+   "nombre": "Evade",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030301": {
+   "nombre": "Catch Breath",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030302": {
+   "nombre": "Dual Strike",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030303": {
+   "nombre": "Overbreathe",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 21,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030304": {
+   "nombre": "Evade",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030401": {
+   "nombre": "Rightful Purge",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030402": {
+   "nombre": "Enactment!",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030403": {
+   "nombre": "Fanatical Judgement",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030404": {
+   "nombre": "Guard",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030501": {
+   "nombre": "Remise",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030502": {
+   "nombre": "Flèche",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030503": {
+   "nombre": "Salut!",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030504": {
+   "nombre": "Défensive",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030601": {
+   "nombre": "Checking the Book",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030602": {
+   "nombre": "Proof of Loyalty",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030603": {
+   "nombre": "A Just Vengeance",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030604": {
+   "nombre": "Multifold Retribution",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030701": {
+   "nombre": "I Shall Nibble Thee!",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030702": {
+   "nombre": "Flashing Lure",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030703": {
+   "nombre": "Whirlwind Om-Nom-Nom!",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030704": {
+   "nombre": "Chattering Teeth",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030801": {
+   "nombre": "Draw of the Sword",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030802": {
+   "nombre": "Blade Arc",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030803": {
+   "nombre": "Fare Thee Well!",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030804": {
+   "nombre": "Evade",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030901": {
+   "nombre": "Let Us Prepare To Collect",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030902": {
+   "nombre": "T Corp. Accelerated Amputator",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030903": {
+   "nombre": "I Command Thee, Halt!",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1030904": {
+   "nombre": "I Shall Summon the Time",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031001": {
+   "nombre": "Enough is Enough",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031002": {
+   "nombre": "Let All Blossom Free",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031003": {
+   "nombre": "I Shall Impale",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031004": {
+   "nombre": "Laughters Shall Subside",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031005": {
+   "nombre": "Variant Sancho Hardblood Arts 6 - Whip",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031006": {
+   "nombre": "Variant Sancho Hardblood Arts 8 - Split Apart",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 2,
+   "fuente": "eldritchtools"
+  },
+  "1031007": {
+   "nombre": "Ascendant Sancho Hardblood Arts - La Sangre",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031008": {
+   "nombre": "Variant Sancho Hardblood Arts 15 - Buildup to Finale",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031101": {
+   "nombre": "Fa Jin",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031102": {
+   "nombre": "Virescent Flame Palm",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031103": {
+   "nombre": "Prithee, let this be an enlightening bout",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031104": {
+   "nombre": "Thou'rt in dire need of a lesson in table manners!",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031201": {
+   "nombre": "By Manager Esquire's Orders, I Am Here!",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031202": {
+   "nombre": "With Love! Hyah!",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031203": {
+   "nombre": "Arcana Beats!! / Minor Arcana Slave!!!",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031204": {
+   "nombre": "Rapid Chant",
+   "poderBase": 2,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031205": {
+   "nombre": "Where are... the villains...?",
+   "poderBase": 12,
+   "monedas": 2,
+   "valorMoneda": -4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031206": {
+   "nombre": "Get out of my head...",
+   "poderBase": 15,
+   "monedas": 2,
+   "valorMoneda": -6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031207": {
+   "nombre": "Reversed Beats / Reversed Arcana Slave",
+   "poderBase": 20,
+   "monedas": 3,
+   "valorMoneda": -6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031301": {
+   "nombre": "Breakthrough",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031302": {
+   "nombre": "Seize the Momentum, Shatter the Wall",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031303": {
+   "nombre": "Crushing Horns [破碎角]",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031304": {
+   "nombre": "I shall crush all that standeth in our way!",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031401": {
+   "nombre": "Skull Crushing",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031402": {
+   "nombre": "B-be Thee Silent",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031403": {
+   "nombre": "T-the Prescript Must be Fulfilled Anon...",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031404": {
+   "nombre": "Prescript-granted, Prescript-woven Fabric",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031405": {
+   "nombre": "Let These Hands be the Proxy with Which...",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031406": {
+   "nombre": "Procuration: Engrave",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031407": {
+   "nombre": "Procuration: Annihilate",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1031408": {
+   "nombre": "Compulsory Unlock",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040101": {
+   "nombre": "Paint",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040102": {
+   "nombre": "Splatter",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040103": {
+   "nombre": "Brushstroke",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040104": {
+   "nombre": "Evade",
+   "poderBase": 2,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040201": {
+   "nombre": "Slash",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040202": {
+   "nombre": "Upper Slash",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 14,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040203": {
+   "nombre": "Swash",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040204": {
+   "nombre": "Counter",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040301": {
+   "nombre": "Focus Strike",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040302": {
+   "nombre": "Clean Up",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040303": {
+   "nombre": "Lenticular Swirl",
+   "poderBase": 8,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040304": {
+   "nombre": "Guard",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040401": {
+   "nombre": "P.C.",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040402": {
+   "nombre": "I.H.",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040403": {
+   "nombre": "I Can Cook Anything",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040404": {
+   "nombre": "F.I. in Sight",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040501": {
+   "nombre": "E.C.",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040502": {
+   "nombre": "Leap",
+   "poderBase": 2,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040503": {
+   "nombre": "D.D.E.D.R.",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040504": {
+   "nombre": "Charged Evade",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040601": {
+   "nombre": "Shove",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040602": {
+   "nombre": "T.N.",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040603": {
+   "nombre": "O.O.F.",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040604": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040701": {
+   "nombre": "All-out War",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040702": {
+   "nombre": "Fiery Knifehand",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040703": {
+   "nombre": "Flame Cleave",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040704": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040801": {
+   "nombre": "Receiving Arts 1: The Hunt",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040802": {
+   "nombre": "Receiving Arts 7: Capture",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040803": {
+   "nombre": "Receiving Arts 2: S.Y.N.C.",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040804": {
+   "nombre": "Mediocre",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040901": {
+   "nombre": "Got a Screw Loose?",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040902": {
+   "nombre": "Compression Wind-up Spanner",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040903": {
+   "nombre": "Percussive Maintenance",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1040904": {
+   "nombre": "Guard",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041001": {
+   "nombre": "Both of You, Shut Up",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041002": {
+   "nombre": "S.H. / S.F.",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041003": {
+   "nombre": "Skullbuster",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041004": {
+   "nombre": "Mealtime, Bedtime",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041005": {
+   "nombre": "Serious Skullbuster",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041101": {
+   "nombre": "Blinkstep",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041102": {
+   "nombre": "As Written",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041103": {
+   "nombre": "I'll gut you with a curse-engraved blade",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041104": {
+   "nombre": "Strider. Unleashed. Heh",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041201": {
+   "nombre": "Contemptuous Thing",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041202": {
+   "nombre": "Be Awed",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041203": {
+   "nombre": "Awe, Contempt",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041204": {
+   "nombre": "To Grasp",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041205": {
+   "nombre": "Cascading Gaze of Awe Underneath Contempt",
+   "poderBase": 14,
+   "monedas": 1,
+   "valorMoneda": 14,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1041206": {
+   "nombre": "I Shall Fire / Anytime",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 7,
+   "pesoAtaque": 2,
+   "fuente": "eldritchtools"
+  },
+  "1041301": {
+   "nombre": "Hey, Back Off",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041302": {
+   "nombre": "Engraved in Flesh and Bone [銘肌鏤骨]",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041303": {
+   "nombre": "Aiding Strike [加斥我援]",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041304": {
+   "nombre": "Sentinel",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041401": {
+   "nombre": "Bang. Bang.",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041402": {
+   "nombre": "Blossoming Fragrance in the Void",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041403": {
+   "nombre": "Full Bloom",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041404": {
+   "nombre": "A.A.T.",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041405": {
+   "nombre": "Stories that Never Cease",
+   "poderBase": 9,
+   "monedas": 3,
+   "valorMoneda": 1,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1041406": {
+   "nombre": "Magnificent End",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1041501": {
+   "nombre": "Tripleslash [三連]",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041502": {
+   "nombre": "Tripleslash - Echoshear [三連 - 殘]",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041503": {
+   "nombre": "Rend Space [空間斬]",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041504": {
+   "nombre": "Phantom Step [殘像步]",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041505": {
+   "nombre": "Slay the Heavens - Tiansha [天殺]",
+   "poderBase": 16,
+   "monedas": 1,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041506": {
+   "nombre": "Inevitable Termination [必然殺]",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1041507": {
+   "nombre": "Rend Space - Echoshear [空間斬 - 殘]",
+   "poderBase": 16,
+   "monedas": 2,
+   "valorMoneda": 1,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1041508": {
+   "nombre": "Rend Space - String Connection [空間斬 - 緣]",
+   "poderBase": 14,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 5,
+   "fuente": "eldritchtools"
+  },
+  "1050101": {
+   "nombre": "Un, Deux",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050102": {
+   "nombre": "Nailing Fist",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 9,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050103": {
+   "nombre": "Des Coups",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050104": {
+   "nombre": "Guard",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050201": {
+   "nombre": "Assault",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050202": {
+   "nombre": "Stalwart Stance",
+   "poderBase": 7,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050203": {
+   "nombre": "Perfected Death Fist",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050204": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050301": {
+   "nombre": "Rip",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050302": {
+   "nombre": "Energy Cycle",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050303": {
+   "nombre": "Energy Current",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050304": {
+   "nombre": "Guard",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050401": {
+   "nombre": "Drive",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 1,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050402": {
+   "nombre": "You Are Cleansed of Sin",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050403": {
+   "nombre": "Annihilate Heretics",
+   "poderBase": 8,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050404": {
+   "nombre": "Foolishness…!",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": -5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050501": {
+   "nombre": "Saddled Tasks",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050502": {
+   "nombre": "Forced Break",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050503": {
+   "nombre": "Finishing Runup",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050504": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050601": {
+   "nombre": "Weighty Bash",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050602": {
+   "nombre": "Demolish",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050603": {
+   "nombre": "Rhino Ram",
+   "poderBase": 6,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050604": {
+   "nombre": "Bioelectricity Induction",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050701": {
+   "nombre": "We Remember",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050702": {
+   "nombre": "Chains of Loyalty",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050703": {
+   "nombre": "Recording",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050704": {
+   "nombre": "Multifold Retribution",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050801": {
+   "nombre": "Draw of the Sword",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050802": {
+   "nombre": "Acupuncture",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050803": {
+   "nombre": "Yield My Flesh",
+   "poderBase": 20,
+   "monedas": 1,
+   "valorMoneda": -8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050804": {
+   "nombre": "Overthrow",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050805": {
+   "nombre": "To Claim Their Bones",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050901": {
+   "nombre": "Bat Strike",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050902": {
+   "nombre": "Smackdown",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050903": {
+   "nombre": "Relentless",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1050904": {
+   "nombre": "Counter",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051001": {
+   "nombre": "Studious Dedication",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051002": {
+   "nombre": "Moment of Erudition",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051003": {
+   "nombre": "Scorch Knowledge",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051004": {
+   "nombre": "Fixated Study",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051101": {
+   "nombre": "Allez",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051102": {
+   "nombre": "Fente",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051103": {
+   "nombre": "Salut",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051104": {
+   "nombre": "Défensive",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051201": {
+   "nombre": "Double Slash - Blast [爆]",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051202": {
+   "nombre": "Triple Slash - Blast [爆]",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051203": {
+   "nombre": "Tanglecleaver [快刀亂麻]",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051204": {
+   "nombre": "I'm Burning Up.",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051205": {
+   "nombre": "Savage Tigerslayer's Perfected Flurry of Blades [超絕猛虎殺擊亂斬]",
+   "poderBase": 3,
+   "monedas": 5,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051301": {
+   "nombre": "March Conductor",
+   "poderBase": 2,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051302": {
+   "nombre": "Responsibility to Rebuild",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051303": {
+   "nombre": "Let us wear the coagulated mantle of blood.",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051304": {
+   "nombre": "Coagulation",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051305": {
+   "nombre": "Ouvertüre",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1051401": {
+   "nombre": "Warning Shot",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051402": {
+   "nombre": "E.G.O Alteration - Buckshot",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 2,
+   "fuente": "eldritchtools"
+  },
+  "1051403": {
+   "nombre": "Field Test - Dust Spark",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 2,
+   "fuente": "eldritchtools"
+  },
+  "1051404": {
+   "nombre": "Spore Germination",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051501": {
+   "nombre": "Rough Portrayal",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051502": {
+   "nombre": "Visceral Strokes",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051503": {
+   "nombre": "Le Fauvisme - Reveal Submission",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1051504": {
+   "nombre": "Coloring Preparations",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060101": {
+   "nombre": "Downward Cleave",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060102": {
+   "nombre": "Dual Strike",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060103": {
+   "nombre": "Whirlwind",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060104": {
+   "nombre": "Evade",
+   "poderBase": 2,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060201": {
+   "nombre": "Cleave",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060202": {
+   "nombre": "Cloud Cutter",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060203": {
+   "nombre": "Cloudburst",
+   "poderBase": 7,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060204": {
+   "nombre": "Guard",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060301": {
+   "nombre": "Throat Slit",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060302": {
+   "nombre": "Shank",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060303": {
+   "nombre": "Mutilate",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 25,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060304": {
+   "nombre": "Evade",
+   "poderBase": 2,
+   "monedas": 1,
+   "valorMoneda": 14,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060401": {
+   "nombre": "Warm Up",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060402": {
+   "nombre": "Flowing Flame",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060403": {
+   "nombre": "Crimson Blaze Fist",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060404": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060501": {
+   "nombre": "Impede the Intruder",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060502": {
+   "nombre": "Decay Blade",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060503": {
+   "nombre": "Excise Target",
+   "poderBase": 8,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060504": {
+   "nombre": "Ampule Injection",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060601": {
+   "nombre": "Energy Cycle",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060602": {
+   "nombre": "Cleanup Support",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060603": {
+   "nombre": "Deploy Charge Barrier",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060604": {
+   "nombre": "Guard",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060701": {
+   "nombre": "Track",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060702": {
+   "nombre": "Goin' First",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060703": {
+   "nombre": "Rampage",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060704": {
+   "nombre": "Quickness",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060801": {
+   "nombre": "Expend Knowledge",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060802": {
+   "nombre": "Unveil",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060803": {
+   "nombre": "Cyclical Knowledge",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060804": {
+   "nombre": "Guiding Steps",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060901": {
+   "nombre": "Deduction Start",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060902": {
+   "nombre": "Morph Cane Technique",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060903": {
+   "nombre": "You're the Culprit!",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1060904": {
+   "nombre": "Wait?!",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061001": {
+   "nombre": "Slam",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061002": {
+   "nombre": "Bonecrusher",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061003": {
+   "nombre": "A Cheerful Hunt's End",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061004": {
+   "nombre": "Emergency Styptics",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061101": {
+   "nombre": "Take the Shot",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061102": {
+   "nombre": "Target Marked",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061103": {
+   "nombre": "Full-Stop to Life",
+   "poderBase": 7,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061104": {
+   "nombre": "Combat Poise",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061105": {
+   "nombre": "Combo: Target Marked",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061106": {
+   "nombre": "Combo: Full-Stop to Life",
+   "poderBase": 7,
+   "monedas": 4,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061107": {
+   "nombre": "Beyond the Shadow",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061108": {
+   "nombre": "Melee Support",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061201": {
+   "nombre": "Energy Strike",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061202": {
+   "nombre": "Mind Whip",
+   "poderBase": 2,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061203": {
+   "nombre": "Concentration",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061204": {
+   "nombre": "Energy Condensation",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061301": {
+   "nombre": "I Wish to Open the Path",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061302": {
+   "nombre": "Tarnished Blood's Absolute Cleaver of Ambitions [汚血絕志竟成]",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061303": {
+   "nombre": "Answer Me, Heishou Packs",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061304": {
+   "nombre": "Heishou Keenclaw [黑獣利爪]",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061305": {
+   "nombre": "I Carve the Path of a Lord",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061306": {
+   "nombre": "Lonesome Stand: Sacrifice to Claim The Garden [孑孑單身, 捨生取园]",
+   "poderBase": 6,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061307": {
+   "nombre": "Lordsguard",
+   "poderBase": 2,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061401": {
+   "nombre": "Anatomize",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061402": {
+   "nombre": "Gather Ingredient - Blood-bathed Objet",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061403": {
+   "nombre": "Tibia's Melody - Anatomization of the Unanatomized by the Anatomized",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061404": {
+   "nombre": "Curating the Exhibition",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061405": {
+   "nombre": "My, How We Love the Flesh and the Blood",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061406": {
+   "nombre": "Closing Time - Installation Art no. 1: Your Flesh and Bones as the Gallery's Seats",
+   "poderBase": 3,
+   "monedas": 5,
+   "valorMoneda": 4,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1061407": {
+   "nombre": "Please. Vandalism is Prohibited.",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061408": {
+   "nombre": "Installation Art no. 3: Improvised Ribcage",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061501": {
+   "nombre": "Constricting Ohra Bonds",
+   "poderBase": 2,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061502": {
+   "nombre": "Avulsion Slash",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061503": {
+   "nombre": "Hunter's Scouring",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1061504": {
+   "nombre": "Throwing the Ohra Bond",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070101": {
+   "nombre": "Bat Bash",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070102": {
+   "nombre": "Smackdown",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070103": {
+   "nombre": "Upheaval",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070104": {
+   "nombre": "Counter",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070201": {
+   "nombre": "Extreme Edge",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070202": {
+   "nombre": "Flying Sword",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070203": {
+   "nombre": "Flashing Strike",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070204": {
+   "nombre": "Counter",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070301": {
+   "nombre": "Graze the Grass",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070302": {
+   "nombre": "Concentrated Fire",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070303": {
+   "nombre": "Quick Suppression",
+   "poderBase": 3,
+   "monedas": 5,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070304": {
+   "nombre": "Evade",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070401": {
+   "nombre": "Gawky Nailing",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070402": {
+   "nombre": "Puri…fy!",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070403": {
+   "nombre": "Infirm Retribution",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070404": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070501": {
+   "nombre": "Umbrella Thwack",
+   "poderBase": 6,
+   "monedas": 3,
+   "valorMoneda": -2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070502": {
+   "nombre": "Puddle Stomp",
+   "poderBase": 10,
+   "monedas": 4,
+   "valorMoneda": -3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070503": {
+   "nombre": "Spread Out!",
+   "poderBase": 18,
+   "monedas": 3,
+   "valorMoneda": -7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070504": {
+   "nombre": "Warning",
+   "poderBase": 10,
+   "monedas": 2,
+   "valorMoneda": -5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070601": {
+   "nombre": "Intuition",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070602": {
+   "nombre": "The Wrap-up",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070603": {
+   "nombre": "Forensics",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070604": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070701": {
+   "nombre": "Stalk Prey",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070702": {
+   "nombre": "Snagharpoon",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070703": {
+   "nombre": "Sever Knot",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070704": {
+   "nombre": "Payback",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070801": {
+   "nombre": "Execution Advised",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070802": {
+   "nombre": "Final Warning",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070803": {
+   "nombre": "Execution Sentencing",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070804": {
+   "nombre": "Do Not Obstruct",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070901": {
+   "nombre": "40S-2 Activation",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070902": {
+   "nombre": "Photoelectric Mark",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070903": {
+   "nombre": "Photoelectric Harpoon",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1070904": {
+   "nombre": "Charge",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071001": {
+   "nombre": "Beheading",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071002": {
+   "nombre": "Memorial Procession",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071003": {
+   "nombre": "Requiem",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071004": {
+   "nombre": "O Dullahan...!",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071005": {
+   "nombre": "Lament, Mourn, and Despair",
+   "poderBase": 31,
+   "monedas": 2,
+   "valorMoneda": -13,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071101": {
+   "nombre": "Return Fire",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071102": {
+   "nombre": "Headshot",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071103": {
+   "nombre": "Goin' for the Bullseye",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 14,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071104": {
+   "nombre": "Combat Poise",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071105": {
+   "nombre": "AL-HV Pulverisation Round",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 18,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071106": {
+   "nombre": "Taking Cover",
+   "poderBase": 2,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071201": {
+   "nombre": "Lenticular Rend",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071202": {
+   "nombre": "Stormcloud",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071203": {
+   "nombre": "Thundercleave",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071204": {
+   "nombre": "Rules of the Backstreets",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071301": {
+   "nombre": "Congestion Cleanup",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071302": {
+   "nombre": "Boost: Elbow Blade",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071303": {
+   "nombre": "Rip Space - CCA Overdrive",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071304": {
+   "nombre": "CCA Overcharge",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071401": {
+   "nombre": "Peck 'em",
+   "poderBase": 2,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071402": {
+   "nombre": "Mutilating Talons",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071403": {
+   "nombre": "Bloodflame Massacre [血炎亂舞]",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1071404": {
+   "nombre": "More Grub for Us",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071405": {
+   "nombre": "Rooster's Rampaging Blades Under the Ensanguined Heaven [血天下鷄舞亂刀]",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1071501": {
+   "nombre": "Kicking",
+   "poderBase": 2,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071502": {
+   "nombre": "Watch Your Back!",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071503": {
+   "nombre": "MY HAIR COUPOOOOOOOOOOONS!!!!",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071504": {
+   "nombre": "Payback",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071505": {
+   "nombre": "COMPLETE AND TOTAL EXTERMINATION!!",
+   "poderBase": 16,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1071601": {
+   "nombre": "La Spada di Palermo",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071602": {
+   "nombre": "Colpi Sottani",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071603": {
+   "nombre": "Il Cacciatore",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071604": {
+   "nombre": "Measuring Blade Reach",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071605": {
+   "nombre": "I Will Protect.",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1071606": {
+   "nombre": "Sezionatura di Cervo",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080101": {
+   "nombre": "Loggerhead",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080102": {
+   "nombre": "Slide",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 9,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080103": {
+   "nombre": "Shield Bash",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080104": {
+   "nombre": "Guard",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080201": {
+   "nombre": "Mind Strike",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080202": {
+   "nombre": "Flaying Surge",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080203": {
+   "nombre": "Mind Whip",
+   "poderBase": 2,
+   "monedas": 4,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080204": {
+   "nombre": "Evade",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080301": {
+   "nombre": "Flying Sword",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080302": {
+   "nombre": "Flashing Strike",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080303": {
+   "nombre": "Catch Breath",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080304": {
+   "nombre": "Counter",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080401": {
+   "nombre": "Shove",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080402": {
+   "nombre": "Quake Rounds",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080403": {
+   "nombre": "Suppress",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080404": {
+   "nombre": "Guard",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080501": {
+   "nombre": "It's Heavy...!",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080502": {
+   "nombre": "It's Churning...!",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080503": {
+   "nombre": "Corrosive Splash",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 16,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080504": {
+   "nombre": "Guard",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080601": {
+   "nombre": "Red Kick",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080602": {
+   "nombre": "Frontal Assault",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080603": {
+   "nombre": "Inner Gate Elbow Strike",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080604": {
+   "nombre": "Counter",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080701": {
+   "nombre": "Ready to Crush",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080702": {
+   "nombre": "Explosive Blast",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080703": {
+   "nombre": "Risky Judgement",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080704": {
+   "nombre": "Nimble Steps",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080801": {
+   "nombre": "To Me!",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080802": {
+   "nombre": "Pursue Them to the End!",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080803": {
+   "nombre": "Harpoon of Obsession",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080804": {
+   "nombre": "Do Not Fear",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080901": {
+   "nombre": "Sweeping Redirection",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080902": {
+   "nombre": "Housekeeping",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080903": {
+   "nombre": "Restraining Technique",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1080904": {
+   "nombre": "Evade",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081001": {
+   "nombre": "Zwei Knight's Greatsword Form",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081002": {
+   "nombre": "Can't Let You Through.",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081003": {
+   "nombre": "Ward",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081004": {
+   "nombre": "Your Shield",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081101": {
+   "nombre": "Clean Up",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081102": {
+   "nombre": "Sharpened Blade",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081103": {
+   "nombre": "Ink Over",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081104": {
+   "nombre": "Scattering Slash",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081201": {
+   "nombre": "Crimson Strike",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081202": {
+   "nombre": "Crimson Phoenix",
+   "poderBase": 2,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081203": {
+   "nombre": "Crimson Spring",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 14,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081204": {
+   "nombre": "Adept Evasion",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081205": {
+   "nombre": "Crimson Strike - Launcher [始]",
+   "poderBase": 2,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081301": {
+   "nombre": "Tsuru-giri [鶴斬り]",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081302": {
+   "nombre": "Susuki Misdirection",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081303": {
+   "nombre": "Sakura-sen [桜閃]",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081304": {
+   "nombre": "Shuffle Hands - Floral Deck",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081305": {
+   "nombre": "Kōzan [光斬]",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081401": {
+   "nombre": "Totally Badass Ass-kicking",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081402": {
+   "nombre": "Crossing Dervish",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081403": {
+   "nombre": "Violet~ Breaking Slam",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081404": {
+   "nombre": "I'll Get You Back for This, Man",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081501": {
+   "nombre": "Rending Arts",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081502": {
+   "nombre": "Acupuncture",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081503": {
+   "nombre": "Lucent Rippling Flame",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081504": {
+   "nombre": "I'll Light the Path Forward",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081505": {
+   "nombre": "To Claim Their Bones",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081506": {
+   "nombre": "Even the Balance - Lucent Rippling Flame",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1081507": {
+   "nombre": "Observing the Stones on the Board",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 9,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090101": {
+   "nombre": "Strike Down",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090102": {
+   "nombre": "Axe Combo",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090103": {
+   "nombre": "Slay",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090104": {
+   "nombre": "Counter",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090201": {
+   "nombre": "Sharpened Blade",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090202": {
+   "nombre": "Scattering Slash",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090203": {
+   "nombre": "Sky-clearing Cut",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 18,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090204": {
+   "nombre": "Counter",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090205": {
+   "nombre": "Sky-clearing Cut",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 18,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090301": {
+   "nombre": "Bludgeon",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090302": {
+   "nombre": "Thrust",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 1,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090303": {
+   "nombre": "Suppress",
+   "poderBase": 7,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090304": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090401": {
+   "nombre": "Devoted Hammering",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090402": {
+   "nombre": "Zealous Purge",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090403": {
+   "nombre": "Ironclad Retribution",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090404": {
+   "nombre": "Counter",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090501": {
+   "nombre": "Rev Up",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090502": {
+   "nombre": "Vibration Compression",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090503": {
+   "nombre": "Let’s Rack Up Some Scores",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090504": {
+   "nombre": "Preheat",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090601": {
+   "nombre": "Careful Obstruction",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090602": {
+   "nombre": "Focused Defense",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090603": {
+   "nombre": "Subdue Threat",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090604": {
+   "nombre": "Guard",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090701": {
+   "nombre": "Illuminate Thy Vacuity",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090702": {
+   "nombre": "Weight of Knowledge",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090703": {
+   "nombre": "Excruciating Study",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090704": {
+   "nombre": "Fixated Study",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090801": {
+   "nombre": "Flaming Fists",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090802": {
+   "nombre": "Fiery Knifehand-Combust",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090803": {
+   "nombre": "Pinpoint Blitz",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090804": {
+   "nombre": "Counter",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090901": {
+   "nombre": "Prepare To Collect",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090902": {
+   "nombre": "T Corp. Martial Suppression",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090903": {
+   "nombre": "Execute Collections",
+   "poderBase": 2,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1090904": {
+   "nombre": "Borrow Time",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091001": {
+   "nombre": "Courier Trunk - Decay Knife",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091002": {
+   "nombre": "Courier Trunk - Gadget Reveal",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091003": {
+   "nombre": "I Trust Ya, Polu!",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091004": {
+   "nombre": "Courier Support & Control Sequence",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091005": {
+   "nombre": "Just... a Strategic Time Off!",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091101": {
+   "nombre": "Begone...",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091102": {
+   "nombre": "In Finely Ground Mistfall",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091103": {
+   "nombre": "The Festival Will End",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091104": {
+   "nombre": "Don Quixote Hardblood Arts 15: Parasol",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091105": {
+   "nombre": "Ascendant Don Quixote Hardblood Arts - The Finale",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1091201": {
+   "nombre": "Serpent Glint",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091202": {
+   "nombre": "Snake Fang",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091203": {
+   "nombre": "Serpent's Mortal Flurry",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1091204": {
+   "nombre": "Reversal Kick",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091301": {
+   "nombre": "The Knight's Sanctuary",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091302": {
+   "nombre": "With the Power of Justice",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091303": {
+   "nombre": "Arcana Pierce",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091304": {
+   "nombre": "The Knight's Faith",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091305": {
+   "nombre": "Faded Faith",
+   "poderBase": 10,
+   "monedas": 2,
+   "valorMoneda": -4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091306": {
+   "nombre": "With the Tear-sharpened Sword",
+   "poderBase": 16,
+   "monedas": 3,
+   "valorMoneda": -4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091307": {
+   "nombre": "Arcana: Tear and Pierce",
+   "poderBase": 20,
+   "monedas": 3,
+   "valorMoneda": -5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091308": {
+   "nombre": "Weathered Pride",
+   "poderBase": 12,
+   "monedas": 2,
+   "valorMoneda": -4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091401": {
+   "nombre": "Energy Strike - 'That's What You Get for Giving Us Holiday Shifts!'",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091402": {
+   "nombre": "Concentration - 'Burst and Pop with Christmas Colors!\"",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091403": {
+   "nombre": "Mind Whip - 'Ahaha... Look, Everyone! We're the Fireworks this Christmas!'",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091404": {
+   "nombre": "Energy Condensation - 'Haha! Everybody's Sparkling and Glittering!'",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091501": {
+   "nombre": "Vehement Overpainting",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091502": {
+   "nombre": "Expression of Primary Colors",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091503": {
+   "nombre": "Le Fauvisme - Déchaînement Brutal",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091504": {
+   "nombre": "Trimming the Medium",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091505": {
+   "nombre": "Burst Forth the Pulsing Crimson under Your Skin",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1091506": {
+   "nombre": "Critique",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091601": {
+   "nombre": "Colpi di Taglio",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091602": {
+   "nombre": "I'll Gladly Blast a Hole Through Ya",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091603": {
+   "nombre": "Sezionatura di Elefante",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091604": {
+   "nombre": "Fuck Off!",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091605": {
+   "nombre": "Sezionatura di Coniglio",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091606": {
+   "nombre": "Sezionatura di Cervo",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091607": {
+   "nombre": "Disposal",
+   "poderBase": 5,
+   "monedas": 5,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1091608": {
+   "nombre": "Precognition",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100101": {
+   "nombre": "Downward Swing",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100102": {
+   "nombre": "Halberd Combo",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100103": {
+   "nombre": "Ravaging Cut",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100104": {
+   "nombre": "Counter",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100201": {
+   "nombre": "Slice then Stab",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100202": {
+   "nombre": "Slash Series",
+   "poderBase": 6,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100203": {
+   "nombre": "To Claim Their Bones",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 18,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100204": {
+   "nombre": "Newsprung Counter",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100301": {
+   "nombre": "Baton",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100302": {
+   "nombre": "Suppress",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100303": {
+   "nombre": "Strong Strike",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 13,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100304": {
+   "nombre": "Guard",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100401": {
+   "nombre": "Baile y Rola",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100402": {
+   "nombre": "Danza de Pasión",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 1,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100403": {
+   "nombre": "Pañata Party",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 11,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100404": {
+   "nombre": "Evade",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100501": {
+   "nombre": "Coerced Judgement",
+   "poderBase": 8,
+   "monedas": 2,
+   "valorMoneda": -2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100502": {
+   "nombre": "Amoral Enactment",
+   "poderBase": 16,
+   "monedas": 4,
+   "valorMoneda": -4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100503": {
+   "nombre": "Self-destructive Purge",
+   "poderBase": 30,
+   "monedas": 3,
+   "valorMoneda": -12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100504": {
+   "nombre": "Enough…",
+   "poderBase": 17,
+   "monedas": 1,
+   "valorMoneda": -7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100601": {
+   "nombre": "Magnify Wound",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100602": {
+   "nombre": "Proliferating Talismans",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100603": {
+   "nombre": "Rupturing Talisman",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100604": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100701": {
+   "nombre": "Fierce Assault",
+   "poderBase": 2,
+   "monedas": 4,
+   "valorMoneda": 1,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100702": {
+   "nombre": "Steady...",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100703": {
+   "nombre": "Gamble",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100704": {
+   "nombre": "Crab Bastards...!",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100801": {
+   "nombre": "Remise",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100802": {
+   "nombre": "Engagement",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100803": {
+   "nombre": "Contre Attaque",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100804": {
+   "nombre": "Défensive",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100901": {
+   "nombre": "Fierce Charge",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100902": {
+   "nombre": "Sunset Blade",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100903": {
+   "nombre": "Stigmatize",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100904": {
+   "nombre": "Rue",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1100905": {
+   "nombre": "Blazing Strike",
+   "poderBase": 13,
+   "monedas": 1,
+   "valorMoneda": 15,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101001": {
+   "nombre": "Suppressing.",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101002": {
+   "nombre": "Combat Preparation",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101003": {
+   "nombre": "Fence",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101004": {
+   "nombre": "Zwei Knight's Greatsword Form - Guard",
+   "poderBase": 2,
+   "monedas": 1,
+   "valorMoneda": 9,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101101": {
+   "nombre": "Courier Trunk - Decay Hammer",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101102": {
+   "nombre": "Courier Trunk - Demolition Gadget",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101103": {
+   "nombre": "Poludnitsa... I trust you!",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101104": {
+   "nombre": "Courier Assistance & Crisis Control System",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101105": {
+   "nombre": "W-wait, I need to do some maintenance...!",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101201": {
+   "nombre": "Is it You?!",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101202": {
+   "nombre": "Payback with Interest",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101203": {
+   "nombre": "Write 'em all down",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101204": {
+   "nombre": "Warmup in the East",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101301": {
+   "nombre": "Adherence to Propriety.",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101302": {
+   "nombre": "Respect the Thumb.",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101303": {
+   "nombre": "Thruster Compression",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101304": {
+   "nombre": "Ferrous Guard",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101401": {
+   "nombre": "Oh, Let the Smell of Burning Blood...",
+   "poderBase": 2,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101402": {
+   "nombre": "... Fuel My Rampage.",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101403": {
+   "nombre": "Bloodflame Massacre [血炎亂舞]",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1101404": {
+   "nombre": "Rooster's Deathstrike [鷄窮則殺]",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101501": {
+   "nombre": "Chainstrike [連擊]",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101502": {
+   "nombre": "Nameless Slash [無名斬]",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1101503": {
+   "nombre": "Fallstar Slayer [落星一殺]",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 14,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101504": {
+   "nombre": "Defend [守]",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1101505": {
+   "nombre": "Swerve [回]",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110101": {
+   "nombre": "Pulled Blade",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110102": {
+   "nombre": "Backslash",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110103": {
+   "nombre": "Piercing Thrust",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 14,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110104": {
+   "nombre": "Evade",
+   "poderBase": 2,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110201": {
+   "nombre": "Draw of the Sword",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110202": {
+   "nombre": "Acupuncture",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110203": {
+   "nombre": "Decisive Dive",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110204": {
+   "nombre": "Evade",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110301": {
+   "nombre": "Order",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110302": {
+   "nombre": "Onslaught Command",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110303": {
+   "nombre": "Focus",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 16,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110304": {
+   "nombre": "Guard",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110401": {
+   "nombre": "Predictive Analysis",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110402": {
+   "nombre": "Field Command",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110403": {
+   "nombre": "Exploit the Gap",
+   "poderBase": 6,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110404": {
+   "nombre": "I'll Take the Lead",
+   "poderBase": 13,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110501": {
+   "nombre": "Wait Up!",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110502": {
+   "nombre": "Slice",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110503": {
+   "nombre": "Daring Decision",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110504": {
+   "nombre": "Hangover Cure",
+   "poderBase": 12,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110601": {
+   "nombre": "Marche",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110602": {
+   "nombre": "Punition",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110603": {
+   "nombre": "Balestra Fente",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 14,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110604": {
+   "nombre": "Retraite",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110701": {
+   "nombre": "Ignition",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110702": {
+   "nombre": "Detonate Magic Bullet",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110703": {
+   "nombre": "Magic Bullet Fire",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110704": {
+   "nombre": "The Price of a Bullet",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110801": {
+   "nombre": "Knocking",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110802": {
+   "nombre": "Dusting",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110803": {
+   "nombre": "As Mistress Commands",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110804": {
+   "nombre": "Insolent Fool...!",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110901": {
+   "nombre": "Dotting",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110902": {
+   "nombre": "Sanguine Painting",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110903": {
+   "nombre": "Artwork Inspection",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1110904": {
+   "nombre": "Guard",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111001": {
+   "nombre": "Ripple",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111002": {
+   "nombre": "Charged Leap",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111003": {
+   "nombre": "Rip Dimension",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111004": {
+   "nombre": "Deploy Plasma",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111101": {
+   "nombre": "Sewing",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111102": {
+   "nombre": "Scission",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111103": {
+   "nombre": "I'll Make You a New Dress!",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111104": {
+   "nombre": "Quite Discourteous!",
+   "poderBase": 7,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111201": {
+   "nombre": "Blinkstep",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111202": {
+   "nombre": "Perforating Kill",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111203": {
+   "nombre": "Cursewrit Butcherblade",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111204": {
+   "nombre": "Partial Heishou Mutation",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111301": {
+   "nombre": "Prepare To Collect",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111302": {
+   "nombre": "T Corp. Microcavity Module",
+   "poderBase": 3,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111303": {
+   "nombre": "T-3 Collector Mace Max Activation",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111304": {
+   "nombre": "Borrowed Time - Microcavity",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111401": {
+   "nombre": "Khopesh Swordplay",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111402": {
+   "nombre": "Mirage Incision",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111403": {
+   "nombre": "The Vanguard will See it Done",
+   "poderBase": 6,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111404": {
+   "nombre": "Composure",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111501": {
+   "nombre": "Stomping",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111502": {
+   "nombre": "Don't Let Somethin' Like This Break You!",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111503": {
+   "nombre": "Stamp of Vengeance",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111504": {
+   "nombre": "Rule Violation",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111505": {
+   "nombre": "I'll Gut You Like a Fish",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111506": {
+   "nombre": "Gut Stab [Lævateinn]",
+   "poderBase": 3,
+   "monedas": 5,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111507": {
+   "nombre": "Complete and Total Extermination [Lævateinn]",
+   "poderBase": 4,
+   "monedas": 5,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111508": {
+   "nombre": "Time to Unpack!",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1111509": {
+   "nombre": "Good Girl. Your Sacrifice for the Family Won't Be Forgotten.",
+   "poderBase": 16,
+   "monedas": 1,
+   "valorMoneda": 2,
+   "pesoAtaque": 2,
+   "fuente": "eldritchtools"
+  },
+  "1120101": {
+   "nombre": "Swipe",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120102": {
+   "nombre": "Jag",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120103": {
+   "nombre": "Chop Up",
+   "poderBase": 6,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120104": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120201": {
+   "nombre": "Single-point Stab",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120202": {
+   "nombre": "Rush Down",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120203": {
+   "nombre": "Perfected Palm Strike",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120204": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120301": {
+   "nombre": "Hack",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120302": {
+   "nombre": "Dismember",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120303": {
+   "nombre": "Eviscerate",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120304": {
+   "nombre": "Guard",
+   "poderBase": 10,
+   "monedas": 1,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120401": {
+   "nombre": "Keep It Fresh",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 2,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120402": {
+   "nombre": "You Fresh Enough?",
+   "poderBase": 6,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120403": {
+   "nombre": "Butcher Viand",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 1,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120404": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120501": {
+   "nombre": "Rev Up",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120502": {
+   "nombre": "Grease Chains",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 12,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120503": {
+   "nombre": "Let's Grind 'Em",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120504": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120601": {
+   "nombre": "Standoff",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120602": {
+   "nombre": "Flexible Suppression",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120603": {
+   "nombre": "Guardian",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120604": {
+   "nombre": "The Best Defense",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120701": {
+   "nombre": "Negotiation Start",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120702": {
+   "nombre": "Unilateral Business",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120703": {
+   "nombre": "Foregone Conclusion",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120704": {
+   "nombre": "Take a Breather",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120801": {
+   "nombre": "Lenticular Rend",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120802": {
+   "nombre": "Shadow Cloud",
+   "poderBase": 5,
+   "monedas": 2,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120803": {
+   "nombre": "Shadowcloud Shattercleave",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120804": {
+   "nombre": "Guard",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 8,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120901": {
+   "nombre": "Sabre Slash",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120902": {
+   "nombre": "Remise",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120903": {
+   "nombre": "Nightmare Hunt",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1120904": {
+   "nombre": "Do You Wish to Weep?",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121001": {
+   "nombre": "Sacrifice for the Family",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121002": {
+   "nombre": "Suffocating Guilt",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121003": {
+   "nombre": "The Unforgivable Sin",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121004": {
+   "nombre": "Faded Patience",
+   "poderBase": 15,
+   "monedas": 1,
+   "valorMoneda": 5,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121101": {
+   "nombre": "Flamethrow",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121102": {
+   "nombre": "I'll burn away every last drop of your filthy blood",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121103": {
+   "nombre": "Firefist",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121104": {
+   "nombre": "I have to keep going for big sis",
+   "poderBase": 9,
+   "monedas": 1,
+   "valorMoneda": 7,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121201": {
+   "nombre": "Snake Fang",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121202": {
+   "nombre": "Blindsiding Cleave",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121203": {
+   "nombre": "Serpentshear Puncturing Arm",
+   "poderBase": 8,
+   "monedas": 1,
+   "valorMoneda": 14,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121204": {
+   "nombre": "Reversal Kick",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121301": {
+   "nombre": "Gap Attack",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121302": {
+   "nombre": "Stiletto Doppio",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121303": {
+   "nombre": "Execution",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121304": {
+   "nombre": "Dire Straits",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121305": {
+   "nombre": "Mercé",
+   "poderBase": 4,
+   "monedas": 1,
+   "valorMoneda": 6,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121306": {
+   "nombre": "The Night's Awl",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121401": {
+   "nombre": "Intense Stare: Zero-Range",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121402": {
+   "nombre": "Destroy the Visible with the Invisible",
+   "poderBase": 3,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121403": {
+   "nombre": "Salvation for those Enchanted by the Lamp",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121404": {
+   "nombre": "The Wick of Burned Feathers",
+   "poderBase": 3,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121501": {
+   "nombre": "Electric Release",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121502": {
+   "nombre": "DC Inversion",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121503": {
+   "nombre": "High-voltage Current Discharge",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121504": {
+   "nombre": "This E.G.O Gift's Defensive Capability is Uniquely Superior",
+   "poderBase": 5,
+   "monedas": 1,
+   "valorMoneda": 10,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121505": {
+   "nombre": "Maximum Output - Ultra High-voltage Current Discharge",
+   "poderBase": 5,
+   "monedas": 3,
+   "valorMoneda": 5,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1121601": {
+   "nombre": "Flash of Sunup",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121602": {
+   "nombre": "Sunset Blade",
+   "poderBase": 4,
+   "monedas": 3,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121603": {
+   "nombre": "Dawnsplitter",
+   "poderBase": 4,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121604": {
+   "nombre": "Guardian",
+   "poderBase": 3,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  },
+  "1121605": {
+   "nombre": "Crack of Dawn",
+   "poderBase": 5,
+   "monedas": 4,
+   "valorMoneda": 3,
+   "pesoAtaque": 3,
+   "fuente": "eldritchtools"
+  },
+  "1121606": {
+   "nombre": "Heat Haze",
+   "poderBase": 4,
+   "monedas": 2,
+   "valorMoneda": 4,
+   "pesoAtaque": 1,
+   "fuente": "eldritchtools"
+  }
+ }
+}
