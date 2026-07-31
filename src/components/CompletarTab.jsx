@@ -25,7 +25,7 @@ export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candi
             key={id.id}
             id={id}
             checked={baseIds.includes(id.id)}
-            onChange={() => onToggle(id.id, id.sinner)}
+            onChange={onToggle}
             estiloActivo={styles.idCardSelected}
             mostrarSinner
             onVerDetalle={onVerDetalle}

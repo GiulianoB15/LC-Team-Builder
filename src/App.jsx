@@ -90,26 +90,36 @@ export default function App() {
   const owned = visita ?? propia;
   const enVisita = visita !== null;
 
-  const persist = useCallback((next) => {
-    setPropia(next);
-    setSaveError(!saveCollection(next));
-  }, []);
+  /*
+    Guardar es un efecto de que la colección haya cambiado, no algo que hace
+    cada handler. Separarlo permite que los toggles NO dependan de `propia`, y
+    eso es lo que los vuelve estables: si cambiaran de identidad en cada marca,
+    las 184 tarjetas se volverían a renderizar en cada click.
+
+    El guard de `loaded` evita pisar lo guardado con el estado vacío inicial.
+  */
+  useEffect(() => {
+    if (!loaded) return;
+    setSaveError(!saveCollection(propia));
+  }, [propia, loaded]);
+
+  const persist = useCallback((next) => setPropia(next), []);
 
   // En modo visita no se edita: la colección es de otro.
   const toggleOwned = useCallback(
     (id) => {
       if (enVisita) return;
-      persist({ ...propia, identities: { ...propia.identities, [id]: !propia.identities[id] } });
+      setPropia((prev) => ({ ...prev, identities: { ...prev.identities, [id]: !prev.identities[id] } }));
     },
-    [propia, persist, enVisita]
+    [enVisita]
   );
 
   const toggleOwnedEgo = useCallback(
     (id) => {
       if (enVisita) return;
-      persist({ ...propia, egos: { ...propia.egos, [id]: !propia.egos[id] } });
+      setPropia((prev) => ({ ...prev, egos: { ...prev.egos, [id]: !prev.egos[id] } }));
     },
-    [propia, persist, enVisita]
+    [enVisita]
   );
 
   const salirDeVisita = useCallback(() => {

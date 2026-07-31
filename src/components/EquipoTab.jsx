@@ -74,7 +74,7 @@ export default function EquipoTab({
             key={id.id}
             id={id}
             checked={equipoIds.includes(id.id)}
-            onChange={() => onToggle(id.id, id.sinner)}
+            onChange={onToggle}
             estiloActivo={styles.idCardSelected}
             mostrarSinner
             onVerDetalle={onVerDetalle}

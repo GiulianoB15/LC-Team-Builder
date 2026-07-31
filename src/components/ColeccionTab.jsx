@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { IDENTITIES, EGOS } from "../data/identities.js";
 import { SINNERS, ARQUETIPOS } from "../data/constants.js";
 import IdCard from "./IdCard.jsx";
@@ -58,15 +58,19 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
 
   const hayFiltro = filtro.trim() !== "" || arquetiposActivos.size > 0 || faccionActiva !== null || rolActivo !== null;
 
-  const toggleArquetipo = (a) =>
+  /*
+    Estables a propósito: se los pasamos a las 184 tarjetas memoizadas, y una
+    función nueva en cada render las invalidaría a todas.
+  */
+  const toggleArquetipo = useCallback((a) =>
     setArquetipos((prev) => {
       const next = new Set(prev);
       next.has(a) ? next.delete(a) : next.add(a);
       return next;
-    });
+    }), []);
 
-  const toggleFaccion = (f) => setFaccion((prev) => (prev === f ? null : f));
-  const toggleRol = (r) => setRol((prev) => (prev === r ? null : r));
+  const toggleFaccion = useCallback((f) => setFaccion((prev) => (prev === f ? null : f)), []);
+  const toggleRol = useCallback((r) => setRol((prev) => (prev === r ? null : r)), []);
 
   const limpiar = () => {
     setFiltro("");
@@ -229,7 +233,7 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
                         key={x.id}
                         ego={x}
                         checked={!!marcadas[x.id]}
-                        onChange={() => toggle(x.id)}
+                        onChange={toggle}
                         deshabilitado={enVisita}
                         onFiltrarArquetipo={toggleArquetipo}
                         arquetiposActivos={arquetiposActivos}
@@ -239,7 +243,7 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
                         key={x.id}
                         id={x}
                         checked={!!marcadas[x.id]}
-                        onChange={() => toggle(x.id)}
+                        onChange={toggle}
                         estiloActivo={styles.idCardOwned}
                         deshabilitado={enVisita}
                         onFiltrarArquetipo={toggleArquetipo}

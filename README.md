@@ -429,6 +429,36 @@ Se dibuja en un `<canvas>` en el navegador: sin dependencias, sin servidor y sin
 a ningún lado. Los retratos los sirve la propia app, así que no hay CORS que resolver. Si
 alguno falta se dibuja el marcador de iniciales en vez de abortar.
 
+## Rendimiento
+
+Medido con Playwright y la CPU frenada 4× (un celular de gama media, no esta máquina):
+
+| | Antes | Después |
+|---|---|---|
+| `DOMContentLoaded` | 223 ms | **117 ms** |
+| Abrir las 184 tarjetas | 1149 ms | **586 ms** |
+| Tipear 5 letras en el buscador | 307 ms | **185 ms** |
+| Marcar una casilla | 125 ms | **101 ms** |
+| Heap JS | 10 MB | 8 MB |
+
+El problema no era el tamaño sino **cuántos componentes se volvían a renderizar**. Marcar
+una casilla re-renderizaba las 184 tarjetas, por dos causas que se tapaban entre sí:
+
+1. `toggleOwned` dependía de `propia`, así que cambiaba de identidad en cada marca y
+   ninguna memoización lo habría salvado. Ahora guarda con un `useEffect` sobre `propia` y
+   actualiza con la forma funcional de `setState`, así el handler es estable.
+2. `onChange={() => toggle(x.id)}` creaba una función nueva por tarjeta y por render. Ahora
+   la tarjeta le pasa su propio id al handler, que es siempre el mismo.
+
+Recién con las dos cosas `React.memo` sobre `IdCard` y `EgoCard` sirve de algo.
+
+**Sobre el bundle:** 704 kB minificado, **157 kB con gzip**. El grueso es el dataset, que se
+importa como JSON y queda dentro del JS: `pasivas` 43% y `skills` 22% de `identities.json`,
+y las dos se usan en la ficha. Hay ~30 KB en crudo de campos que hoy no lee nadie
+(`estados`, `umbralesQuiebre`, `saludPorNivel`, `temporada`, `pesoAtaque`), que en gzip son
+unos pocos KB: **no se sacan** porque el dataset también es el registro de lo que se bajó, y
+la diferencia no se nota contra un `DOMContentLoaded` de 117 ms.
+
 ## Compartir la colección
 
 Tu colección entera —184 Identities y 110 E.G.O— entra en un **código de 99

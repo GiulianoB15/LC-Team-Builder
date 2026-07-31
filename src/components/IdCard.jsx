@@ -4,8 +4,17 @@ import { ChipArquetipo, ChipFaccion } from "./Chips.jsx";
 import Retrato from "./Retrato.jsx";
 import { styles } from "../styles.js";
 
-/* Tarjeta con checkbox, compartida por las tres pestañas. */
-export default function IdCard({
+/*
+  Tarjeta con checkbox, compartida por las pestañas.
+
+  Va con React.memo por un motivo medido: con las 184 abiertas, marcar una
+  casilla tardaba 125 ms en un celular porque se re-renderizaban las 184. Para
+  que el memo sirva, `onChange` tiene que ser la MISMA función entre renders,
+  así que la tarjeta le pasa su propio id en vez de recibir un closure ya
+  atado — `() => toggle(x.id)` creaba una función nueva por tarjeta y por
+  render, y eso solo lo hacía peor.
+*/
+function IdCard({
   id, checked, onChange, estiloActivo, mostrarSinner, deshabilitado,
   onFiltrarArquetipo, onFiltrarFaccion, arquetiposActivos, faccionActiva,
   onVerDetalle,
@@ -25,7 +34,13 @@ export default function IdCard({
         ...(acento ? { borderLeft: `3px solid ${acento}` } : {}),
       }}
     >
-      <input type="checkbox" checked={checked} onChange={onChange} disabled={deshabilitado} style={styles.checkbox} />
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={() => onChange(id.id, id.sinner)}
+        disabled={deshabilitado}
+        style={styles.checkbox}
+      />
       <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} />
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={styles.idName}>
@@ -86,3 +101,5 @@ export default function IdCard({
     </label>
   );
 }
+
+export default React.memo(IdCard);

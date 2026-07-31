@@ -22,7 +22,7 @@ export function CostoSin({ costo, faltantes = [] }) {
   );
 }
 
-export default function EgoCard({
+function EgoCard({
   ego, checked, onChange, mostrarSinner, deshabilitado,
   onFiltrarArquetipo, arquetiposActivos,
 }) {
@@ -37,7 +37,13 @@ export default function EgoCard({
         ...(acento ? { borderLeft: `3px solid ${acento}` } : {}),
       }}
     >
-      <input type="checkbox" checked={checked} onChange={onChange} disabled={deshabilitado} style={styles.checkbox} />
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={() => onChange(ego.id, ego.sinner)}
+        disabled={deshabilitado}
+        style={styles.checkbox}
+      />
       <Retrato id={ego.id} nombre={ego.nombre} arquetipos={ego.arquetipos} />
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={styles.idName}>
@@ -70,3 +76,5 @@ export default function EgoCard({
     </label>
   );
 }
+
+export default React.memo(EgoCard);
