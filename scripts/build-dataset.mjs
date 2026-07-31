@@ -14,7 +14,7 @@
 
     src/data/pasivas.json    pasivas de combate y soporte de las 184 Identities
                              y de los 110 E.G.O, con su costo en recursos de
-                             Sin. La baja scripts/fetch-pasivas.mjs.
+                             Sin. La baja scripts/fetch-datos.mjs.
     src/data/capturas.json   lo transcrito a mano desde capturas del juego.
 
   Por qué son cuatro y no una:
@@ -96,7 +96,7 @@ const marcarCaptura = (p) => ({ ...p, fuente: "captura" });
 
 /*
   Cuarta fuente, y la que manda para pasivas: limbus-assets.eldritchtools.com,
-  bajada por scripts/fetch-pasivas.mjs a src/data/pasivas.json. Cubre las 184
+  bajada por scripts/fetch-datos.mjs a src/data/pasivas.json. Cubre las 184
   Identities con combate Y soporte, y los 110 E.G.O.
 
   Va primero que LCTeamBuilder porque está al día (LCTeamBuilder quedó en 147
@@ -124,6 +124,21 @@ const pasivasNuevas = (() => {
 */
 const canonCosto = (t) => (t === "res" ? "resonance" : t);
 const normalizarPasivaNueva = (p) => ({ ...p, tipoCosto: canonCosto(p.tipoCosto) });
+
+/*
+  Mismo origen, misma pasada del bajador: los números de cada skill, indexados
+  por id de skill. El dump ya trae ese id en `skillTypes[].id`, así que el cruce
+  es exacto. Ver el injerto desde LCTeamBuilder más abajo para el contraste:
+  ahí hay que adivinar por tier y afinidad, y quedan skills sin resolver.
+*/
+const skillsNuevas = (() => {
+  try {
+    return leerJson(path.join(RAIZ, "src/data/skills.json")).skills ?? {};
+  } catch {
+    console.warn("⚠ Sin src/data/skills.json: los números de skill salen solo de LCTeamBuilder.");
+    return {};
+  }
+})();
 
 /* --- Fuente secundaria: pasivas de LCTeamBuilder --- */
 
@@ -169,7 +184,7 @@ const skillsLctbPorId = new Map();
 let fechaLctb = null;
 
 /* Contadores del injerto de números de skill, para el resumen. */
-const statsSkills = { conNumeros: 0, ambiguas: 0, conflicto: 0, sinFuente: 0 };
+const statsSkills = { conNumeros: 0, porId: 0, porTier: 0, ambiguas: 0, conflicto: 0, sinFuente: 0 };
 
 if (ref.salida) {
   const mod = await import(pathToFileURL(ref.salida).href);
@@ -200,15 +215,20 @@ function convertirIdentity(id, raw) {
   */
   /*
     Los números de cada skill (poder base, monedas, valor de moneda) no vienen
-    en el dump nuevo, pero sí en LCTeamBuilder. Se injertan igual que las
-    pasivas, matcheando por tier de ataque.
+    en el dump nuevo. Salen de dos lados, en este orden:
 
-    Ojo: SkillTierEnum de LCTeamBuilder arranca en 1, no en 0. Asumir lo
-    contrario hacía que casi nada matcheara.
+    1. skills.json, cruzando por id de skill. Exacto: el id es el mismo de las
+       dos partes, no hay nada que interpretar.
+    2. LCTeamBuilder, matcheando por tier de ataque. Es lo que se usaba antes de
+       tener (1), y se queda de respaldo. Tiene dos problemas: cubre 147 IDs, y
+       el match es por tier, así que cuando una ID tiene dos skills del mismo
+       tier hay que desempatar por afinidad y a veces igual queda ambiguo.
 
-    Si la fuente da más de un candidato, o si la afinidad de las dos fuentes no
-    coincide, se deja en null en vez de elegir a dedo: un número inventado acá
-    contamina cualquier cálculo que se apoye en él.
+       Ojo: SkillTierEnum de LCTeamBuilder arranca en 1, no en 0. Asumir lo
+       contrario hacía que casi nada matcheara.
+
+    Si nada resuelve, queda en null en vez de elegir a dedo: un número inventado
+    acá contamina cualquier cálculo que se apoye en él.
   */
   const skillsLctb = (skillsLctbPorId.get(id) ?? []).filter((s) => s.SkillType === 0);
 
@@ -217,7 +237,18 @@ function convertirIdentity(id, raw) {
     const tier = s.type?.tier ?? null;
 
     let numeros = null;
-    if (skillsLctb.length === 0) {
+    const nueva = skillsNuevas[String(s.id)];
+    if (nueva) {
+      numeros = {
+        nombre: nueva.nombre,
+        poderBase: nueva.poderBase,
+        monedas: nueva.monedas,
+        valorMoneda: nueva.valorMoneda,
+        pesoAtaque: nueva.pesoAtaque,
+      };
+      statsSkills.porId += 1;
+      statsSkills.conNumeros += 1;
+    } else if (skillsLctb.length === 0) {
       statsSkills.sinFuente += 1;
     } else {
       let cand = skillsLctb.filter((x) => x.SkillTier === tier);
@@ -232,6 +263,7 @@ function convertirIdentity(id, raw) {
           pesoAtaque: cand[0].AttackWeight,
         };
         statsSkills.conNumeros += 1;
+        statsSkills.porTier += 1;
       } else if (cand.length === 1) {
         statsSkills.conflicto += 1; // las dos fuentes discrepan en la afinidad
       } else {
@@ -439,8 +471,8 @@ const meta = {
   ultimaIdentity: fechas.at(-1) ?? null,
   fuentes: [
     { nombre: "Dump actualizado", rol: "base: stats, resistencias, skills, keywords oficiales", identities: identities.length, egos: egos.length },
-    { nombre: "limbus-assets.eldritchtools.com", rol: "pasivas de combate y soporte, y de E.G.O", via: "scripts/fetch-pasivas.mjs", generado: pasivasNuevas.meta?.generado ?? null },
-    { nombre: "LCTeamBuilder", rol: "respaldo de pasivas, hoy sin uso", repo: "https://github.com/LCTeamBuilder/LCTeamBuilder.github.io", licencia: "MIT", copyright: "© 2024 SuenoImposible", ultimoCommit: fechaLctb },
+    { nombre: "limbus-assets.eldritchtools.com", rol: "pasivas de combate y soporte, de E.G.O, y números de skill", via: "scripts/fetch-datos.mjs", generado: pasivasNuevas.meta?.generado ?? null },
+    { nombre: "LCTeamBuilder", rol: "respaldo de pasivas y de números de skill", repo: "https://github.com/LCTeamBuilder/LCTeamBuilder.github.io", licencia: "MIT", copyright: "© 2024 SuenoImposible", ultimoCommit: fechaLctb },
   ],
   advertencia:
     conPasivas === identities.length
@@ -494,5 +526,6 @@ console.log("Mapeo estado→arquetipo derivado:",
   Object.entries(mapeoEstados).map(([k, v]) => `${k}→${v.arquetipo}(${v.precision})`).join(", "));
 
 const totalSkills = identities.reduce((a, i) => a + i.skills.length, 0);
-console.log(`Skills con números injertados: ${statsSkills.conNumeros}/${totalSkills}` +
-  `  (ambiguas ${statsSkills.ambiguas}, conflicto de afinidad ${statsSkills.conflicto}, sin fuente ${statsSkills.sinFuente})`);
+console.log(`Skills con números: ${statsSkills.conNumeros}/${totalSkills}` +
+  `  (por id ${statsSkills.porId}, por tier desde LCTeamBuilder ${statsSkills.porTier})`);
+console.log(`Sin resolver: ambiguas ${statsSkills.ambiguas}, conflicto de afinidad ${statsSkills.conflicto}, sin fuente ${statsSkills.sinFuente}`);

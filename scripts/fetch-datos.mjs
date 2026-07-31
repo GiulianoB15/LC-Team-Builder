@@ -1,17 +1,25 @@
 /*
-  Baja las pasivas de Identities y E.G.O desde limbus-assets.eldritchtools.com y
-  las deja normalizadas en src/data/pasivas.json.
+  Baja de limbus-assets.eldritchtools.com lo que el dump de identities.json no
+  trae, y lo deja normalizado en dos archivos:
 
-    node scripts/fetch-pasivas.mjs
+      src/data/pasivas.json   pasivas de combate y soporte, y de E.G.O
+      src/data/skills.json    números de cada skill: poder base, monedas, etc.
+
+    node scripts/fetch-datos.mjs
+
+  Los dos salen de la misma pasada: cada archivo por id trae las dos cosas, así
+  que separarlo en dos scripts sería pedir todo dos veces al mismo servidor.
 
   POR QUÉ EXISTE
 
   Hasta ahora las pasivas salían de LCTeamBuilder, que quedó en 147 IDs, más un
   puñado cargado a mano en capturas.json. Quedaban 3 Identities sin nada, 34 con
-  pasivas de soporte solamente y 9 E.G.O sin pasiva.
+  pasivas de soporte solamente y 9 E.G.O sin pasiva. Los números de skill salían
+  de la misma fuente y con el mismo techo.
 
-  El dump de identities.json que se venía usando no las trae, pero NO porque la
-  fuente no las publique: las publica en archivos aparte, uno por id:
+  El dump de identities.json que se venía usando no trae ni una cosa ni la otra,
+  pero NO porque la fuente no las publique: las publica en archivos aparte, uno
+  por id:
 
       https://limbus-assets.eldritchtools.com/data/identities/<id>.json
       https://limbus-assets.eldritchtools.com/data/egos/<id>.json
@@ -31,19 +39,33 @@
 
       identities/<id>.json   combatPassives: [{ uptie, passives: [...] }, ...]
                              supportPassives: [{ uptie, passives: [...] }, ...]
+                             skills: { <id de skill>: { tier, data: [...] } }
       egos/<id>.json         passiveList: [...]
 
   De cada tramo por uptie se toma el más alto (uptie 4, que es como se juega).
   El objeto de pasiva tiene `name`, `desc` y, cuando corresponde, `condition`
   con el costo en recursos de Sin.
 
+  Los skills son distintos: `data` NO trae una copia entera por uptie sino solo
+  lo que cambia en cada uno, así que hay que ir pisando campo por campo desde el
+  uptie 1 hasta el 4. Es lo mismo que hace su SkillCard:
+
+      skill.data.reduce((acc, t) => t.uptie <= uptie ? { ...acc, ...t } : acc, {})
+
+  Quedarse con el último tramo a secas devolvería objetos incompletos.
+
+  La clave de ese diccionario es el mismo `id` que ya trae cada skill en el dump
+  (`skillTypes[].id`), así que el cruce es exacto: no hay que adivinar por tier
+  ni por afinidad, que es lo que se venía haciendo con LCTeamBuilder.
+
   Esto NO se corre en cada build ni en la app: son ~300 pedidos a un servidor
-  ajeno. Va por el workflow manual .github/workflows/pasivas.yml y el resultado
+  ajeno. Va por el workflow manual .github/workflows/datos.yml y el resultado
   queda versionado.
 
-  Si algo de la forma cambia, el bloque `meta` del archivo generado lo delata:
-  guarda las claves que vinieron, los valores que no se supieron mapear y los
-  ids que fallaron. Sin ese bloque habría que adivinar por qué salió vacío.
+  Si algo de la forma cambia, el bloque `meta` de los archivos generados lo
+  delata: guarda las claves que vinieron, los valores que no se supieron mapear
+  y los ids que fallaron. Sin ese bloque habría que adivinar por qué salió
+  vacío.
 */
 
 import { readFileSync, writeFileSync } from "node:fs";
@@ -68,9 +90,11 @@ const diagnostico = {
   clavesIdentity: null,
   clavesEgo: null,
   clavesPasiva: new Set(),
+  clavesSkill: new Set(),
   sinsDesconocidos: new Set(),
   tiposCostoVistos: new Set(),
   fallidos: [],
+  skillsIncompletas: [],
 };
 
 async function bajar(ruta) {
@@ -140,6 +164,42 @@ function normalizarPasiva(entrada, passiveData) {
   };
 }
 
+/*
+  Los tramos de `data` son parciales: cada uno trae solo lo que cambia respecto
+  del anterior. Hay que acumularlos en orden hasta el uptie que interesa, no
+  quedarse con el último.
+*/
+const UPTIE = 4; // el nivel jugable, y el que ya usa el resto del dataset
+
+function skillEnUptie(skill) {
+  const tramos = (skill.data ?? [])
+    .filter((t) => (t.uptie ?? 0) <= UPTIE)
+    .sort((a, b) => (a.uptie ?? 0) - (b.uptie ?? 0));
+  if (tramos.length === 0) return null;
+  return tramos.reduce((acc, t) => ({ ...acc, ...t }), {});
+}
+
+function normalizarSkill(skill) {
+  const d = skillEnUptie(skill);
+  if (!d) return null;
+  Object.keys(d).forEach((k) => diagnostico.clavesSkill.add(k));
+
+  /*
+    `coins` es la lista de monedas con su descripción; al dataset le interesa
+    cuántas son. Si viniera como número ya hecho también sirve.
+  */
+  const monedas = Array.isArray(d.coins) ? d.coins.length : typeof d.coins === "number" ? d.coins : null;
+
+  return {
+    nombre: d.name ?? null,
+    poderBase: d.baseValue ?? null,
+    monedas,
+    valorMoneda: d.coinValue ?? null,
+    pesoAtaque: d.atkWeight ?? null,
+    fuente: "eldritchtools",
+  };
+}
+
 /* De [{uptie, passives}] se queda con el uptie más alto: así se juega. */
 function tramoMasAlto(lista, passiveData) {
   if (!Array.isArray(lista) || lista.length === 0) return [];
@@ -149,6 +209,7 @@ function tramoMasAlto(lista, passiveData) {
 
 const salidaIdentities = {};
 const salidaEgos = {};
+const salidaSkills = {};
 
 for (const i of identities) {
   const d = await bajar(`identities/${i.id}`);
@@ -161,6 +222,19 @@ for (const i of identities) {
   const combate = tramoMasAlto(d.combatPassives, d.passiveData);
   const soporte = tramoMasAlto(d.supportPassives, d.passiveData);
   if (combate.length || soporte.length) salidaIdentities[i.id] = { combate, soporte };
+
+  /*
+    Se guardan indexadas por id de skill, no por Identity: así el consumidor
+    cruza directo contra el `id` que ya trae cada skill del dump.
+  */
+  Object.entries(d.skills ?? {}).forEach(([idSkill, skill]) => {
+    const n = normalizarSkill(skill);
+    if (!n) return;
+    if (n.poderBase === null || n.monedas === null || n.valorMoneda === null) {
+      diagnostico.skillsIncompletas.push({ identity: i.id, skill: idSkill, nombre: n.nombre });
+    }
+    salidaSkills[idSkill] = n;
+  });
 
   await new Promise((r) => setTimeout(r, 60));
 }
@@ -183,15 +257,19 @@ for (const e of egos) {
   await new Promise((r) => setTimeout(r, 60));
 }
 
-const meta = {
+const comun = {
   generado: new Date().toISOString().slice(0, 10),
   fuente: DATA,
   clavesIdentity: diagnostico.clavesIdentity,
   clavesEgo: diagnostico.clavesEgo,
+  fallidos: diagnostico.fallidos,
+};
+
+const metaPasivas = {
+  ...comun,
   clavesPasiva: [...diagnostico.clavesPasiva].sort(),
   tiposCostoVistos: [...diagnostico.tiposCostoVistos].sort(),
   sinsDesconocidos: [...diagnostico.sinsDesconocidos].sort(),
-  fallidos: diagnostico.fallidos,
   conteo: {
     identitiesPedidas: identities.length,
     identitiesConPasivas: Object.keys(salidaIdentities).length,
@@ -202,14 +280,27 @@ const meta = {
   },
 };
 
-writeFileSync(
-  path.join(RAIZ, "src/data/pasivas.json"),
-  JSON.stringify(
-    { _comentario: "Generado por scripts/fetch-pasivas.mjs. No editar a mano.", meta, identities: salidaIdentities, egos: salidaEgos },
-    null,
-    1
-  ) + "\n"
-);
+const metaSkills = {
+  ...comun,
+  clavesSkill: [...diagnostico.clavesSkill].sort(),
+  /* Las que vinieron sin alguno de los números: quedan listadas, no tapadas. */
+  incompletas: diagnostico.skillsIncompletas,
+  conteo: {
+    skills: Object.keys(salidaSkills).length,
+    completas: Object.values(salidaSkills).filter((s) => s.poderBase !== null && s.monedas !== null && s.valorMoneda !== null).length,
+  },
+};
 
-console.log("\n--- Resumen ---");
-console.log(JSON.stringify(meta, null, 2));
+const escribir = (archivo, contenido) =>
+  writeFileSync(
+    path.join(RAIZ, "src/data", archivo),
+    JSON.stringify({ _comentario: "Generado por scripts/fetch-datos.mjs. No editar a mano.", ...contenido }, null, 1) + "\n"
+  );
+
+escribir("pasivas.json", { meta: metaPasivas, identities: salidaIdentities, egos: salidaEgos });
+escribir("skills.json", { meta: metaSkills, skills: salidaSkills });
+
+console.log("\n--- Pasivas ---");
+console.log(JSON.stringify(metaPasivas, null, 2));
+console.log("\n--- Skills ---");
+console.log(JSON.stringify({ ...metaSkills, incompletas: `${metaSkills.incompletas.length} (ver skills.json)` }, null, 2));

@@ -71,7 +71,7 @@ public/
 scripts/
   build-dataset.mjs    fusiona las fuentes y genera los JSON
   fetch-imagenes.mjs   baja los retratos y genera las miniaturas
-  fetch-pasivas.mjs    baja las pasivas, una por id, desde limbus-assets
+  fetch-datos.mjs      baja pasivas y números de skill, uno por id
   parse-pasivas-wiki.mjs  extrae las pasivas de soporte del HTML de la wiki
   smoke-test.mjs       corre los chequeos
   tests.js             los chequeos en sí
@@ -85,8 +85,8 @@ fuentes, porque ninguna alcanza sola:
 | Fuente | Rol | Aporta |
 |---|---|---|
 | Dump actualizado | **base** | 184 IDs, stats, resistencias, skills con afinidad y copias, keywords oficiales, fechas de estreno |
-| [limbus-assets.eldritchtools.com](https://limbus.eldritchtools.com) | **pasivas** | combate y soporte de las 184, pasiva de los 110 E.G.O, con costo en Sin |
-| [LCTeamBuilder](https://github.com/LCTeamBuilder/LCTeamBuilder.github.io) (MIT, © 2024 SuenoImposible) | números de skill | poder base, monedas y valor de moneda (417 de 618). Respaldo de pasivas |
+| [limbus-assets.eldritchtools.com](https://limbus.eldritchtools.com) | **pasivas y números de skill** | combate y soporte de las 184, pasiva de los 110 E.G.O con su costo en Sin, y poder base / monedas / valor de moneda |
+| [LCTeamBuilder](https://github.com/LCTeamBuilder/LCTeamBuilder.github.io) (MIT, © 2024 SuenoImposible) | respaldo | pasivas y números de skill, si la fuente de arriba no los tiene |
 | [Wiki de Limbus Company](https://limbuscompany.wiki.gg/wiki/Identity_Support_Passives) | respaldo | pasivas de soporte; hoy sin uso, cubierto por eldritchtools |
 
 Para regenerar:
@@ -145,9 +145,9 @@ Eso sale de su propio código: el componente que muestra "Combat Passives" hace
 ([`limbus-team-building-hub`](https://github.com/eldritchtools/limbus-team-building-hub),
 `src/app/components/SkillLoader.js`), y `useData` resuelve contra `DATA_ROOT`.
 
-`scripts/fetch-pasivas.mjs` las baja y las normaliza a `src/data/pasivas.json`. Se corre
-desde *Actions* → **Bajar pasivas**, por la misma razón que el de retratos: son ~300
-pedidos a un servidor ajeno.
+`scripts/fetch-datos.mjs` las baja y las normaliza a `src/data/pasivas.json`. Se corre
+desde *Actions* → **Bajar datos de la fuente**, por la misma razón que el de retratos:
+son ~300 pedidos a un servidor ajeno.
 
 #### Cómo se validó
 
@@ -169,12 +169,24 @@ costo, que es lo que consume el motor, acertó el 100%.
 Aparte, los 5 E.G.O que se habían transcrito a mano desde capturas del juego coinciden
 **exactamente** con lo que trajo la fuente automática. Hay un chequeo que lo verifica.
 
+### Números de skill
+
+Poder base, monedas, valor de moneda y peso de ataque. Salen de la misma pasada del
+bajador, a `src/data/skills.json`, y se cruzan **por id de skill**: el dump ya trae ese
+id en `skillTypes[].id` y es la misma clave del diccionario `skills` de la fuente, así
+que no hay nada que interpretar.
+
+Es la diferencia grande con el injerto anterior desde LCTeamBuilder, que matcheaba
+**por tier**: cuando una ID tiene dos skills del mismo tier hay que desempatar por
+afinidad, y aun así quedaban 40 ambiguas y 2 con las dos fuentes en desacuerdo.
+
+Un detalle de la fuente que hay que respetar: `skills[<id>].data` **no** trae una copia
+entera por uptie, sino solo lo que cambia en cada uno. Hay que acumular los tramos del
+1 al 4, no quedarse con el último — si no, salen objetos incompletos. El bajador hace
+lo mismo que su `SkillCard`.
+
 ### Limitaciones conocidas, verificadas
 
-- **Faltan los números de 201 de 618 skills** (poder base, monedas, valor de moneda):
-  son de las Identities posteriores al corte de LCTeamBuilder. El motor no los usa.
-  Los archivos por id de eldritchtools traen una clave `skills` que podría cerrarlo;
-  falta mirarla.
 - **Una ID quedó fuera del índice de LCTeamBuilder.** `LobotomyCorpRemnantFaust`
   existe como archivo válido pero nunca se agregó a `Equipables.ts`, así que su propia
   app no la muestra. El conversor la importa aparte.
@@ -320,9 +332,6 @@ Todo esto está cubierto por `scripts/tests.js`.
 
 ## Pendiente
 
-- **Números de skills de las Identities nuevas** (201 de 618). No los usa el motor.
-  Posible fuente sin explorar: la clave `skills` de los archivos por id de
-  eldritchtools, la misma vía por donde llegaron las pasivas.
 - **Capa de recetas / arquetipos curados** (§3.2 del handoff): combos conocidos de la
   comunidad, con fuente y fecha. Es lo que convertiría el orden de heurística en
   recomendación. El meta cambia por temporada, así que cada receta necesita su

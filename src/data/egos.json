@@ -11,13 +11,13 @@
    },
    {
     "nombre": "limbus-assets.eldritchtools.com",
-    "rol": "pasivas de combate y soporte, y de E.G.O",
-    "via": "scripts/fetch-pasivas.mjs",
+    "rol": "pasivas de combate y soporte, de E.G.O, y números de skill",
+    "via": "scripts/fetch-datos.mjs",
     "generado": "2026-07-31"
    },
    {
     "nombre": "LCTeamBuilder",
-    "rol": "respaldo de pasivas, hoy sin uso",
+    "rol": "respaldo de pasivas y de números de skill",
     "repo": "https://github.com/LCTeamBuilder/LCTeamBuilder.github.io",
     "licencia": "MIT",
     "copyright": "© 2024 SuenoImposible",
