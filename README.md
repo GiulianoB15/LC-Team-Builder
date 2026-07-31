@@ -19,7 +19,15 @@ node scripts/smoke-test.mjs   # chequeos del motor y del dataset
 El build sale con rutas relativas (`base: "./"`), así que `dist/` funciona igual
 en GitHub Pages, Cloudflare Pages, Vercel, Netlify o abriendo el `index.html` local.
 
-## Sobre publicarla
+## Publicarla
+
+Cada push a la rama por defecto dispara `.github/workflows/deploy.yml`, que corre los
+chequeos, buildea y publica en GitHub Pages. Si los chequeos fallan **no se despliega**,
+así un dataset inconsistente no llega a la página.
+
+Hace falta habilitarlo una vez: **Settings → Pages → Source: GitHub Actions**.
+
+Queda en `https://giulianob15.github.io/LC-Team-Builder/`.
 
 La página lleva `noindex` y un `robots.txt` que desalienta el rastreo, porque es un
 proyecto personal que se comparte por link y no busca tráfico.

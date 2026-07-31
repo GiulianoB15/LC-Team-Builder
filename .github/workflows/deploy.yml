@@ -1,0 +1,58 @@
+name: Publicar en GitHub Pages
+
+# Se dispara en la rama por defecto actual y también en main, para que siga
+# andando si más adelante se renombra la rama. workflow_dispatch permite
+# publicar a mano desde la pestaña Actions.
+on:
+  push:
+    branches:
+      - main
+      - claude/project-review-feedback-34r6l1
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Si se pushean dos commits seguidos, que el segundo espere en vez de pisar al
+# primero a mitad de despliegue.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Los chequeos corren ANTES del build: si el dataset quedó inconsistente,
+      # es preferible que falle acá y no publicar una página rota.
+      - name: Chequeos del motor y del dataset
+        run: node scripts/smoke-test.mjs
+
+      - run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
