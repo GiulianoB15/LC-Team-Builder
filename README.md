@@ -256,6 +256,30 @@ El motor tenía `velocidad` en el dataset **sin usar** y llamaba "orden de despl
 ranking por recursos de Sin. Ahora la app muestra el rango de velocidad del equipo y dice
 qué determina cada cosa.
 
+### Importar builds de la comunidad: intentado y descartado
+
+[limbus-teams.eldritchtools.com](https://limbus-teams.eldritchtools.com) tiene una base de
+equipos publicados con `identity_ids`, `ego_ids` y `deployment_order`, **con nuestros mismos
+ids**. Sobre el papel es la fuente ideal para el §3.2. Se escribió el bajador y se descartó.
+
+Lo que se aprendió, por si algún día se retoma:
+
+- Su buscador va por el RPC `search_builds_v9`. Si **no** se le pasa
+  `p_ignore_block_discovery`, el servidor filtra solo las builds de quien no marcó su
+  contenido como no descubrible. Ese es el default correcto para algo automático: lo
+  decide su servidor, no nosotros.
+- La conexión a Supabase son variables `NEXT_PUBLIC_*`, o sea que en teoría viven en el
+  bundle. **No se pudieron extraer en tres intentos**: los scripts que cuelgan del HTML
+  solo *usan* `getSupabase()`, y seguir el mapa de chunks hasta 80 archivos tampoco dio.
+- La alternativa era leer el HTML de cada `/builds/<id>`, pero eso es **una petición por
+  build** contra el servidor de un proyecto chico, en vez de una llamada paginada.
+
+Se cortó por dos motivos: reconstruir desde afuera la plomería interna de otro proyecto se
+rompe el día que redeployan, y la vía que sí funcionaba era la menos considerada con ellos.
+
+La postura sobre qué se copiaría, si se retoma: **solo ids, título, autor, link, orden,
+tags y fecha**. Nunca el texto que escribió la persona — para eso, linkear al original.
+
 ### Limitaciones conocidas, verificadas
 
 - **Una ID quedó fuera del índice de LCTeamBuilder.** `LobotomyCorpRemnantFaust`
@@ -418,18 +442,16 @@ Todo esto está cubierto por `scripts/tests.js`.
 
 ## Pendiente
 
-- **Recetas citadas** (§3.2 del handoff, capas 2 y 3): equipos concretos de la comunidad,
-  con autor, link y fecha visible. Dos vías posibles:
-  - las builds de [limbus-teams.eldritchtools.com](https://limbus-teams.eldritchtools.com),
-    que tienen `identity_ids`, `ego_ids` y `deployment_order` con **nuestros mismos ids**.
-    Habría que sacarlas del HTML por workflow, y decidir qué se copia: la postura sana es
-    guardar solo ids + autor + link y linkear al original, no el texto ajeno.
-  - guías largas en prosa ([GameFAQs](https://gamefaqs.gamespot.com/pc/395588-limbus-company/faqs/80477),
-    Steam), que no se parsean y hay que transcribir a mano.
+- **Recetas citadas a mano** (§3.2, capa 3): equipos concretos de guías reales, cada uno
+  con autor, link y fecha visible en la app. Fuentes que sirven:
+  [GameFAQs](https://gamefaqs.gamespot.com/pc/395588-limbus-company/faqs/80477) y las guías
+  de Steam. Son prosa larga: no se parsean, se transcriben.
+
+  Lo propio de esta capa: **una receta es opinión con fecha de vencimiento**. El meta se
+  mueve por parches, así que cada entrada necesita su `actualizadoEn` a la vista, y la app
+  tiene que presentarla como cita —"esto lo dice tal, en tal fecha"— y no como cálculo
+  nuestro.
 
   Las tier lists que devuelve una búsqueda genérica son casi todas SEO generado en serie
   (`propelrc`, `axeetech`, `beatcopgame`, `lucidpuzzle`): citarlas sería cambiar "me lo
   acuerdo" por "lo dijo una página que no sé quién escribió". No entran.
-
-  Lo que sí es propio de esta capa: **una receta es opinión con fecha de vencimiento**. El
-  meta se mueve por parches. Cada entrada necesita su `actualizadoEn` a la vista.
