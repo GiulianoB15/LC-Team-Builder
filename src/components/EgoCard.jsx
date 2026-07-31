@@ -1,5 +1,6 @@
 import React from "react";
-import { SIN_LABEL } from "../data/constants.js";
+import { SIN_LABEL, colorArquetipo } from "../data/constants.js";
+import { ChipArquetipo } from "./Chips.jsx";
 import { styles } from "../styles.js";
 
 /* Costo en recursos de Sin, en el orden en que viene (de mayor a menor). */
@@ -20,23 +21,43 @@ export function CostoSin({ costo, faltantes = [] }) {
   );
 }
 
-export default function EgoCard({ ego, checked, onChange, mostrarSinner, deshabilitado }) {
-  const detalle = [
-    mostrarSinner ? ego.sinner : null,
-    ego.rango,
-    ...(ego.arquetipos.length ? ego.arquetipos : []),
-  ].filter(Boolean);
+export default function EgoCard({
+  ego, checked, onChange, mostrarSinner, deshabilitado,
+  onFiltrarArquetipo, arquetiposActivos,
+}) {
+  const acento = ego.arquetipos.length ? colorArquetipo(ego.arquetipos[0]).borde : null;
 
   return (
-    <label style={{ ...styles.idCard, ...(checked ? styles.idCardOwned : {}), ...(deshabilitado ? styles.cardSoloLectura : {}) }}>
+    <label
+      style={{
+        ...styles.idCard,
+        ...(checked ? styles.idCardOwned : {}),
+        ...(deshabilitado ? styles.cardSoloLectura : {}),
+        ...(acento ? { borderLeft: `3px solid ${acento}` } : {}),
+      }}
+    >
       <input type="checkbox" checked={checked} onChange={onChange} disabled={deshabilitado} style={styles.checkbox} />
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
         <div style={styles.idName}>
           {ego.nombre}
+          <span style={styles.rango}>{ego.rango}</span>
           {/* Los E.G.O posteriores al corte de LCTeamBuilder no tienen pasiva. */}
           {!ego.tienePasiva && <span style={styles.sinDatos} title="Sin datos de pasiva">sin pasiva</span>}
         </div>
-        <div style={styles.idTags}>{detalle.join(" · ")}</div>
+
+        {mostrarSinner && <div style={styles.idTags}>{ego.sinner}</div>}
+
+        <div style={styles.chipRow}>
+          {ego.arquetipos.map((a) => (
+            <ChipArquetipo
+              key={a}
+              arquetipo={a}
+              onClick={onFiltrarArquetipo}
+              activo={arquetiposActivos?.has(a)}
+            />
+          ))}
+        </div>
+
         <CostoSin costo={ego.costo} />
       </div>
     </label>

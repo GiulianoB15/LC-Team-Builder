@@ -40,6 +40,32 @@ export const ARQUETIPOS = [
 ];
 
 /*
+  Color por arquetipo. Es una decisión de diseño, no un dato del juego: se
+  eligieron tonos que evocan cada estado y que se distinguen entre sí sobre el
+  fondo oscuro. Si no coinciden con los del juego, se cambian solo acá.
+
+  `borde` se usa como acento lateral de la tarjeta y `chip` como fondo de la
+  etiqueta, con el texto en `borde` para que contraste.
+*/
+export const ARQUETIPO_COLOR = {
+  Bleed:   { borde: "#c8556a", chip: "#3a1a22" },
+  Burn:    { borde: "#d4813f", chip: "#3a2416" },
+  Rupture: { borde: "#c9a53f", chip: "#332b14" },
+  Tremor:  { borde: "#8b8fa8", chip: "#25262f" },
+  Sinking: { borde: "#5a86c4", chip: "#182436" },
+  Poise:   { borde: "#69a97c", chip: "#18291d" },
+  Charge:  { borde: "#8e7cc8", chip: "#232036" },
+};
+
+export const colorArquetipo = (a) => ARQUETIPO_COLOR[a] ?? { borde: "#5c5852", chip: "#1c1b20" };
+
+/*
+  Facciones que no aportan nada al escanear: las tiene medio roster. Se ocultan
+  en la tarjeta, pero siguen siendo buscables.
+*/
+export const FACCIONES_GENERICAS = new Set(["Base Identity", "LCB", "Limbus Company"]);
+
+/*
   Las resistencias son el MULTIPLICADOR de daño recibido que usa el juego, tal
   como viene del dataset: 0.5 resiste, 1 normal, 2 fatal. Más bajo es mejor.
 

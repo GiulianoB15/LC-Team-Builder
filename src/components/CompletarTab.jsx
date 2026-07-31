@@ -1,5 +1,6 @@
 import React from "react";
 import IdCard from "./IdCard.jsx";
+import { ChipArquetipo } from "./Chips.jsx";
 import { styles } from "../styles.js";
 
 export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candidatas, max }) {
@@ -50,8 +51,9 @@ export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candi
                       {score}
                     </div>
                   </div>
-                  <div style={styles.idTags}>
-                    {[id.sinner, ...id.arquetipos].join(" · ")}
+                  <div style={styles.idTags}>{id.sinner}</div>
+                  <div style={styles.chipRow}>
+                    {id.arquetipos.map((a) => <ChipArquetipo key={a} arquetipo={a} />)}
                   </div>
                   {motivos.length > 0 && (
                     <ul style={styles.reasonList}>
