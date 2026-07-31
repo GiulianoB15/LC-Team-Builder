@@ -5,6 +5,7 @@ import { loadCollection, saveCollection } from "./lib/storage.js";
 import {
   recursosDeSin, perfilResistencias, perfilArquetipos,
   sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo, egosDelEquipo,
+  perfilSinergia, perfilVelocidad,
 } from "./lib/engine.js";
 import { toggleSeleccion } from "./lib/seleccion.js";
 import { decodificar } from "./lib/codigo.js";
@@ -135,6 +136,9 @@ export default function App() {
   const resistencias = useMemo(() => perfilResistencias(desplegados), [desplegados]);
   const arquetipos = useMemo(() => perfilArquetipos(equipo), [equipo]);
   const pasivas = useMemo(() => pasivasActivasDelEquipo(equipo, recursos), [equipo, recursos]);
+  const sinergia = useMemo(() => perfilSinergia(equipo), [equipo]);
+  /* La velocidad solo la tiran los que entran a combate, no la banca. */
+  const velocidad = useMemo(() => perfilVelocidad(desplegados), [desplegados]);
 
   // Un E.G.O solo se puede usar si su Sinner está desplegado, no en banca.
   const egosEquipo = useMemo(() => {
@@ -219,6 +223,8 @@ export default function App() {
             egosEquipo={egosEquipo}
             tieneEgos={ownedEgos.length > 0}
             max={MAX_EQUIPO}
+            sinergia={sinergia}
+            velocidad={velocidad}
           />
         )}
 

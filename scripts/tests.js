@@ -7,6 +7,7 @@ import { SINS, SINNERS, ARQUETIPOS, esPuntoBlando } from "../src/data/constants.
 import {
   recursosDeSin, estadoPasivas, perfilResistencias, perfilArquetipos,
   sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo, estadoEgo, egosDelEquipo,
+  perfilSinergia, perfilVelocidad,
 } from "../src/lib/engine.js";
 import { toggleSeleccion } from "../src/lib/seleccion.js";
 import { migrar } from "../src/lib/storage.js";
@@ -197,13 +198,89 @@ check("el orden no pierde ni duplica miembros",
   orden.length === 8 && new Set(orden.map((o) => o.id.id)).size === 8);
 check("marca como banca a partir del 7º", orden.filter((o) => o.banca).length === 2);
 check("todo miembro del orden trae su motivo", orden.every((o) => typeof o.motivo === "string" && o.motivo.length > 0));
-check("el orden está ordenado por aporte descendente",
-  orden.every((o, i) => i === 0 || orden[i - 1].aporte >= o.aporte));
+/*
+  El aporte de recursos ordena, pero ya no manda sola: las pasivas posicionales
+  pisan el orden porque el slot les cambia el efecto. Así que se verifica el
+  aporte descendente SOLO entre las que no son posicionales, que son las que
+  siguen la regla vieja.
+*/
+const sinPosicion = orden.filter((o) => !o.id.sinergia?.posicion);
+check("entre las no posicionales, el aporte sigue mandando",
+  sinPosicion.every((o, i) => i === 0 || sinPosicion[i - 1].aporte >= o.aporte),
+  sinPosicion.map((o) => o.aporte).join(","));
+
+/* Y la posicional va donde su pasiva la quiere, no donde la dejaría el aporte. */
+const temprana = orden.find((o) => o.id.sinergia?.posicion === "temprano");
+check("la que buffea a los que van después queda primera",
+  !temprana || orden.indexOf(temprana) === 0,
+  temprana ? `${temprana.id.nombre} en el puesto ${orden.indexOf(temprana) + 1}` : "no hay ninguna en este equipo");
+check("y explica por qué, aparte del motivo de recursos",
+  !temprana || /temprano/i.test(temprana.motivoPosicion ?? ""));
+check("las no posicionales no inventan un motivo de posición",
+  sinPosicion.every((o) => o.motivoPosicion === null));
 
 /* --- Arquetipos --- */
 
 const perfilArq = perfilArquetipos([ring]);
 check("el perfil de arquetipos cuenta Bleed", perfilArq.Bleed === 1 && perfilArq.Burn === 0);
+
+/* --- Sinergia derivada --- */
+
+check("toda ID trae su bloque de sinergia, aunque salga vacío",
+  IDENTITIES.every((i) => i.sinergia && Array.isArray(i.sinergia.aplica) && Array.isArray(i.sinergia.lee)));
+check("los arquetipos derivados son de los 7 oficiales",
+  IDENTITIES.every((i) => [...i.sinergia.aplica, ...i.sinergia.lee].every((a) => ARQUETIPOS.includes(a))));
+check("la posición, si está, es una de las tres",
+  IDENTITIES.every((i) => i.sinergia.posicion === null || ["temprano", "medio", "tarde"].includes(i.sinergia.posicion)));
+
+/*
+  El parser lee texto, así que puede desbocarse. Este es el guardarraíl: cuántos
+  arquetipos derivados caen fuera del keyword oficial de su propia ID. Algunos
+  son legítimos —una ID puede cobrar un estado que no es el suyo— pero si el
+  número se dispara es que una regex empezó a agarrar cualquier cosa.
+*/
+check("el ruido del parser sigue acotado", META.sinergia.fueraDelOficial <= 25,
+  `${META.sinergia.fueraDelOficial} arquetipos derivados fuera del oficial`);
+check("y la cobertura no se derrumbó", META.sinergia.conRol >= 100,
+  `${META.sinergia.conRol} de ${IDENTITIES.length} con algún rol`);
+
+/*
+  Caso concreto: Blade Lineage Salsu inflige Poise Y lo cobra. Es el ejemplo de
+  por qué el arquetipo solo no alcanza —dos IDs "de Poise" pueden hacer cosas
+  opuestas— y sirve de ancla si el parser cambia.
+*/
+const salsu = identityPorNombre("Blade Lineage Salsu", "Yi Sang");
+check("Blade Lineage Salsu aplica Poise y además lo cobra",
+  salsu?.sinergia.aplica.includes("Poise") && salsu?.sinergia.lee.includes("Poise"),
+  JSON.stringify(salsu?.sinergia));
+
+/* Un equipo de puros cobradores tiene que quedar señalado como huérfano. */
+const soloCobran = IDENTITIES.filter((i) => i.sinergia.lee.includes("Bleed") && !i.sinergia.aplica.includes("Bleed")).slice(0, 3);
+const perfSin = perfilSinergia(soloCobran);
+check("detecta el arquetipo que el equipo cobra pero nadie inflige",
+  perfSin.huerfanos.some((h) => h.arquetipo === "Bleed"),
+  JSON.stringify(perfSin.huerfanos.map((h) => h.arquetipo)));
+
+/* Y sumar a alguien que lo inflija tiene que ser lo mejor que le puede pasar. */
+const aplicaBleed = IDENTITIES.find((i) => i.sinergia.aplica.includes("Bleed") && !soloCobran.includes(i));
+const { motivos: motSin } = puntuarCandidata(aplicaBleed, soloCobran);
+check("y recomienda a quien lo aplica, diciendo por qué",
+  motSin.some((m) => /Aplica Bleed/.test(m) && /nadie inflige/.test(m)), motSin.join(" | "));
+
+/* Con el hueco ya tapado, el motivo no tiene que volver a aparecer. */
+const yaTapado = perfilSinergia([...soloCobran, aplicaBleed]);
+check("una vez tapado el hueco, deja de reportarse",
+  !yaTapado.huerfanos.some((h) => h.arquetipo === "Bleed"));
+
+/* --- Velocidad --- */
+
+const vel = perfilVelocidad([ring, salsu]);
+check("el perfil de velocidad sale del rango real, no de un promedio inventado",
+  vel.min === Math.min(ring.velocidad.min, salsu.velocidad.min) &&
+  vel.max === Math.max(ring.velocidad.max, salsu.velocidad.max),
+  JSON.stringify(vel));
+check("un equipo vacío no rompe el perfil de velocidad",
+  perfilVelocidad([]).max === null);
 
 
 

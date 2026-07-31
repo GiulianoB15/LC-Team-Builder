@@ -209,6 +209,53 @@ entera por uptie, sino solo lo que cambia en cada uno. Hay que acumular los tram
 1 al 4, no quedarse con el último — si no, salen objetos incompletos. El bajador hace
 lo mismo que su `SkillCard`.
 
+### Sinergia: quién aplica y quién cobra
+
+El arquetipo es oficial y viene en el dump, pero dice a qué **familia** pertenece cada
+Identidad, no **qué hace adentro**. En un equipo de Bleed hay quien inflige el sangrado y
+quien lo cobra, y son roles distintos: seis que cobran y ninguno que inflija no es un
+equipo, es una lista. Ese campo no existe en ninguna fuente.
+
+Sí está en el texto de las pasivas, con los nombres internos entre corchetes —los mismos
+que ya mapea `derivarMapeoEstados()`:
+
+```
+"Apply 2 [Laceration] …"             → aplica Bleed
+"…damage to targets with [Burst]"    → lee Rupture
+```
+
+Se mira **frase por frase** y decide el verbo que viene antes del token en esa misma
+frase. Mirar la pasiva entera mezclaría un `Apply` de una oración con el token de otra.
+
+| | |
+|---|---|
+| IDs con algún rol derivado | 116 de 184 |
+| Sin señal (sus pasivas no nombran estados) | 68 |
+| Reparten buffs al equipo | 23 |
+| Con pasiva posicional | 6 |
+| **Arquetipos derivados fuera del keyword oficial** | **14** |
+
+Esa última fila es el guardarraíl: son casos donde el parser derivó un arquetipo que la
+ID no tiene oficialmente. Algunos son legítimos —una ID puede cobrar un estado que no es
+el suyo— y otros son ruido. Se publica en `meta.sinergia` y hay un chequeo que falla si
+se dispara. **Es interpretación de texto, no dato oficial, y la app lo dice.**
+
+#### Posición en el Dashboard
+
+`Dashboard` aparece en dos sentidos y solo uno sirve: el orden del equipo (*"allies placed
+after this unit on the Dashboard"*) y los slots de skill de la propia unidad (*"Base Attack
+Skills on this unit's Dashboard"*). **De 21 pasivas que lo nombran, 14 son del segundo
+tipo**, así que se exige la forma relacional completa y no alcanza con la palabra suelta.
+Quedan 6 IDs con posición real, y son las únicas que pisan el orden por aporte de recursos.
+
+#### Velocidad, y qué significa "orden de despliegue"
+
+Quién actúa primero lo decide la **velocidad**; el orden de despliegue solo desempata
+cuando dos unidades sacan el mismo valor ([wiki, *Battles*](https://limbuscompany.wiki.gg/wiki/Battles)).
+El motor tenía `velocidad` en el dataset **sin usar** y llamaba "orden de despliegue" a un
+ranking por recursos de Sin. Ahora la app muestra el rango de velocidad del equipo y dice
+qué determina cada cosa.
+
 ### Limitaciones conocidas, verificadas
 
 - **Una ID quedó fuera del índice de LCTeamBuilder.** `LobotomyCorpRemnantFaust`
@@ -371,7 +418,18 @@ Todo esto está cubierto por `scripts/tests.js`.
 
 ## Pendiente
 
-- **Capa de recetas / arquetipos curados** (§3.2 del handoff): combos conocidos de la
-  comunidad, con fuente y fecha. Es lo que convertiría el orden de heurística en
-  recomendación. El meta cambia por temporada, así que cada receta necesita su
-  `actualizadoEn` visible.
+- **Recetas citadas** (§3.2 del handoff, capas 2 y 3): equipos concretos de la comunidad,
+  con autor, link y fecha visible. Dos vías posibles:
+  - las builds de [limbus-teams.eldritchtools.com](https://limbus-teams.eldritchtools.com),
+    que tienen `identity_ids`, `ego_ids` y `deployment_order` con **nuestros mismos ids**.
+    Habría que sacarlas del HTML por workflow, y decidir qué se copia: la postura sana es
+    guardar solo ids + autor + link y linkear al original, no el texto ajeno.
+  - guías largas en prosa ([GameFAQs](https://gamefaqs.gamespot.com/pc/395588-limbus-company/faqs/80477),
+    Steam), que no se parsean y hay que transcribir a mano.
+
+  Las tier lists que devuelve una búsqueda genérica son casi todas SEO generado en serie
+  (`propelrc`, `axeetech`, `beatcopgame`, `lucidpuzzle`): citarlas sería cambiar "me lo
+  acuerdo" por "lo dijo una página que no sé quién escribió". No entran.
+
+  Lo que sí es propio de esta capa: **una receta es opinión con fecha de vencimiento**. El
+  meta se mueve por parches. Cada entrada necesita su `actualizadoEn` a la vista.

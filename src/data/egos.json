@@ -80,6 +80,15 @@
     "precision": 1,
     "soporte": 12
    }
+  },
+  "sinergia": {
+   "conRol": 116,
+   "sinSenal": 68,
+   "aplica": 113,
+   "lee": 86,
+   "buffean": 23,
+   "posicionales": 6,
+   "fueraDelOficial": 14
   }
  },
  "egos": [

@@ -78,6 +78,11 @@ export const styles = {
   orderItem: { display: "flex", gap: 12, alignItems: "flex-start", background: "#17161a", border: "1px solid #2a2830", borderRadius: 6, padding: "10px 12px" },
   orderNumber: { fontFamily: "'Courier New', monospace", fontSize: 18, color: "#7a1f2b", minWidth: 22 },
   reasonText: { fontFamily: "system-ui, sans-serif", fontSize: 12.5, color: "#b3ada6", marginTop: 2, lineHeight: 1.4 },
+  /* El motivo de posición va antes que el de recursos y se distingue: es el
+     único de los dos que habla del slot y no de a quién bajar a la cancha. */
+  reasonPosicion: { fontFamily: "system-ui, sans-serif", fontSize: 12.5, color: "#d8c9a0", marginTop: 2, lineHeight: 1.4 },
+  listaSinergia: { listStyle: "none", margin: "8px 0 0", padding: 0, display: "flex", flexDirection: "column", gap: 4 },
+  filaSinergia: { display: "flex", alignItems: "baseline", flexWrap: "wrap", gap: 8, padding: "5px 8px", background: "#1b1917", borderRadius: 4, border: "1px solid #2c2926" },
   resRow: { display: "flex", gap: 8, flexWrap: "wrap" },
   resPill: { fontFamily: "system-ui, sans-serif", fontSize: 12.5, background: "#17161a", border: "1px solid #2a2830", borderRadius: 20, padding: "6px 12px", display: "flex", gap: 6, alignItems: "baseline" },
   resDetalle: { color: "#8a847e", fontSize: 11.5 },

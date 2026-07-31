@@ -8,7 +8,7 @@ import { styles } from "../styles.js";
 
 export default function EquipoTab({
   ownedIdentities, equipoIds, onToggle, orden, recursos, resistencias, arquetipos, pasivas,
-  egosEquipo, tieneEgos, max,
+  egosEquipo, tieneEgos, max, sinergia, velocidad,
 }) {
   if (ownedIdentities.length === 0) {
     return (
@@ -46,10 +46,16 @@ export default function EquipoTab({
         <>
           <h2 style={styles.sectionTitle}>Orden tentativo</h2>
           <div style={styles.aviso}>
-            ⚠️ Heurística, no dato verificado. El dataset no tiene ningún campo que diga qué ID
-            conviene desplegar primero — eso es contenido curado, no dato del juego. El criterio
-            usado acá es: primero quienes más recursos de Sin aportan a las pasivas que el equipo
-            necesita.
+            ⚠️ Heurística, no dato verificado. Quién actúa primero lo decide la{" "}
+            <strong>velocidad</strong>, no este orden: el slot solo desempata cuando dos sacan el
+            mismo valor. Donde el slot sí manda es en las pasivas que buffean por posición, y esas
+            se respetan primero. El resto va por cuántos recursos de Sin aporta a las pasivas que el
+            equipo necesita.
+            {velocidad.max != null && (
+              <>
+                {" "}Velocidad del equipo: <strong>{velocidad.min}–{velocidad.max}</strong>.
+              </>
+            )}
           </div>
           <ol style={styles.orderList}>
             {orden.map((entrada, idx) => (
@@ -63,11 +69,65 @@ export default function EquipoTab({
                     {entrada.id.nombre}
                     {entrada.banca && <span style={styles.bancaTag}>banca</span>}
                   </div>
+                  {entrada.motivoPosicion && (
+                    <div style={styles.reasonPosicion}>📍 {entrada.motivoPosicion}</div>
+                  )}
                   <div style={styles.reasonText}>{entrada.motivo}</div>
                 </div>
               </li>
             ))}
           </ol>
+
+          <h2 style={styles.sectionTitle}>Quién aplica y quién cobra</h2>
+          <p style={styles.helpText}>
+            El arquetipo dice a qué familia pertenece cada Identidad, no qué hace adentro. Esto sale
+            de leer el texto de las pasivas, así que es <strong>observación, no dato oficial</strong>.
+          </p>
+
+          {Object.keys(sinergia.porArquetipo).length === 0 ? (
+            <p style={styles.helpText}>
+              Ninguna pasiva de este equipo menciona estados de arquetipo, así que no hay nada que
+              cruzar.
+            </p>
+          ) : (
+            <ul style={styles.listaSinergia}>
+              {Object.entries(sinergia.porArquetipo)
+                .sort((a, b) => b[1].aplican.length + b[1].leen.length - (a[1].aplican.length + a[1].leen.length))
+                .map(([arquetipo, { aplican, leen }]) => {
+                  const huerfano = leen.length > 0 && aplican.length === 0;
+                  return (
+                    <li key={arquetipo} style={styles.filaSinergia}>
+                      <strong>{arquetipo}</strong>
+                      <span style={styles.reasonText}>
+                        {aplican.length} lo aplica{aplican.length === 1 ? "" : "n"} ·{" "}
+                        {leen.length} lo aprovecha{leen.length === 1 ? "" : "n"}
+                      </span>
+                      {huerfano && (
+                        <span style={styles.sinDatos} title="Nadie del equipo lo inflige">
+                          nadie lo aplica
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
+            </ul>
+          )}
+
+          {sinergia.huerfanos.length > 0 && (
+            <div style={styles.aviso}>
+              ⚠️ Hay {sinergia.huerfanos.length === 1 ? "un arquetipo" : `${sinergia.huerfanos.length} arquetipos`} que el
+              equipo aprovecha pero nadie inflige:{" "}
+              <strong>{sinergia.huerfanos.map((h) => h.arquetipo).join(", ")}</strong>. La pestaña
+              «Completar equipo» prioriza a quienes lo tapan.
+            </div>
+          )}
+
+          {sinergia.sinSenal.length > 0 && (
+            <p style={styles.helpText}>
+              De {equipoIds.length}, {sinergia.sinSenal.length} no dice nada sobre estados de
+              arquetipo en sus pasivas. No es que no sirvan: es que este análisis no las alcanza.
+            </p>
+          )}
 
           <h2 style={styles.sectionTitle}>Pasivas que se activan</h2>
           <p style={styles.helpText}>

@@ -1,6 +1,6 @@
 import {
   SINS, SIN_LABEL, DAMAGE_TYPES, DAMAGE_LABEL, ARQUETIPOS,
-  esPuntoBlando, MULT_NORMAL,
+  esPuntoBlando, MULT_NORMAL, SLOTS_DESPLIEGUE,
 } from "../data/constants.js";
 
 /*
@@ -156,6 +156,89 @@ export function perfilArquetipos(team) {
   return out;
 }
 
+/* ------------------------------------------------------------------ *
+   Sinergia: quién aplica y quién cobra
+ * ------------------------------------------------------------------ */
+
+/*
+  El arquetipo dice a qué familia pertenece cada ID, pero no qué hace adentro.
+  En un equipo de Bleed hay quien INFLIGE el sangrado y quien lo COBRA, y son
+  roles distintos: seis que cobran y ninguno que inflija no es un equipo, es una
+  lista. Eso es lo que mide esto.
+
+  Los roles salen de `id.sinergia`, derivado del texto de las pasivas en
+  build-dataset.mjs. Es interpretación de texto, no un campo oficial: por eso la
+  UI lo presenta como observación y no como veredicto.
+*/
+export function perfilSinergia(team) {
+  const porArquetipo = {};
+
+  const anotar = (arquetipo, rol, id) => {
+    porArquetipo[arquetipo] ??= { aplican: [], leen: [] };
+    porArquetipo[arquetipo][rol].push(id);
+  };
+
+  team.forEach((id) => {
+    const s = id.sinergia ?? { aplica: [], lee: [] };
+    s.aplica.forEach((a) => anotar(a, "aplican", id));
+    s.lee.forEach((a) => anotar(a, "leen", id));
+  });
+
+  /*
+    Lo accionable son los dos desbalances:
+
+    - huérfano: alguien cobra un estado que nadie del equipo inflige. Es el
+      hueco que conviene tapar, y lo que hace que una candidata valga la pena.
+    - sinCobrador: alguien lo inflige y nadie lo aprovecha. Molesta menos
+      —infligir suele ser daño igual— así que se reporta pero no se penaliza.
+  */
+  const huerfanos = [];
+  const sinCobrador = [];
+  Object.entries(porArquetipo).forEach(([arquetipo, { aplican, leen }]) => {
+    if (leen.length && !aplican.length) huerfanos.push({ arquetipo, leen });
+    if (aplican.length && !leen.length) sinCobrador.push({ arquetipo, aplican });
+  });
+
+  return {
+    porArquetipo,
+    huerfanos,
+    sinCobrador,
+    buffean: team.filter((id) => id.sinergia?.buffeaAliados),
+    /* Sin datos derivados no se puede opinar; la UI lo dice en vez de callar. */
+    sinSenal: team.filter((id) => {
+      const s = id.sinergia;
+      return !s || (!s.aplica.length && !s.lee.length);
+    }),
+  };
+}
+
+/* ------------------------------------------------------------------ *
+   Velocidad
+ * ------------------------------------------------------------------ */
+
+/*
+  Quién actúa primero lo decide la VELOCIDAD, no el orden de despliegue: ese
+  solo desempata cuando dos unidades sacan el mismo valor.
+  (https://limbuscompany.wiki.gg/wiki/Battles)
+
+  La velocidad se tira cada turno dentro de un rango, así que lo único honesto
+  es reportar el rango del equipo, no un número. Sirve para leer si el equipo
+  puede ganar iniciativa o va a ir siempre a rebufo.
+*/
+export function perfilVelocidad(team) {
+  const conDato = team.filter((id) => id.velocidad?.max != null);
+  if (!conDato.length) return { min: null, max: null, promedioMax: null, sinDato: team.length };
+
+  const mins = conDato.map((id) => id.velocidad.min).filter((v) => v != null);
+  const maxs = conDato.map((id) => id.velocidad.max);
+  return {
+    min: Math.min(...mins),
+    max: Math.max(...maxs),
+    promedioMax: Number((maxs.reduce((a, b) => a + b, 0) / maxs.length).toFixed(1)),
+    sinDato: team.length - conDato.length,
+  };
+}
+
 export const arquetipoDominante = (team) => {
   const perfil = perfilArquetipos(team);
   const orden = Object.entries(perfil).filter(([, c]) => c > 0).sort((a, b) => b[1] - a[1]);
@@ -202,16 +285,58 @@ export function sugerirOrden(team) {
     return total;
   };
 
-  return [...team]
+  const conAporte = [...team]
     .map((id) => ({ id, aporte: aporte(id) }))
-    .sort((a, b) => b.aporte - a.aporte || a.id.nombre.localeCompare(b.id.nombre))
-    .map(({ id, aporte: n }, idx) => {
-      const sinsQueAporta = [...new Set(id.skills.map((s) => s.sin).filter((s) => s && demanda[s]))];
-      const motivo = n === 0
-        ? "No aporta recursos de los Sins que piden las pasivas del equipo."
-        : `Aporta ${n} copia${n === 1 ? "" : "s"} de skill de ${sinsQueAporta.map((s) => SIN_LABEL[s]).join(", ")}, que las pasivas del equipo necesitan.`;
-      return { id, motivo, aporte: n, banca: idx >= 6, sinDatos: !id.tienePasivas };
-    });
+    .sort((a, b) => b.aporte - a.aporte || a.id.nombre.localeCompare(b.id.nombre));
+
+  /*
+    Hasta acá el orden es por aporte de recursos, que responde "a quién bajar a
+    la cancha". Pero el SLOT en sí también importa, y por un motivo concreto:
+    hay pasivas que buffean según la posición relativa en el Dashboard.
+
+    Son pocas —6 de 184— pero cuando están, mandan:
+
+      "placed after this unit"   → conviene temprano, para que queden más atrás
+      "adjacent to this unit"    → conviene al medio, donde tiene dos vecinos
+                                   en vez de uno
+      "placed before this unit"  → conviene tarde
+
+    El resto del equipo se acomoda alrededor.
+  */
+  const pos = (x) => x.id.sinergia?.posicion ?? null;
+  const temprano = conAporte.filter((x) => pos(x) === "temprano");
+  const medio = conAporte.filter((x) => pos(x) === "medio");
+  const tarde = conAporte.filter((x) => pos(x) === "tarde");
+  const resto = conAporte.filter((x) => !pos(x));
+
+  const base = [...temprano, ...resto, ...tarde];
+  /* Las de adyacencia van al centro de lo que quedó, no al principio. */
+  const centro = Math.max(temprano.length, Math.floor((base.length - medio.length) / 2));
+  const ordenado = [...base.slice(0, centro), ...medio, ...base.slice(centro)];
+
+  const MOTIVO_POSICION = {
+    temprano: "Conviene temprano: su pasiva buffea a los aliados que van después.",
+    medio: "Conviene al medio: su pasiva buffea a los aliados de al lado, y ahí tiene dos.",
+    tarde: "Conviene tarde: su pasiva se apoya en los aliados que van antes.",
+  };
+
+  return ordenado.map(({ id, aporte: n }, idx) => {
+    const sinsQueAporta = [...new Set(id.skills.map((s) => s.sin).filter((s) => s && demanda[s]))];
+    const motivo = n === 0
+      ? "No aporta recursos de los Sins que piden las pasivas del equipo."
+      : `Aporta ${n} copia${n === 1 ? "" : "s"} de skill de ${sinsQueAporta.map((s) => SIN_LABEL[s]).join(", ")}, que las pasivas del equipo necesitan.`;
+
+    return {
+      id,
+      motivo,
+      /* Se devuelve aparte para que la UI lo pueda destacar: es el único de los
+         dos motivos que habla del slot y no de quién juega. */
+      motivoPosicion: id.sinergia?.posicion ? MOTIVO_POSICION[id.sinergia.posicion] : null,
+      aporte: n,
+      banca: idx >= SLOTS_DESPLIEGUE,
+      sinDatos: !id.tienePasivas,
+    };
+  });
 }
 
 /* ------------------------------------------------------------------ *
@@ -233,6 +358,42 @@ export function puntuarCandidata(candidate, team) {
   } else if (candidate.arquetipos.length && Object.values(perfil).some((c) => c > 0)) {
     score -= 1;
     motivos.push(`Su arquetipo (${candidate.arquetipos.join(", ")}) no coincide con el del equipo.`);
+  }
+
+  /*
+    --- Rol dentro del arquetipo ---
+
+    Compartir arquetipo ya suma arriba, pero es una señal gruesa: seis IDs de
+    Bleed que solo cobran sangrado no sangran a nadie. Acá se mira el rol.
+
+    Tapar un huérfano —alguien del equipo cobra un estado que nadie inflige— es
+    lo más valioso que puede hacer una candidata, más que sumar otro del mismo
+    arquetipo, así que pesa más que el bonus de arquetipo.
+  */
+  const sinergia = perfilSinergia(team);
+  const propia = candidate.sinergia ?? { aplica: [], lee: [], buffeaAliados: false };
+
+  const tapa = sinergia.huerfanos.filter((h) => propia.aplica.includes(h.arquetipo));
+  tapa.forEach((h) => {
+    score += 4;
+    const n = h.leen.length;
+    motivos.push(
+      `Aplica ${h.arquetipo}, que ${n === 1 ? "un miembro" : `${n} miembros`} del equipo aprovecha${n === 1 ? "" : "n"} pero nadie inflige.`
+    );
+  });
+
+  /* A la inversa: cobra algo que el equipo ya está infligiendo. */
+  const cobra = propia.lee.filter(
+    (a) => sinergia.porArquetipo[a]?.aplican.length && !tapa.some((t) => t.arquetipo === a)
+  );
+  if (cobra.length) {
+    score += 2;
+    motivos.push(`Aprovecha el ${cobra.join(", ")} que el equipo ya inflige.`);
+  }
+
+  if (propia.buffeaAliados) {
+    score += 1;
+    motivos.push("Su pasiva reparte buffs al resto del equipo, no solo a sí misma.");
   }
 
   // --- Recursos de Sin: ¿destraba pasivas que hoy no llegan al costo? ---

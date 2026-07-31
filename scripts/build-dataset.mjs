@@ -358,6 +358,93 @@ function convertirIdentity(id, raw) {
   };
 }
 
+/* --- Sinergia derivada de las pasivas --- */
+
+/*
+  Qué aporta esto que no tuviéramos ya.
+
+  El arquetipo de cada ID es oficial y viene en el dump, pero dice a qué familia
+  pertenece, no qué hace adentro de ella. En un equipo de Bleed hay quien INFLIGE
+  el sangrado y quien lo COBRA, y son roles distintos: seis que cobran y ninguno
+  que inflija es un equipo que no funciona. Eso no está en ningún campo.
+
+  Sí está en el texto de las pasivas, y con los nombres internos entre corchetes,
+  que son los mismos que ya mapea derivarMapeoEstados(). O sea que se puede leer:
+
+      "Apply 2 [Laceration] …"          → aplica Bleed
+      "…damage to targets with [Burst]"  → lee Rupture
+
+  Se mira frase por frase (cortando por punto y por salto de línea) y se decide
+  por el verbo que viene ANTES del token en esa misma frase. Mirar la pasiva
+  entera mezclaría un "Apply" de una oración con el token de otra.
+
+  ESTO ES DERIVADO, NO OFICIAL. Los conteos y la tasa de acuerdo con el
+  arquetipo oficial se publican en meta.sinergia para poder auditarlo, igual que
+  con mapeoEstados.
+*/
+
+const VERBO_APLICA = /\b(apply|inflict|gain|grant|deal)\b/i;
+const VERBO_LEE = /\b(with|has|have|per|for each|for every|consume|if the target)\b/i;
+
+/*
+  "Dashboard" aparece en dos sentidos distintos y solo uno sirve acá: el orden
+  del equipo ("allies placed after this unit on the Dashboard") y los slots de
+  skill de la propia unidad ("Base Attack Skills on this unit's Dashboard"). De
+  21 pasivas que nombran el Dashboard, 14 son del segundo tipo. Por eso se exige
+  la forma relacional completa y no alcanza con la palabra suelta.
+
+  "Identities" además de "allies" porque algunas lo dicen por facción
+  ("Kurokumo Clan Identities adjacent to this unit").
+*/
+const POSICION = [
+  ["temprano", /(allies|Identities)[^.\n]*placed after this unit/i],
+  ["tarde", /(allies|Identities)[^.\n]*placed before this unit/i],
+  ["medio", /(allies|Identities)[^.\n]*adjacent to this unit/i],
+];
+
+/* Le da algo al equipo, no solo a sí misma. */
+const BUFFEA_ALIADOS = [
+  /\b(apply|grant|heal|give)\b[^.\n]{0,90}\ballies?\b/i,
+  /\ballies?\b[^.\n]{0,40}\b(gain|heal)\b/i,
+];
+
+function derivarSinergia(identity, mapeoEstados) {
+  const aplica = new Set();
+  const lee = new Set();
+  let posicion = null;
+  let buffeaAliados = false;
+
+  const pasivas = [...identity.pasivas.combate, ...identity.pasivas.soporte];
+
+  pasivas.forEach((p) => {
+    const texto = p.descripcion ?? "";
+
+    if (!posicion) {
+      const hit = POSICION.find(([, re]) => re.test(texto));
+      if (hit) posicion = hit[0];
+    }
+    if (!buffeaAliados) buffeaAliados = BUFFEA_ALIADOS.some((re) => re.test(texto));
+
+    (texto.match(/[^.\n]+/g) ?? []).forEach((frase) => {
+      (frase.match(/\[([A-Za-z][A-Za-z ]*)\]/g) ?? []).forEach((token) => {
+        const arquetipo = mapeoEstados[token.slice(1, -1)]?.arquetipo;
+        if (!arquetipo) return;
+        const antes = frase.slice(0, frase.indexOf(token));
+        /* El verbo manda: si no hay ninguno reconocible, no se adivina. */
+        if (VERBO_APLICA.test(antes)) aplica.add(arquetipo);
+        else if (VERBO_LEE.test(antes)) lee.add(arquetipo);
+      });
+    });
+  });
+
+  return {
+    aplica: [...aplica].sort(),
+    lee: [...lee].sort(),
+    buffeaAliados,
+    posicion,
+  };
+}
+
 /* --- Conversión de E.G.O --- */
 
 const convertirCostoSin = (obj) =>
@@ -459,6 +546,26 @@ const identities = Object.entries(nuevoIds)
 
 const mapeoEstados = derivarMapeoEstados(identities);
 
+/*
+  Segunda pasada: la sinergia necesita el mapeo, y el mapeo se deriva de las
+  Identities, así que no puede salir de convertirIdentity().
+*/
+const statsSinergia = { conRol: 0, sinSenal: 0, aplica: 0, lee: 0, buffean: 0, posicionales: 0, fueraDelOficial: 0 };
+identities.forEach((i) => {
+  i.sinergia = derivarSinergia(i, mapeoEstados);
+  const s = i.sinergia;
+  if (s.aplica.length || s.lee.length) statsSinergia.conRol += 1;
+  else statsSinergia.sinSenal += 1;
+  statsSinergia.aplica += s.aplica.length;
+  statsSinergia.lee += s.lee.length;
+  if (s.buffeaAliados) statsSinergia.buffean += 1;
+  if (s.posicion) statsSinergia.posicionales += 1;
+  const oficial = new Set(i.arquetipos);
+  if (oficial.size) {
+    statsSinergia.fueraDelOficial += [...new Set([...s.aplica, ...s.lee])].filter((a) => !oficial.has(a)).length;
+  }
+});
+
 const egos = Object.entries(nuevoEgos)
   .map(([k, v]) => convertirEgo(Number(k), v, mapeoEstados))
   .sort((a, b) => a.id - b.id);
@@ -489,6 +596,14 @@ const meta = {
   },
   /* Mapeo derivado, publicado para poder auditarlo. Ver derivarMapeoEstados(). */
   mapeoEstados,
+  /*
+    Lo mismo para la sinergia: es texto interpretado, no un campo del dump, así
+    que los números quedan a la vista. `fueraDelOficial` es el que hay que
+    mirar: son arquetipos derivados que la ID no tiene en su keyword oficial.
+    Algunos son legítimos (una ID puede cobrar un estado que no es el suyo) y
+    otros son ruido del parser; si ese número se dispara, la regla se rompió.
+  */
+  sinergia: statsSinergia,
 };
 
 mkdirSync(path.join(RAIZ, "src/data"), { recursive: true });

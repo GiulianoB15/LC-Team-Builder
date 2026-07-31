@@ -80,6 +80,15 @@
     "precision": 1,
     "soporte": 12
    }
+  },
+  "sinergia": {
+   "conRol": 116,
+   "sinSenal": 68,
+   "aplica": 113,
+   "lee": 86,
+   "buffean": 23,
+   "posicionales": 6,
+   "fueraDelOficial": 14
   }
  },
  "identities": [
@@ -202,7 +211,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": "temprano"
+   }
   },
   {
    "id": 10102,
@@ -322,7 +337,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10103,
@@ -440,7 +461,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [
+     "Poise"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10104,
@@ -559,7 +590,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10105,
@@ -679,7 +716,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10106,
@@ -801,7 +846,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [
+     "Charge",
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10107,
@@ -921,7 +977,16 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Bleed",
+     "Poise"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10108,
@@ -1040,7 +1105,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Sinking"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10109,
@@ -1172,7 +1245,21 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed",
+     "Burn",
+     "Rupture",
+     "Sinking",
+     "Tremor"
+    ],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10110,
@@ -1304,7 +1391,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Sinking"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10111,
@@ -1425,7 +1520,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Rupture"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10112,
@@ -1543,7 +1646,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10113,
@@ -1674,7 +1785,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10114,
@@ -1836,7 +1953,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Poise"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10115,
@@ -2047,7 +2172,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10116,
@@ -2183,7 +2314,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [
+     "Charge"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10201,
@@ -2302,7 +2443,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10202,
@@ -2421,7 +2568,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [
+     "Charge"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10203,
@@ -2543,7 +2700,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10204,
@@ -2667,7 +2830,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10205,
@@ -2784,7 +2953,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": "medio"
+   }
   },
   {
    "id": 10206,
@@ -2906,7 +3081,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise",
+     "Rupture"
+    ],
+    "lee": [
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10207,
@@ -3030,7 +3216,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10208,
@@ -3153,7 +3345,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10209,
@@ -3273,7 +3471,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Sinking"
+    ],
+    "lee": [
+     "Sinking"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10210,
@@ -3393,7 +3601,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [
+     "Charge"
+    ],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10211,
@@ -3532,7 +3750,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [
+     "Burn"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10212,
@@ -3686,7 +3914,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10213,
@@ -3838,7 +4074,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10214,
@@ -3997,7 +4241,16 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise",
+     "Sinking"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10215,
@@ -4197,7 +4450,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed",
+     "Charge"
+    ],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10216,
@@ -4377,7 +4641,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10301,
@@ -4498,7 +4770,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10302,
@@ -4618,7 +4896,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10303,
@@ -4736,7 +5022,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10304,
@@ -4858,7 +5150,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Tremor"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10305,
@@ -4976,7 +5276,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10306,
@@ -5096,7 +5402,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10307,
@@ -5215,7 +5527,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10308,
@@ -5334,7 +5652,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Poise"
+    ],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10309,
@@ -5456,7 +5782,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10310,
@@ -5645,7 +5979,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10311,
@@ -5772,7 +6112,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn",
+     "Poise"
+    ],
+    "lee": [
+     "Burn"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10312,
@@ -5945,7 +6296,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10313,
@@ -6086,7 +6445,19 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Rupture",
+     "Sinking"
+    ],
+    "lee": [
+     "Rupture",
+     "Sinking"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10314,
@@ -6293,7 +6664,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10401,
@@ -6413,7 +6790,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10402,
@@ -6534,7 +6917,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10403,
@@ -6655,7 +7046,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed"
+    ],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10404,
@@ -6779,7 +7180,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10405,
@@ -6899,7 +7306,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10406,
@@ -7023,7 +7438,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [
+     "Poise"
+    ],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10407,
@@ -7141,7 +7566,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Burn"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10408,
@@ -7263,7 +7696,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10409,
@@ -7382,7 +7823,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10410,
@@ -7531,7 +7980,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10411,
@@ -7652,7 +8109,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10412,
@@ -7821,7 +8284,19 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed",
+     "Tremor"
+    ],
+    "lee": [
+     "Bleed",
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10413,
@@ -7952,7 +8427,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Poise"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10414,
@@ -8117,7 +8600,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Sinking",
+     "Tremor"
+    ],
+    "lee": [
+     "Sinking"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10415,
@@ -8320,7 +8814,19 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn",
+     "Poise",
+     "Sinking"
+    ],
+    "lee": [
+     "Poise"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10501,
@@ -8440,7 +8946,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10502,
@@ -8558,7 +9070,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [
+     "Burn"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10503,
@@ -8679,7 +9201,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10504,
@@ -8800,7 +9332,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10505,
@@ -8921,7 +9459,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10506,
@@ -9038,7 +9584,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [
+     "Charge"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10507,
@@ -9160,7 +9716,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10508,
@@ -9294,7 +9856,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Poise"
+    ],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10509,
@@ -9412,7 +9982,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10510,
@@ -9532,7 +10110,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10511,
@@ -9657,7 +10241,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10512,
@@ -9805,7 +10397,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10513,
@@ -9963,7 +10563,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10514,
@@ -10097,7 +10705,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10515,
@@ -10235,7 +10849,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10601,
@@ -10357,7 +10977,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10602,
@@ -10476,7 +11102,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10603,
@@ -10595,7 +11229,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10604,
@@ -10712,7 +11352,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [
+     "Burn"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10605,
@@ -10829,7 +11479,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10606,
@@ -10949,7 +11605,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Charge"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10607,
@@ -11069,7 +11733,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10608,
@@ -11188,7 +11860,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10609,
@@ -11310,7 +11988,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Tremor"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10610,
@@ -11431,7 +12117,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Rupture"
+    ],
+    "lee": [
+     "Bleed",
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10611,
@@ -11604,7 +12301,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10612,
@@ -11724,7 +12427,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge",
+     "Sinking"
+    ],
+    "lee": [
+     "Charge"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10613,
@@ -11899,7 +12613,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10614,
@@ -12092,7 +12812,16 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed",
+     "Charge"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10615,
@@ -12226,7 +12955,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10701,
@@ -12347,7 +13082,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10702,
@@ -12464,7 +13205,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10703,
@@ -12589,7 +13336,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10704,
@@ -12710,7 +13463,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10705,
@@ -12834,7 +13593,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Sinking"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10706,
@@ -12953,7 +13720,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Rupture"
+    ],
+    "lee": [
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10707,
@@ -13071,7 +13848,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10708,
@@ -13191,7 +13974,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Tremor"
+    ],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10709,
@@ -13316,7 +14109,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10710,
@@ -13460,7 +14261,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Sinking"
+    ],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10711,
@@ -13615,7 +14424,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [
+     "Poise"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10712,
@@ -13748,7 +14567,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10713,
@@ -13877,7 +14702,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [
+     "Charge"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10714,
@@ -14034,7 +14869,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10715,
@@ -14189,7 +15032,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": "medio"
+   }
   },
   {
    "id": 10716,
@@ -14364,7 +15213,16 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn",
+     "Tremor"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10801,
@@ -14484,7 +15342,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10802,
@@ -14603,7 +15467,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10803,
@@ -14720,7 +15590,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10804,
@@ -14843,7 +15721,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Tremor"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10805,
@@ -14962,7 +15848,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Rupture"
+    ],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10806,
@@ -15081,7 +15977,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [
+     "Burn"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10807,
@@ -15204,7 +16110,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Sinking",
+     "Tremor"
+    ],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10808,
@@ -15342,7 +16259,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [
+     "Poise"
+    ],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10809,
@@ -15467,7 +16394,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Sinking"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10810,
@@ -15590,7 +16525,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Tremor"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10811,
@@ -15725,7 +16668,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": true,
+    "posicion": "medio"
+   }
   },
   {
    "id": 10812,
@@ -15872,7 +16823,16 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise",
+     "Rupture"
+    ],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10813,
@@ -16031,7 +16991,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10814,
@@ -16166,7 +17134,16 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed",
+     "Burn"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10815,
@@ -16339,7 +17316,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10901,
@@ -16458,7 +17443,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10902,
@@ -16583,7 +17576,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10903,
@@ -16701,7 +17700,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10904,
@@ -16823,7 +17828,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10905,
@@ -16945,7 +17956,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10906,
@@ -17064,7 +18083,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [
+     "Poise"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10907,
@@ -17184,7 +18213,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10908,
@@ -17304,7 +18339,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [
+     "Burn"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10909,
@@ -17425,7 +18470,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10910,
@@ -17559,7 +18612,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Rupture"
+    ],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 10911,
@@ -17711,7 +18772,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10912,
@@ -17839,7 +18908,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10913,
@@ -18036,7 +19113,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Sinking"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10914,
@@ -18160,7 +19245,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge",
+     "Sinking"
+    ],
+    "lee": [
+     "Charge"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10915,
@@ -18324,7 +19420,16 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed",
+     "Sinking"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 10916,
@@ -18529,7 +19634,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn",
+     "Poise"
+    ],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11001,
@@ -18649,7 +19765,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11002,
@@ -18771,7 +19893,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11003,
@@ -18892,7 +20020,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": "medio"
+   }
   },
   {
    "id": 11004,
@@ -19011,7 +20145,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11005,
@@ -19132,7 +20272,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11006,
@@ -19250,7 +20396,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11007,
@@ -19370,7 +20524,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11008,
@@ -19492,7 +20654,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 11009,
@@ -19630,7 +20800,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11010,
@@ -19753,7 +20931,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Tremor"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11011,
@@ -19888,7 +21074,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Rupture"
+    ],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 11012,
@@ -20009,7 +21203,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11013,
@@ -20144,7 +21344,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11014,
@@ -20289,7 +21497,19 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn",
+     "Rupture"
+    ],
+    "lee": [
+     "Burn",
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11015,
@@ -20426,7 +21646,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11101,
@@ -20545,7 +21771,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11102,
@@ -20664,7 +21896,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11103,
@@ -20785,7 +22023,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": "medio"
+   }
   },
   {
    "id": 11104,
@@ -20907,7 +22151,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11105,
@@ -21026,7 +22276,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11106,
@@ -21146,7 +22404,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11107,
@@ -21267,7 +22531,16 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn",
+     "Poise"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11108,
@@ -21388,7 +22661,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11109,
@@ -21522,7 +22801,21 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed",
+     "Burn",
+     "Rupture",
+     "Sinking",
+     "Tremor"
+    ],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11110,
@@ -21645,7 +22938,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [
+     "Charge"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11111,
@@ -21775,7 +23078,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed"
+    ],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11112,
@@ -21897,7 +23210,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Rupture"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11113,
@@ -22025,7 +23346,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11114,
@@ -22161,7 +23488,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11115,
@@ -22400,7 +23733,16 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed",
+     "Burn"
+    ],
+    "lee": [],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 11201,
@@ -22519,7 +23861,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11202,
@@ -22638,7 +23986,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11203,
@@ -22755,7 +24111,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11204,
@@ -22875,7 +24237,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11205,
@@ -22997,7 +24365,19 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Rupture",
+     "Tremor"
+    ],
+    "lee": [
+     "Rupture",
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11206,
@@ -23114,7 +24494,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11207,
@@ -23237,7 +24623,16 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Bleed",
+     "Poise"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11208,
@@ -23358,7 +24753,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Bleed"
+    ],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11209,
@@ -23480,7 +24885,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Sinking"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11210,
@@ -23610,7 +25023,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [
+     "Bleed"
+    ],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 11211,
@@ -23736,7 +25157,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [
+     "Burn"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11212,
@@ -23862,7 +25293,15 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Poise"
+    ],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11213,
@@ -24030,7 +25469,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11214,
@@ -24176,7 +25621,13 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [],
+    "lee": [],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   },
   {
    "id": 11215,
@@ -24334,7 +25785,17 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Charge"
+    ],
+    "lee": [
+     "Charge"
+    ],
+    "buffeaAliados": true,
+    "posicion": null
+   }
   },
   {
    "id": 11216,
@@ -24499,7 +25960,18 @@
     ]
    },
    "tienePasivas": true,
-   "pasivasCompletas": true
+   "pasivasCompletas": true,
+   "sinergia": {
+    "aplica": [
+     "Burn"
+    ],
+    "lee": [
+     "Burn",
+     "Tremor"
+    ],
+    "buffeaAliados": false,
+    "posicion": null
+   }
   }
  ]
 }
