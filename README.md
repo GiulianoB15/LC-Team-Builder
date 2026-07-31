@@ -429,6 +429,28 @@ Se dibuja en un `<canvas>` en el navegador: sin dependencias, sin servidor y sin
 a ningún lado. Los retratos los sirve la propia app, así que no hay CORS que resolver. Si
 alguno falta se dibuja el marcador de iniciales en vez de abortar.
 
+## Cómo se ordenan las recomendaciones
+
+**Por afinidad temática primero, y el resto desempata.** No por un puntaje único, y hay un
+motivo medido.
+
+En «Completar equipo» el puntaje suma cosas heterogéneas: compartir arquetipo vale +3, cada
+resistencia que no empeora +2, cada pasiva ajena destrabada +2, y no compartir arquetipo
+resta apenas 1. Con la colección completa el tope sale bien, pero **con una colección chica
+—que es el caso real— 4 de las 8 recomendaciones no compartían nada con la base**: una
+Identidad genérica junta 8 o 9 puntos por resistencias y pasivas baratas y se cuela arriba.
+
+Ahora la afinidad (arquetipo compartido, tapar un huérfano, cobrar lo que el equipo inflige)
+se lleva aparte y ordena; el total desempata. Así "el que juega a lo mismo" siempre va antes
+que "el que tiene buenas resistencias", sin depender de qué número le pusimos a cada cosa.
+Hay un chequeo que verifica la invariante.
+
+En «Qué me falta» el problema era otro: `sinnerNuevo` pesaba 4 y el rol 3, así que **sumar
+un Sinner valía más que hacer lo que al equipo le falta**. Y como casi todas cumplían las
+dos cosas, las ocho visibles empataban en 7 y el orden terminaba siendo alfabético. Ahora es
+un orden lexicográfico explícito —cumple el rol, después Sinner nuevo, después si hace los
+dos roles— sin números mágicos.
+
 ## Rendimiento
 
 Medido con Playwright y la CPU frenada 4× (un celular de gama media, no esta máquina):

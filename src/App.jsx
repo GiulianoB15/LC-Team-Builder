@@ -191,7 +191,12 @@ export default function App() {
     return ownedIdentities
       .filter((i) => !sinnersUsados.has(i.sinner) && !baseIds.includes(i.id))
       .map((i) => ({ id: i, ...puntuarCandidata(i, base) }))
-      .sort((a, b) => b.score - a.score)
+      /*
+        Primero la afinidad temática y recién después el total. Ordenar por el
+        total dejaba arriba IDs que no comparten nada con la base pero juntan
+        puntos por resistencias y pasivas baratas.
+      */
+      .sort((a, b) => b.afinidad - a.afinidad || b.score - a.score)
       .slice(0, 8);
   }, [ownedIdentities, base, baseIds]);
 

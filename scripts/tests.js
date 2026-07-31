@@ -350,6 +350,65 @@ check("y las mejores candidatas lo aplican",
   dx.candidatas.slice(0, 3).map((c) => `${c.id.nombre}:${c.aplica}`).join(" | "));
 
 /*
+  --- Orden de las candidatas ---
+
+  Lo que se protege acá es que la afinidad temática ordene y el resto desempate.
+  Antes se ordenaba por el total, y una ID que no comparte NADA con la base
+  juntaba 8 o 9 puntos por resistencias (+2 por tipo) y pasivas destrabadas (+2
+  cada una), mientras que compartir arquetipo vale +3. Con una colección chica,
+  4 de las 8 recomendaciones no compartían nada con la base.
+*/
+const baseBleed = [];
+for (const i of IDENTITIES.filter((x) => x.arquetipos.includes("Bleed")))
+  if (!baseBleed.some((b) => b.sinner === i.sinner)) baseBleed.push(i);
+const tresBleed = baseBleed.slice(0, 3);
+const arqBase = new Set(tresBleed.flatMap((i) => i.arquetipos));
+const sinnersBase = new Set(tresBleed.map((i) => i.sinner));
+
+const puntuadas = IDENTITIES.filter((i) => !sinnersBase.has(i.sinner))
+  .map((i) => ({ id: i, ...puntuarCandidata(i, tresBleed) }))
+  .sort((a, b) => b.afinidad - a.afinidad || b.score - a.score);
+
+check("puntuarCandidata separa la afinidad temática del total",
+  puntuadas.every((c) => typeof c.afinidad === "number" && typeof c.score === "number"));
+
+/* La invariante: ninguna sin afinidad puede quedar antes que una con afinidad. */
+const primeraSinAfinidad = puntuadas.findIndex((c) => c.afinidad <= 0);
+const ultimaConAfinidad = puntuadas.map((c) => c.afinidad > 0).lastIndexOf(true);
+check("ninguna sin afinidad queda por encima de una que sí la tiene",
+  primeraSinAfinidad === -1 || primeraSinAfinidad > ultimaConAfinidad,
+  `primera sin afinidad en ${primeraSinAfinidad}, última con afinidad en ${ultimaConAfinidad}`);
+
+check("y las que se muestran comparten arquetipo con la base",
+  puntuadas.slice(0, 8).every((c) => c.id.arquetipos.some((a) => arqBase.has(a))),
+  puntuadas.slice(0, 8).filter((c) => !c.id.arquetipos.some((a) => arqBase.has(a))).map((c) => c.id.nombre).join(", "));
+
+/*
+  El caso concreto que se rompía: una ID con buen total pero cero afinidad no
+  puede ganarle a una con afinidad y total más bajo.
+*/
+const conAfin = puntuadas.filter((c) => c.afinidad > 0).at(-1);
+const sinAfin = puntuadas.find((c) => c.afinidad <= 0 && c.score > conAfin.score);
+check("una sin afinidad con MÁS puntaje total igual queda debajo",
+  !sinAfin || puntuadas.indexOf(sinAfin) > puntuadas.indexOf(conAfin),
+  sinAfin ? `${sinAfin.id.nombre} (${sinAfin.score}) vs ${conAfin.id.nombre} (${conAfin.score})` : "no hay caso en este dataset");
+
+/*
+  En «Qué me falta» el problema era otro: sumar un Sinner pesaba más que hacer
+  lo que falta, y casi todas empataban, así que el orden visible era alfabético.
+*/
+const dxOrden = analizarArquetipo("Bleed", tresBleed, IDENTITIES);
+check("las candidatas de «Qué me falta» exponen los criterios, no un peso opaco",
+  dxOrden.candidatas.every((c) => "cumpleRol" in c && "sinnerNuevo" in c));
+check("cumplir el rol que falta ordena antes que sumar un Sinner",
+  dxOrden.candidatas.map((c) => Number(c.cumpleRol)).every((v, i, a) => i === 0 || a[i - 1] >= v));
+check("y a igual rol, desempata el Sinner nuevo",
+  dxOrden.candidatas
+    .filter((c) => c.cumpleRol)
+    .map((c) => Number(c.sinnerNuevo))
+    .every((v, i, a) => i === 0 || a[i - 1] >= v));
+
+/*
   --- Banca ---
 
   Lo que se mide acá es que la banca se calcule por SINNER y sobre la pasiva de

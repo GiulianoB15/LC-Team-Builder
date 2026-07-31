@@ -332,10 +332,7 @@ export function analizarArquetipo(arquetipo, propias, todas, slots = SLOTS_DESPL
         ya tenés: la segunda no agranda el equipo posible, solo da opciones.
       */
       const sinnerNuevo = !sinnersCubiertos.has(x.sinner);
-      let peso = sinnerNuevo ? 4 : 0;
-      if (rolBuscado === "aplica" && aplica) peso += 3;
-      if (rolBuscado === "lee" && lee) peso += 3;
-      if (!rolBuscado && (aplica || lee)) peso += 1;
+      const cumpleRol = rolBuscado === "aplica" ? aplica : rolBuscado === "lee" ? lee : aplica || lee;
 
       const motivos = [];
       if (sinnerNuevo) motivos.push(`Suma a ${x.sinner}, que todavía no tenés cubierto para este arquetipo.`);
@@ -343,9 +340,27 @@ export function analizarArquetipo(arquetipo, propias, todas, slots = SLOTS_DESPL
       if (rolBuscado === "aplica" && aplica) motivos.push(`Aplica ${arquetipo}, que es justo lo que no tenés.`);
       if (rolBuscado === "lee" && lee) motivos.push(`Aprovecha ${arquetipo}, que hoy nadie tuyo cobra.`);
 
-      return { id: x, peso, sinnerNuevo, aplica, lee, motivos };
+      return { id: x, cumpleRol, sinnerNuevo, aplica, lee, motivos };
     })
-    .sort((a, b) => b.peso - a.peso || a.id.nombre.localeCompare(b.id.nombre));
+    /*
+      Orden lexicográfico y no una suma de pesos.
+
+      Antes era `sinnerNuevo ? 4 : 0` más 3 por el rol, con dos problemas: sumar
+      un Sinner pesaba MÁS que hacer lo que al equipo le falta, y como casi
+      todas cumplían las dos cosas quedaban todas empatadas en 7 — las ocho que
+      se muestran tenían el mismo puntaje, así que el orden visible terminaba
+      siendo alfabético.
+
+      Ahora manda hacer el trabajo que falta; sumar un Sinner nuevo desempata, y
+      hacer los dos roles desempata de nuevo. Sin números mágicos: cada criterio
+      es un sí o un no, y el motivo dice cuál se cumplió.
+    */
+    .sort((a, b) =>
+      Number(b.cumpleRol) - Number(a.cumpleRol) ||
+      Number(b.sinnerNuevo) - Number(a.sinnerNuevo) ||
+      Number(b.aplica && b.lee) - Number(a.aplica && a.lee) ||
+      a.id.nombre.localeCompare(b.id.nombre)
+    );
 
   return {
     arquetipo,
@@ -492,6 +507,22 @@ export function sugerirOrden(team, slots = SLOTS_DESPLIEGUE) {
 
 export function puntuarCandidata(candidate, team) {
   let score = 0;
+  /*
+    `afinidad` es la parte del puntaje que habla de jugar al mismo juego:
+    arquetipo compartido, tapar un huérfano, cobrar lo que el equipo inflige.
+
+    Se lleva aparte porque el total NO alcanza para ordenar. Medido con una
+    colección chica y una base de Bleed, 4 de las 8 recomendaciones no
+    compartían nada con la base: una ID genérica junta 8 o 9 puntos sumando
+    resistencias (+2 por tipo) y pasivas destrabadas (+2 cada una), mientras que
+    compartir arquetipo vale +3 y no compartirlo resta apenas 1. El resultado
+    era una lista que llenaba Sinners en vez de armar un equipo.
+
+    Con afinidad aparte, quien ordena es ella y el resto desempata. Así "el que
+    juega a lo mismo" siempre va antes que "el que tiene buenas resistencias",
+    sin depender de qué número le pusimos a cada cosa.
+  */
+  let afinidad = 0;
   const motivos = [];
 
   const equipoConCandidata = [...team, candidate];
@@ -500,10 +531,10 @@ export function puntuarCandidata(candidate, team) {
   const perfil = perfilArquetipos(team);
   const compartidos = candidate.arquetipos.filter((a) => perfil[a] > 0);
   if (compartidos.length) {
-    score += compartidos.length * 3;
+    afinidad += compartidos.length * 3;
     motivos.push(`Comparte arquetipo con el equipo: ${compartidos.join(", ")}.`);
   } else if (candidate.arquetipos.length && Object.values(perfil).some((c) => c > 0)) {
-    score -= 1;
+    afinidad -= 1;
     motivos.push(`Su arquetipo (${candidate.arquetipos.join(", ")}) no coincide con el del equipo.`);
   }
 
@@ -522,7 +553,7 @@ export function puntuarCandidata(candidate, team) {
 
   const tapa = sinergia.huerfanos.filter((h) => propia.aplica.includes(h.arquetipo));
   tapa.forEach((h) => {
-    score += 4;
+    afinidad += 4;
     const n = h.leen.length;
     motivos.push(
       `Aplica ${h.arquetipo}, que ${n === 1 ? "un miembro" : `${n} miembros`} del equipo aprovecha${n === 1 ? "" : "n"} pero nadie inflige.`
@@ -534,7 +565,7 @@ export function puntuarCandidata(candidate, team) {
     (a) => sinergia.porArquetipo[a]?.aplican.length && !tapa.some((t) => t.arquetipo === a)
   );
   if (cobra.length) {
-    score += 2;
+    afinidad += 2;
     motivos.push(`Aprovecha el ${cobra.join(", ")} que el equipo ya inflige.`);
   }
 
@@ -602,7 +633,8 @@ export function puntuarCandidata(candidate, team) {
   const esAdvertencia = (m) => m.startsWith("Ojo:") || m.includes("no coincide") || m.includes("no le cubre");
   motivos.sort((a, b) => Number(esAdvertencia(a)) - Number(esAdvertencia(b)));
 
-  return { score, motivos };
+  /* El total sigue incluyendo la afinidad: es el puntaje de la candidata. */
+  return { score: score + afinidad, afinidad, motivos };
 }
 
 function contarPropiasActivas(identity, team) {
