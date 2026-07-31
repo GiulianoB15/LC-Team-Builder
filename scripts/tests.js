@@ -312,19 +312,22 @@ check("comparar detecta marcadas que tu dataset no conoce",
 
 
 
-/* --- Números de skill injertados desde LCTeamBuilder --- */
+/* --- Números de skill --- */
 
-const conNumeros = IDENTITIES.flatMap((i) => i.skills).filter((s) => s.poderBase != null);
-check("se injertaron los números de skill donde había fuente", conNumeros.length === 417, String(conNumeros.length));
-check("los números injertados son coherentes",
-  conNumeros.every((s) => s.poderBase > 0 && s.monedas >= 0 && s.nombre));
+const todasLasSkills = IDENTITIES.flatMap((i) => i.skills);
+const conNumeros = todasLasSkills.filter((s) => s.poderBase != null);
+check("las 618 skills tienen números", conNumeros.length === 618 && todasLasSkills.length === 618,
+  `${conNumeros.length} de ${todasLasSkills.length}`);
+check("los números son coherentes",
+  conNumeros.every((s) => s.poderBase > 0 && s.monedas >= 0 && s.valorMoneda != null && s.nombre));
 
 /*
-  Verificación puntual contra el archivo fuente de LCTeamBuilder, leído a mano.
-  SkillTierEnum arranca en 1: asumir 0 hacía que casi nada matcheara.
+  Ancla de valores. Estos números venían de LCTeamBuilder y siguen iguales
+  después de cambiar de fuente: son dos fuentes independientes coincidiendo,
+  no una repitiéndose a sí misma.
 */
 const skillsRing = porId(10109).skills;
-check("Ring Yi Sang: los tres poderes base coinciden con la fuente",
+check("Ring Yi Sang: los tres poderes base coinciden con las dos fuentes",
   skillsRing.find((s) => s.tier === 1)?.poderBase === 2 &&
   skillsRing.find((s) => s.tier === 2)?.poderBase === 8 &&
   skillsRing.find((s) => s.tier === 3)?.poderBase === 3);
@@ -332,13 +335,15 @@ check("Ring Yi Sang: las monedas también",
   skillsRing.find((s) => s.tier === 1)?.monedas === 3 &&
   skillsRing.find((s) => s.tier === 2)?.monedas === 1 &&
   skillsRing.find((s) => s.tier === 3)?.monedas === 4);
-check("el tier del injerto se alinea con el del dump nuevo",
+check("el número cae en el skill correcto, no en otro del mismo tier",
   skillsRing.find((s) => s.tier === 1)?.nombre === "Paint Over");
 
-/* Las IDs sin fuente quedan en null, no en cero ni inventadas. */
-const sinFuente = IDENTITIES.filter((i) => !i.tienePasivas).flatMap((i) => i.skills);
-check("las Identities nuevas quedan con números en null, no en cero",
-  sinFuente.every((s) => s.poderBase === null && s.nombre === null));
+/*
+  Lo que hace que el cruce sea exacto es el id: si el dump dejara de traerlo,
+  o dejara de coincidir con el de la fuente, todo esto se cae en silencio.
+*/
+check("toda skill trae su id, que es por donde se cruza",
+  todasLasSkills.every((s) => typeof s.id === "string" && s.id.length > 0));
 
 
 

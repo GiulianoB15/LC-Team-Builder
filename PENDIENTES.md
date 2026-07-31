@@ -9,16 +9,13 @@ soporte, y los 110 E.G.O tienen la suya. Salen de `src/data/pasivas.json`, que b
 Si entra contenido nuevo antes de que la fuente lo publique, esta lista vuelve a
 aparecer sola con lo que falte.
 
-## Lo único que sigue incompleto
+## Números de skill
 
-**Números de skills** — poder base, monedas y valor de moneda: hay
-417 de 618. Los 201 que faltan son de las Identities posteriores al
-corte de LCTeamBuilder, que es de donde salen hoy.
+Poder base, monedas y valor de moneda: **618 de 618**. Completo, cruzado por id de skill.
 
-Probablemente se puedan completar igual que las pasivas: los archivos
-`data/identities/<id>.json` de la fuente traen una clave `skills` que todavía no
-se miró. Falta ver qué forma tiene antes de prometer nada.
+## Lo que sigue faltando
 
-No afecta al motor: no usa esos números para nada de lo que calcula hoy
-(recursos de Sin, pasivas, resistencias, arquetipos). Quedan en `null`, nunca en
-cero, para que se note que es un dato que falta y no un valor real.
+**Los retratos de los 110 E.G.O.** No es un problema de datos sino de no saber
+todavía con qué nombre de archivo los sirve el servidor de imágenes; los
+patrones probados están anotados en `scripts/fetch-imagenes.mjs`. Mientras
+tanto esas tarjetas muestran el marcador con las iniciales.

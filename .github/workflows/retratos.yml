@@ -10,6 +10,10 @@ on:
         description: "Volver a bajar todas, incluso las que ya están"
         type: boolean
         default: false
+      probar:
+        description: "Solo probar qué URLs responden, sin bajar ni commitear"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -27,15 +31,24 @@ jobs:
 
       - run: npm ci
 
+      # Probar qué URLs responden. No descarga ni commitea: sirve para descubrir
+      # el patrón sin gastar una corrida entera por cada intento.
+      - name: Probar URLs
+        if: inputs.probar
+        run: node scripts/fetch-imagenes.mjs --probar
+
       # sharp no está en package.json a propósito: es de un solo uso y no vale
       # que las demás corridas la instalen. Acá sí hace falta, para que las
       # miniaturas queden en ~2 KB en vez de guardar los originales.
       - run: npm install --no-save sharp
+        if: '!inputs.probar'
 
       - name: Bajar retratos y generar miniaturas
+        if: '!inputs.probar'
         run: node scripts/fetch-imagenes.mjs ${{ inputs.forzar && '--forzar' || '' }}
 
       - name: Commitear lo que haya cambiado
+        if: '!inputs.probar'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

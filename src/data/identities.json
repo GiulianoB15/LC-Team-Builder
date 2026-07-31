@@ -355,7 +355,7 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": "Striker's Stance",
+     "nombre": "Striker’s Stance",
      "poderBase": 6,
      "monedas": 1,
      "valorMoneda": 7,
@@ -379,7 +379,7 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": "Flank Trust",
+     "nombre": "Flank Thrust",
      "poderBase": 8,
      "monedas": 3,
      "valorMoneda": 2,
@@ -1229,7 +1229,7 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": "Goodbye Now, A Sorrow In You",
+     "nombre": "Goodbye Now, a Sorrow in You",
      "poderBase": 4,
      "monedas": 4,
      "valorMoneda": 3,
@@ -1706,11 +1706,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Cut Down and Trample",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1011402",
@@ -1718,11 +1718,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Crescent Blade Strike [月刀擊]",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1011403",
@@ -1730,11 +1730,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Cavalry's Vanguard Charge",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1011405",
@@ -1742,11 +1742,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Obsidian Stormrider's Crescent Decapitator [黑風馬脚月斬]",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -1867,11 +1867,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "\"Enwrap 330 Times in Long Swaths of Frozen Blood\"",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1011502",
@@ -1879,11 +1879,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "\"Revel with Soundless Applause, Impale in Voiceless Sorrow\"",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1011503",
@@ -1891,11 +1891,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "\"Raise and Laugh the Blade, Cry the Waterfall Like the Scent of Fallen Leaves\"",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1011505",
@@ -1903,11 +1903,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Furioso-Replica",
+     "poderBase": 3,
+     "monedas": 9,
+     "valorMoneda": 3,
+     "pesoAtaque": 7
     }
    ],
    "skillsDefensa": [
@@ -2080,11 +2080,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Dimensional Slice",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1011602",
@@ -2092,11 +2092,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Consecutive Dimensional Slice",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1011603",
@@ -2104,11 +2104,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Rip Space",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1011605",
@@ -2116,11 +2116,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Four-dimensional Refraction Time Series Severance",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 4
     }
    ],
    "skillsDefensa": [
@@ -2454,11 +2454,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Sole Strike",
+     "poderBase": 3,
+     "monedas": 1,
+     "valorMoneda": 8,
+     "pesoAtaque": 1
     },
     {
      "id": "1020302",
@@ -2466,11 +2466,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Deep Cuts",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1020303",
@@ -2478,11 +2478,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Opportunistic Slash",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 8,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -3437,7 +3437,7 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": "E.G.O - A.B.S. Activation",
+     "nombre": "E.G.O - A.B.S Activation",
      "poderBase": 4,
      "monedas": 3,
      "valorMoneda": 4,
@@ -3449,11 +3449,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Drawn by Flame",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021105",
@@ -3461,11 +3461,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "A.B.S Max Attunement 【Degraded Corrosion】",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -3587,11 +3587,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Traceless to Sight and Sound Alike.",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021205",
@@ -3599,11 +3599,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Ascendant Heishou - Mao Technique: Cloudsplitting Manifestation",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -3719,11 +3719,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Cleave",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021302",
@@ -3731,11 +3731,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Positioning Maneuver",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021303",
@@ -3743,11 +3743,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Glimmering Bow [弓閃]",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1021305",
@@ -3755,11 +3755,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Bow's Glimmer [閃弓]",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -3870,11 +3870,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Unerringly, as the Prescript Demands",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021402",
@@ -3882,11 +3882,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Undertake the Prescript, Again Undertake",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021403",
@@ -3894,11 +3894,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "As the Prescript Demands, You Will Be Eliminated.",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -4029,11 +4029,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Butcher - Ribs",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021502",
@@ -4041,11 +4041,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Fascia Hungers",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021503",
@@ -4053,11 +4053,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Repressed Flesh",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1021505",
@@ -4065,11 +4065,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Butcher - Ribs",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021506",
@@ -4077,11 +4077,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Time for Your Meal, Fascia",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021507",
@@ -4089,11 +4089,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Liberation of the Repressed Flesh",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -4229,11 +4229,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Flash of Sunup",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021602",
@@ -4241,11 +4241,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Butterfly Slash",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1021603",
@@ -4253,11 +4253,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Eject",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1021605",
@@ -4265,11 +4265,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Seconded Offensive",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1021606",
@@ -4277,11 +4277,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Eject - High Noon",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -4780,7 +4780,7 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": "Enacment!",
+     "nombre": "Enactment!",
      "poderBase": 4,
      "monedas": 1,
      "valorMoneda": 12,
@@ -5489,11 +5489,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Enough is Enough",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031002",
@@ -5501,11 +5501,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Let All Blossom Free",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1031003",
@@ -5513,11 +5513,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "I Shall Impale",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031005",
@@ -5525,11 +5525,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Variant Sancho Hardblood Arts 6 - Whip",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1031006",
@@ -5537,11 +5537,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Variant Sancho Hardblood Arts 8 - Split Apart",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 2
     },
     {
      "id": "1031007",
@@ -5549,11 +5549,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Ascendant Sancho Hardblood Arts - La Sangre",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5702,7 +5702,7 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": "Salut!",
+     "nombre": "Prithee, let this be an enlightening bout",
      "poderBase": 4,
      "monedas": 4,
      "valorMoneda": 3,
@@ -5805,11 +5805,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "By Manager Esquire's Orders, I Am Here!",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031202",
@@ -5817,11 +5817,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "With Love! Hyah!",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     },
     {
      "id": "1031203",
@@ -5829,11 +5829,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Arcana Beats!! / Minor Arcana Slave!!!",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031205",
@@ -5841,11 +5841,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Where are... the villains...?",
+     "poderBase": 12,
+     "monedas": 2,
+     "valorMoneda": -4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031206",
@@ -5853,11 +5853,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Get out of my head...",
+     "poderBase": 15,
+     "monedas": 2,
+     "valorMoneda": -6,
+     "pesoAtaque": 1
     },
     {
      "id": "1031207",
@@ -5865,11 +5865,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Reversed Beats / Reversed Arcana Slave",
+     "poderBase": 20,
+     "monedas": 3,
+     "valorMoneda": -6,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -5977,11 +5977,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Breakthrough",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031302",
@@ -5989,11 +5989,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Seize the Momentum, Shatter the Wall",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031303",
@@ -6001,11 +6001,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Crushing Horns [破碎角]",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -6118,11 +6118,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Skull Crushing",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031402",
@@ -6130,11 +6130,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "B-be Thee Silent",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031403",
@@ -6142,11 +6142,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "T-the Prescript Must be Fulfilled Anon...",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1031405",
@@ -6154,11 +6154,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Let These Hands be the Proxy with Which...",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031406",
@@ -6166,11 +6166,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Procuration: Engrave",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1031407",
@@ -6178,11 +6178,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Procuration: Annihilate",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -6955,7 +6955,7 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": "O.O.F",
+     "nombre": "O.O.F.",
      "poderBase": 4,
      "monedas": 3,
      "valorMoneda": 3,
@@ -7438,11 +7438,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Skullbuster",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041005",
@@ -7450,11 +7450,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Serious Skullbuster",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -7587,7 +7587,7 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": "I'll gut you with a curse-engraved sword",
+     "nombre": "I'll gut you with a curse-engraved blade",
      "poderBase": 5,
      "monedas": 3,
      "valorMoneda": 4,
@@ -7683,11 +7683,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Contemptuous Thing",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041202",
@@ -7695,11 +7695,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Be Awed",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1041203",
@@ -7707,11 +7707,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Awe, Contempt",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041205",
@@ -7719,11 +7719,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Cascading Gaze of Awe Underneath Contempt",
+     "poderBase": 14,
+     "monedas": 1,
+     "valorMoneda": 14,
+     "pesoAtaque": 3
     },
     {
      "id": "1041206",
@@ -7731,11 +7731,11 @@
      "tier": 4,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "I Shall Fire / Anytime",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 7,
+     "pesoAtaque": 2
     }
    ],
    "skillsDefensa": [
@@ -7852,11 +7852,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Hey, Back Off",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1041302",
@@ -7864,11 +7864,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Engraved in Flesh and Bone [銘肌鏤骨]",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041303",
@@ -7876,11 +7876,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Aiding Strike [加斥我援]",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -7984,11 +7984,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Bang. Bang.",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041402",
@@ -7996,11 +7996,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Blossoming Fragrance in the Void",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041403",
@@ -8008,11 +8008,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Full Bloom",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041405",
@@ -8020,11 +8020,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Stories that Never Cease",
+     "poderBase": 9,
+     "monedas": 3,
+     "valorMoneda": 1,
+     "pesoAtaque": 3
     },
     {
      "id": "1041406",
@@ -8032,11 +8032,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Magnificent End",
+     "poderBase": 12,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -8148,11 +8148,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Tripleslash [三連]",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1041502",
@@ -8160,11 +8160,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Tripleslash - Echoshear [三連 - 殘]",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041503",
@@ -8172,11 +8172,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Rend Space [空間斬]",
+     "poderBase": 10,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     },
     {
      "id": "1041505",
@@ -8184,11 +8184,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Slay the Heavens - Tiansha [天殺]",
+     "poderBase": 16,
+     "monedas": 1,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     },
     {
      "id": "1041506",
@@ -8196,11 +8196,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Inevitable Termination [必然殺]",
+     "poderBase": 10,
+     "monedas": 1,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1041507",
@@ -8208,11 +8208,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Rend Space - Echoshear [空間斬 - 殘]",
+     "poderBase": 16,
+     "monedas": 2,
+     "valorMoneda": 1,
+     "pesoAtaque": 3
     },
     {
      "id": "1041508",
@@ -8220,11 +8220,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Rend Space - String Connection [空間斬 - 緣]",
+     "poderBase": 14,
+     "monedas": 2,
+     "valorMoneda": 3,
+     "pesoAtaque": 5
     }
    ],
    "skillsDefensa": [
@@ -8354,7 +8354,7 @@
      "copias": 3,
      "nombre": "Un, Deux",
      "poderBase": 3,
-     "monedas": 3,
+     "monedas": 2,
      "valorMoneda": 4,
      "pesoAtaque": 1
     },
@@ -9712,11 +9712,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Tanglecleaver [快刀亂麻]",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1051205",
@@ -9724,11 +9724,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Savage Tigerslayer's Perfected Flurry of Blades [超絕猛虎殺擊亂斬]",
+     "poderBase": 3,
+     "monedas": 5,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -9836,11 +9836,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "March Conductor",
+     "poderBase": 2,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1051302",
@@ -9848,11 +9848,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Responsibility to Rebuild",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1051303",
@@ -9860,11 +9860,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Let us wear the coagulated mantle of blood.",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1051305",
@@ -9872,11 +9872,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Ouvertüre",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -9995,11 +9995,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Warning Shot",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1051402",
@@ -10007,11 +10007,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "E.G.O Alteration - Buckshot",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 2
     },
     {
      "id": "1051403",
@@ -10019,11 +10019,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Field Test - Dust Spark",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 2
     }
    ],
    "skillsDefensa": [
@@ -10129,11 +10129,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Rough Portrayal",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1051502",
@@ -10141,11 +10141,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Visceral Strokes",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1051503",
@@ -10153,11 +10153,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Le Fauvisme - Reveal Submission",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -11475,11 +11475,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Target Marked",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061103",
@@ -11487,11 +11487,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Full-Stop to Life",
+     "poderBase": 7,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061105",
@@ -11499,11 +11499,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Combo: Target Marked",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061106",
@@ -11511,11 +11511,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Combo: Full-Stop to Life",
+     "poderBase": 7,
+     "monedas": 4,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061108",
@@ -11756,11 +11756,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "I Wish to Open the Path",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061302",
@@ -11768,11 +11768,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Tarnished Blood's Absolute Cleaver of Ambitions [汚血絕志竟成]",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1061303",
@@ -11780,11 +11780,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Answer Me, Heishou Packs",
+     "poderBase": 10,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     },
     {
      "id": "1061305",
@@ -11792,11 +11792,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "I Carve the Path of a Lord",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061306",
@@ -11804,11 +11804,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Lonesome Stand: Sacrifice to Claim The Garden [孑孑單身, 捨生取园]",
+     "poderBase": 6,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -11930,11 +11930,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Anatomize",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061402",
@@ -11942,11 +11942,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Gather Ingredient - Blood-bathed Objet",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061403",
@@ -11954,11 +11954,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Tibia's Melody - Anatomization of the Unanatomized by the Anatomized",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1061405",
@@ -11966,11 +11966,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "My, How We Love the Flesh and the Blood",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061408",
@@ -11978,11 +11978,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Installation Art no. 3: Improvised Ribcage",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1061406",
@@ -11990,11 +11990,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Closing Time - Installation Art no. 1: Your Flesh and Bones as the Gallery's Seats",
+     "poderBase": 3,
+     "monedas": 5,
+     "valorMoneda": 4,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -12124,11 +12124,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Constricting Ohra Bonds",
+     "poderBase": 2,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1061502",
@@ -12136,11 +12136,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Avulsion Slash",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1061503",
@@ -12148,11 +12148,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Hunter's Scouring",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -12634,7 +12634,7 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": "Puri...fy!",
+     "nombre": "Puri…fy!",
      "poderBase": 6,
      "monedas": 1,
      "valorMoneda": 8,
@@ -12879,7 +12879,7 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": "The Wrap—Up",
+     "nombre": "The Wrap-up",
      "poderBase": 6,
      "monedas": 1,
      "valorMoneda": 10,
@@ -13224,7 +13224,7 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": "4OS-2 Activation",
+     "nombre": "40S-2 Activation",
      "poderBase": 3,
      "monedas": 2,
      "valorMoneda": 4,
@@ -13373,11 +13373,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Requiem",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1071005",
@@ -13385,11 +13385,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Lament, Mourn, and Despair",
+     "poderBase": 31,
+     "monedas": 2,
+     "valorMoneda": -13,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13517,11 +13517,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Goin' for the Bullseye",
+     "poderBase": 12,
+     "monedas": 1,
+     "valorMoneda": 14,
+     "pesoAtaque": 1
     },
     {
      "id": "1071105",
@@ -13529,11 +13529,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "AL-HV Pulverisation Round",
+     "poderBase": 15,
+     "monedas": 1,
+     "valorMoneda": 18,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13779,11 +13779,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Congestion Cleanup",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1071302",
@@ -13791,11 +13791,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Boost: Elbow Blade",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1071303",
@@ -13803,11 +13803,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Rip Space - CCA Overdrive",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -13908,11 +13908,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Peck 'em",
+     "poderBase": 2,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1071402",
@@ -13920,11 +13920,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Mutilating Talons",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1071403",
@@ -13932,11 +13932,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Bloodflame Massacre [血炎亂舞]",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 3
     },
     {
      "id": "1071405",
@@ -13944,11 +13944,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Rooster's Rampaging Blades Under the Ensanguined Heaven [血天下鷄舞亂刀]",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -14065,11 +14065,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Kicking",
+     "poderBase": 2,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1071502",
@@ -14077,11 +14077,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Watch Your Back!",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1071503",
@@ -14089,11 +14089,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "MY HAIR COUPOOOOOOOOOOONS!!!!",
+     "poderBase": 10,
+     "monedas": 1,
+     "valorMoneda": 12,
+     "pesoAtaque": 1
     },
     {
      "id": "1071505",
@@ -14101,11 +14101,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "COMPLETE AND TOTAL EXTERMINATION!!",
+     "poderBase": 16,
+     "monedas": 1,
+     "valorMoneda": 10,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -14221,11 +14221,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "La Spada di Palermo",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1071602",
@@ -14233,11 +14233,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Colpi Sottani",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1071603",
@@ -14245,11 +14245,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Il Cacciatore",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1071606",
@@ -14257,11 +14257,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Sezionatura di Cervo",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -15249,7 +15249,7 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": "Pursue Them to the End",
+     "nombre": "Pursue Them to the End!",
      "poderBase": 4,
      "monedas": 3,
      "valorMoneda": 4,
@@ -15523,7 +15523,7 @@
      "tipoDanio": "blunt",
      "copias": 1,
      "nombre": "Ward",
-     "poderBase": 3,
+     "poderBase": 5,
      "monedas": 3,
      "valorMoneda": 4,
      "pesoAtaque": 1
@@ -15758,11 +15758,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Crimson Strike",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081202",
@@ -15794,11 +15794,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Crimson Strike - Launcher [始]",
+     "poderBase": 2,
+     "monedas": 2,
+     "valorMoneda": 2,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -15904,11 +15904,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Tsuru-giri [鶴斬り]",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081302",
@@ -15916,11 +15916,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Susuki Misdirection",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081303",
@@ -15928,11 +15928,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Sakura-sen [桜閃]",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081305",
@@ -15940,11 +15940,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Kōzan [光斬]",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 5,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -16063,11 +16063,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Totally Badass Ass-kicking",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081402",
@@ -16075,11 +16075,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Crossing Dervish",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081403",
@@ -16087,11 +16087,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Violet~ Breaking Slam",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -16197,11 +16197,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Rending Arts",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081502",
@@ -16209,11 +16209,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Acupuncture",
+     "poderBase": 3,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081503",
@@ -16221,11 +16221,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Lucent Rippling Flame",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081505",
@@ -16233,11 +16233,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "To Claim Their Bones",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1081506",
@@ -16245,11 +16245,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Even the Balance - Lucent Rippling Flame",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -16880,7 +16880,7 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": "Let's Rack Up Some Scores",
+     "nombre": "Let’s Rack Up Some Scores",
      "poderBase": 5,
      "monedas": 3,
      "valorMoneda": 4,
@@ -17591,7 +17591,7 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 3,
-     "nombre": "Begone…",
+     "nombre": "Begone...",
      "poderBase": 3,
      "monedas": 2,
      "valorMoneda": 4,
@@ -17615,11 +17615,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "The Festival Will End",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091105",
@@ -17627,11 +17627,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Ascendant Don Quixote Hardblood Arts - The Finale",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -17870,11 +17870,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "The Knight's Sanctuary",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091302",
@@ -17882,11 +17882,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "With the Power of Justice",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091303",
@@ -17894,11 +17894,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Arcana Pierce",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091305",
@@ -17906,11 +17906,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Faded Faith",
+     "poderBase": 10,
+     "monedas": 2,
+     "valorMoneda": -4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091306",
@@ -17918,11 +17918,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "With the Tear-sharpened Sword",
+     "poderBase": 16,
+     "monedas": 3,
+     "valorMoneda": -4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091307",
@@ -17930,11 +17930,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Arcana: Tear and Pierce",
+     "poderBase": 20,
+     "monedas": 3,
+     "valorMoneda": -5,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18068,11 +18068,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Energy Strike - 'That's What You Get for Giving Us Holiday Shifts!'",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091402",
@@ -18080,11 +18080,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Concentration - 'Burst and Pop with Christmas Colors!\"",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1091403",
@@ -18092,11 +18092,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Mind Whip - 'Ahaha... Look, Everyone! We're the Fireworks this Christmas!'",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18192,11 +18192,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Vehement Overpainting",
+     "poderBase": 6,
+     "monedas": 1,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1091502",
@@ -18204,11 +18204,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Expression of Primary Colors",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1091503",
@@ -18216,11 +18216,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Le Fauvisme - Déchaînement Brutal",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1091505",
@@ -18228,11 +18228,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Burst Forth the Pulsing Crimson under Your Skin",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -18355,11 +18355,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Colpi di Taglio",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091602",
@@ -18367,11 +18367,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "I'll Gladly Blast a Hole Through Ya",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091603",
@@ -18379,11 +18379,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Sezionatura di Elefante",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1091605",
@@ -18391,11 +18391,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Sezionatura di Coniglio",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091606",
@@ -18403,11 +18403,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Sezionatura di Cervo",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1091607",
@@ -18415,11 +18415,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Disposal",
+     "poderBase": 5,
+     "monedas": 5,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -18815,7 +18815,7 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": "Supress",
+     "nombre": "Suppress",
      "poderBase": 6,
      "monedas": 2,
      "valorMoneda": 2,
@@ -19055,7 +19055,7 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": "Amoral Enacment",
+     "nombre": "Amoral Enactment",
      "poderBase": 16,
      "monedas": 4,
      "valorMoneda": -4,
@@ -19295,7 +19295,7 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": "Steady",
+     "nombre": "Steady...",
      "poderBase": 4,
      "monedas": 1,
      "valorMoneda": 12,
@@ -19549,11 +19549,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Stigmatize",
+     "poderBase": 4,
+     "monedas": 2,
+     "valorMoneda": 7,
+     "pesoAtaque": 1
     },
     {
      "id": "1100905",
@@ -19561,11 +19561,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Blazing Strike",
+     "poderBase": 13,
+     "monedas": 1,
+     "valorMoneda": 15,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -19810,7 +19810,7 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": "Poludnitsa… I trust you!",
+     "nombre": "Poludnitsa... I trust you!",
      "poderBase": 5,
      "monedas": 3,
      "valorMoneda": 4,
@@ -20177,11 +20177,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Oh, Let the Smell of Burning Blood...",
+     "poderBase": 2,
+     "monedas": 3,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1101402",
@@ -20189,11 +20189,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "... Fuel My Rampage.",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1101403",
@@ -20201,11 +20201,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Bloodflame Massacre [血炎亂舞]",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -20321,11 +20321,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Chainstrike [連擊]",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1101502",
@@ -20333,11 +20333,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Nameless Slash [無名斬]",
+     "poderBase": 6,
+     "monedas": 2,
+     "valorMoneda": 5,
+     "pesoAtaque": 3
     },
     {
      "id": "1101503",
@@ -20345,11 +20345,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Fallstar Slayer [落星一殺]",
+     "poderBase": 8,
+     "monedas": 1,
+     "valorMoneda": 14,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -20471,11 +20471,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Backslash",
+     "poderBase": 5,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1110103",
@@ -20483,11 +20483,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Piercing Thrust",
+     "poderBase": 7,
+     "monedas": 1,
+     "valorMoneda": 14,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -20602,7 +20602,7 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": "Decisive dive",
+     "nombre": "Decisive Dive",
      "poderBase": 6,
      "monedas": 2,
      "valorMoneda": 4,
@@ -21692,7 +21692,7 @@
      "copias": 2,
      "nombre": "Scission",
      "poderBase": 4,
-     "monedas": 2,
+     "monedas": 3,
      "valorMoneda": 4,
      "pesoAtaque": 1
     },
@@ -22056,11 +22056,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Khopesh Swordplay",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1111402",
@@ -22068,11 +22068,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Mirage Incision",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1111403",
@@ -22080,11 +22080,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "The Vanguard will See it Done",
+     "poderBase": 6,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -22192,11 +22192,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Stomping",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1111502",
@@ -22204,11 +22204,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Don't Let Somethin' Like This Break You!",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1111503",
@@ -22216,11 +22216,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Stamp of Vengeance",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1111505",
@@ -22228,11 +22228,11 @@
      "tier": 1,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "I'll Gut You Like a Fish",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1111506",
@@ -22240,11 +22240,11 @@
      "tier": 2,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Gut Stab [Lævateinn]",
+     "poderBase": 3,
+     "monedas": 5,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1111507",
@@ -22252,11 +22252,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Complete and Total Extermination [Lævateinn]",
+     "poderBase": 4,
+     "monedas": 5,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1111508",
@@ -22264,11 +22264,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Time to Unpack!",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1111509",
@@ -22276,11 +22276,11 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Good Girl. Your Sacrifice for the Family Won't Be Forgotten.",
+     "poderBase": 16,
+     "monedas": 1,
+     "valorMoneda": 2,
+     "pesoAtaque": 2
     }
    ],
    "skillsDefensa": [
@@ -23535,7 +23535,7 @@
      "tier": 3,
      "tipoDanio": "blunt",
      "copias": 1,
-     "nombre": "Nightmare Hunt",
+     "nombre": "The Unforgivable Sin",
      "poderBase": 5,
      "monedas": 3,
      "valorMoneda": 4,
@@ -23895,11 +23895,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Gap Attack",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121302",
@@ -23907,11 +23907,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Stiletto Doppio",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121303",
@@ -23919,11 +23919,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Execution",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1121305",
@@ -23931,11 +23931,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Mercé",
+     "poderBase": 4,
+     "monedas": 1,
+     "valorMoneda": 6,
+     "pesoAtaque": 1
     },
     {
      "id": "1121306",
@@ -23943,11 +23943,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "The Night's Awl",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -24061,11 +24061,11 @@
      "tier": 1,
      "tipoDanio": "pierce",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Intense Stare: Zero-Range",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121402",
@@ -24073,11 +24073,11 @@
      "tier": 2,
      "tipoDanio": "pierce",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Destroy the Visible with the Invisible",
+     "poderBase": 3,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1121403",
@@ -24085,11 +24085,11 @@
      "tier": 3,
      "tipoDanio": "pierce",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Salvation for those Enchanted by the Lamp",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     }
    ],
    "skillsDefensa": [
@@ -24208,11 +24208,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Electric Release",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121502",
@@ -24220,11 +24220,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "DC Inversion",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121503",
@@ -24232,11 +24232,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "High-voltage Current Discharge",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121505",
@@ -24244,11 +24244,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Maximum Output - Ultra High-voltage Current Discharge",
+     "poderBase": 5,
+     "monedas": 3,
+     "valorMoneda": 5,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [
@@ -24365,11 +24365,11 @@
      "tier": 1,
      "tipoDanio": "slash",
      "copias": 3,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Flash of Sunup",
+     "poderBase": 3,
+     "monedas": 2,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121602",
@@ -24377,11 +24377,11 @@
      "tier": 2,
      "tipoDanio": "slash",
      "copias": 2,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Sunset Blade",
+     "poderBase": 4,
+     "monedas": 3,
+     "valorMoneda": 4,
+     "pesoAtaque": 1
     },
     {
      "id": "1121603",
@@ -24389,11 +24389,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 1,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Dawnsplitter",
+     "poderBase": 4,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 1
     },
     {
      "id": "1121605",
@@ -24401,11 +24401,11 @@
      "tier": 3,
      "tipoDanio": "slash",
      "copias": 0,
-     "nombre": null,
-     "poderBase": null,
-     "monedas": null,
-     "valorMoneda": null,
-     "pesoAtaque": null
+     "nombre": "Crack of Dawn",
+     "poderBase": 5,
+     "monedas": 4,
+     "valorMoneda": 3,
+     "pesoAtaque": 3
     }
    ],
    "skillsDefensa": [

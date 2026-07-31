@@ -180,6 +180,30 @@ Es la diferencia grande con el injerto anterior desde LCTeamBuilder, que matchea
 **por tier**: cuando una ID tiene dos skills del mismo tier hay que desempatar por
 afinidad, y aun así quedaban 40 ambiguas y 2 con las dos fuentes en desacuerdo.
 
+| | Antes (por tier, LCTeamBuilder) | Ahora (por id) |
+|---|---|---|
+| Resueltas | 417 de 618 | **618 de 618** |
+| Ambiguas | 40 | 0 |
+| En conflicto | 2 | 0 |
+
+Validado igual que las pasivas, en las 416 skills donde LCTeamBuilder resuelve sin
+ambigüedad:
+
+| | Resultado |
+|---|---|
+| Valor de moneda | **416 de 416** |
+| Poder base | 415 de 416 |
+| Monedas | 414 de 416 |
+| Nombre | 408 de 416 |
+
+De las 8 de nombre, 6 son erratas de LCTeamBuilder (`Flank Trust` por `Flank Thrust`,
+`Enacment` por `Enactment`, `Supress` por `Suppress`, `4OS-2` con la letra O donde va
+un cero) y 2 son skills que el juego renombró. Las 3 numéricas —`Ward` de Meursault,
+`Un, Deux` de Meursault y `Scission` de Outis— **quedan sin resolver**: lo más
+probable es que sean cambios de balance posteriores al corte de LCTeamBuilder, pero
+no hay una tercera fuente para confirmarlo. Se toma la de eldritchtools por estar al
+día.
+
 Un detalle de la fuente que hay que respetar: `skills[<id>].data` **no** trae una copia
 entera por uptie, sino solo lo que cambia en cada uno. Hay que acumular los tramos del
 1 al 4, no quedarse con el último — si no, salen objetos incompletos. El bajador hace
@@ -211,21 +235,28 @@ node scripts/fetch-imagenes.mjs    # --forzar para rebajar todo
 En los dos casos se corre **a demanda**, no en cada push. Las imágenes quedan versionadas en `public/retratos/`
 y la app las sirve estáticas, así que no le pega al servidor de nadie en cada visita.
 
-La URL sale del id, sin tabla de mapeo:
+**Identities: 184 de 184.** La URL sale del id, sin tabla de mapeo: las 12 base (id
+terminado en `01`) usan el sufijo `_normal` y el resto `_gacksung`. Con `sharp` pesan
+**0,46 MB** en total (96px WebP); sin `sharp` se guardan los originales, bastante más
+pesados.
 
-| | Patrón |
+**E.G.O: 0 de 110, sin resolver.** No se sabe con qué nombre los sirve el servidor.
+Probados, todos con 0 respuestas:
+
+| Patrón | De dónde salió |
 |---|---|
-| Identity | `identities/<id>_gacksung.webp` |
-| E.G.O | `egos/<id>_awaken.webp`, y si no está, `egos/<id>_awaken_profile.png` |
+| `_gacksung`, `_normal`, sin sufijo | analogía con el de Identities |
+| `_awaken.webp`, `_awaken_profile.png` | del código de la fuente ([`limbus-shared-library`](https://github.com/eldritchtools/limbus-shared-library), `src/ego/ego.js`) |
 
-`gacksung` es el arte de uptie 3-4 y `normal` el de uptie 1-2, que es como se muestran
-las IDs acá. `awaken` es el arte base del E.G.O; `erosion` es el de corrosión, que no
-todos tienen y no se usa. Las dos reglas salen del código de la propia fuente
-([`limbus-shared-library`](https://github.com/eldritchtools/limbus-shared-library),
-`src/identity/identity.js` y `src/ego/ego.js`).
+Que falle el patrón sacado de su propio código, y que a la vez las Identities base
+fallen con la regla de ese mismo código (`_gacksung` para todas a uptie 3-4), apunta a
+que hay **dos juegos de archivos**: el de `_profile.png` que usa su app y el de `.webp`
+que es el que este servidor sirve en `/assets`. Contra este servidor manda lo que
+responde 200, no lo que dice el código.
 
-Con `sharp` las 294 imágenes pesan **0,64 MB** en total (96px WebP). Sin `sharp` se
-guardan los originales, que son bastante más pesados.
+Para no gastar 110 pedidos por cada corazonada, el script tiene `--probar`: prueba una
+matriz de URLs candidatas sobre un par de ids y muestra el código de respuesta de cada
+una. Desde *Actions* → **Bajar retratos** → tildar *probar*.
 
 `src/data/retratos.json` lista los ids disponibles y la app lo consulta **antes** de
 pedir cada imagen: sin eso dispararía ~300 pedidos fallidos. Lo que falte se muestra

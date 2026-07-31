@@ -34,33 +34,43 @@ const { identities } = leer("identities.json");
 const { egos } = leer("egos.json");
 
 /*
-  Siempre _gacksung. La regla real de la fuente (limbus-shared-library,
-  src/identity/identity.js) es:
+  Las base (…01) usan _normal; todas las demás, _gacksung.
+
+  Esta regla es empírica y está verificada contra el servidor: bajó 184 de 184.
+  Se probó cambiarla por la del código de la fuente (limbus-shared-library,
+  src/identity/identity.js), que dice
 
       type = (uptie > 2 || tags incluye "Base Identity") ? "gacksung" : "normal"
 
-  O sea: "normal" es el arte de uptie 1-2 y "gacksung" el de uptie 3-4. Como acá
-  se muestran las IDs a uptie máximo, corresponde gacksung para todas. La regla
-  anterior ("las que terminan en 01 usan normal") bajaba las 12 Identities base
-  con el arte sin subir de nivel.
+  o sea gacksung para todas a uptie máximo. Con eso las 12 base pasaron a fallar:
+  `10101_gacksung.webp` no existe. La explicación es que hay DOS juegos de
+  archivos y esa regla es la del otro (ver el bloque de E.G.O acá abajo): en el
+  de .webp, las base solo están como _normal.
+
+  Moraleja: contra este servidor manda lo que responde 200, no lo que dice el
+  código de su app.
 */
-const urlIdentity = (id) => `${BASE}/identities/${id}_gacksung.webp`;
+const urlIdentity = (id) => `${BASE}/identities/${id}_${String(id).endsWith("01") ? "normal" : "gacksung"}.webp`;
 
 /*
-  Para E.G.O el patrón es distinto y no se deduce del de Identities: la primera
-  corrida bajó 184 de 184 Identities y 0 de 110 E.G.O probando los sufijos que
-  parecían obvios (_gacksung, _normal, sin sufijo).
+  Para E.G.O el patrón todavía no está resuelto. Lo intentado hasta ahora, todo
+  contra el servidor real y todo con 0 de 110:
 
-  El correcto sale del código de la propia fuente
-  (github.com/eldritchtools/limbus-shared-library, src/ego/ego.js):
+    _gacksung.webp, _normal.webp, sin sufijo   probados por analogía: no existen
+    _awaken.webp, _awaken_profile.png          sacados de su propio código
+                                               (limbus-shared-library,
+                                               src/ego/ego.js), tampoco
 
-      `${ASSETS_ROOT}/egos/${ego.id}_${type}_profile.png`   type: awaken | erosion
+  Que el `_awaken_profile.png` de su código falle, y que a la vez las Identities
+  base fallen con la regla de ese mismo código, apunta a que hay dos juegos de
+  archivos: el de _profile.png que usa su app y el de .webp que es el que este
+  servidor sirve en /assets. Cuál es el sufijo de E.G.O en el juego .webp es lo
+  que falta.
 
-  "awaken" es el arte base y "erosion" el de corrosión, que no todas tienen.
-  Se pide el de awaken. Se prueba primero la variante .webp porque para
-  Identities existe y pesa menos; si no está, se cae al .png que sí está
-  confirmado en el código de la fuente. sharp convierte cualquiera de las dos a
-  WebP de 96 px, así que el archivo que queda en disco es igual.
+  Se deja la lista de candidatos y se sigue reportando cuál respondió, así la
+  próxima corrida no arranca de cero. Para tantear sin gastar 110 pedidos está
+  `--probar`, que prueba una matriz de URLs sobre un par de ids y muestra el
+  código de respuesta de cada una.
 */
 const urlsEgo = (id) => [
   `${BASE}/egos/${id}_awaken.webp`,
@@ -93,6 +103,53 @@ async function bajar(urls) {
 async function miniatura(buf) {
   if (!sharp) return buf;
   return sharp(buf).resize(ANCHO, ANCHO, { fit: "cover", position: "top" }).webp({ quality: 78 }).toBuffer();
+}
+
+/*
+  --probar: no baja nada, solo pregunta. Prueba una matriz de URLs candidatas
+  contra unos pocos ids y muestra el código de respuesta de cada una.
+
+  Existe porque adivinar el patrón a fuerza de corridas completas cuesta 110
+  pedidos y una hora de ida y vuelta por cada intento. Con esto, una corrida de
+  segundos dice cuál anda.
+
+  Las dos primeras son controles: se sabe que responden 200. Si fallan, el
+  problema es el servidor o la red, no el patrón.
+*/
+if (process.argv.includes("--probar")) {
+  const candidatas = [
+    ["control Identity no-base", `${BASE}/identities/10109_gacksung.webp`],
+    ["control Identity base", `${BASE}/identities/10101_normal.webp`],
+    ["¿existe el juego _profile.png?", `${BASE}/identities/10109_gacksung_profile.png`],
+    ["Identity base con la regla del código", `${BASE}/identities/10101_gacksung.webp`],
+  ];
+
+  /* Sobre dos E.G.O distintos, por si alguno fuera un caso raro. */
+  for (const id of [20101, 21209]) {
+    for (const s of ["_awaken", "_erosion", "_normal", "_gacksung", "_profile", ""]) {
+      candidatas.push([`E.G.O ${id}`, `${BASE}/egos/${id}${s}.webp`]);
+      candidatas.push([`E.G.O ${id}`, `${BASE}/egos/${id}${s}.png`]);
+    }
+    candidatas.push([`E.G.O ${id}`, `${BASE}/egos/${id}_awaken_profile.png`]);
+    candidatas.push([`E.G.O ${id}`, `${BASE}/egos/${id}_awaken_profile.webp`]);
+    /* Por si la carpeta fuera otra. */
+    candidatas.push([`E.G.O ${id}`, `${BASE}/ego/${id}_awaken_profile.png`]);
+    candidatas.push([`E.G.O ${id}`, `${BASE}/egoes/${id}_awaken.webp`]);
+  }
+
+  console.log("Probando URLs (sin descargar nada):\n");
+  for (const [que, url] of candidatas) {
+    let estado;
+    try {
+      const res = await fetch(url, { method: "HEAD" });
+      estado = `${res.status}${res.ok ? "  ✔" : ""}`;
+    } catch (e) {
+      estado = `error: ${e.message}`;
+    }
+    console.log(`  ${estado.padEnd(12)} ${url.replace(BASE, "")}   ${que}`);
+  }
+  console.log("\nListo. Las que digan 200 son las que hay que usar.");
+  process.exit(0);
 }
 
 mkdirSync(DESTINO, { recursive: true });
