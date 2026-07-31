@@ -41,7 +41,12 @@ jobs:
 
       - run: npm run build
 
+      # enablement: true habilita Pages por API en la primera corrida, así no
+      # hace falta ir a Settings a mano. Sin esto el workflow falla con
+      # "Get Pages site failed ... Not Found" hasta que alguien lo active.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
