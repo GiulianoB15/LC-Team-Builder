@@ -69,22 +69,54 @@ async function descubrirCredenciales() {
   if (!res.ok) throw new Error(`El sitio respondió ${res.status}`);
   const html = await res.text();
 
-  const scripts = [...html.matchAll(/src="([^"]*\/_next\/static\/[^"]+\.js)"/g)].map((m) =>
+  const iniciales = [...html.matchAll(/src="([^"]*\/_next\/static\/[^"]+\.js)"/g)].map((m) =>
     m[1].startsWith("http") ? m[1] : SITIO + m[1]
   );
-  if (!scripts.length) throw new Error("No se encontró ningún bundle en el HTML");
+  if (!iniciales.length) throw new Error("No se encontró ningún bundle en el HTML");
+
+  const absoluta = (ruta) => (ruta.startsWith("http") ? ruta : `${SITIO}/_next/${ruta.replace(/^\/?_next\//, "")}`);
+  const vistos = new Set();
+  const pendientes = [...iniciales];
 
   let url = null;
   let key = null;
-  for (const src of scripts) {
-    const js = await (await fetch(src, { headers: { "user-agent": AGENTE } })).text();
+
+  /*
+    La primera vuelta miró solo los scripts que cuelgan del HTML y no alcanzó:
+    esos USAN getSupabase(), pero la definición —que es donde quedan inlineadas
+    la URL y la clave— vive en otro chunk que se carga después.
+
+    Los nombres de esos chunks igual están, como literales, adentro de los que
+    sí bajamos (es el mapa que arma webpack). Así que se sigue ese rastro, una
+    vuelta más, con tope: no es una araña, son unas decenas de archivos.
+  */
+  const TOPE = 80;
+  while (pendientes.length && vistos.size < TOPE) {
+    const src = pendientes.shift();
+    if (vistos.has(src)) continue;
+    vistos.add(src);
+
+    let js;
+    try {
+      js = await (await fetch(src, { headers: { "user-agent": AGENTE } })).text();
+    } catch {
+      continue;
+    }
+
     url ??= js.match(/https:\/\/[a-z0-9]+\.supabase\.co/)?.[0] ?? null;
     /* Las publicables son `sb_publishable_…` en el formato nuevo y un JWT en el viejo. */
     key ??= js.match(/sb_publishable_[A-Za-z0-9_-]+/)?.[0] ?? js.match(/eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/)?.[0] ?? null;
-    if (url && key) return { url, key, via: src.replace(SITIO, "") };
-    await new Promise((r) => setTimeout(r, 150));
+    if (url && key) return { url, key, via: src.replace(SITIO, ""), revisados: vistos.size };
+
+    if (vistos.size < TOPE) {
+      [...js.matchAll(/["'`]((?:\/_next\/)?static\/chunks\/[^"'`]+?\.js)["'`]/g)].forEach((m) => {
+        const abs = absoluta(m[1]);
+        if (!vistos.has(abs)) pendientes.push(abs);
+      });
+    }
+    await new Promise((r) => setTimeout(r, 100));
   }
-  throw new Error(`No se pudo extraer la conexión de ${scripts.length} bundles (url: ${!!url}, key: ${!!key})`);
+  throw new Error(`No se pudo extraer la conexión de ${vistos.size} chunks (url: ${!!url}, key: ${!!key})`);
 }
 
 async function pedirPagina({ url, key }, offset) {
@@ -134,6 +166,25 @@ const limpiarIds = (lista, conocidos, desconocidos) =>
   archivo, y con qué pinta.
 */
 async function diagnosticar() {
+  /*
+    Primero la vía real, que es lo único que importa saber. El barrido de abajo
+    queda por si vuelve a fallar.
+  */
+  try {
+    const c = await descubrirCredenciales();
+    console.log(`✔ Conexión encontrada en ${c.via} tras revisar ${c.revisados ?? "?"} chunks`);
+    console.log(`  host: ${c.url}`);
+    console.log(`  clave: ${c.key.slice(0, 12)}… (${c.key.length} caracteres)`);
+    const muestra = await pedirPagina(c, 0);
+    console.log(`\n✔ El RPC respondió con ${muestra.length} builds.`);
+    console.log("  claves de la primera:", Object.keys(muestra[0] ?? {}).sort().join(", "));
+    console.log("\nNo se escribió nada (--probar).");
+    return;
+  } catch (e) {
+    console.log("✗ No se pudo:", e.message);
+    console.log("  Barrido de dónde aparece la palabra, para ver qué cambió:\n");
+  }
+
   const hosts = [SITIO, "https://limbus.eldritchtools.com"];
 
   for (const host of hosts) {
