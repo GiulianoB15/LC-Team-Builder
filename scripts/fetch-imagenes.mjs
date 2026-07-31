@@ -53,29 +53,25 @@ const { egos } = leer("egos.json");
 const urlIdentity = (id) => `${BASE}/identities/${id}_${String(id).endsWith("01") ? "normal" : "gacksung"}.webp`;
 
 /*
-  Para E.G.O el patrón todavía no está resuelto. Lo intentado hasta ahora, todo
-  contra el servidor real y todo con 0 de 110:
+  E.G.O: `_awaken_profile.webp`. Verificado con --probar contra el servidor real
+  (200 en 20101 y en 21209).
 
-    _gacksung.webp, _normal.webp, sin sufijo   probados por analogía: no existen
-    _awaken.webp, _awaken_profile.png          sacados de su propio código
-                                               (limbus-shared-library,
-                                               src/ego/ego.js), tampoco
+  Costó encontrarlo porque no se deduce ni del patrón de Identities ni del
+  código de la fuente, sino que es una mezcla de los dos. Lo que falló:
 
-  Que el `_awaken_profile.png` de su código falle, y que a la vez las Identities
-  base fallen con la regla de ese mismo código, apunta a que hay dos juegos de
-  archivos: el de _profile.png que usa su app y el de .webp que es el que este
-  servidor sirve en /assets. Cuál es el sufijo de E.G.O en el juego .webp es lo
-  que falta.
+    _gacksung, _normal, sin sufijo, _profile, _erosion   404
+    _awaken.webp                                         404
+    _awaken_profile.png                                  404  ← el de su código
+    /ego/…, /egoes/…                                     404
 
-  Se deja la lista de candidatos y se sigue reportando cuál respondió, así la
-  próxima corrida no arranca de cero. Para tantear sin gastar 110 pedidos está
-  `--probar`, que prueba una matriz de URLs sobre un par de ids y muestra el
-  código de respuesta de cada una.
+  O sea: el nombre `<id>_awaken_profile` es el de su app —"awaken" es el arte
+  base, "erosion" el de corrosión— pero la extensión que este servidor sirve en
+  /assets es .webp, no el .png que dice el código. Las Identities son al revés:
+  ahí el naming _profile no existe y va el sufijo pelado.
+
+  Moraleja repetida: contra este servidor manda lo que responde 200.
 */
-const urlsEgo = (id) => [
-  `${BASE}/egos/${id}_awaken.webp`,
-  `${BASE}/egos/${id}_awaken_profile.png`,
-];
+const urlsEgo = (id) => [`${BASE}/egos/${id}_awaken_profile.webp`];
 
 /* sharp es opcional: sin él se guardan los originales y se avisa. */
 let sharp = null;
@@ -115,6 +111,9 @@ async function miniatura(buf) {
 
   Las dos primeras son controles: se sabe que responden 200. Si fallan, el
   problema es el servidor o la red, no el patrón.
+
+  Ya cumplió su función una vez —así apareció `_awaken_profile.webp` para los
+  E.G.O— y se queda para la próxima vez que un patrón deje de responder.
 */
 if (process.argv.includes("--probar")) {
   const candidatas = [

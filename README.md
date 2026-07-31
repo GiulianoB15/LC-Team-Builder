@@ -240,23 +240,29 @@ terminado en `01`) usan el sufijo `_normal` y el resto `_gacksung`. Con `sharp` 
 **0,46 MB** en total (96px WebP); sin `sharp` se guardan los originales, bastante más
 pesados.
 
-**E.G.O: 0 de 110, sin resolver.** No se sabe con qué nombre los sirve el servidor.
-Probados, todos con 0 respuestas:
+**E.G.O: `<id>_awaken_profile.webp`.** No se deduce del patrón de Identities ni del
+código de la fuente: es una mezcla de los dos. Lo que devolvió 404:
 
 | Patrón | De dónde salió |
 |---|---|
-| `_gacksung`, `_normal`, sin sufijo | analogía con el de Identities |
-| `_awaken.webp`, `_awaken_profile.png` | del código de la fuente ([`limbus-shared-library`](https://github.com/eldritchtools/limbus-shared-library), `src/ego/ego.js`) |
+| `_gacksung`, `_normal`, `_profile`, `_erosion`, sin sufijo | analogía con el de Identities |
+| `_awaken.webp` | analogía cruzada |
+| `_awaken_profile.png` | del código de la fuente ([`limbus-shared-library`](https://github.com/eldritchtools/limbus-shared-library), `src/ego/ego.js`) |
+| `/ego/…`, `/egoes/…` | por si la carpeta fuera otra |
 
-Que falle el patrón sacado de su propio código, y que a la vez las Identities base
-fallen con la regla de ese mismo código (`_gacksung` para todas a uptie 3-4), apunta a
-que hay **dos juegos de archivos**: el de `_profile.png` que usa su app y el de `.webp`
-que es el que este servidor sirve en `/assets`. Contra este servidor manda lo que
-responde 200, no lo que dice el código.
+El nombre `<id>_awaken_profile` sí es el de su app —`awaken` es el arte base y
+`erosion` el de corrosión— pero la extensión que este servidor sirve en `/assets` es
+`.webp`, no el `.png` del código. Las Identities son al revés: ahí el naming `_profile`
+no existe y va el sufijo pelado.
 
-Para no gastar 110 pedidos por cada corazonada, el script tiene `--probar`: prueba una
-matriz de URLs candidatas sobre un par de ids y muestra el código de respuesta de cada
-una. Desde *Actions* → **Bajar retratos** → tildar *probar*.
+**Contra este servidor manda lo que responde 200, no lo que dice el código de su app.**
+Cambiar la regla de Identities por la del código, que parecía más correcta, rompió las
+12 que ya funcionaban.
+
+Por eso el script tiene `--probar`: prueba una matriz de URLs candidatas sobre un par
+de ids y muestra el código de respuesta de cada una, sin bajar ni commitear nada.
+Desde *Actions* → **Bajar retratos** → tildar *probar*. Así apareció el patrón de
+E.G.O, en una corrida de 8 segundos en vez de 110 pedidos por corazonada.
 
 `src/data/retratos.json` lista los ids disponibles y la app lo consulta **antes** de
 pedir cada imagen: sin eso dispararía ~300 pedidos fallidos. Lo que falte se muestra
