@@ -54,10 +54,11 @@ export default function IdCard({
               arquetipo={a}
               onClick={onFiltrarArquetipo}
               activo={arquetiposActivos?.has(a)}
+              navegable={false}
             />
           ))}
           {facciones.map((f) => (
-            <ChipFaccion key={f} faccion={f} onClick={onFiltrarFaccion} activo={faccionActiva === f} />
+            <ChipFaccion key={f} faccion={f} onClick={onFiltrarFaccion} activo={faccionActiva === f} navegable={false} />
           ))}
         </div>
       </div>

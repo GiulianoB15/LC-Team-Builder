@@ -13,6 +13,7 @@ import { PropuestaVisita, BannerVisita } from "./components/Visita.jsx";
 import ColeccionTab from "./components/ColeccionTab.jsx";
 import EquipoTab from "./components/EquipoTab.jsx";
 import CompletarTab from "./components/CompletarTab.jsx";
+import FaltanTab from "./components/FaltanTab.jsx";
 import DetalleId from "./components/DetalleId.jsx";
 import { styles } from "./styles.js";
 
@@ -20,6 +21,7 @@ const TABS = [
   { key: "coleccion", label: "Colección" },
   { key: "equipo", label: "Armar equipo" },
   { key: "completar", label: "Completar equipo" },
+  { key: "faltan", label: "Qué me falta" },
 ];
 
 // Hasta 12: los primeros 6 combaten, el resto es banca y sigue aportando
@@ -251,6 +253,10 @@ export default function App() {
             velocidad={velocidad}
             onVerDetalle={verDetalle}
           />
+        )}
+
+        {loaded && tab === "faltan" && (
+          <FaltanTab ownedIdentities={ownedIdentities} onVerDetalle={verDetalle} />
         )}
 
         {loaded && tab === "completar" && (

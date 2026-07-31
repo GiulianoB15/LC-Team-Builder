@@ -60,6 +60,7 @@ export default function EgoCard({
               arquetipo={a}
               onClick={onFiltrarArquetipo}
               activo={arquetiposActivos?.has(a)}
+              navegable={false}
             />
           ))}
         </div>

@@ -66,7 +66,7 @@ src/
     estampa.js         dibuja el equipo en un canvas y lo baja como PNG
     seleccion.js       alta/baja de IDs con tope y una-por-Sinner
     storage.js         persistencia en localStorage, versionada y migrable (Identities y E.G.O)
-  components/          una pestaña por archivo, más la ficha de Identidad
+  components/          una pestaña por archivo, más la ficha de Identidad y los chips
 public/
   retratos/            imágenes bajadas  ← generado, no editar a mano
 scripts/
@@ -350,6 +350,35 @@ cualquier fan site. Fuente: `limbus-assets.eldritchtools.com`.
 **No se completan datos de memoria.** Todo sale de las fuentes. Si algo está mal, se
 corrige el conversor y se regenera — nunca se edita el JSON a mano.
 
+## Filtrar por lo que hace, no por lo que es
+
+Además de Sinner, arquetipo y facción, la colección filtra por **rol**: quién aplica el
+estado, quién lo aprovecha, quién reparte buffs al equipo y a quién le importa la posición.
+Sale de la capa de sinergia.
+
+Los dos primeros **se cruzan con los chips de arquetipo**: `Bleed` + `aplica` es "las que
+infligen sangrado" (13 de 184), no "las de Bleed que aplican cualquier cosa". Sin arquetipo
+elegido alcanza con que apliquen algo (83).
+
+En la sección de E.G.O los chips no aparecen: no tienen sinergia derivada, y un filtro que
+no filtra nada es peor que no estar.
+
+## Qué me falta
+
+El inverso de «Completar equipo»: esa arma con lo que tenés, esta dice qué te falta. Sirve
+para decidir dónde gastar, no para jugar hoy.
+
+**Lo que cuenta son los Sinners, no las Identidades.** Diez de Bleed repartidas en tres
+Sinners no arman un equipo de Bleed: se despliegan 6 y no puede haber dos del mismo. Por eso
+el número grande es "Sinners cubiertos de 6", y una candidata cuyo Sinner ya está cubierto
+aparece atenuada — es una alternativa, no un lugar nuevo.
+
+Encima se mira el rol: si lo que tenés solo cobra el estado y nadie lo inflige, la
+recomendación no es "más del mismo arquetipo" sino específicamente quien lo aplique.
+
+Lo que **no** sabe: qué banner está activo ni cuál es el meta. Te dice qué le falta a tu
+colección, no qué conviene sacar este mes.
+
 ## Ficha de Identidad y comparador
 
 Todo el dataset estaba y no se veía: el texto de las pasivas, su costo, los números de
@@ -466,6 +495,9 @@ Todo esto está cubierto por `scripts/tests.js`.
 
 ## Pendiente
 
+- **Guardar tus propios equipos con una nota** de cómo te fue. Es la alternativa honesta
+  a las recetas ajenas: dato tuyo, y no envejece a escondidas porque sabés cuándo lo
+  jugaste.
 - **Recetas citadas a mano** (§3.2, capa 3): equipos concretos de guías reales, cada uno
   con autor, link y fecha visible en la app. Fuentes que sirven:
   [GameFAQs](https://gamefaqs.gamespot.com/pc/395588-limbus-company/faqs/80477) y las guías

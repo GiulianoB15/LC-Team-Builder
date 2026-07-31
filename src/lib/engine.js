@@ -213,6 +213,77 @@ export function perfilSinergia(team) {
 }
 
 /* ------------------------------------------------------------------ *
+   Qué falta para un arquetipo
+ * ------------------------------------------------------------------ */
+
+/*
+  El inverso de "completar equipo": esa mira lo que tenés, esta mira lo que NO.
+
+  El límite real de un equipo no es cuántas IDs del arquetipo tenés, es de
+  cuántos SINNERS distintos: se despliegan 6 y no puede haber dos del mismo. Diez
+  IDs de Bleed repartidas en tres Sinners no arman un equipo de Bleed; seis
+  Sinners con una cada uno, sí. Por eso el conteo que importa es por Sinner.
+
+  Además se mira el rol, que es lo que aportó la capa de sinergia: si lo que
+  tenés solo cobra el estado y nadie lo inflige, la recomendación no es "más del
+  mismo arquetipo" sino específicamente quien lo aplique.
+*/
+export function analizarArquetipo(arquetipo, propias, todas) {
+  const delArquetipo = (x) => x.arquetipos.includes(arquetipo);
+
+  const tuyas = propias.filter(delArquetipo);
+  const sinnersCubiertos = new Set(tuyas.map((i) => i.sinner));
+  const faltanSinners = SLOTS_DESPLIEGUE - sinnersCubiertos.size;
+
+  const aplican = tuyas.filter((i) => i.sinergia?.aplica.includes(arquetipo));
+  const leen = tuyas.filter((i) => i.sinergia?.lee.includes(arquetipo));
+
+  /*
+    Qué rol conviene sumar. Si nadie inflige, eso primero: un equipo que solo
+    cobra no tiene de dónde cobrar. Si nadie cobra, el estado se aplica y no se
+    aprovecha, que es menos grave pero también desperdicia.
+  */
+  const rolBuscado = aplican.length === 0 ? "aplica" : leen.length === 0 ? "lee" : null;
+
+  const propiasIds = new Set(propias.map((i) => i.id));
+  const candidatas = todas
+    .filter((x) => delArquetipo(x) && !propiasIds.has(x.id))
+    .map((x) => {
+      const aplica = x.sinergia?.aplica.includes(arquetipo) ?? false;
+      const lee = x.sinergia?.lee.includes(arquetipo) ?? false;
+      /*
+        Sumar un Sinner que no tenés cubierto vale más que otra ID de uno que
+        ya tenés: la segunda no agranda el equipo posible, solo da opciones.
+      */
+      const sinnerNuevo = !sinnersCubiertos.has(x.sinner);
+      let peso = sinnerNuevo ? 4 : 0;
+      if (rolBuscado === "aplica" && aplica) peso += 3;
+      if (rolBuscado === "lee" && lee) peso += 3;
+      if (!rolBuscado && (aplica || lee)) peso += 1;
+
+      const motivos = [];
+      if (sinnerNuevo) motivos.push(`Suma a ${x.sinner}, que todavía no tenés cubierto para este arquetipo.`);
+      else motivos.push(`${x.sinner} ya está cubierto; sería una alternativa, no un lugar nuevo.`);
+      if (rolBuscado === "aplica" && aplica) motivos.push(`Aplica ${arquetipo}, que es justo lo que no tenés.`);
+      if (rolBuscado === "lee" && lee) motivos.push(`Aprovecha ${arquetipo}, que hoy nadie tuyo cobra.`);
+
+      return { id: x, peso, sinnerNuevo, aplica, lee, motivos };
+    })
+    .sort((a, b) => b.peso - a.peso || a.id.nombre.localeCompare(b.id.nombre));
+
+  return {
+    arquetipo,
+    tuyas,
+    sinnersCubiertos: [...sinnersCubiertos].sort(),
+    faltanSinners: Math.max(0, faltanSinners),
+    aplican,
+    leen,
+    rolBuscado,
+    candidatas,
+  };
+}
+
+/* ------------------------------------------------------------------ *
    Velocidad
  * ------------------------------------------------------------------ */
 

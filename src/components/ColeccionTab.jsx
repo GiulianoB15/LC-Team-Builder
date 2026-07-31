@@ -14,11 +14,41 @@ const SECCIONES = [
 
 const coincide = (texto, q) => String(texto ?? "").toLowerCase().includes(q);
 
+/*
+  Filtro por rol: no "de qué arquetipo es" sino "qué hace con él". Sale de
+  `sinergia`, derivado del texto de las pasivas en build-dataset.mjs.
+
+  Se cruza con los chips de arquetipo cuando hay alguno activo: "Bleed" +
+  "aplica" es "las que infligen sangrado", no "las de Bleed que aplican
+  cualquier cosa". Sin arquetipo elegido, alcanza con que apliquen algo.
+
+  Los E.G.O no tienen `sinergia` derivada, así que en esa sección los chips no
+  se muestran.
+*/
+const ROLES = [
+  { key: "aplica", label: "Aplica el estado" },
+  { key: "lee", label: "Lo aprovecha" },
+  { key: "buffea", label: "Buffea aliados" },
+  { key: "posicion", label: "Le importa la posición" },
+];
+
+function cumpleRol(x, rol, arquetiposActivos) {
+  const s = x.sinergia;
+  if (!s) return false;
+  if (rol === "buffea") return s.buffeaAliados;
+  if (rol === "posicion") return s.posicion !== null;
+
+  const lista = rol === "aplica" ? s.aplica : s.lee;
+  if (arquetiposActivos.size === 0) return lista.length > 0;
+  return lista.some((a) => arquetiposActivos.has(a));
+}
+
 export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEgo, saveError, enVisita, onVisitar, onVerDetalle }) {
   const [seccion, setSeccion] = useState("identities");
   const [filtro, setFiltro] = useState("");
   const [arquetiposActivos, setArquetipos] = useState(new Set());
   const [faccionActiva, setFaccion] = useState(null);
+  const [rolActivo, setRol] = useState(null);
   const [abiertos, setAbiertos] = useState(new Set());
 
   const esEgo = seccion === "egos";
@@ -26,7 +56,7 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
   const marcadas = esEgo ? owned.egos : owned.identities;
   const toggle = esEgo ? toggleOwnedEgo : toggleOwned;
 
-  const hayFiltro = filtro.trim() !== "" || arquetiposActivos.size > 0 || faccionActiva !== null;
+  const hayFiltro = filtro.trim() !== "" || arquetiposActivos.size > 0 || faccionActiva !== null || rolActivo !== null;
 
   const toggleArquetipo = (a) =>
     setArquetipos((prev) => {
@@ -36,11 +66,13 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
     });
 
   const toggleFaccion = (f) => setFaccion((prev) => (prev === f ? null : f));
+  const toggleRol = (r) => setRol((prev) => (prev === r ? null : r));
 
   const limpiar = () => {
     setFiltro("");
     setArquetipos(new Set());
     setFaccion(null);
+    setRol(null);
   };
 
   const visibles = useMemo(() => {
@@ -49,6 +81,7 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
       // Los chips de arquetipo suman (OR): "mostrame Bleed o Rupture".
       if (arquetiposActivos.size > 0 && !x.arquetipos.some((a) => arquetiposActivos.has(a))) return false;
       if (faccionActiva && !(x.etiquetas ?? []).includes(faccionActiva)) return false;
+      if (rolActivo && !cumpleRol(x, rolActivo, arquetiposActivos)) return false;
       if (!q) return true;
       return (
         coincide(x.nombre, q) ||
@@ -58,7 +91,7 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
         (esEgo && coincide(x.rango, q))
       );
     });
-  }, [filtro, lista, esEgo, arquetiposActivos, faccionActiva]);
+  }, [filtro, lista, esEgo, arquetiposActivos, faccionActiva, rolActivo]);
 
   const total = lista.filter((x) => marcadas[x.id]).length;
   const cuenta = (k) => (k === "egos" ? EGOS : IDENTITIES).filter((x) => (k === "egos" ? owned.egos : owned.identities)[x.id]).length;
@@ -121,6 +154,29 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
         ))}
         {faccionActiva && <ChipFaccion faccion={faccionActiva} onClick={toggleFaccion} activo />}
       </div>
+
+      {/*
+        Rol dentro del arquetipo. Solo para Identities: los E.G.O no tienen
+        sinergia derivada, y un chip que no filtra nada es peor que no estarlo.
+      */}
+      {!esEgo && (
+        <div style={styles.filtroRow}>
+          {ROLES.map((r) => (
+            <button
+              key={r.key}
+              onClick={() => toggleRol(r.key)}
+              style={{ ...styles.chipRol, ...(rolActivo === r.key ? styles.chipRolActivo : {}) }}
+              title={
+                r.key === "aplica" || r.key === "lee"
+                  ? "Se cruza con los arquetipos elegidos arriba"
+                  : undefined
+              }
+            >
+              {r.label}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div style={styles.barraAcciones}>
         <span style={styles.resultado}>

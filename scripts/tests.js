@@ -7,7 +7,7 @@ import { SINS, SINNERS, ARQUETIPOS, esPuntoBlando } from "../src/data/constants.
 import {
   recursosDeSin, estadoPasivas, perfilResistencias, perfilArquetipos,
   sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo, estadoEgo, egosDelEquipo,
-  perfilSinergia, perfilVelocidad,
+  perfilSinergia, perfilVelocidad, analizarArquetipo,
 } from "../src/lib/engine.js";
 import { toggleSeleccion } from "../src/lib/seleccion.js";
 import { migrar } from "../src/lib/storage.js";
@@ -289,6 +289,55 @@ check("todas tienen al menos una skill de defensa",
 check("las resistencias son uno de los tres multiplicadores del juego",
   IDENTITIES.every((i) => [0.5, 1, 2].includes(i.resistencias.slash) &&
     [0.5, 1, 2].includes(i.resistencias.pierce) && [0.5, 1, 2].includes(i.resistencias.blunt)));
+
+/*
+  --- Qué falta para un arquetipo ---
+
+  Lo que se está midiendo acá es que cuente SINNERS y no Identidades: tener seis
+  de Bleed no sirve si son todas del mismo Sinner, porque solo entra una.
+*/
+const bleedTodas = IDENTITIES.filter((i) => i.arquetipos.includes("Bleed"));
+const dosDelMismo = bleedTodas.filter((i) => i.sinner === bleedTodas[0].sinner).slice(0, 2);
+
+check("el diagnóstico cuenta Sinners distintos, no Identidades",
+  dosDelMismo.length === 2 &&
+  analizarArquetipo("Bleed", dosDelMismo, IDENTITIES).sinnersCubiertos.length === 1,
+  JSON.stringify(analizarArquetipo("Bleed", dosDelMismo, IDENTITIES).sinnersCubiertos));
+
+check("y por eso reporta que faltan 5 lugares, no 4",
+  analizarArquetipo("Bleed", dosDelMismo, IDENTITIES).faltanSinners === 5);
+
+/* Con una colección vacía todo falta, y no debe romper. */
+const vacio = analizarArquetipo("Bleed", [], IDENTITIES);
+check("una colección vacía no rompe el diagnóstico",
+  vacio.faltanSinners === 6 && vacio.tuyas.length === 0 && vacio.candidatas.length > 0);
+
+/* Nunca puede recomendar algo que ya tenés. */
+check("las candidatas son siempre Identidades que no tenés",
+  vacio.candidatas.every((c) => c.id.arquetipos.includes("Bleed")) &&
+  analizarArquetipo("Bleed", dosDelMismo, IDENTITIES).candidatas
+    .every((c) => !dosDelMismo.some((p) => p.id === c.id.id)));
+
+/* Un Sinner nuevo tiene que valer más que una alternativa de uno ya cubierto. */
+const conDos = analizarArquetipo("Bleed", dosDelMismo, IDENTITIES);
+const primera = conDos.candidatas[0];
+check("prioriza sumar un Sinner que no tenés cubierto",
+  primera.sinnerNuevo === true, `${primera.id.nombre} (${primera.id.sinner})`);
+check("y lo explica en el motivo",
+  primera.motivos.some((m) => /no ten[eé]s cubierto/.test(m)), primera.motivos.join(" | "));
+
+/*
+  El rol también manda: si lo que tenés solo cobra el estado, la recomendación
+  tiene que ser quien lo aplique, no más de lo mismo.
+*/
+const soloLeenBleed = IDENTITIES
+  .filter((i) => i.sinergia.lee.includes("Bleed") && !i.sinergia.aplica.includes("Bleed"))
+  .slice(0, 2);
+const dx = analizarArquetipo("Bleed", soloLeenBleed, IDENTITIES);
+check("detecta que falta quien aplique el estado", dx.rolBuscado === "aplica", String(dx.rolBuscado));
+check("y las mejores candidatas lo aplican",
+  dx.candidatas.slice(0, 3).some((c) => c.aplica),
+  dx.candidatas.slice(0, 3).map((c) => `${c.id.nombre}:${c.aplica}`).join(" | "));
 
 /* --- Velocidad --- */
 

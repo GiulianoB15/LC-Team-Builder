@@ -84,6 +84,19 @@ export const styles = {
   /* Discreto a propósito: no compite con la casilla, que es la acción principal. */
   botonFicha: { alignSelf: "center", flex: "0 0 auto", fontFamily: "system-ui, sans-serif", fontSize: 10, textTransform: "uppercase", letterSpacing: 0.8, color: "#8d8880", background: "transparent", border: "1px solid #3a3631", borderRadius: 3, padding: "3px 6px", cursor: "pointer" },
 
+  /* --- Qué me falta --- */
+  resumenFaltan: { display: "flex", gap: 18, flexWrap: "wrap", padding: "10px 12px", background: "#1b1917", border: "1px solid #2c2926", borderRadius: 6, marginTop: 8 },
+  numeroGrande: { fontFamily: "system-ui, sans-serif", fontSize: 26, fontWeight: 700, color: "#e8e3dc", lineHeight: 1.1 },
+  numeroChico: { fontSize: 15, fontWeight: 400, color: "#8d8880" },
+  barraSinners: { display: "flex", gap: 3, marginTop: 6 },
+  barraLlena: { width: 16, height: 6, background: "#c9bfa8", borderRadius: 2 },
+  barraVacia: { width: 16, height: 6, background: "#332f2b", borderRadius: 2 },
+  avisoOk: { fontFamily: "system-ui, sans-serif", fontSize: 12.5, color: "#a8c9a0", background: "#1a201a", border: "1px solid #2f402c", borderRadius: 4, padding: "8px 10px", marginTop: 8, lineHeight: 1.45 },
+  /* La candidata cuyo Sinner ya está cubierto no es mala, pero no agranda el equipo. */
+  candidataTibia: { opacity: 0.72 },
+
+  chipRol: { fontFamily: "system-ui, sans-serif", fontSize: 11, color: "#b3ada6", background: "#1b1917", border: "1px solid #3a3631", borderRadius: 11, padding: "3px 9px", cursor: "pointer" },
+  chipRolActivo: { color: "#151413", background: "#c9bfa8", borderColor: "#c9bfa8", fontWeight: 600 },
   tituloConAccion: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 10, flexWrap: "wrap" },
 
   /* --- Ficha y comparador --- */
