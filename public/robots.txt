@@ -1,0 +1,4 @@
+# Proyecto personal, compartido solo por link. No se busca indexación.
+# Esto no es un control de acceso: cualquiera con la URL entra igual.
+User-agent: *
+Disallow: /

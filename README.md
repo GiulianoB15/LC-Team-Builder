@@ -17,7 +17,20 @@ node scripts/smoke-test.mjs   # chequeos del motor y del dataset
 ```
 
 El build sale con rutas relativas (`base: "./"`), así que `dist/` funciona igual
-en GitHub Pages, Vercel, Netlify o abriendo el `index.html` local.
+en GitHub Pages, Cloudflare Pages, Vercel, Netlify o abriendo el `index.html` local.
+
+## Sobre publicarla
+
+La página lleva `noindex` y un `robots.txt` que desalienta el rastreo, porque es un
+proyecto personal que se comparte por link y no busca tráfico.
+
+**Eso no es control de acceso**: cualquiera con la URL entra. Los buscadores serios
+respetan esas señales, un scraper no tiene por qué. Si hiciera falta que solo entre
+gente autorizada, hay que hostearla detrás de autenticación real — Cloudflare Access
+tiene un plan gratuito hasta 50 usuarios.
+
+Nada sensible vive en el servidor: el dataset es data pública del juego y la colección
+de cada persona queda en el `localStorage` de su propio navegador.
 
 ## Estructura
 
