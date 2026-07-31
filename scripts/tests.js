@@ -28,39 +28,52 @@ check("hay 184 Identities y 110 E.G.O", IDENTITIES.length === 184 && EGOS.length
 check("todas tienen Sinner de la lista de 12", IDENTITIES.every((i) => SINNERS.includes(i.sinner)));
 check("todas tienen al menos una skill", IDENTITIES.every((i) => i.skills.length > 0));
 check("los ids son únicos", new Set(IDENTITIES.map((i) => i.id)).size === IDENTITIES.length);
-check("el meta declara las dos fuentes y su rol", META.fuentes.length === 2 && META.fuentes.every((f) => !!f.rol));
+check("el meta declara las tres fuentes con argumento y su rol", META.fuentes.length === 3 && META.fuentes.every((f) => !!f.rol));
 check("el meta declara la fecha de la Identity más nueva", META.ultimaIdentity === "2026-07-23");
 
 /* Las copias de skill son 3+2+1 en todas las IDs: sirve de checksum del dump. */
 check("las copias de skill suman 6 en todas",
   IDENTITIES.every((i) => i.skills.reduce((a, s) => a + s.copias, 0) === 6));
 
-/* Cobertura de pasivas: solo las anteriores al corte de LCTeamBuilder las tienen. */
+/*
+  Cobertura de pasivas. Antes había tres estados (completa / solo soporte / sin
+  nada) porque las fuentes no llegaban a todo. Con pasivas.json llegan: las 184
+  tienen combate y soporte. Estos chequeos son los que van a avisar si una
+  corrida futura del bajador vuelve para atrás.
+*/
 const conPasivas = IDENTITIES.filter((i) => i.tienePasivas);
-check("181 con pasivas y solo 3 sin", conPasivas.length === 181 && IDENTITIES.length - conPasivas.length === 3);
-check("147 completas (combate+soporte) y 34 solo de soporte",
-  IDENTITIES.filter((i) => i.pasivasCompletas).length === 147 &&
-  IDENTITIES.filter((i) => i.tienePasivas && !i.pasivasCompletas).length === 34);
-/* Las de la wiki traen soporte pero NO combate: eso es lo que las hace parciales. */
-check("las parciales tienen soporte y no combate",
-  IDENTITIES.filter((i) => i.tienePasivas && !i.pasivasCompletas)
-    .every((i) => i.pasivas.soporte.length > 0 && i.pasivas.combate.length === 0));
-check("toda pasiva de la wiki queda marcada con su fuente",
-  IDENTITIES.filter((i) => !i.pasivasCompletas && i.tienePasivas)
-    .every((i) => i.pasivas.soporte.every((p) => p.fuente === "captura")));
-check("y conservan costo en Sin utilizable por el motor",
-  IDENTITIES.filter((i) => i.tienePasivas && !i.pasivasCompletas)
-    .every((i) => i.pasivas.soporte[0].costo.every((c) => SINS.includes(c.sin) && c.cantidad > 0)));
-check("las que declaran tener pasivas, las tienen de verdad",
-  conPasivas.every((i) => i.pasivas.soporte.length > 0));
-check("las que siguen sin pasivas quedan con listas vacías y no rompen",
-  IDENTITIES.filter((i) => !i.tienePasivas).every((i) => i.pasivas.combate.length === 0 && i.pasivas.soporte.length === 0));
+check("las 184 tienen pasivas", conPasivas.length === 184, `son ${conPasivas.length}`);
+check("las 184 están completas: combate Y soporte",
+  IDENTITIES.every((i) => i.pasivas.combate.length > 0 && i.pasivas.soporte.length > 0),
+  IDENTITIES.filter((i) => !i.pasivas.combate.length || !i.pasivas.soporte.length).map((i) => i.id).join(","));
+check("y ninguna queda marcada como parcial",
+  IDENTITIES.filter((i) => i.tienePasivas && !i.pasivasCompletas).length === 0);
+check("todas salen de la fuente automática, ninguna de una captura",
+  IDENTITIES.every((i) => [...i.pasivas.combate, ...i.pasivas.soporte].every((p) => p.fuente === "eldritchtools")));
+check("toda pasiva trae nombre y descripción",
+  IDENTITIES.every((i) => [...i.pasivas.combate, ...i.pasivas.soporte].every((p) => p.nombre && p.descripcion)));
+/*
+  El costo es lo que consume el motor: si el Sin no es uno de los 7 o la
+  cantidad es 0, `estadoPasivas` decide mal y no se nota en pantalla.
+*/
+check("los costos son utilizables por el motor",
+  IDENTITIES.every((i) => [...i.pasivas.combate, ...i.pasivas.soporte]
+    .every((p) => p.costo.every((c) => SINS.includes(c.sin) && c.cantidad > 0))));
+check("el tipo de costo quedó canonicalizado, sin el 'res' de la fuente",
+  IDENTITIES.every((i) => [...i.pasivas.combate, ...i.pasivas.soporte]
+    .every((p) => p.tipoCosto === null || p.tipoCosto === "owned" || p.tipoCosto === "resonance")),
+  [...new Set(IDENTITIES.flatMap((i) => [...i.pasivas.combate, ...i.pasivas.soporte]).map((p) => p.tipoCosto))].join(","));
 
 const ring = porId(10109);
 check("Ring Yi Sang: resistencias del dump nuevo", ring.resistencias.slash === 1 && ring.resistencias.pierce === 0.5 && ring.resistencias.blunt === 2);
 check("Ring Yi Sang: afinidades ponderadas por copias", ring.afinidades.Gloom === 3 && ring.afinidades.Lust === 2 && ring.afinidades.Sloth === 1, JSON.stringify(ring.afinidades));
 check("Ring Yi Sang: la dominante sale de las copias, no del conteo de skills", ring.afinidadDominante === "Gloom");
-check("Ring Yi Sang: pasivas injertadas desde LCTeamBuilder", ring.pasivas.combate.length === 2 && ring.pasivas.soporte.length === 1);
+check("Ring Yi Sang: pasivas de combate y soporte", ring.pasivas.combate.length === 2 && ring.pasivas.soporte.length === 1);
+/*
+  Este costo es el mismo que traía LCTeamBuilder. Sirve de ancla: las dos
+  fuentes son independientes, así que si coinciden acá el cambio de fuente no
+  movió el dato que consume el motor.
+*/
 check("Ring Yi Sang: la pasiva de soporte conserva su costo de Sin", ring.pasivas.soporte[0].costo[0]?.sin === "Lust" && ring.pasivas.soporte[0].costo[0]?.cantidad === 4);
 check("Ring Yi Sang: arquetipo oficial Bleed", ring.arquetipos.join(",") === "Bleed");
 
@@ -70,15 +83,15 @@ check("está Shi Assoc. East Section 3 (2025-10-09)", !!identityPorNombre("Shi A
 check("está Dimension Shredder, pese a los espacios en el nombre", !!identityPorNombre("LCE E.G.O::Dimension Shredder", "Yi Sang"));
 
 /*
-  10116 se estrenó el 2026-07-23, después del corte de LCTeamBuilder. Antes
-  quedaba sin ninguna pasiva; ahora la wiki aporta la de soporte, así que tiene
-  dato utilizable pero sigue sin la de combate.
+  10116 se estrenó el 2026-07-23, después del corte de LCTeamBuilder. Pasó por
+  los tres estados: sin nada, después solo soporte por la wiki, y ahora
+  completa. Es el caso que mejor mide si la fuente nueva llega al contenido
+  reciente, que era todo el problema.
 */
 const nueva = porId(10116);
-check("la ID más nueva ya tiene su pasiva de soporte",
-  nueva && nueva.tienePasivas && nueva.pasivas.soporte.length === 1 && nueva.fecha === "2026-07-23");
-check("y sigue marcada como incompleta por faltarle la de combate",
-  !nueva.pasivasCompletas && nueva.pasivas.combate.length === 0);
+check("la ID más nueva tiene pasivas completas",
+  nueva && nueva.pasivasCompletas && nueva.pasivas.combate.length > 0 &&
+  nueva.pasivas.soporte.length > 0 && nueva.fecha === "2026-07-23");
 
 check("los arquetipos son solo los 7 oficiales",
   IDENTITIES.every((i) => i.arquetipos.every((a) => ARQUETIPOS.includes(a))),
@@ -86,8 +99,12 @@ check("los arquetipos son solo los 7 oficiales",
 
 check("los E.G.O traen costo de Sin", EGOS.filter((e) => e.costo.length > 0).length >= 100);
 check("los E.G.O traen resistencias por Sin", EGOS.every((e) => e.resistenciasSin.length === 7 || e.resistenciasSin.length === 0));
-check("los E.G.O con pasiva automática siguen siendo 96",
-  EGOS.filter((e) => e.tienePasiva && e.pasiva?.fuente !== "captura").length === 96);
+check("los 110 E.G.O tienen pasiva",
+  EGOS.filter((e) => e.tienePasivas).length === 110,
+  `son ${EGOS.filter((e) => e.tienePasivas).length}`);
+check("la pasiva de E.G.O es siempre una lista, aunque tenga una sola",
+  EGOS.every((e) => Array.isArray(e.pasivas)));
+check("y trae nombre y descripción", EGOS.every((e) => e.pasivas.every((p) => p.nombre && p.descripcion)));
 
 /*
   Arquetipos de E.G.O: el dump solo trae estados con nombres internos
@@ -325,19 +342,23 @@ check("las Identities nuevas quedan con números en null, no en cero",
 
 
 
-/* --- Datos transcritos de capturas --- */
+/*
+  --- Precedencia de fuentes ---
 
-const egoCapturado = EGOS.find((e) => e.id === 20208);
-check("una pasiva de captura entra al dataset", egoCapturado?.tienePasiva && egoCapturado.pasiva?.nombre === "Breath");
-check("y queda marcada con su fuente, distinguible del dato automático",
-  egoCapturado.pasiva.fuente === "captura");
-check("la fuente automática no queda marcada como captura",
-  EGOS.find((e) => e.id === 20101)?.pasiva?.fuente === undefined);
-check("se cargaron los 5 E.G.O de la primera tanda",
-  EGOS.filter((e) => e.pasiva?.fuente === "captura").length === 5);
-check("E.G.O con pasiva pasó de 96 a 101", EGOS.filter((e) => e.tienePasiva).length === 101);
-check("las pasivas capturadas conservan la forma del resto",
-  EGOS.filter((e) => e.pasiva?.fuente === "captura").every((e) =>
-    typeof e.pasiva.nombre === "string" && Array.isArray(e.pasiva.costo) && "tipoCosto" in e.pasiva));
+  Los 5 E.G.O que se habían transcrito a mano desde capturas del juego ahora
+  vienen de la fuente automática. Se chequea que gane la automática Y que diga
+  lo mismo que decía la captura: son dos transcripciones independientes del
+  mismo dato, así que coincidir es la mejor validación que hay de las dos.
+*/
+const CAPTURADOS = { 20208: "Breath", 20209: "Doctor", 20609: "So is Writ, an Ode to Wine", 20810: "Abyssal Dance", 21209: "Wanderer" };
+
+check("los E.G.O que estaban en capturas siguen con el mismo nombre de pasiva",
+  Object.entries(CAPTURADOS).every(([id, nombre]) => EGOS.find((e) => e.id === Number(id))?.pasivas[0]?.nombre === nombre),
+  Object.keys(CAPTURADOS).filter((id) => EGOS.find((e) => e.id === Number(id))?.pasivas[0]?.nombre !== CAPTURADOS[id]).join(","));
+check("pero ahora los sirve la fuente automática, no la captura",
+  Object.keys(CAPTURADOS).every((id) => EGOS.find((e) => e.id === Number(id))?.pasivas[0]?.fuente === "eldritchtools"));
+check("no queda ninguna captura en uso, en E.G.O ni en Identities",
+  EGOS.every((e) => e.pasivas.every((p) => p.fuente !== "captura")) &&
+  IDENTITIES.every((i) => [...i.pasivas.combate, ...i.pasivas.soporte].every((p) => p.fuente !== "captura")));
 
 console.log(fallos === 0 ? "\nTodo verde." : `\n${fallos} chequeo(s) fallando.`);

@@ -1,27 +1,39 @@
 /*
-  Genera src/data/identities.json y src/data/egos.json fusionando DOS fuentes.
+  Genera src/data/identities.json y src/data/egos.json fusionando cuatro fuentes.
 
   Uso:
     node scripts/build-dataset.mjs --nuevo <dir> [--lctb <clon>]
 
     --nuevo  carpeta con identities.json y egos.json del dump actualizado.
-             Es la fuente PRIMARIA: 184 IDs y 110 E.G.O, con fechas de estreno.
+             Fuente PRIMARIA de todo menos las pasivas: 184 IDs y 110 E.G.O,
+             con stats, resistencias, skills, keywords oficiales y fechas.
     --lctb   clon de LCTeamBuilder.github.io (MIT, © 2024 SuenoImposible).
-             Fuente SECUNDARIA, solo para las pasivas: es la única de las dos
-             que trae la separación combate/soporte y el costo en recursos de
-             Sin, que es lo que pide el §3.1 del handoff.
+             Hoy es solo respaldo de pasivas; ver más abajo.
 
-  Por qué se fusionan y no se elige una:
+  Las otras dos no son argumentos, viven en el repo:
+
+    src/data/pasivas.json    pasivas de combate y soporte de las 184 Identities
+                             y de los 110 E.G.O, con su costo en recursos de
+                             Sin. La baja scripts/fetch-pasivas.mjs.
+    src/data/capturas.json   lo transcrito a mano desde capturas del juego.
+
+  Por qué son cuatro y no una:
 
   - El dump nuevo gana en cobertura (184 vs 147), trae `skillKeywordList`
     OFICIAL en vez de keywords derivados del texto, y sus resistencias son
     correctas. Las de LCTeamBuilder no: 109 de sus 147 IDs comparten el mismo
     perfil (1, 0.5, 2), o sea un valor por defecto que nunca completaron.
   - Pero el dump nuevo NO tiene pasivas, y sin ellas se cae la mitad del motor.
+    Ojo: la fuente sí las publica, solo que en un archivo por id, y eso es lo
+    que junta pasivas.json.
 
-  Así que la base es el dump nuevo y las pasivas se injertan desde LCTeamBuilder
-  donde el id coincide. Las 37 IDs nuevas quedan sin pasivas, marcadas con
-  `tienePasivas: false` para que la UI y el motor no las traten como completas.
+  Orden de precedencia para las pasivas:
+
+      pasivas.json  >  LCTeamBuilder  >  capturas.json
+
+  Con pasivas.json completo, las otras dos no se activan para ninguna ID. Se
+  dejan igual: son el respaldo si la fuente nueva se cae o borra una entrada, y
+  sirven para validarla cruzando las 147 IDs que están en las dos.
 */
 
 import { execFileSync } from "node:child_process";
@@ -81,6 +93,37 @@ const capturas = (() => {
 })();
 
 const marcarCaptura = (p) => ({ ...p, fuente: "captura" });
+
+/*
+  Cuarta fuente, y la que manda para pasivas: limbus-assets.eldritchtools.com,
+  bajada por scripts/fetch-pasivas.mjs a src/data/pasivas.json. Cubre las 184
+  Identities con combate Y soporte, y los 110 E.G.O.
+
+  Va primero que LCTeamBuilder porque está al día (LCTeamBuilder quedó en 147
+  IDs) y porque el texto es el del juego, no una reescritura. Se valida solo:
+  en las IDs que están en las dos fuentes coinciden nombre, Sin del costo y
+  cantidad; hay un chequeo en tests.js que lo verifica.
+
+  LCTeamBuilder y las capturas quedan como respaldo. Hoy no se activan para
+  ninguna ID, pero se dejan: si mañana la fuente nueva se cae o borra una
+  entrada, el dataset no se queda sin pasivas de golpe.
+*/
+const pasivasNuevas = (() => {
+  try {
+    return leerJson(path.join(RAIZ, "src/data/pasivas.json"));
+  } catch {
+    console.warn("⚠ Sin src/data/pasivas.json: las pasivas salen de LCTeamBuilder y las capturas.");
+    return { identities: {}, egos: {} };
+  }
+})();
+
+/*
+  La fuente escribe el tipo de costo abreviado ("res"). Se canonicaliza acá, que
+  es donde vive el vocabulario del dataset, y no en el bajador: ese refleja lo
+  que dice la fuente, tal cual, para que se note si cambia.
+*/
+const canonCosto = (t) => (t === "res" ? "resonance" : t);
+const normalizarPasivaNueva = (p) => ({ ...p, tipoCosto: canonCosto(p.tipoCosto) });
 
 /* --- Fuente secundaria: pasivas de LCTeamBuilder --- */
 
@@ -228,7 +271,14 @@ function convertirIdentity(id, raw) {
     parcialmente, para no terminar con una ID mitad de una fuente y mitad de otra.
   */
   const cap = capturas.identities?.[String(id)];
+  const nueva = pasivasNuevas.identities?.[String(id)];
   const pasivas =
+    (nueva
+      ? {
+          combate: (nueva.combate ?? []).map(normalizarPasivaNueva),
+          soporte: (nueva.soporte ?? []).map(normalizarPasivaNueva),
+        }
+      : null) ??
     pasivasPorId.get(id) ??
     (cap?.pasivas
       ? {
@@ -266,11 +316,13 @@ function convertirIdentity(id, raw) {
     pasivas: pasivas ?? { combate: [], soporte: [] },
     tienePasivas: !!pasivas,
     /*
-      LCTeamBuilder trae combate Y soporte. La wiki solo publica las de
-      soporte, así que lo que venga de ahí queda marcado como parcial: la UI lo
-      muestra distinto para no aparentar un análisis que no tiene.
+      "Completa" = tiene las de combate además de las de soporte. La wiki solo
+      publica las de soporte, así que lo que salga solo de ahí queda marcado
+      como parcial y la UI lo muestra distinto, para no aparentar un análisis
+      que no tiene. Se mira el dato final en vez de preguntarle a una fuente en
+      particular, así sirve venga de donde venga.
     */
-    pasivasCompletas: pasivasPorId.has(id),
+    pasivasCompletas: (pasivas?.combate.length ?? 0) > 0,
   };
 }
 
@@ -327,14 +379,26 @@ function convertirEgo(id, raw, mapeoEstados) {
     que haya que borrar la captura a mano.
   */
   const capturada = capturas.egos?.[String(id)]?.pasiva;
-  const pasiva = pasivaEgoPorId.get(id) ?? (capturada ? marcarCaptura(capturada) : null);
+  const nuevas = pasivasNuevas.egos?.[String(id)];
+  /*
+    La fuente nueva devuelve una lista: la mayoría de los E.G.O tiene una sola
+    pasiva, pero unos pocos tienen dos. Las otras dos fuentes traen una sola, y
+    se envuelven para que el campo sea siempre una lista.
+  */
+  const pasivas =
+    nuevas?.map(normalizarPasivaNueva) ??
+    (pasivaEgoPorId.has(id)
+      ? [pasivaEgoPorId.get(id)]
+      : capturada
+        ? [marcarCaptura(capturada)]
+        : []);
 
   return {
     id,
     nombre: raw.name,
     arquetipos,
-    pasiva,
-    tienePasiva: !!pasiva,
+    pasivas,
+    tienePasivas: pasivas.length > 0,
     sinner: SINNER_POR_ID[raw.sinnerId] ?? null,
     rango: raw.rank ?? null,
     fecha: raw.date ?? null,
@@ -375,9 +439,13 @@ const meta = {
   ultimaIdentity: fechas.at(-1) ?? null,
   fuentes: [
     { nombre: "Dump actualizado", rol: "base: stats, resistencias, skills, keywords oficiales", identities: identities.length, egos: egos.length },
-    { nombre: "LCTeamBuilder", rol: "solo pasivas (combate/soporte y costo de Sin)", repo: "https://github.com/LCTeamBuilder/LCTeamBuilder.github.io", licencia: "MIT", copyright: "© 2024 SuenoImposible", ultimoCommit: fechaLctb },
+    { nombre: "limbus-assets.eldritchtools.com", rol: "pasivas de combate y soporte, y de E.G.O", via: "scripts/fetch-pasivas.mjs", generado: pasivasNuevas.meta?.generado ?? null },
+    { nombre: "LCTeamBuilder", rol: "respaldo de pasivas, hoy sin uso", repo: "https://github.com/LCTeamBuilder/LCTeamBuilder.github.io", licencia: "MIT", copyright: "© 2024 SuenoImposible", ultimoCommit: fechaLctb },
   ],
-  advertencia: `${identities.length - conPasivas} Identities no tienen datos de pasivas: son posteriores al corte de LCTeamBuilder.`,
+  advertencia:
+    conPasivas === identities.length
+      ? null
+      : `${identities.length - conPasivas} Identities no tienen datos de pasivas.`,
   conteo: {
     identities: identities.length,
     egos: egos.length,
@@ -385,7 +453,7 @@ const meta = {
     pasivasCompletas: identities.filter((i) => i.pasivasCompletas).length,
     soloSoporte: identities.filter((i) => i.tienePasivas && !i.pasivasCompletas).length,
     sinPasivas: identities.length - conPasivas,
-    egosConPasiva: egos.filter((e) => e.tienePasiva).length,
+    egosConPasiva: egos.filter((e) => e.tienePasivas).length,
   },
   /* Mapeo derivado, publicado para poder auditarlo. Ver derivarMapeoEstados(). */
   mapeoEstados,
@@ -417,7 +485,7 @@ console.log("IDs por arquetipo:", porArquetipo);
 
 const egosSinArquetipo = egos.filter((e) => e.arquetipos.length === 0).length;
 const deCaptura = {
-  egos: egos.filter((e) => e.pasiva?.fuente === "captura").length,
+  egos: egos.filter((e) => e.pasivas.some((p) => p.fuente === "captura")).length,
   identities: identities.filter((i) => [...i.pasivas.combate, ...i.pasivas.soporte].some((p) => p.fuente === "captura")).length,
 };
 console.log(`E.G.O con pasiva: ${meta.conteo.egosConPasiva}   sin arquetipo derivable: ${egosSinArquetipo}`);

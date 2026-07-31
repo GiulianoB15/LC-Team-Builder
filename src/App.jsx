@@ -237,8 +237,22 @@ export default function App() {
         {META.conteo.identities} Identities y {META.conteo.egos} E.G.O · última al{" "}
         <strong>{META.ultimaIdentity}</strong>.
         <br />
-        {META.conteo.soloSoporte} con solo pasiva de soporte y {META.conteo.sinPasivas} sin
-        pasivas. Pasivas de{" "}
+        {/*
+          Mientras la cobertura de pasivas fue parcial, el pie la reportaba
+          siempre. Ahora está completa, así que la línea solo aparece si vuelve
+          a faltar algo: un "0 y 0" permanente no informa nada.
+        */}
+        {META.conteo.soloSoporte + META.conteo.sinPasivas > 0 && (
+          <>
+            {META.conteo.soloSoporte} con solo pasiva de soporte y {META.conteo.sinPasivas} sin pasivas.
+            <br />
+          </>
+        )}
+        Pasivas y retratos de{" "}
+        <a href="https://limbus.eldritchtools.com" style={styles.footerLink}>
+          eldritchtools
+        </a>
+        ; números de skills de{" "}
         <a href="https://github.com/LCTeamBuilder/LCTeamBuilder.github.io" style={styles.footerLink}>
           LCTeamBuilder
         </a>{" "}

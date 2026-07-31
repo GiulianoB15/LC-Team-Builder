@@ -43,8 +43,12 @@ export default function EgoCard({
         <div style={styles.idName}>
           {ego.nombre}
           <span style={styles.rango}>{ego.rango}</span>
-          {/* Los E.G.O posteriores al corte de LCTeamBuilder no tienen pasiva. */}
-          {!ego.tienePasiva && <span style={styles.sinDatos} title="Sin datos de pasiva">sin pasiva</span>}
+          {/*
+            Hoy los 110 tienen pasiva, pero el badge se queda: si mañana entra
+            un E.G.O nuevo antes de que la fuente lo publique, tiene que
+            notarse en la tarjeta y no pasar por completo.
+          */}
+          {!ego.tienePasivas && <span style={styles.sinDatos} title="Sin datos de pasiva">sin pasiva</span>}
         </div>
 
         {mostrarSinner && <div style={styles.idTags}>{ego.sinner}</div>}

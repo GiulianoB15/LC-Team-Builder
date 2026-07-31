@@ -17,7 +17,49 @@ const { identities } = leer("identities.json");
 const { egos } = leer("egos.json");
 
 const idsFaltantes = identities.filter((i) => !i.tienePasivas).sort((a, b) => (a.fecha ?? "").localeCompare(b.fecha ?? ""));
-const egosFaltantes = egos.filter((e) => !e.tienePasiva).sort((a, b) => (a.fecha ?? "").localeCompare(b.fecha ?? ""));
+const egosFaltantes = egos.filter((e) => !e.tienePasivas).sort((a, b) => (a.fecha ?? "").localeCompare(b.fecha ?? ""));
+
+const skills = identities.flatMap((i) => i.skills);
+const skillsSinNumeros = skills.filter((s) => s.poderBase == null);
+
+/*
+  Con las pasivas completas ya no queda nada que capturar a mano. En vez de
+  emitir un documento de tandas vacío —que se lee como si algo hubiera fallado—
+  se escribe qué quedó y qué no, y listo. Si mañana entra contenido nuevo antes
+  de que la fuente lo publique, la lista vuelve sola.
+*/
+if (idsFaltantes.length === 0 && egosFaltantes.length === 0) {
+  writeFileSync(
+    path.join(RAIZ, "PENDIENTES.md"),
+    `# Datos pendientes
+
+Generado por \`scripts/pendientes.mjs\`. **No editar a mano** — se regenera.
+
+**No falta ninguna pasiva.** Las ${identities.length} Identities tienen las de combate y las de
+soporte, y los ${egos.length} E.G.O tienen la suya. Salen de \`src/data/pasivas.json\`, que baja
+\`scripts/fetch-pasivas.mjs\`.
+
+Si entra contenido nuevo antes de que la fuente lo publique, esta lista vuelve a
+aparecer sola con lo que falte.
+
+## Lo único que sigue incompleto
+
+**Números de skills** — poder base, monedas y valor de moneda: hay
+${skills.length - skillsSinNumeros.length} de ${skills.length}. Los ${skillsSinNumeros.length} que faltan son de las Identities posteriores al
+corte de LCTeamBuilder, que es de donde salen hoy.
+
+Probablemente se puedan completar igual que las pasivas: los archivos
+\`data/identities/<id>.json\` de la fuente traen una clave \`skills\` que todavía no
+se miró. Falta ver qué forma tiene antes de prometer nada.
+
+No afecta al motor: no usa esos números para nada de lo que calcula hoy
+(recursos de Sin, pasivas, resistencias, arquetipos). Quedan en \`null\`, nunca en
+cero, para que se note que es un dato que falta y no un valor real.
+`
+  );
+  console.log(`PENDIENTES.md — sin pasivas pendientes; faltan números de ${skillsSinNumeros.length} skills`);
+  process.exit(0);
+}
 
 /*
   Se ordena por fecha de estreno, de más vieja a más nueva: cuanto más tiempo

@@ -79,14 +79,15 @@ scripts/
 
 ## El dataset
 
-**184 Identities y 110 E.G.O**, la más nueva del 2026-07-23. Sale de fusionar dos
-fuentes, porque ninguna de las dos alcanza sola:
+**184 Identities y 110 E.G.O**, la más nueva del 2026-07-23. Sale de fusionar varias
+fuentes, porque ninguna alcanza sola:
 
 | Fuente | Rol | Aporta |
 |---|---|---|
 | Dump actualizado | **base** | 184 IDs, stats, resistencias, skills con afinidad y copias, keywords oficiales, fechas de estreno |
-| [LCTeamBuilder](https://github.com/LCTeamBuilder/LCTeamBuilder.github.io) (MIT, © 2024 SuenoImposible) | pasivas y números de skill | separación combate/soporte, costo en Sin, poder base y monedas |
-| [Wiki de Limbus Company](https://limbuscompany.wiki.gg/wiki/Identity_Support_Passives) | pasivas de soporte de las nuevas | cubre 34 de las 37 que LCTeamBuilder no alcanza |
+| [limbus-assets.eldritchtools.com](https://limbus.eldritchtools.com) | **pasivas** | combate y soporte de las 184, pasiva de los 110 E.G.O, con costo en Sin |
+| [LCTeamBuilder](https://github.com/LCTeamBuilder/LCTeamBuilder.github.io) (MIT, © 2024 SuenoImposible) | números de skill | poder base, monedas y valor de moneda (417 de 618). Respaldo de pasivas |
+| [Wiki de Limbus Company](https://limbuscompany.wiki.gg/wiki/Identity_Support_Passives) | respaldo | pasivas de soporte; hoy sin uso, cubierto por eldritchtools |
 
 Para regenerar:
 
@@ -125,47 +126,61 @@ un chequeo que lo verifica.
 
 ### Cobertura de pasivas
 
-| Estado | Cuántas | Qué significa |
-|---|---|---|
-| Completas | 147 | Combate **y** soporte, de LCTeamBuilder |
-| Solo soporte | 34 | De la wiki, que no publica las de combate. Badge "solo soporte" |
-| Sin pasivas | 3 | Ni siquiera la wiki las tiene todavía |
+**Completa: las 184 Identities con combate y soporte, y los 110 E.G.O con la suya.**
 
-El parser de la wiki está en `scripts/parse-pasivas-wiki.mjs`. Se valida cruzando
-contra LCTeamBuilder en las 146 IDs que están en ambas fuentes: **coinciden 100% en el
-Sin del costo y 100% en la cantidad**. Las 9 diferencias de nombre son tipográficas, y
-en varias la wiki es la correcta (LCTeamBuilder tiene `Conering` por `Cornering`).
+Durante un tiempo no lo fue, porque el dump de `identities.json` no trae pasivas y
+LCTeamBuilder quedó en 147 IDs. La wiki tapó 34 huecos, pero solo publica las de
+soporte, así que 34 IDs quedaban a medias y 3 sin nada.
 
-#### Una cuarta fuente, todavía sin integrar
-
-Los huecos de arriba existen porque el dump de `identities.json` no trae pasivas. Pero
-la fuente sí las publica: no en ese archivo, sino en **uno por id**.
+El problema era de dónde se pedía el dato. La fuente sí publica las pasivas: no en
+`identities.json`, sino en **un archivo por id**.
 
 ```
 https://limbus-assets.eldritchtools.com/data/identities/<id>.json   combatPassives, supportPassives
 https://limbus-assets.eldritchtools.com/data/egos/<id>.json         passiveList
 ```
 
-Sale de su propio código: el componente que muestra "Combat Passives" hace
+Eso sale de su propio código: el componente que muestra "Combat Passives" hace
 `useData(`identities/${identity.id}`)` y lee `skillData.combatPassives`
 ([`limbus-team-building-hub`](https://github.com/eldritchtools/limbus-team-building-hub),
 `src/app/components/SkillLoader.js`), y `useData` resuelve contra `DATA_ROOT`.
 
 `scripts/fetch-pasivas.mjs` las baja y las normaliza a `src/data/pasivas.json`. Se corre
-desde *Actions* → **Bajar pasivas**, por la misma razón que el de retratos.
+desde *Actions* → **Bajar pasivas**, por la misma razón que el de retratos: son ~300
+pedidos a un servidor ajeno.
 
-**Estado: el script está escrito y probado contra un servidor de prueba, pero todavía no
-se corrió contra la fuente real, así que `build-dataset.mjs` no lo consume.** Recién
-cuando el archivo generado esté a la vista se conecta. El `meta` del archivo guarda las
-claves que vinieron y lo que no se supo mapear, justamente para poder verificarlo antes
-de darlo por bueno.
+#### Cómo se validó
+
+Cruzando contra LCTeamBuilder en las **146 IDs que están en las dos fuentes**, que son
+independientes entre sí:
+
+| | Resultado |
+|---|---|
+| Costo en Sin (cuál y cuánto) | **312 de 312 idénticos** |
+| Nombre de la pasiva | 312 de 323 |
+| Tipo de costo (`owned` / `resonance`) | 307 de 312 |
+
+Las 11 diferencias de nombre son erratas de LCTeamBuilder (`Conering` por `Cornering`,
+`Repspiration` por `Respiration`, `Defense Breathing` por `Defensive Breathing`) o
+renombres del juego. **Las 5 de tipo de costo quedan sin resolver**: no hay una tercera
+fuente para desempatar. Se toma la de eldritchtools por estar al día y porque en el
+costo, que es lo que consume el motor, acertó el 100%.
+
+Aparte, los 5 E.G.O que se habían transcrito a mano desde capturas del juego coinciden
+**exactamente** con lo que trajo la fuente automática. Hay un chequeo que lo verifica.
 
 ### Limitaciones conocidas, verificadas
 
-- **9 E.G.O no tienen datos de pasiva.**
+- **Faltan los números de 201 de 618 skills** (poder base, monedas, valor de moneda):
+  son de las Identities posteriores al corte de LCTeamBuilder. El motor no los usa.
+  Los archivos por id de eldritchtools traen una clave `skills` que podría cerrarlo;
+  falta mirarla.
 - **Una ID quedó fuera del índice de LCTeamBuilder.** `LobotomyCorpRemnantFaust`
   existe como archivo válido pero nunca se agregó a `Equipables.ts`, así que su propia
   app no la muestra. El conversor la importa aparte.
+- **Las descripciones traen los tokens del juego**, tipo `[AttackDmgUp]` o `[Binding]`:
+  es el texto original, que la fuente reemplaza por íconos al mostrarlo. Se deja crudo
+  antes que reescribirlo.
 
 ## Retratos
 
@@ -305,9 +320,9 @@ Todo esto está cubierto por `scripts/tests.js`.
 
 ## Pendiente
 
-- **Pasivas de las 37 Identities nuevas.** Es el único hueco de datos que queda.
-  Hace falta una fuente que publique pasivas con su tipo (combate/soporte) y su costo
-  en recursos de Sin, posterior a agosto 2025.
+- **Números de skills de las Identities nuevas** (201 de 618). No los usa el motor.
+  Posible fuente sin explorar: la clave `skills` de los archivos por id de
+  eldritchtools, la misma vía por donde llegaron las pasivas.
 - **Capa de recetas / arquetipos curados** (§3.2 del handoff): combos conocidos de la
   comunidad, con fuente y fecha. Es lo que convertiría el orden de heurística en
   recomendación. El meta cambia por temporada, así que cada receta necesita su
