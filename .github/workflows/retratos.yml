@@ -1,0 +1,51 @@
+name: Bajar retratos
+
+# Solo manual: se dispara desde la pestaña Actions con el botón "Run workflow".
+# No corre en cada push porque son ~300 pedidos a un servidor ajeno y las
+# imágenes cambian solo cuando sale contenido nuevo.
+on:
+  workflow_dispatch:
+    inputs:
+      forzar:
+        description: "Volver a bajar todas, incluso las que ya están"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  retratos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # sharp no está en package.json a propósito: es de un solo uso y no vale
+      # que las demás corridas la instalen. Acá sí hace falta, para que las
+      # miniaturas queden en ~2 KB en vez de guardar los originales.
+      - run: npm install --no-save sharp
+
+      - name: Bajar retratos y generar miniaturas
+        run: node scripts/fetch-imagenes.mjs ${{ inputs.forzar && '--forzar' || '' }}
+
+      - name: Commitear lo que haya cambiado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/retratos src/data/retratos.json
+          # Si no cambió nada, salir bien en vez de fallar por "nothing to commit".
+          if git diff --staged --quiet; then
+            echo "Sin cambios: los retratos ya estaban al día."
+            exit 0
+          fi
+          git commit -m "Actualizar retratos de Identities y E.G.O
+
+          Generado por scripts/fetch-imagenes.mjs desde el workflow."
+          git push

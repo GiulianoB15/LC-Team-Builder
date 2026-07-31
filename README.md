@@ -144,12 +144,19 @@ en varias la wiki es la correcta (LCTeamBuilder tiene `Conering` por `Cornering`
 
 ## Retratos
 
+Dos formas, según prefieras:
+
+**Desde GitHub, sin instalar nada** — pestaña *Actions* → workflow **Bajar retratos** →
+botón *Run workflow*. Baja las imágenes, genera las miniaturas y las commitea solo.
+
+**En tu máquina:**
+
 ```bash
 npm install --no-save sharp        # opcional, para miniaturas de ~2 KB
 node scripts/fetch-imagenes.mjs    # --forzar para rebajar todo
 ```
 
-Se corre **a mano**, no en CI. Las imágenes quedan versionadas en `public/retratos/`
+En los dos casos se corre **a demanda**, no en cada push. Las imágenes quedan versionadas en `public/retratos/`
 y la app las sirve estáticas, así que no le pega al servidor de nadie en cada visita.
 
 La URL sale del id, sin tabla de mapeo: las 12 Identities base (id terminado en `01`)
