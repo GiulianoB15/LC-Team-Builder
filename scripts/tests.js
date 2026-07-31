@@ -272,6 +272,24 @@ const yaTapado = perfilSinergia([...soloCobran, aplicaBleed]);
 check("una vez tapado el hueco, deja de reportarse",
   !yaTapado.huerfanos.some((h) => h.arquetipo === "Bleed"));
 
+/*
+  --- Datos que muestra la ficha ---
+
+  La ficha es la única vista que enseña estos campos. Si alguno viniera vacío se
+  vería como un guión en pantalla y no lo notaría nadie hasta abrirla, así que se
+  chequean acá.
+*/
+check("todas tienen rango de velocidad, salud y nivel de defensa",
+  IDENTITIES.every((i) => i.velocidad?.min != null && i.velocidad?.max != null &&
+    i.saludBase != null && i.nivelDefensa != null));
+check("el rango de velocidad es coherente (min ≤ max)",
+  IDENTITIES.every((i) => i.velocidad.min <= i.velocidad.max));
+check("todas tienen al menos una skill de defensa",
+  IDENTITIES.every((i) => i.skillsDefensa.length > 0));
+check("las resistencias son uno de los tres multiplicadores del juego",
+  IDENTITIES.every((i) => [0.5, 1, 2].includes(i.resistencias.slash) &&
+    [0.5, 1, 2].includes(i.resistencias.pierce) && [0.5, 1, 2].includes(i.resistencias.blunt)));
+
 /* --- Velocidad --- */
 
 const vel = perfilVelocidad([ring, salsu]);

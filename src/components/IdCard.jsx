@@ -8,6 +8,7 @@ import { styles } from "../styles.js";
 export default function IdCard({
   id, checked, onChange, estiloActivo, mostrarSinner, deshabilitado,
   onFiltrarArquetipo, onFiltrarFaccion, arquetiposActivos, faccionActiva,
+  onVerDetalle,
 }) {
   // El acento lateral toma el color del primer arquetipo: es lo que permite
   // reconocer de qué juega una ID sin leer el texto.
@@ -60,6 +61,27 @@ export default function IdCard({
           ))}
         </div>
       </div>
+
+      {/*
+        Va fuera del flujo del texto y frena la propagación: toda la tarjeta es
+        un <label>, así que sin preventDefault este botón también marcaría la
+        casilla. Abrir la ficha y marcarla como propia son cosas distintas.
+      */}
+      {onVerDetalle && (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onVerDetalle(id);
+          }}
+          style={styles.botonFicha}
+          title={`Ver la ficha de ${id.nombre}`}
+          aria-label={`Ver la ficha de ${id.nombre}`}
+        >
+          ficha
+        </button>
+      )}
     </label>
   );
 }

@@ -63,9 +63,10 @@ src/
   lib/
     engine.js          motor: recursos de Sin, pasivas, E.G.O, resistencias, puntajes
     codigo.js          codifica/decodifica la colección para compartirla
+    estampa.js         dibuja el equipo en un canvas y lo baja como PNG
     seleccion.js       alta/baja de IDs con tope y una-por-Sinner
     storage.js         persistencia en localStorage, versionada y migrable (Identities y E.G.O)
-  components/          una pestaña por archivo
+  components/          una pestaña por archivo, más la ficha de Identidad
 public/
   retratos/            imágenes bajadas  ← generado, no editar a mano
 scripts/
@@ -348,6 +349,29 @@ cualquier fan site. Fuente: `limbus-assets.eldritchtools.com`.
 
 **No se completan datos de memoria.** Todo sale de las fuentes. Si algo está mal, se
 corrige el conversor y se regenera — nunca se edita el JSON a mano.
+
+## Ficha de Identidad y comparador
+
+Todo el dataset estaba y no se veía: el texto de las pasivas, su costo, los números de
+cada skill, la velocidad. El motor los usaba para puntuar, pero no había forma de mirarlos.
+El botón **ficha** de cada tarjeta abre un panel con eso.
+
+Adentro hay un desplegable **Comparar con**, y al elegir una segunda la misma tabla gana
+una columna: **las filas que difieren quedan resaltadas**. Es una tabla y no dos fichas al
+lado porque comparando importa la fila —"la velocidad de esta contra la de aquella"—, no la
+tarjeta; y porque dos columnas entran en un celular y dos fichas completas no.
+
+Se ofrecen las 184, no solo las propias: comparar contra una que **no** tenés es justo lo
+que sirve para decidir si conviene sacarla.
+
+## Descargar el equipo como imagen
+
+Botón *Descargar imagen* en Armar equipo. Arma un PNG con los 6 desplegados numerados y la
+banca aparte y apagada — la distinción importa, y una imagen que las mezcle miente.
+
+Se dibuja en un `<canvas>` en el navegador: sin dependencias, sin servidor y sin subir nada
+a ningún lado. Los retratos los sirve la propia app, así que no hay CORS que resolver. Si
+alguno falta se dibuja el marcador de iniciales en vez de abortar.
 
 ## Compartir la colección
 

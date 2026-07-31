@@ -13,6 +13,7 @@ import { PropuestaVisita, BannerVisita } from "./components/Visita.jsx";
 import ColeccionTab from "./components/ColeccionTab.jsx";
 import EquipoTab from "./components/EquipoTab.jsx";
 import CompletarTab from "./components/CompletarTab.jsx";
+import DetalleId from "./components/DetalleId.jsx";
 import { styles } from "./styles.js";
 
 const TABS = [
@@ -33,6 +34,13 @@ export default function App() {
   const [equipoIds, setEquipoIds] = useState([]);
   const [baseIds, setBaseIds] = useState([]);
   const [saveError, setSaveError] = useState(false);
+
+  /*
+    Ficha abierta y con quién se la compara. Se guarda el id y no el objeto: si
+    mañana el dataset se regenera, un id sigue resolviendo y un objeto viejo no.
+  */
+  const [fichaId, setFichaId] = useState(null);
+  const [compararId, setCompararId] = useState(null);
 
   /*
     Modo visita: una colección ajena cargada para mirar. Nunca se persiste y
@@ -155,6 +163,21 @@ export default function App() {
       .slice(0, 8);
   }, [ownedIdentities, base, baseIds]);
 
+  const ficha = useMemo(() => IDENTITIES.find((i) => i.id === fichaId) ?? null, [fichaId]);
+  const fichaComparar = useMemo(() => IDENTITIES.find((i) => i.id === compararId) ?? null, [compararId]);
+
+  /* Abrir otra ficha descarta la comparación anterior: comparar A con B y después
+     abrir C dejaría una mezcla que nadie pidió. */
+  const verDetalle = useCallback((id) => {
+    setFichaId(id.id);
+    setCompararId(null);
+  }, []);
+
+  const cerrarFicha = useCallback(() => {
+    setFichaId(null);
+    setCompararId(null);
+  }, []);
+
   const toggleEquipo = useCallback(
     (id, sinner) => setEquipoIds((prev) => toggleSeleccion(prev, id, sinner, MAX_EQUIPO, IDENTITIES)),
     []
@@ -207,6 +230,7 @@ export default function App() {
             saveError={saveError}
             enVisita={enVisita}
             onVisitar={entrarEnVisita}
+            onVerDetalle={verDetalle}
           />
         )}
 
@@ -225,6 +249,7 @@ export default function App() {
             max={MAX_EQUIPO}
             sinergia={sinergia}
             velocidad={velocidad}
+            onVerDetalle={verDetalle}
           />
         )}
 
@@ -235,8 +260,16 @@ export default function App() {
             onToggle={toggleBase}
             candidatas={candidatas}
             max={MAX_BASE_COMPLETAR}
+            onVerDetalle={verDetalle}
           />
         )}
+        <DetalleId
+          id={ficha}
+          comparar={fichaComparar}
+          candidatas={IDENTITIES}
+          onComparar={setCompararId}
+          onCerrar={cerrarFicha}
+        />
       </main>
 
       <footer style={styles.footer}>

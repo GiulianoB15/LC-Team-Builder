@@ -3,7 +3,7 @@ import IdCard from "./IdCard.jsx";
 import { ChipArquetipo } from "./Chips.jsx";
 import { styles } from "../styles.js";
 
-export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candidatas, max }) {
+export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candidatas, max, onVerDetalle }) {
   if (ownedIdentities.length === 0) {
     return (
       <p style={styles.helpText}>
@@ -28,6 +28,7 @@ export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candi
             onChange={() => onToggle(id.id, id.sinner)}
             estiloActivo={styles.idCardSelected}
             mostrarSinner
+            onVerDetalle={onVerDetalle}
           />
         ))}
       </div>

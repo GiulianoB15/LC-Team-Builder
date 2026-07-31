@@ -81,6 +81,35 @@ export const styles = {
   /* El motivo de posición va antes que el de recursos y se distingue: es el
      único de los dos que habla del slot y no de a quién bajar a la cancha. */
   reasonPosicion: { fontFamily: "system-ui, sans-serif", fontSize: 12.5, color: "#d8c9a0", marginTop: 2, lineHeight: 1.4 },
+  /* Discreto a propósito: no compite con la casilla, que es la acción principal. */
+  botonFicha: { alignSelf: "center", flex: "0 0 auto", fontFamily: "system-ui, sans-serif", fontSize: 10, textTransform: "uppercase", letterSpacing: 0.8, color: "#8d8880", background: "transparent", border: "1px solid #3a3631", borderRadius: 3, padding: "3px 6px", cursor: "pointer" },
+
+  tituloConAccion: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 10, flexWrap: "wrap" },
+
+  /* --- Ficha y comparador --- */
+  overlay: { position: "fixed", inset: 0, background: "rgba(8,7,7,0.78)", display: "flex", alignItems: "flex-start", justifyContent: "center", padding: 12, zIndex: 50, overflowY: "auto" },
+  panel: { background: "#151413", border: "1px solid #2c2926", borderRadius: 6, width: "100%", maxWidth: 760, marginBottom: 24 },
+  /* La barra queda fija arriba: en una ficha larga, "Cerrar" no puede quedar fuera de pantalla. */
+  panelBarra: { position: "sticky", top: 0, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, padding: "10px 12px", background: "#1b1917", borderBottom: "1px solid #2c2926", borderRadius: "6px 6px 0 0" },
+  panelTitulo: { fontFamily: "system-ui, sans-serif", fontSize: 12, textTransform: "uppercase", letterSpacing: 1, color: "#b3ada6" },
+  panelCuerpo: { padding: 12 },
+  botonChico: { fontFamily: "system-ui, sans-serif", fontSize: 12, color: "#e8e3dc", background: "#26231f", border: "1px solid #3a3631", borderRadius: 4, padding: "5px 10px", cursor: "pointer" },
+  selectorComparar: { display: "flex", flexDirection: "column", gap: 3, marginTop: 10 },
+  select: { fontFamily: "system-ui, sans-serif", fontSize: 13, color: "#e8e3dc", background: "#1b1917", border: "1px solid #3a3631", borderRadius: 4, padding: "6px 8px", width: "100%", maxWidth: 360 },
+  detalleEncabezado: { display: "flex", gap: 10, alignItems: "center", flex: "1 1 240px", minWidth: 0, padding: "6px 8px", background: "#1b1917", borderRadius: 4 },
+  detalleSeccion: { marginTop: 14, paddingTop: 12, borderTop: "1px solid #2c2926" },
+  detalleTituloId: { fontFamily: "system-ui, sans-serif", fontSize: 13, fontWeight: 600, color: "#e8e3dc", marginBottom: 4 },
+  detalleSubtitulo: { fontFamily: "system-ui, sans-serif", fontSize: 11, textTransform: "uppercase", letterSpacing: 0.9, color: "#8d8880", marginBottom: 4 },
+  /* Las tablas anchas scrollean solas; el body de la página nunca se mueve de costado. */
+  tablaScroll: { overflowX: "auto", marginTop: 8 },
+  tabla: { borderCollapse: "collapse", width: "100%", fontFamily: "system-ui, sans-serif", fontSize: 12.5 },
+  th: { textAlign: "left", padding: "5px 8px", color: "#8d8880", fontWeight: 600, borderBottom: "1px solid #2c2926", whiteSpace: "nowrap" },
+  td: { padding: "5px 8px", color: "#d6d0c8", borderBottom: "1px solid #211f1d", verticalAlign: "top" },
+  tdEtiqueta: { color: "#8d8880", whiteSpace: "nowrap" },
+  tdDistinto: { background: "#221f1a", color: "#f0e6d2" },
+  pasivaBloque: { padding: "6px 8px", background: "#1b1917", borderRadius: 4, marginBottom: 5 },
+  pasivaNombre: { fontFamily: "system-ui, sans-serif", fontSize: 13, fontWeight: 600, color: "#e8e3dc" },
+  pasivaTexto: { fontFamily: "system-ui, sans-serif", fontSize: 12.5, color: "#c4beb6", lineHeight: 1.45, marginTop: 3, whiteSpace: "pre-wrap" },
   listaSinergia: { listStyle: "none", margin: "8px 0 0", padding: 0, display: "flex", flexDirection: "column", gap: 4 },
   filaSinergia: { display: "flex", alignItems: "baseline", flexWrap: "wrap", gap: 8, padding: "5px 8px", background: "#1b1917", borderRadius: 4, border: "1px solid #2c2926" },
   resRow: { display: "flex", gap: 8, flexWrap: "wrap" },

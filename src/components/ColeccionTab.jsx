@@ -14,7 +14,7 @@ const SECCIONES = [
 
 const coincide = (texto, q) => String(texto ?? "").toLowerCase().includes(q);
 
-export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEgo, saveError, enVisita, onVisitar }) {
+export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEgo, saveError, enVisita, onVisitar, onVerDetalle }) {
   const [seccion, setSeccion] = useState("identities");
   const [filtro, setFiltro] = useState("");
   const [arquetiposActivos, setArquetipos] = useState(new Set());
@@ -190,6 +190,7 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
                         onFiltrarFaccion={toggleFaccion}
                         arquetiposActivos={arquetiposActivos}
                         faccionActiva={faccionActiva}
+                        onVerDetalle={onVerDetalle}
                       />
                     )
                   )}

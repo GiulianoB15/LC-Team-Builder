@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   DAMAGE_TYPES, DAMAGE_LABEL, SIN_LABEL, SLOTS_DESPLIEGUE, etiquetaResistencia,
 } from "../data/constants.js";
 import IdCard from "./IdCard.jsx";
 import { CostoSin } from "./EgoCard.jsx";
+import { descargarEquipo } from "../lib/estampa.js";
 import { styles } from "../styles.js";
 
 export default function EquipoTab({
   ownedIdentities, equipoIds, onToggle, orden, recursos, resistencias, arquetipos, pasivas,
-  egosEquipo, tieneEgos, max, sinergia, velocidad,
+  egosEquipo, tieneEgos, max, sinergia, velocidad, onVerDetalle,
 }) {
   if (ownedIdentities.length === 0) {
     return (
@@ -17,6 +18,20 @@ export default function EquipoTab({
       </p>
     );
   }
+
+  /*
+    La estampa se arma con canvas en el navegador: nada sale de la máquina. El
+    estado es solo para no dejar el botón mudo mientras cargan los retratos.
+  */
+  const [estampando, setEstampando] = useState(false);
+  const exportar = async () => {
+    setEstampando(true);
+    try {
+      await descargarEquipo(orden, { baseUrl: import.meta.env.BASE_URL });
+    } finally {
+      setEstampando(false);
+    }
+  };
 
   const arquetiposActivos = Object.entries(arquetipos).filter(([, c]) => c > 0).sort((a, b) => b[1] - a[1]);
   const sinsActivos = Object.entries(recursos).filter(([, c]) => c > 0).sort((a, b) => b[1] - a[1]);
@@ -38,13 +53,19 @@ export default function EquipoTab({
             onChange={() => onToggle(id.id, id.sinner)}
             estiloActivo={styles.idCardSelected}
             mostrarSinner
+            onVerDetalle={onVerDetalle}
           />
         ))}
       </div>
 
       {equipoIds.length > 0 && (
         <>
-          <h2 style={styles.sectionTitle}>Orden tentativo</h2>
+          <div style={styles.tituloConAccion}>
+            <h2 style={styles.sectionTitle}>Orden tentativo</h2>
+            <button onClick={exportar} disabled={estampando} style={styles.botonChico}>
+              {estampando ? "Armando…" : "Descargar imagen"}
+            </button>
+          </div>
           <div style={styles.aviso}>
             ⚠️ Heurística, no dato verificado. Quién actúa primero lo decide la{" "}
             <strong>velocidad</strong>, no este orden: el slot solo desempata cuando dos sacan el
