@@ -1,0 +1,4 @@
+{
+  "_comentario": "Ids con retrato en public/retratos/. Lo genera scripts/fetch-imagenes.mjs. La app lo consulta antes de pedir cada imagen, así no dispara pedidos por las que no existen.",
+  "ids": []
+}

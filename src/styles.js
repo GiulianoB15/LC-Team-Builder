@@ -30,6 +30,8 @@ export const styles = {
   bancaTag: { fontFamily: "system-ui, sans-serif", fontSize: 10.5, textTransform: "uppercase", letterSpacing: 1, color: "#8a847e", border: "1px solid #3a3840", borderRadius: 10, padding: "1px 7px", marginLeft: 8 },
   footerLink: { color: "#8a847e" },
 
+  retrato: { borderRadius: 5, border: "1px solid #2a2830", background: "#0f0e12", display: "block", flexShrink: 0 },
+  retratoVacio: { display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "system-ui, sans-serif", fontWeight: 600, letterSpacing: 0.5, userSelect: "none" },
   chipRow: { display: "flex", gap: 5, flexWrap: "wrap", marginTop: 5 },
   chip: { fontFamily: "system-ui, sans-serif", fontSize: 10.5, letterSpacing: 0.3, border: "1px solid", borderRadius: 10, padding: "1px 8px", whiteSpace: "nowrap", lineHeight: 1.7 },
   chipVacio: { fontFamily: "system-ui, sans-serif", fontSize: 10.5, color: "#5c5852", border: "1px solid #2a2830", borderRadius: 10, padding: "1px 8px", fontStyle: "italic" },

@@ -66,8 +66,12 @@ src/
     seleccion.js       alta/baja de IDs con tope y una-por-Sinner
     storage.js         persistencia en localStorage, versionada y migrable (Identities y E.G.O)
   components/          una pestaña por archivo
+public/
+  retratos/            imágenes bajadas  ← generado, no editar a mano
 scripts/
-  build-dataset.mjs    fusiona las dos fuentes y genera los JSON
+  build-dataset.mjs    fusiona las fuentes y genera los JSON
+  fetch-imagenes.mjs   baja los retratos y genera las miniaturas
+  parse-pasivas-wiki.mjs  extrae las pasivas de soporte del HTML de la wiki
   smoke-test.mjs       corre los chequeos
   tests.js             los chequeos en sí
 ```
@@ -137,6 +141,30 @@ en varias la wiki es la correcta (LCTeamBuilder tiene `Conering` por `Cornering`
 - **Una ID quedó fuera del índice de LCTeamBuilder.** `LobotomyCorpRemnantFaust`
   existe como archivo válido pero nunca se agregó a `Equipables.ts`, así que su propia
   app no la muestra. El conversor la importa aparte.
+
+## Retratos
+
+```bash
+npm install --no-save sharp        # opcional, para miniaturas de ~2 KB
+node scripts/fetch-imagenes.mjs    # --forzar para rebajar todo
+```
+
+Se corre **a mano**, no en CI. Las imágenes quedan versionadas en `public/retratos/`
+y la app las sirve estáticas, así que no le pega al servidor de nadie en cada visita.
+
+La URL sale del id, sin tabla de mapeo: las 12 Identities base (id terminado en `01`)
+usan el sufijo `_normal` y el resto `_gacksung`. Se verificó contra los 147 archivos de
+LCTeamBuilder, donde esos son los dos únicos sufijos que existen.
+
+Con `sharp` las 294 imágenes pesan **0,64 MB** en total (96px WebP). Sin `sharp` se
+guardan los originales, que son bastante más pesados.
+
+`src/data/retratos.json` lista los ids disponibles y la app lo consulta **antes** de
+pedir cada imagen: sin eso dispararía ~300 pedidos fallidos. Lo que falte se muestra
+como un marcador con las iniciales en el color del arquetipo, nunca como imagen rota.
+
+**El arte es de Project Moon.** Esto solo lo redistribuye para uso personal, igual que
+cualquier fan site. Fuente: `limbus-assets.eldritchtools.com`.
 
 ### Regla del dataset
 

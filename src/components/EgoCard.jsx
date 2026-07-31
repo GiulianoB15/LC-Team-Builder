@@ -1,6 +1,7 @@
 import React from "react";
 import { SIN_LABEL, colorArquetipo } from "../data/constants.js";
 import { ChipArquetipo } from "./Chips.jsx";
+import Retrato from "./Retrato.jsx";
 import { styles } from "../styles.js";
 
 /* Costo en recursos de Sin, en el orden en que viene (de mayor a menor). */
@@ -37,6 +38,7 @@ export default function EgoCard({
       }}
     >
       <input type="checkbox" checked={checked} onChange={onChange} disabled={deshabilitado} style={styles.checkbox} />
+      <Retrato id={ego.id} nombre={ego.nombre} arquetipos={ego.arquetipos} />
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={styles.idName}>
           {ego.nombre}

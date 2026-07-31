@@ -1,6 +1,7 @@
 import React from "react";
 import { colorArquetipo, FACCIONES_GENERICAS } from "../data/constants.js";
 import { ChipArquetipo, ChipFaccion } from "./Chips.jsx";
+import Retrato from "./Retrato.jsx";
 import { styles } from "../styles.js";
 
 /* Tarjeta con checkbox, compartida por las tres pestañas. */
@@ -24,6 +25,7 @@ export default function IdCard({
       }}
     >
       <input type="checkbox" checked={checked} onChange={onChange} disabled={deshabilitado} style={styles.checkbox} />
+      <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} />
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={styles.idName}>
           {id.nombre}
