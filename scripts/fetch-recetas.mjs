@@ -124,16 +124,65 @@ const limpiarIds = (lista, conocidos, desconocidos) =>
       return false;
     });
 
-const credenciales = await descubrirCredenciales();
-console.log(`Conexión descubierta en ${credenciales.via}`);
+/*
+  --probar: diagnóstico, no descarga. La primera corrida real falló con
+  "no se pudo extraer la conexión de 13 bundles", que no dice nada útil: no se
+  sabe si el problema es el host, el regex de la URL, el de la clave, o que la
+  conexión ni siquiera está en esos archivos.
+
+  Esto lo contesta en una corrida: dónde aparece la palabra "supabase", en qué
+  archivo, y con qué pinta.
+*/
+async function diagnosticar() {
+  const hosts = [SITIO, "https://limbus.eldritchtools.com"];
+
+  for (const host of hosts) {
+    console.log(`\n=== ${host} ===`);
+    let res;
+    try {
+      res = await fetch(host, { headers: { "user-agent": AGENTE } });
+    } catch (e) {
+      console.log("  no se pudo conectar:", e.message);
+      continue;
+    }
+    console.log(`  HTTP ${res.status}   URL final: ${res.url}`);
+    const html = await res.text();
+    console.log(`  el HTML menciona "supabase": ${/supabase/i.test(html)}`);
+
+    const scripts = [...html.matchAll(/src="([^"]*\/_next\/static\/[^"]+\.js)"/g)].map((m) =>
+      m[1].startsWith("http") ? m[1] : host + m[1]
+    );
+    console.log(`  bundles en el HTML: ${scripts.length}`);
+
+    let encontrados = 0;
+    for (const src of scripts) {
+      let js;
+      try {
+        js = await (await fetch(src, { headers: { "user-agent": AGENTE } })).text();
+      } catch {
+        continue;
+      }
+      const i = js.search(/supabase/i);
+      if (i === -1) continue;
+      encontrados += 1;
+      /* Una ventana alrededor, recortada, para ver con qué forma está escrito. */
+      console.log(`  → ${src.replace(host, "")}`);
+      console.log(`     …${js.slice(Math.max(0, i - 90), i + 130).replace(/\s+/g, " ")}…`);
+      if (encontrados >= 3) break;
+      await new Promise((r) => setTimeout(r, 150));
+    }
+    if (!encontrados) console.log("  ningún bundle del HTML menciona supabase");
+  }
+  console.log("\nNo se escribió nada (--probar).");
+}
 
 if (soloProbar) {
-  const muestra = await pedirPagina(credenciales, 0);
-  console.log(`\nEl RPC respondió con ${muestra.length} builds.`);
-  console.log("Claves de la primera:", Object.keys(muestra[0] ?? {}).sort().join(", "));
-  console.log("\nNo se escribió nada (--probar).");
+  await diagnosticar();
   process.exit(0);
 }
+
+const credenciales = await descubrirCredenciales();
+console.log(`Conexión descubierta en ${credenciales.via}`);
 
 const recetas = [];
 const desconocidas = { identities: new Set(), egos: new Set() };
