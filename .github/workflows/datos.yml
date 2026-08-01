@@ -24,16 +24,22 @@ jobs:
       - name: Bajar pasivas y números de skill
         run: node scripts/fetch-datos.mjs
 
+      # Otra fuente y otra cadencia: el color firma de cada Sinner sale de la
+      # wiki y solo cambiaría si saliera un Sinner nuevo, cosa que no pasó
+      # nunca. Va acá igual para no tener un workflow más por 12 pedidos.
+      - name: Bajar el color firma de cada Sinner
+        run: node scripts/fetch-colores.mjs
+
       - name: Commitear lo que haya cambiado
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/pasivas.json src/data/skills.json
+          git add src/data/pasivas.json src/data/skills.json src/data/colores.json
           if git diff --staged --quiet; then
             echo "Sin cambios: los datos ya estaban al día."
             exit 0
           fi
-          git commit -m "Actualizar pasivas y números de skill
+          git commit -m "Actualizar datos bajados de las fuentes
 
-          Generado por scripts/fetch-datos.mjs desde el workflow."
+          Generado por scripts/fetch-datos.mjs y fetch-colores.mjs desde el workflow."
           git push
