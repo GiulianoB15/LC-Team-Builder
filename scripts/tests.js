@@ -712,4 +712,64 @@ check("no queda ninguna captura en uso, en E.G.O ni en Identities",
   EGOS.every((e) => e.pasivas.every((p) => p.fuente !== "captura")) &&
   IDENTITIES.every((i) => [...i.pasivas.combate, ...i.pasivas.soporte].every((p) => p.fuente !== "captura")));
 
+
+
+/*
+  --- Etiquetas con marcado de Unity ---
+
+  El dump trae unas pocas etiquetas envueltas en el marcado con el que el juego
+  las pinta en pantalla: `<color=#d40000><s>Sottocapo</s></color>`. Son
+  afiliaciones anteriores del personaje, y el juego las muestra en rojo y
+  tachadas. Sin limpiarlas, el chip mostraba el marcado tal cual.
+
+  Dos de las cinco vienen mal cerradas (`<s>…<s>`), así que emparejar aperturas
+  con cierres no alcanza: se limpia por etiqueta suelta.
+*/
+const marcado = /<\/?(?:color|size|s|b|i|u)\b[^>]*>/i;
+const todasLasEtiquetas = [...IDENTITIES, ...EGOS].flatMap((x) => x.etiquetas ?? []);
+
+check("ninguna etiqueta conserva el marcado del juego",
+  todasLasEtiquetas.every((t) => !marcado.test(t)),
+  todasLasEtiquetas.filter((t) => marcado.test(t)).join(" | "));
+
+check("ninguna etiqueta queda vacía después de limpiarla",
+  todasLasEtiquetas.every((t) => t.trim().length > 0));
+
+/*
+  Las tachadas no se borran: que una ID haya pertenecido a Le Sette Famiglie es
+  información, y filtrar por esa facción tiene que seguir encontrándola. Van
+  aparte en `etiquetasEx` para poder mostrarlas tachadas como en el juego.
+*/
+const EX_ESPERADAS = {
+  10613: ["Jia Family"],
+  10614: ["Maestro"],
+  10916: ["Le Sette Famiglie", "Sottocapo"],
+  11115: ["Great Sister"],
+};
+
+check("las 4 Identities con afiliaciones anteriores las conservan en etiquetasEx",
+  Object.entries(EX_ESPERADAS).every(([id, ex]) =>
+    JSON.stringify(porId(Number(id)).etiquetasEx) === JSON.stringify(ex)),
+  Object.keys(EX_ESPERADAS).map((id) => `${id}: ${JSON.stringify(porId(Number(id)).etiquetasEx)}`).join(" | "));
+
+check("y siguen estando en etiquetas, así que el filtro por facción las encuentra",
+  Object.entries(EX_ESPERADAS).every(([id, ex]) =>
+    ex.every((f) => (porId(Number(id)).etiquetas ?? []).includes(f))));
+
+check("nadie más tiene etiquetasEx",
+  [...IDENTITIES, ...EGOS].filter((x) => (x.etiquetasEx ?? []).length > 0).length === 4);
+
+/*
+  El limpiador nombra las etiquetas de formato una por una a propósito. Los
+  textos del juego usan `<...>` para contenido real —`<Bloodfiend>`, `<Lake
+  Entity>`, `<Rules of the Backstreets>`— y un `/<[^>]*>/g` se los comía.
+*/
+const textosPasivas = [
+  ...IDENTITIES.flatMap((i) => [...i.pasivas.combate, ...i.pasivas.soporte]),
+  ...EGOS.flatMap((e) => e.pasivas),
+].map((p) => p.descripcion ?? "").join("\n");
+
+check("las pasivas conservan los <términos> que son contenido del juego",
+  textosPasivas.includes("<Bloodfiend>") && textosPasivas.includes("<Lake Entity>"));
+
 console.log(fallos === 0 ? "\nTodo verde." : `\n${fallos} chequeo(s) fallando.`);

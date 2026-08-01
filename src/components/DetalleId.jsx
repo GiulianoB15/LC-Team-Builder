@@ -78,7 +78,14 @@ function Pasivas({ id }) {
 
 /* Las filas que se pueden comparar entre dos IDs, en el orden en que se leen. */
 function filas(id) {
-  const facciones = (id.etiquetas ?? []).filter((f) => !FACCIONES_GENERICAS.has(f));
+  /*
+    Las afiliaciones anteriores se marcan: la tabla es texto plano, así que acá
+    no sirve el tachado que usan los chips. Sin la marca, la ficha diría que
+    Thumb Nursefather está en Le Sette Famiglie, y ya no lo está.
+  */
+  const facciones = (id.etiquetas ?? [])
+    .filter((f) => !FACCIONES_GENERICAS.has(f))
+    .map((f) => ((id.etiquetasEx ?? []).includes(f) ? `${f} (ex)` : f));
   return [
     ["Sinner", id.sinner],
     ["Rareza", "★".repeat(id.rareza)],

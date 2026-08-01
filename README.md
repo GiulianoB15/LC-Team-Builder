@@ -281,6 +281,35 @@ rompe el día que redeployan, y la vía que sí funcionaba era la menos consider
 La postura sobre qué se copiaría, si se retoma: **solo ids, título, autor, link, orden,
 tags y fecha**. Nunca el texto que escribió la persona — para eso, linkear al original.
 
+### Facciones tachadas
+
+Cinco etiquetas de cuatro Identidades venían del dump envueltas en el marcado con el que
+el juego las pinta en pantalla, y el chip lo mostraba tal cual:
+
+```
+<color=#d40000><s>Le Sette Famiglie<s></color>
+```
+
+Son **afiliaciones anteriores** del personaje: el juego las muestra en rojo y tachadas
+porque ese vínculo se rompió. Thumb Nursefather ya no está en Le Sette Famiglie ni es
+Sottocapo, pero lo estuvo, y eso explica de dónde viene.
+
+Así que no se borran: el conversor limpia el marcado y guarda el nombre en `etiquetas`
+—para que filtrar por esa facción la siga encontrando— y además lo anota en `etiquetasEx`.
+La UI lo usa para tacharlo, igual que el juego; en la ficha, que es tabla de texto, va
+como `(ex)`.
+
+Las cuatro afectadas: 10613 *The Lord of Hongyuan* (`Jia Family`), 10614 *Ring Nursefather*
+(`Maestro`), 10916 *Thumb Nursefather* (`Le Sette Famiglie`, `Sottocapo`) y 11115 *Middle
+Nursefather* (`Great Sister`). Ningún E.G.O.
+
+**Dos detalles que condicionaron la solución.** Dos de las cinco vienen mal cerradas
+(`<s>…<s>` en vez de `</s>`), así que emparejar aperturas con cierres no funcionaba: se
+limpia etiqueta por etiqueta. Y el limpiador **nombra** las etiquetas de formato
+(`color`, `size`, `s`, `b`, `i`, `u`) en vez de borrar todo `<...>`, porque los textos de
+las pasivas usan esa misma sintaxis para contenido real —`<Bloodfiend>`, `<Lake Entity>`,
+`<Rules of the Backstreets>`— y un barrido genérico se los comía.
+
 ### Limitaciones conocidas, verificadas
 
 - **Una ID quedó fuera del índice de LCTeamBuilder.** `LobotomyCorpRemnantFaust`

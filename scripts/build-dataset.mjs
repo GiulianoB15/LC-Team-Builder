@@ -281,6 +281,8 @@ function convertirIdentity(id, raw) {
     };
   });
 
+  const etiquetas = convertirEtiquetas(raw.tags);
+
   const skillsDefensa = (raw.defenseSkillTypes ?? []).map((s) => ({
     id: s.id,
     sin: capSin(s.type?.affinity),
@@ -343,7 +345,13 @@ function convertirIdentity(id, raw) {
     afinidadDominante: dominante,
     /* Keywords OFICIALES del dump, no derivados del texto. */
     arquetipos: raw.skillKeywordList ?? [],
-    etiquetas: raw.tags ?? [],
+    etiquetas: etiquetas.limpias,
+    /*
+      Las que el juego muestra tachadas: afiliaciones que el personaje ya no
+      tiene. Se listan aparte para que el filtro siga trabajando con nombres
+      limpios y la UI pueda mostrarlas distinto.
+    */
+    etiquetasEx: etiquetas.ex,
     estados: raw.statuses ?? [],
     pasivas: pasivas ?? { combate: [], soporte: [] },
     tienePasivas: !!pasivas,
@@ -356,6 +364,46 @@ function convertirIdentity(id, raw) {
     */
     pasivasCompletas: (pasivas?.combate.length ?? 0) > 0,
   };
+}
+
+/* --- Etiquetas --- */
+
+/*
+  Algunas etiquetas vienen con texto enriquecido de Unity, no como texto pelado:
+
+      <color=#d40000><s>Le Sette Famiglie<s></color>
+      <color=#d40000><s>Sottocapo</s></color>
+
+  Son 5 etiquetas en 4 Identities, todas del mismo patrón: rojo y tachado. En el
+  juego eso marca una afiliación que el personaje YA NO tiene —los tres
+  "Nursefather" y el "Lord of Hongyuan"—, así que no es ruido: es información, y
+  borrarlas sería perderla. Lo que hay que sacar es el marcado.
+
+  Ojo con el HTML mal cerrado: dos de las cinco abren <s> dos veces en vez de
+  cerrar con </s>. Por eso se quitan TODAS las etiquetas sueltas en vez de
+  buscar pares, que con esa entrada no matchearían.
+*/
+/*
+  Se sacan SOLO las etiquetas de formato de Unity, no cualquier cosa entre <>.
+  El dataset usa los ángulos para contenido real en las descripciones de
+  pasivas: <Bloodfiend>, <Lake Entity>, <Rules of the Backstreets> son
+  categorías del juego, no marcado. Un `replace(/<[^>]*>/g, "")` a lo bruto se
+  las comería si alguna vez aparecieran en una etiqueta.
+*/
+const FORMATO_UNITY = /<\/?(?:color|size|s|b|i|u)\b[^>]*>/gi;
+const TACHADA = /<\/?s\b[^>]*>/i;
+const limpiarEtiqueta = (t) => String(t).replace(FORMATO_UNITY, "").trim();
+
+function convertirEtiquetas(tags) {
+  const limpias = [];
+  const ex = [];
+  (tags ?? []).forEach((t) => {
+    const nombre = limpiarEtiqueta(t);
+    if (!nombre) return;
+    limpias.push(nombre);
+    if (TACHADA.test(String(t))) ex.push(nombre);
+  });
+  return { limpias, ex };
 }
 
 /* --- Sinergia derivada de las pasivas --- */

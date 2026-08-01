@@ -61,15 +61,22 @@ export function ChipArquetipo({ arquetipo, onClick, activo, navegable = true }) 
   Facción. Clickeable: tocar "Blade Lineage" filtra por esa facción, que es la
   forma más rápida de encontrar un núcleo temático sin tipear.
 */
-export function ChipFaccion({ faccion, onClick, activo, navegable = true }) {
+export function ChipFaccion({ faccion, onClick, activo, navegable = true, ex = false }) {
   return (
     <span
       {...propsClickeable(onClick, faccion, navegable)}
       aria-pressed={onClick ? !!activo : undefined}
+      /*
+        `ex` son afiliaciones que el personaje ya NO tiene. El juego las muestra
+        tachadas y en rojo; acá se replica el tachado, porque borrarlas perdería
+        información y mostrarlas iguales al resto diría algo falso.
+      */
+      title={ex ? `${faccion}: afiliación anterior, el juego la muestra tachada` : undefined}
       style={{
         ...styles.chip,
         ...styles.chipFaccion,
         ...(activo ? styles.chipFaccionActiva : {}),
+        ...(ex ? styles.chipFaccionEx : {}),
         cursor: onClick ? "pointer" : "default",
       }}
     >

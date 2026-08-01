@@ -96,6 +96,7 @@ export const styles = {
   candidataTibia: { opacity: 0.72 },
 
   selectorSlots: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", padding: "8px 10px", background: "#1b1917", border: "1px solid #2c2926", borderRadius: 6, marginBottom: 10 },
+  chipFaccionEx: { textDecoration: "line-through", opacity: 0.65 },
   insignia: { fontFamily: "system-ui, sans-serif", fontSize: 10, textTransform: "uppercase", letterSpacing: 0.8, color: "#8d8880", border: "1px solid #3a3631", borderRadius: 10, padding: "1px 6px", marginLeft: 8, verticalAlign: "middle" },
   chipRol: { fontFamily: "system-ui, sans-serif", fontSize: 11, color: "#b3ada6", background: "#1b1917", border: "1px solid #3a3631", borderRadius: 11, padding: "3px 9px", cursor: "pointer" },
   chipRolActivo: { color: "#151413", background: "#c9bfa8", borderColor: "#c9bfa8", fontWeight: 600 },

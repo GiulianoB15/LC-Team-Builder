@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generadoEn": "2026-07-31",
+  "generadoEn": "2026-08-01",
   "ultimaIdentity": "2026-07-23",
   "fuentes": [
    {
@@ -175,6 +175,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "Sinking",
@@ -308,6 +309,7 @@
     "Fixer",
     "Seven Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "Paralysis",
@@ -443,6 +445,7 @@
     "Blade Lineage",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath"
    ],
@@ -584,6 +587,7 @@
    "etiquetas": [
     "Technology Liberation Alliance"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Sinking",
     "SinkingSurge",
@@ -718,6 +722,7 @@
     "Fixer",
     "Molar Office"
    ],
+   "etiquetasEx": [],
    "estados": [
     "DefenseDown",
     "Vibration",
@@ -855,6 +860,7 @@
    "etiquetas": [
     "W Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Binding",
@@ -1002,6 +1008,7 @@
    "etiquetas": [
     "The Pequod"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Binding",
     "Breath",
@@ -1141,6 +1148,7 @@
     "Dieci Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "KnowledgeExplored",
@@ -1281,6 +1289,7 @@
     "The Fingers",
     "The Ring"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackUp",
     "Burst",
@@ -1444,6 +1453,7 @@
     "L Corp.",
     "Lobotomy Corp. Headquarters"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Bullet",
@@ -1592,6 +1602,7 @@
     "LCE",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Binding",
@@ -1732,6 +1743,7 @@
     "Fixer",
     "Liu Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Combustion"
    ],
@@ -1871,6 +1883,7 @@
     "E.G.O Gear",
     "N Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "BoseProjektil",
@@ -2030,6 +2043,7 @@
     "Heishou Pack Adept",
     "Jia Family"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "AttackUp",
@@ -2209,6 +2223,7 @@
     "The Index",
     "The Oracle's Proxy"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Binding",
     "BlackNightmareYisang",
@@ -2434,6 +2449,7 @@
     "LCE",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Burst",
@@ -2577,6 +2593,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDown",
     "Paralysis",
@@ -2709,6 +2726,7 @@
    "etiquetas": [
     "W Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Binding",
     "Charge",
@@ -2854,6 +2872,7 @@
     "L Corp.",
     "Lobotomy Corp. Branch"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Breath",
@@ -2988,6 +3007,7 @@
     "N Corp.",
     "N Corp. Fanatic"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AssemblePersonality",
     "HitDamageUp",
@@ -3123,6 +3143,7 @@
     "Fixer",
     "Zwei Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Agility",
@@ -3257,6 +3278,7 @@
     "Fixer",
     "Seven Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Breath",
@@ -3403,6 +3425,7 @@
     "L Corp.",
     "Lobotomy Corp. Headquarters"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDown",
     "Binding",
@@ -3542,6 +3565,7 @@
     "Blade Lineage",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Binding",
     "Breath",
@@ -3679,6 +3703,7 @@
     "Fixer",
     "Wuthering Heights"
    ],
+   "etiquetasEx": [],
    "estados": [
     "EchoOfMansion",
     "Sinking"
@@ -3821,6 +3846,7 @@
     "Mechanical Amalgam",
     "MultiCrack Office"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Charge",
     "VioletTakeDamageUp"
@@ -3976,6 +4002,7 @@
     "LCE",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackUp",
     "Combustion",
@@ -4142,6 +4169,7 @@
     "Heishou Pack - Mao Branch",
     "Heishou Pack Adept"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "AttackUp",
@@ -4315,6 +4343,7 @@
     "Fixer",
     "Shi Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AStrokeOfDeath",
     "AimForTheGoal",
@@ -4467,6 +4496,7 @@
     "The Fingers",
     "The Index"
    ],
+   "etiquetasEx": [],
    "estados": [
     "BlessingOfIndexPrescriptAlly",
     "Breath",
@@ -4695,6 +4725,7 @@
     "The House of Spiders",
     "The Ring"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "AttackDmgDown",
@@ -4901,6 +4932,7 @@
     "Dawn Office",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackUp",
     "CaseOverheating",
@@ -5070,6 +5102,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Enhancement",
@@ -5204,6 +5237,7 @@
    "etiquetas": [
     "W Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "Charge",
@@ -5341,6 +5375,7 @@
     "Fixer",
     "Shi Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Breath"
@@ -5474,6 +5509,7 @@
     "N Corp.",
     "N Corp. Fanatic"
    ],
+   "etiquetasEx": [],
    "estados": [
     "NailPersonality",
     "Paralysis",
@@ -5612,6 +5648,7 @@
     "Cinq Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Binding",
@@ -5745,6 +5782,7 @@
     "The Fingers",
     "The Middle"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgDown",
     "Laceration",
@@ -5880,6 +5918,7 @@
     "L Corp.",
     "Lobotomy Corp. Headquarters"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Burst"
@@ -6013,6 +6052,7 @@
     "Blade Lineage",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath",
     "SlashDamageUp"
@@ -6147,6 +6187,7 @@
    "etiquetas": [
     "T Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Binding",
@@ -6332,6 +6373,7 @@
     "La Manchaland",
     "Second Kindred"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "BloodArmorPersonalityFirst",
@@ -6494,6 +6536,7 @@
     "Cinq Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Breath",
@@ -6682,6 +6725,7 @@
     "L Corp.",
     "Lobotomy Corp. Headquarters"
    ],
+   "etiquetasEx": [],
    "estados": [
     "ArcanaQueenOfHate",
     "Burst",
@@ -6836,6 +6880,7 @@
     "Heishou Pack",
     "Heishou Pack - Wei Branch"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "CrushMarks",
@@ -7044,6 +7089,7 @@
     "The House of Spiders",
     "The Index"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "Blandishment",
@@ -7224,6 +7270,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath",
     "SlashDamageUp"
@@ -7357,6 +7404,7 @@
     "Fixer",
     "Seven Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "DefenseDown",
@@ -7496,6 +7544,7 @@
     "Kurokumo Clan",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgDown",
     "AttackDown",
@@ -7640,6 +7689,7 @@
     "Syndicate",
     "The Backstreets"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Binding",
@@ -7776,6 +7826,7 @@
    "etiquetas": [
     "W Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Charge",
@@ -7918,6 +7969,7 @@
     "LCC",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDown",
     "Breath",
@@ -8065,6 +8117,7 @@
     "Fixer",
     "Liu Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Combustion"
    ],
@@ -8204,6 +8257,7 @@
     "Edgar Family",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Binding",
@@ -8345,6 +8399,7 @@
     "Syndicate",
     "Yurodiviye"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Vibration",
     "VibrationExplosion"
@@ -8495,6 +8550,7 @@
     "L Corp.",
     "Lobotomy Corp. Headquarters"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Binding",
@@ -8649,6 +8705,7 @@
     "Heishou Pack",
     "Heishou Pack - Mao Branch"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Burst",
@@ -8808,6 +8865,7 @@
     "E.G.O Gear",
     "N Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Binding",
     "BoseProjektil",
@@ -8980,6 +9038,7 @@
    "etiquetas": [
     "H Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath",
     "Burst",
@@ -9156,6 +9215,7 @@
     "L Corp.",
     "Lobotomy Corp. Headquarters"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AlriuneEGOThey",
     "AlriuneEGOWe",
@@ -9372,6 +9432,7 @@
     "The House of Spiders",
     "The Pinky"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath",
     "Combustion",
@@ -9551,6 +9612,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Endurance",
     "Protection",
@@ -9685,6 +9747,7 @@
     "Fixer",
     "Liu Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Combustion"
    ],
@@ -9824,6 +9887,7 @@
    "etiquetas": [
     "W Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "Charge",
@@ -9966,6 +10030,7 @@
     "N Corp.",
     "N Corp. Fanatic"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AssemblePersonality",
     "Binding",
@@ -10103,6 +10168,7 @@
     "Fixer",
     "Rosespanner Workshop"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Charge",
     "Reduction",
@@ -10242,6 +10308,7 @@
    "etiquetas": [
     "R Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Charge",
     "Laceration"
@@ -10382,6 +10449,7 @@
     "The Fingers",
     "The Middle"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Laceration",
     "PlusCoinValueDown",
@@ -10522,6 +10590,7 @@
     "Blade Lineage",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "BladeResultUpTier1",
     "BladeResultUpTier2",
@@ -10670,6 +10739,7 @@
     "Syndicate",
     "The Dead Rabbits"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDown",
     "Burst"
@@ -10808,6 +10878,7 @@
     "Dieci Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Discard",
     "KnowledgeExplored",
@@ -10943,6 +11014,7 @@
     "Cinq Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Breath",
@@ -11098,6 +11170,7 @@
     "The Fingers",
     "The Thumb"
    ],
+   "etiquetasEx": [],
    "estados": [
     "BeastEyesAlly",
     "Bullet",
@@ -11264,6 +11337,7 @@
     "La Manchaland",
     "Third Kindred"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "AttackUp",
@@ -11428,6 +11502,7 @@
     "L Corp.",
     "Lobotomy Corp. Headquarters"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Bullet",
     "Combustion",
@@ -11578,6 +11653,7 @@
     "The Fingers",
     "The Ring"
    ],
+   "etiquetasEx": [],
    "estados": [
     "BearClawWoundAlly",
     "DefenseDown",
@@ -11730,6 +11806,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "Reduction",
@@ -11864,6 +11941,7 @@
     "Kurokumo Clan",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Laceration",
     "Paralysis"
@@ -12002,6 +12080,7 @@
     "The Backstreets",
     "Tingtang Gang"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Laceration"
    ],
@@ -12133,6 +12212,7 @@
     "Fixer",
     "Liu Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Combustion"
    ],
@@ -12270,6 +12350,7 @@
    "etiquetas": [
     "K Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "KCorpSerum",
@@ -12403,6 +12484,7 @@
    "etiquetas": [
     "W Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Burst",
@@ -12543,6 +12625,7 @@
     "Hook Office",
     "The Backstreets"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Laceration"
@@ -12679,6 +12762,7 @@
     "Dieci Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "KnowledgeExplored",
@@ -12813,6 +12897,7 @@
     "Syndicate",
     "Yurodiviye"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "FusionVibration",
@@ -12953,6 +13038,7 @@
     "Fanghunt Office",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "DefenseDown",
@@ -13141,6 +13227,7 @@
     "Fixer",
     "Full-Stop Office"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Binding",
     "Breath",
@@ -13288,6 +13375,7 @@
    "etiquetas": [
     "R Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Charge",
     "Sinking",
@@ -13458,8 +13546,11 @@
     "Rupture"
    ],
    "etiquetas": [
-    "<color=#d40000><s>Jia Family</s></color>",
+    "Jia Family",
     "H Corp."
+   ],
+   "etiquetasEx": [
+    "Jia Family"
    ],
    "estados": [
     "AttackDmgUp",
@@ -13658,12 +13749,15 @@
     "Charge"
    ],
    "etiquetas": [
-    "<color=#d40000><s>Maestro<s></color>",
+    "Maestro",
     "Mechanical Amalgam",
     "School of Corporism",
     "The Fingers",
     "The House of Spiders",
     "The Ring"
+   ],
+   "etiquetasEx": [
+    "Maestro"
    ],
    "estados": [
     "Agility",
@@ -13835,6 +13929,7 @@
     "Fixer",
     "S Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Binding",
@@ -13984,6 +14079,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "Enhancement",
@@ -14117,6 +14213,7 @@
     "Fixer",
     "Shi Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath"
    ],
@@ -14250,6 +14347,7 @@
    "etiquetas": [
     "R Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Bullet",
@@ -14388,6 +14486,7 @@
     "N Corp.",
     "N Corp. Fanatic"
    ],
+   "etiquetasEx": [],
    "estados": [
     "HitResultUp",
     "Laceration",
@@ -14523,6 +14622,7 @@
     "E.G.O Gear",
     "Technology Liberation Alliance"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "HitDamageUp",
@@ -14665,6 +14765,7 @@
     "Fixer",
     "Seven Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "DefenseDown"
@@ -14803,6 +14904,7 @@
    "etiquetas": [
     "The Pequod"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackUp",
     "Breath",
@@ -14937,6 +15039,7 @@
     "Fixer",
     "Öufi Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Switch_Vibration",
     "Vibration",
@@ -15083,6 +15186,7 @@
     "Mechanical Amalgam",
     "MultiCrack Office"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Charge",
@@ -15237,6 +15341,7 @@
     "The Wild Hunt",
     "Wuthering Heights"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "AttackUp",
@@ -15404,6 +15509,7 @@
     "Fixer",
     "Full-Stop Office"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Breath",
@@ -15563,6 +15669,7 @@
     "Kurokumo Clan",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDown",
     "BlackCloudBlade",
@@ -15709,6 +15816,7 @@
    "etiquetas": [
     "W Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "CanDuelGuard",
@@ -15875,6 +15983,7 @@
     "Heishou Pack - You Branch",
     "Heishou Pack Adept"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "ChickenFightlust",
@@ -16047,6 +16156,7 @@
     "The Fingers",
     "The Middle"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "AttackUp",
@@ -16224,6 +16334,7 @@
     "The House of Spiders",
     "The Thumb"
    ],
+   "etiquetasEx": [],
    "estados": [
     "CanDuelGuard",
     "Combustion",
@@ -16403,6 +16514,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Disarming",
     "HitTakeDamageUp",
@@ -16536,6 +16648,7 @@
    "etiquetas": [
     "R Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Charge",
     "Enhancement",
@@ -16669,6 +16782,7 @@
     "Fixer",
     "Shi Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath"
    ],
@@ -16805,6 +16919,7 @@
     "LCC",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Bullet",
     "Burst",
@@ -16946,6 +17061,7 @@
     "E.G.O Gear",
     "Technology Liberation Alliance"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "Vibration"
@@ -17087,6 +17203,7 @@
     "Fixer",
     "Liu Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Combustion",
     "PlusCoinValueUp"
@@ -17229,6 +17346,7 @@
     "Fixer",
     "Molar Office"
    ],
+   "etiquetasEx": [],
    "estados": [
     "BurstProtection",
     "DefenseDown",
@@ -17379,6 +17497,7 @@
     "Pequod Captain",
     "The Pequod"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "AttackDmgUp",
@@ -17539,6 +17658,7 @@
     "Edgar Family",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Binding",
@@ -17678,6 +17798,7 @@
     "Fixer",
     "Zwei Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "CanDuelGuard",
@@ -17821,6 +17942,7 @@
     "Kurokumo Clan",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "AttackDown",
@@ -17988,6 +18110,7 @@
     "H Corp.",
     "Jia Family"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackUp",
     "Breath",
@@ -18155,6 +18278,7 @@
     "Fixer",
     "Jeong's Office"
    ],
+   "etiquetasEx": [],
    "estados": [
     "DefenseDown",
     "Discard",
@@ -18319,6 +18443,7 @@
     "The House of Spiders",
     "The Middle"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Binding",
@@ -18503,6 +18628,7 @@
     "Limbus Company",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AengduNewArmIshmael",
     "Agility",
@@ -18665,6 +18791,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Laceration"
    ],
@@ -18806,6 +18933,7 @@
     "Kurokumo Clan",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath",
     "Laceration",
@@ -18938,6 +19066,7 @@
     "LCC",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "DefenseDown",
     "Disarming",
@@ -19072,6 +19201,7 @@
     "N Corp.",
     "N Corp. Fanatic"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "AssemblePersonality",
@@ -19209,6 +19339,7 @@
     "Fixer",
     "Rosespanner Workshop"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Charge",
@@ -19347,6 +19478,7 @@
     "Fixer",
     "Zwei Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Breath",
@@ -19487,6 +19619,7 @@
     "Dieci Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Discard",
@@ -19623,6 +19756,7 @@
     "Fixer",
     "Liu Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Combustion",
     "CrimsonDamageUp",
@@ -19766,6 +19900,7 @@
    "etiquetas": [
     "T Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Binding",
     "TimeRentalTwoPersonality",
@@ -19910,6 +20045,7 @@
     "Devyat' Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Burst",
@@ -20071,6 +20207,7 @@
     "La Manchaland",
     "Second Kindred"
    ],
+   "etiquetasEx": [],
    "estados": [
     "BloodDinner",
     "BloodDinner_Accumulation",
@@ -20230,6 +20367,7 @@
     "Heishou Pack",
     "Heishou Pack - Si Branch"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDown",
     "Breath",
@@ -20415,6 +20553,7 @@
     "L Corp.",
     "Lobotomy Corp. Headquarters"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "BlackTearsAlly",
@@ -20588,6 +20727,7 @@
    "etiquetas": [
     "R Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Charge",
     "HitTakeDamageUp",
@@ -20757,6 +20897,7 @@
     "The Fingers",
     "The Ring"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackUp",
     "BearClawWoundAlly",
@@ -20960,13 +21101,17 @@
     "Tremor"
    ],
    "etiquetas": [
-    "<color=#d40000><s>Le Sette Famiglie<s></color>",
-    "<color=#d40000><s>Sottocapo</s></color>",
+    "Le Sette Famiglie",
+    "Sottocapo",
     "Smoke War",
     "The Fingers",
     "The House of Spiders",
     "The Thumb",
     "War Hero"
+   ],
+   "etiquetasEx": [
+    "Le Sette Famiglie",
+    "Sottocapo"
    ],
    "estados": [
     "AccelBullet",
@@ -21152,6 +21297,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "Enhancement"
@@ -21285,6 +21431,7 @@
     "Blade Lineage",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "Breath",
@@ -21420,6 +21567,7 @@
     "Fixer",
     "Zwei Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgDown",
     "HitTakeDamageUp",
@@ -21556,6 +21704,7 @@
     "Syndicate",
     "The Backstreets"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath",
     "Sinking"
@@ -21689,6 +21838,7 @@
     "N Corp.",
     "N Corp. Fanatic"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AssemblePersonality",
     "Combustion",
@@ -21823,6 +21973,7 @@
     "E.G.O Gear",
     "Technology Liberation Alliance"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "Talisman"
@@ -21962,6 +22113,7 @@
     "Fixer",
     "Molar Office"
    ],
+   "etiquetasEx": [],
    "estados": [
     "BurstProtection",
     "Vibration",
@@ -22101,6 +22253,7 @@
     "Cinq Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Breath",
@@ -22254,6 +22407,7 @@
     "Dawn Office",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Combustion",
     "UnstableFeeling"
@@ -22396,6 +22550,7 @@
     "Fixer",
     "Zwei Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Agility",
@@ -22544,6 +22699,7 @@
     "Devyat' Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Burst",
@@ -22690,6 +22846,7 @@
     "The Fingers",
     "The Middle"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "AttackUp",
@@ -22829,6 +22986,7 @@
     "The Fingers",
     "The Thumb"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDmgUp",
     "Bullet",
@@ -22982,6 +23140,7 @@
     "Heishou Pack",
     "Heishou Pack - You Branch"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackUp",
     "Burst",
@@ -23158,6 +23317,7 @@
    "etiquetas": [
     "The House of Spiders"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Breath",
@@ -23306,6 +23466,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst"
    ],
@@ -23438,6 +23599,7 @@
     "Blade Lineage",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath",
     "SlashDamageUp"
@@ -23569,6 +23731,7 @@
    "etiquetas": [
     "G Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "AttackDmgUp",
@@ -23704,6 +23867,7 @@
     "Fixer",
     "Seven Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "AttackDown",
@@ -23842,6 +24006,7 @@
     "Fixer",
     "Molar Office"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackUp",
     "Vibration"
@@ -23977,6 +24142,7 @@
     "Cinq Association",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Agility",
@@ -24113,6 +24279,7 @@
     "L Corp.",
     "Lobotomy Corp. Headquarters"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath",
     "Combustion",
@@ -24255,6 +24422,7 @@
     "Fixer",
     "Wuthering Heights"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackUp",
     "EchoOfMansion",
@@ -24391,6 +24559,7 @@
     "The Fingers",
     "The Ring"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Burst",
@@ -24553,6 +24722,7 @@
    "etiquetas": [
     "W Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Binding",
     "Burst",
@@ -24699,6 +24869,7 @@
     "La Manchaland",
     "Third Kindred"
    ],
+   "etiquetasEx": [],
    "estados": [
     "BloodDinner",
     "BloodDinner_Accumulation",
@@ -24851,6 +25022,7 @@
     "Heishou Pack",
     "Heishou Pack - Mao Branch"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Burst",
@@ -24989,6 +25161,7 @@
    "etiquetas": [
     "T Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Binding",
     "CanDuelGuard",
@@ -25131,6 +25304,7 @@
     "LCA",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "AzureResistDown",
@@ -25337,10 +25511,13 @@
     "Burn"
    ],
    "etiquetas": [
-    "<color=#d40000><s>Great Sister</s></color>",
+    "Great Sister",
     "The Fingers",
     "The House of Spiders",
     "The Middle"
+   ],
+   "etiquetasEx": [
+    "Great Sister"
    ],
    "estados": [
     "Aggro",
@@ -25541,6 +25718,7 @@
     "LCB",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "PenetrateTakeDamageUp"
@@ -25674,6 +25852,7 @@
     "Fixer",
     "Liu Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Combustion",
     "Enhancement"
@@ -25810,6 +25989,7 @@
    "etiquetas": [
     "G Corp."
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst"
    ],
@@ -25942,6 +26122,7 @@
     "Syndicate",
     "The Backstreets"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Binding",
     "Laceration",
@@ -26078,6 +26259,7 @@
     "Fixer",
     "Rosespanner Workshop"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Burst",
     "Charge",
@@ -26220,6 +26402,7 @@
     "Fixer",
     "Zwei Association"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Agility",
@@ -26356,6 +26539,7 @@
     "Syndicate",
     "Twinhook Pirates"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath",
     "Bullet",
@@ -26499,6 +26683,7 @@
     "Kurokumo Clan",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "AttackDown",
     "Laceration",
@@ -26641,6 +26826,7 @@
    "etiquetas": [
     "Edgar Family"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "AttackDmgUp",
@@ -26782,6 +26968,7 @@
     "La Manchaland",
     "Third Kindred"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "BloodDinner",
@@ -26928,6 +27115,7 @@
     "Firefist Office",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Combustion",
     "FirePunchFuel",
@@ -27080,6 +27268,7 @@
     "Heishou Pack",
     "Heishou Pack - Si Branch"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Breath",
     "Burst",
@@ -27247,6 +27436,7 @@
     "Night Awls",
     "Syndicate"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Agility",
     "Binding",
@@ -27404,6 +27594,7 @@
     "LCE",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "Agility",
@@ -27577,6 +27768,7 @@
     "LCE",
     "Limbus Company"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Aggro",
     "AttackUp",
@@ -27762,6 +27954,7 @@
     "Dawn Office",
     "Fixer"
    ],
+   "etiquetasEx": [],
    "estados": [
     "Combustion",
     "DawnGregor",

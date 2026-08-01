@@ -74,7 +74,14 @@ function IdCard({
             />
           ))}
           {facciones.map((f) => (
-            <ChipFaccion key={f} faccion={f} onClick={onFiltrarFaccion} activo={faccionActiva === f} navegable={false} />
+            <ChipFaccion
+              key={f}
+              faccion={f}
+              onClick={onFiltrarFaccion}
+              activo={faccionActiva === f}
+              navegable={false}
+              ex={(id.etiquetasEx ?? []).includes(f)}
+            />
           ))}
         </div>
       </div>
