@@ -3,6 +3,8 @@ import {
   SIN_LABEL, DAMAGE_LABEL, DAMAGE_TYPES, etiquetaResistencia, colorArquetipo, FACCIONES_GENERICAS,
 } from "../data/constants.js";
 import Retrato from "./Retrato.jsx";
+import Rareza from "./Rareza.jsx";
+import { ChipArquetipo, ChipFaccion } from "./Chips.jsx";
 import { cx } from "../lib/cx.js";
 
 /*
@@ -96,12 +98,46 @@ function filas(id) {
     ["Velocidad", id.velocidad?.max == null ? "—" : `${id.velocidad.min}–${id.velocidad.max}`],
     ["Salud base", val(id.saludBase)],
     ["Nivel de defensa", val(id.nivelDefensa)],
-    ...DAMAGE_TYPES.map((t) => [
-      `Resistencia ${DAMAGE_LABEL[t].toLowerCase()}`,
-      `${id.resistencias[t]}× · ${etiquetaResistencia(id.resistencias[t])}`,
-    ]),
     ["Afinidad dominante", id.afinidadDominante ? SIN_LABEL[id.afinidadDominante] : "—"],
   ];
+}
+
+/*
+  Resistencias como barra y no como número.
+
+  El dato es un multiplicador de daño recibido: 0.5 resiste, 1 normal, 2 fatal.
+  Escrito así —«2× · Fatal»— hay que traducirlo mentalmente cada vez, y encima
+  al revés, porque más alto es PEOR. La barra invierte eso de una: llena y
+  verde es aguantar, corta y roja es que te parten.
+
+  La escala va de 0.5 a 2, así que el ancho es (mult − 0.5) / 1.5 invertido.
+*/
+const ANCHO_RES = (mult) => `${Math.round((1 - (mult - 0.5) / 1.5) * 100)}%`;
+const CLASE_RES = (mult) => (mult <= 0.5 ? "bien" : mult >= 2 ? "mal" : "normal");
+
+function Resistencias({ id }) {
+  return (
+    <div className="detalle-bloque">
+      <div className="detalle-subtitulo">Resistencias</div>
+      <div className="motivo">Multiplicador de daño recibido: más barra es mejor.</div>
+      <div className="res-barras">
+        {DAMAGE_TYPES.map((t) => {
+          const m = id.resistencias[t];
+          return (
+            <div key={t} className="res-fila">
+              <span className="res-nombre">{DAMAGE_LABEL[t]}</span>
+              <span className="res-canal">
+                <span className={cx("res-relleno", CLASE_RES(m))} style={{ width: ANCHO_RES(m) }} />
+              </span>
+              <span className="res-valor">
+                {m}× <span className="res-detalle">{etiquetaResistencia(m)}</span>
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 function Skills({ id }) {
@@ -183,13 +219,20 @@ function Sinergia({ id }) {
 
 function Encabezado({ id }) {
   const color = id.arquetipos.length ? colorArquetipo(id.arquetipos[0]).borde : null;
+  const facciones = (id.etiquetas ?? []).filter((f) => !FACCIONES_GENERICAS.has(f));
   return (
     <div className="detalle-encabezado" style={color ? { "--acento": color } : undefined}>
-      <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} tamano={80} />
-      <div style={{ minWidth: 0 }}>
-        <div className="id-nombre">{id.nombre}</div>
+      <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} variante="ficha" />
+      <div className="detalle-encabezado-texto">
+        <div className="detalle-nombre">{id.nombre}</div>
         <div className="id-tags">
-          {id.sinner} · {"★".repeat(id.rareza)}
+          {id.sinner} <Rareza n={id.rareza} />
+        </div>
+        <div className="chip-row">
+          {id.arquetipos.map((a) => <ChipArquetipo key={a} arquetipo={a} navegable={false} />)}
+          {facciones.map((f) => (
+            <ChipFaccion key={f} faccion={f} navegable={false} ex={(id.etiquetasEx ?? []).includes(f)} />
+          ))}
         </div>
       </div>
     </div>
@@ -300,6 +343,7 @@ export default function DetalleId({ id, comparar, candidatas = [], onCerrar, onC
           {ids.map((x) => (
             <section key={x.id} className="detalle-seccion">
               {comparar && <div className="detalle-titulo-id">{x.nombre}</div>}
+              <Resistencias id={x} />
               <Skills id={x} />
               <Sinergia id={x} />
               <div className="detalle-bloque">

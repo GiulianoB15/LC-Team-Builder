@@ -6,17 +6,23 @@ import IdCard from "./IdCard.jsx";
 import Retrato from "./Retrato.jsx";
 import { CostoSin } from "./EgoCard.jsx";
 import { descargarEquipo } from "../lib/estampa.js";
+import Vacio from "./Vacio.jsx";
 import { cx } from "../lib/cx.js";
 
 export default function EquipoTab({
   ownedIdentities, equipoIds, onToggle, orden, recursos, resistencias, arquetipos, pasivas,
   egosEquipo, tieneEgos, max, sinergia, velocidad, onVerDetalle, banca, slots, onCambiarSlots,
+  onIrAColeccion,
 }) {
   if (ownedIdentities.length === 0) {
     return (
-      <p className="ayuda">
-        Todavía no marcaste Identidades como propias en la pestaña Colección.
-      </p>
+      <Vacio
+        marca="◱"
+        titulo="Todavía no hay con qué armar"
+        accion={<button onClick={onIrAColeccion} className="boton-primario">Ir a Colección</button>}
+      >
+        Esta pestaña trabaja con lo que tenés. Marcá tus Identidades en Colección y volvé.
+      </Vacio>
     );
   }
 
@@ -205,7 +211,7 @@ export default function EquipoTab({
                           id={mejor.id.id}
                           nombre={mejor.id.nombre}
                           arquetipos={mejor.id.arquetipos}
-                          tamano={40}
+                          variante="chico"
                         />
                         <div className="fila-crece">
                           <div className="id-nombre">{mejor.id.nombre}</div>

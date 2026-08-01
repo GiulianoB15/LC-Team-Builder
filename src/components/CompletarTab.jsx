@@ -2,13 +2,18 @@ import React from "react";
 import { SINNERS_TOTALES } from "../data/constants.js";
 import IdCard from "./IdCard.jsx";
 import { ChipArquetipo } from "./Chips.jsx";
+import Vacio from "./Vacio.jsx";
 
-export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candidatas, max, onVerDetalle }) {
+export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candidatas, max, onVerDetalle, onIrAColeccion }) {
   if (ownedIdentities.length === 0) {
     return (
-      <p className="ayuda">
-        Todavía no marcaste Identidades como propias en la pestaña Colección.
-      </p>
+      <Vacio
+        marca="◱"
+        titulo="Todavía no hay con qué completar"
+        accion={<button onClick={onIrAColeccion} className="boton-primario">Ir a Colección</button>}
+      >
+        La recomendación sale de tu colección: sin nada marcado no hay entre qué elegir.
+      </Vacio>
     );
   }
 
@@ -51,15 +56,15 @@ export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candi
           */}
           {candidatas.length === 0 ? (
             baseIds.length >= SINNERS_TOTALES ? (
-              <p className="ayuda">
-                Ya cubriste los {SINNERS_TOTALES} Sinners, así que no queda lugar para sumar.
-                Si querés probar otra cosa, destildá a alguna y te recomiendo el reemplazo.
-              </p>
+              <Vacio marca="✔" titulo={`Los ${SINNERS_TOTALES} Sinners están cubiertos`}>
+                No queda lugar para sumar, así que no hay nada que recomendar. Si querés probar
+                otra cosa, destildá a alguna y te sugiero el reemplazo.
+              </Vacio>
             ) : (
-              <p className="ayuda">
-                No te quedan Identidades de los Sinners libres en tu colección. Los que faltan
-                los podés ver en «Qué me falta».
-              </p>
+              <Vacio marca="◇" titulo="No te queda nada de los Sinners libres">
+                Tenés Sinners sin cubrir, pero ninguna Identidad suya en tu colección. Cuáles
+                convendría conseguir está en «Qué me falta».
+              </Vacio>
             )
           ) : (
             <div className="candidata-lista">

@@ -4,6 +4,8 @@ import { ARQUETIPOS, SLOTS_DESPLIEGUE, colorArquetipo } from "../data/constants.
 import { analizarArquetipo } from "../lib/engine.js";
 import { ChipArquetipo } from "./Chips.jsx";
 import Retrato from "./Retrato.jsx";
+import Rareza from "./Rareza.jsx";
+import Vacio from "./Vacio.jsx";
 import { cx } from "../lib/cx.js";
 
 /*
@@ -54,7 +56,12 @@ export default function FaltanTab({ ownedIdentities, onVerDetalle }) {
         ))}
       </div>
 
-      {!analisis && <p className="ayuda">Elegí uno de los siete para ver el análisis.</p>}
+      {!analisis && (
+        <Vacio marca="◈" titulo="Elegí un arquetipo">
+          Tocá uno de los siete de arriba y te digo de cuántos Sinners lo tenés cubierto y qué
+          te conviene conseguir.
+        </Vacio>
+      )}
 
       {analisis && (
         <>
@@ -110,9 +117,9 @@ export default function FaltanTab({ ownedIdentities, onVerDetalle }) {
 
           <h2 className="titulo-seccion">Qué te convendría conseguir</h2>
           {analisis.candidatas.length === 0 ? (
-            <p className="ayuda">
-              Ya tenés todas las Identidades de {analisis.arquetipo} que existen en el dataset.
-            </p>
+            <Vacio marca="✔" titulo={`No falta nada de ${analisis.arquetipo}`}>
+              Ya tenés todas las Identidades de este arquetipo que existen en el dataset.
+            </Vacio>
           ) : (
             <div className="candidata-lista">
               {analisis.candidatas.slice(0, CANDIDATAS_VISIBLES).map(({ id, motivos, sinnerNuevo }) => (
@@ -123,11 +130,11 @@ export default function FaltanTab({ ownedIdentities, onVerDetalle }) {
                 >
                   <div className="candidata-header">
                     <div className="fila">
-                      <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} tamano={40} />
+                      <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} variante="chico" />
                       <div style={{ minWidth: 0 }}>
                         <div className="id-nombre">{id.nombre}</div>
                         <div className="id-tags">
-                          {id.sinner} · {"★".repeat(id.rareza)}
+                          {id.sinner} <Rareza n={id.rareza} />
                           {id.fecha ? ` · ${id.fecha}` : ""}
                         </div>
                       </div>

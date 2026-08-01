@@ -24,21 +24,26 @@ const SINNERS = [
   "Heathcliff", "Ishmael", "Rodion", "Sinclair", "Outis", "Gregor",
 ];
 
-/* wiki.gg y Fandom publican la misma información con plantillas distintas. */
+/*
+  La primera pasada probó tres wikis: Fandom devuelve 403 a todo, Cogitopedia
+  no publica el dato, y wiki.gg lo tiene en las 12 páginas. Así que queda una
+  sola fuente, y ahora lo que hace falta es ver el marcado exacto para escribir
+  un extractor que no adivine.
+*/
 const FUENTES = [
   ["wiki.gg", (s) => `https://limbuscompany.wiki.gg/wiki/${encodeURIComponent(s.replace(/ /g, "_"))}`],
-  ["fandom", (s) => `https://limbuscompany.fandom.com/wiki/${encodeURIComponent(s.replace(/ /g, "_"))}`],
-  ["cogitopedia", (s) => `https://projectmoon.miraheze.org/wiki/${encodeURIComponent(s.replace(/ /g, "_"))}`],
 ];
 
 /*
-  Lo que se busca es la dupla "nombre de color + hex". Los nombres son
-  inventados por el juego ("Decay Blue"), así que no alcanza con buscar un hex
-  suelto: en una página de wiki hay decenas, casi todos de la plantilla.
+  La primera pasada dijo QUE el dato está; esta dice CÓMO está escrito. Se
+  imprime el fragmento crudo alrededor de la palabra "Colour"/"Color" para
+  poder escribir el extractor mirando el marcado en vez de adivinándolo.
+
+  Adivinar ya falló una vez: un heurístico de "nombre de color + hex cerca"
+  agarró 11 de 12 —a Hong Lu se le escapó porque su color no termina en
+  ninguna de las palabras de la lista— y encima trajo ruido en dos.
 */
-const HEX = /#([0-9a-f]{6})\b/gi;
-const CERCA_DE_COLOR = /(colou?r)[^<]{0,80}?#([0-9a-f]{6})/gi;
-const NOMBRE_Y_HEX = /([A-Z][a-z]+ (?:Gray|Grey|Pink|Scarlet|Olive|Burgundy|Green|Brown|Blue|Red|Yellow|Purple|Orange|Violet|Gold|Black|White))[^<]{0,60}?#?([0-9a-f]{6})?/g;
+const CONTEXTO = /(colou?r)/i;
 
 const limpiar = (html) =>
   html.replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "");
@@ -60,29 +65,31 @@ for (const [nombreFuente, construir] of FUENTES) {
   console.log(`\n${"=".repeat(70)}\n${nombreFuente}\n${"=".repeat(70)}`);
 
   for (const sinner of SINNERS) {
-    const url = construir(sinner);
-    const r = await traer(url);
+    const r = await traer(construir(sinner));
+    console.log(`\n--- ${sinner} ---`);
 
     if (r.error) {
-      console.log(`  ${sinner.padEnd(12)} ✗ ${r.error}`);
+      console.log(`  ✗ ${r.error}`);
       continue;
     }
 
-    const cerca = [...r.html.matchAll(CERCA_DE_COLOR)].map((m) => `#${m[2]}`);
-    const nombrados = [...r.html.matchAll(NOMBRE_Y_HEX)]
-      .map((m) => `${m[1]}${m[2] ? ` #${m[2]}` : ""}`)
-      .filter((v, i, a) => a.indexOf(v) === i);
-    const totalHex = new Set([...r.html.matchAll(HEX)].map((m) => m[0].toLowerCase())).size;
-
-    console.log(
-      `  ${sinner.padEnd(12)} ✔ ${String(r.html.length).padStart(7)} bytes` +
-      ` · ${totalHex} hex distintos` +
-      (cerca.length ? ` · junto a "color": ${cerca.slice(0, 4).join(" ")}` : "") +
-      (nombrados.length ? ` · nombres: ${nombrados.slice(0, 4).join(" | ")}` : "")
-    );
+    /* Todas las apariciones de "colour/color" con lo que las rodea. */
+    let i = 0, encontradas = 0;
+    while (encontradas < 6) {
+      const m = r.html.slice(i).search(CONTEXTO);
+      if (m < 0) break;
+      const pos = i + m;
+      const frag = r.html.slice(Math.max(0, pos - 160), pos + 240).replace(/\s+/g, " ");
+      /* Solo interesan los que tienen un hex cerca: el resto es CSS de la wiki. */
+      if (/#[0-9a-f]{6}/i.test(frag)) {
+        console.log(`  · ${frag}`);
+        encontradas += 1;
+      }
+      i = pos + 6;
+    }
 
     await new Promise((r) => setTimeout(r, 400));
   }
 }
 
-console.log("\nListo. Lo que interesa es si aparece un nombre de color propio por Sinner.");
+console.log("\nListo. Con el marcado a la vista se puede escribir el extractor.");

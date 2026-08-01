@@ -126,11 +126,34 @@ body {
   padding-bottom: 40px;
 }
 
+/*
+  Se encoge al scrollear. El disparador es un centinela de 1 px que App.jsx
+  observa con IntersectionObserver: mientras se ve, estamos arriba.
+
+  Lo que cambia es el relleno y el tamaño del título, no la existencia del
+  encabezado: hacerlo desaparecer costaría un salto de layout, y esto recupera
+  ~70 px, que en un teléfono es una tarjeta y media.
+*/
+.centinela { height: 1px; }
+
 .header {
   border-bottom: 2px solid var(--carmin);
   padding: 24px 16px 18px;
   background: linear-gradient(180deg, var(--sup-1) 0%, var(--fondo) 100%);
+  transition: padding var(--transicion);
 }
+
+.header .title,
+.header .docket-mark,
+.header .subtitle {
+  transition: font-size var(--transicion), opacity var(--transicion), margin var(--transicion);
+}
+
+.header.compacto { padding: 8px 16px 6px; }
+.header.compacto .title { font-size: 18px; letter-spacing: 2px; }
+/* Estas dos no aportan una vez que ya leíste el encabezado una vez. */
+.header.compacto .docket-mark,
+.header.compacto .subtitle { font-size: 0; opacity: 0; margin: 0; }
 
 .header-inner { max-width: var(--ancho); margin: 0 auto; }
 
@@ -560,7 +583,7 @@ body {
 */
 .id-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--tam-columna, 320px)), 1fr));
   gap: 12px;
 }
 
@@ -593,10 +616,35 @@ body {
 
 .id-nombre { font-size: 14.5px; color: var(--texto); }
 .id-tags { font-family: var(--sans); font-size: 12px; color: var(--texto-3); margin-top: 2px; }
-.rareza { color: var(--oro); font-size: 11px; margin-left: 6px; letter-spacing: 1px; }
+/*
+  Rareza. Un tono por nivel: en un gacha es de lo primero que se lee y con
+  todas iguales había que contar las estrellas.
+*/
+.rareza {
+  font-size: 12.5px;
+  margin-left: 6px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.rareza-1 { color: #9c7b55; }
+.rareza-2 { color: #b9bcc4; }
+.rareza-3 { color: var(--oro); text-shadow: 0 0 6px rgba(184, 150, 62, 0.4); }
 .rango { color: var(--oro); font-size: 10.5px; margin-left: 6px; letter-spacing: 0.8px; font-family: var(--sans); }
 
+/*
+  El tamaño sale de una variable y no de un estilo inline, que es lo que
+  permite que el modo compacto lo achique desde arriba: un `style=` en el
+  elemento le gana a cualquier regla, y con eso escrito en el componente la
+  densidad no podía tocarlo.
+
+  Los tres números están atados al ancho de la miniatura que se descarga
+  (160 px): a densidad 2× el más grande pide 160 justos.
+*/
 .retrato {
+  --tam: 72px;
+  width: var(--tam);
+  height: var(--tam);
+  min-width: var(--tam);
   border-radius: 5px;
   border: 1px solid var(--borde);
   background: var(--hundido);
@@ -606,6 +654,9 @@ body {
   object-position: top;
 }
 
+.retrato-chico { --tam: 40px; }
+.retrato-ficha { --tam: 80px; }
+
 .retrato-vacio {
   display: flex;
   align-items: center;
@@ -614,6 +665,8 @@ body {
   font-weight: 600;
   letter-spacing: 0.5px;
   user-select: none;
+  /* Las iniciales acompañan al tamaño en vez de tener el suyo propio. */
+  font-size: calc(var(--tam) * 0.32);
 }
 
 /* --- Costos de Sin --- */
@@ -868,3 +921,96 @@ body {
 
 .fila { display: flex; gap: 8px; align-items: center; min-width: 0; }
 .fila-crece { min-width: 0; flex: 1; }
+
+/* --- Estados vacíos --- */
+
+/*
+  Eran párrafos grises sueltos en medio de la nada. Un estado vacío tiene que
+  contestar tres cosas: qué pasó, por qué, y qué hacer. La tercera es la que
+  más falta hacía — cuando la salida es obvia, dejarla a mano ahorra el viaje.
+*/
+.vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 32px 20px;
+  margin: 8px 0 16px;
+  background: var(--sup-1);
+  border: 1px dashed var(--borde-fuerte);
+  border-radius: var(--r);
+}
+
+.vacio-marca { font-size: 26px; color: var(--texto-4); line-height: 1; margin-bottom: 2px; }
+.vacio-titulo { font-family: var(--serif); font-size: 16px; color: var(--texto); }
+.vacio-texto {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--texto-3);
+  line-height: 1.5;
+  max-width: 48ch;
+}
+.vacio-accion { margin-top: 8px; }
+
+/* --- Resistencias como barra --- */
+
+.res-barras { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+
+.res-fila {
+  display: grid;
+  grid-template-columns: 92px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+}
+
+.res-nombre { color: var(--texto-2); }
+
+.res-canal {
+  height: 8px;
+  background: var(--hundido);
+  border: 1px solid var(--borde);
+  border-radius: var(--r-pill, 999px);
+  overflow: hidden;
+}
+
+.res-relleno { display: block; height: 100%; transition: width var(--transicion); }
+.res-relleno.bien { background: #6f9c68; }
+.res-relleno.normal { background: #8a847e; }
+.res-relleno.mal { background: #a8523f; }
+
+.res-valor { color: var(--texto-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* --- Ficha: portada --- */
+
+.detalle-encabezado-texto { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+
+.detalle-nombre {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--texto);
+  line-height: 1.25;
+}
+
+/* --- Densidad --- */
+
+.grupo-densidad { display: flex; gap: 4px; }
+
+/*
+  Compacta: menos aire y menos retrato, para ver más de un saque. NO oculta
+  información — esconder chips sería otra cosa, no densidad — así que lo único
+  que cambia son las medidas.
+
+  Las columnas bajan de 320 a 260, que a 1140 da 4 en vez de 3.
+*/
+.page[data-densidad="compacta"] {
+  --tam-columna: 260px;
+}
+.page[data-densidad="compacta"] .retrato { --tam: 52px; }
+.page[data-densidad="compacta"] .retrato-chico { --tam: 34px; }
+.page[data-densidad="compacta"] .id-card { padding: 7px 9px; gap: 8px; }
+.page[data-densidad="compacta"] .id-grid { gap: 8px; }
+.page[data-densidad="compacta"] .id-nombre { font-size: 13.5px; }
+.page[data-densidad="compacta"] .sinner-block { margin-bottom: 14px; }

@@ -2,6 +2,7 @@ import React from "react";
 import { colorArquetipo, FACCIONES_GENERICAS } from "../data/constants.js";
 import { ChipArquetipo, ChipFaccion } from "./Chips.jsx";
 import Retrato from "./Retrato.jsx";
+import Rareza from "./Rareza.jsx";
 import { cx } from "../lib/cx.js";
 
 /*
@@ -44,7 +45,7 @@ function IdCard({
       <div className="fila-crece">
         <div className="id-nombre">
           {id.nombre}
-          <span className="rareza">{"★".repeat(id.rareza)}</span>
+          <Rareza n={id.rareza} />
           {/*
             Tres estados, y se distinguen: completa (LCTeamBuilder trae combate
             y soporte), solo soporte (la wiki únicamente publica esa), o nada.

@@ -1,10 +1,12 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { IDENTITIES, EGOS, esIdentityBase, IDS_BASE } from "../data/identities.js";
 import { SINNERS, ARQUETIPOS } from "../data/constants.js";
+import { DENSIDADES } from "../lib/preferencias.js";
 import IdCard from "./IdCard.jsx";
 import EgoCard from "./EgoCard.jsx";
 import CompartirPanel from "./CompartirPanel.jsx";
 import { ChipArquetipo, ChipFaccion } from "./Chips.jsx";
+import Vacio from "./Vacio.jsx";
 import { cx } from "../lib/cx.js";
 
 const SECCIONES = [
@@ -43,7 +45,10 @@ function cumpleRol(x, rol, arquetiposActivos) {
   return lista.some((a) => arquetiposActivos.has(a));
 }
 
-export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEgo, saveError, enVisita, onVisitar, onVerDetalle }) {
+export default function ColeccionTab({
+  owned, propia, toggleOwned, toggleOwnedEgo, saveError, enVisita, onVisitar, onVerDetalle,
+  densidad, onCambiarDensidad,
+}) {
   const [seccion, setSeccion] = useState("identities");
   const [filtro, setFiltro] = useState("");
   const [arquetiposActivos, setArquetipos] = useState(new Set());
@@ -191,6 +196,23 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
           {hayFiltro ? `${visibles.length} de ${lista.length}` : `${lista.length} en total`}
         </span>
         <span className="compartir-botones">
+          {/*
+            Densidad: con 184 tarjetas hay quien quiere verlas todas de un
+            saque y quien quiere leerlas. Se recuerda, porque preguntarlo cada
+            vez que abrís la app sería peor que no ofrecerlo.
+          */}
+          <span className="grupo-densidad" role="group" aria-label="Densidad de la lista">
+            {DENSIDADES.map((d) => (
+              <button
+                key={d.key}
+                onClick={() => onCambiarDensidad(d.key)}
+                className={cx("chip-rol", densidad === d.key && "activo")}
+                aria-pressed={densidad === d.key}
+              >
+                {d.label}
+              </button>
+            ))}
+          </span>
           {hayFiltro && <button onClick={limpiar} className="boton-chico">Limpiar filtros</button>}
           {!hayFiltro && (
             <button
@@ -271,7 +293,14 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
       })}
 
       {hayFiltro && visibles.length === 0 && (
-        <p className="ayuda">Nada coincide con esos filtros.</p>
+        <Vacio
+          marca="◇"
+          titulo="Nada coincide con esos filtros"
+          accion={<button onClick={limpiar} className="boton-primario">Limpiar filtros</button>}
+        >
+          Probá con menos condiciones: los arquetipos suman entre sí, pero el rol y la facción
+          recortan.
+        </Vacio>
       )}
     </section>
   );

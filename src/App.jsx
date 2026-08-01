@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { IDENTITIES, EGOS, META } from "./data/identities.js";
 import { SLOTS_DESPLIEGUE } from "./data/constants.js";
 import { loadCollection, saveCollection } from "./lib/storage.js";
@@ -15,6 +15,7 @@ import EquipoTab from "./components/EquipoTab.jsx";
 import CompletarTab from "./components/CompletarTab.jsx";
 import FaltanTab from "./components/FaltanTab.jsx";
 import DetalleId from "./components/DetalleId.jsx";
+import { cargarPreferencias, guardarPreferencias } from "./lib/preferencias.js";
 import { cx } from "./lib/cx.js";
 
 const TABS = [
@@ -68,9 +69,38 @@ export default function App() {
   const [visita, setVisita] = useState(null);
   const [propuesta, setPropuesta] = useState(null);
 
+  /* Densidad de la lista. Preferencia de pantalla, guardada aparte de la colección. */
+  const [densidad, setDensidad] = useState("comoda");
+
+  /*
+    El encabezado grande se encoge al scrollear. Se resuelve con un centinela
+    de 1 px arriba de todo y un IntersectionObserver: mientras el centinela se
+    ve, estamos arriba; cuando sale, el encabezado se compacta.
+
+    Es preferible a escuchar `scroll`, que dispara decenas de veces por segundo
+    y obliga a acordarse de tirar el handler y de no leer el layout en cada
+    evento. El observer avisa dos veces en toda la sesión: al salir y al volver.
+  */
+  const [compacto, setCompacto] = useState(false);
+  const centinela = useRef(null);
+
   useEffect(() => {
     setPropia(loadCollection());
+    setDensidad(cargarPreferencias().densidad);
     setLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    const nodo = centinela.current;
+    if (!nodo || typeof IntersectionObserver === "undefined") return;
+    const obs = new IntersectionObserver(([e]) => setCompacto(!e.isIntersecting));
+    obs.observe(nodo);
+    return () => obs.disconnect();
+  }, []);
+
+  const cambiarDensidad = useCallback((d) => {
+    setDensidad(d);
+    guardarPreferencias({ densidad: d });
   }, []);
 
   /*
@@ -237,8 +267,11 @@ export default function App() {
   );
 
   return (
-    <div className="page">
-      <header className="header">
+    <div className="page" data-densidad={densidad}>
+      {/* Centinela del encabezado: no se ve, solo sirve para saber si estamos arriba. */}
+      <div ref={centinela} className="centinela" aria-hidden="true" />
+
+      <header className={cx("header", compacto && "compacto")}>
         <div className="header-inner">
           <div className="docket-mark">EXP. N.º 000</div>
           <h1 className="title">LIMBUS DOCKET</h1>
@@ -279,6 +312,8 @@ export default function App() {
             enVisita={enVisita}
             onVisitar={entrarEnVisita}
             onVerDetalle={verDetalle}
+            densidad={densidad}
+            onCambiarDensidad={cambiarDensidad}
           />
         )}
 
@@ -301,6 +336,7 @@ export default function App() {
             banca={banca}
             slots={slots}
             onCambiarSlots={setSlots}
+            onIrAColeccion={() => setTab("coleccion")}
           />
         )}
 
@@ -316,6 +352,7 @@ export default function App() {
             candidatas={candidatas}
             max={MAX_BASE_COMPLETAR}
             onVerDetalle={verDetalle}
+            onIrAColeccion={() => setTab("coleccion")}
           />
         )}
         <DetalleId

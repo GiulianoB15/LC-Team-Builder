@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { colorArquetipo } from "../data/constants.js";
 import manifiesto from "../data/retratos.json";
+import { cx } from "../lib/cx.js";
 
 /*
   Retrato de una Identity o E.G.O.
@@ -9,6 +10,17 @@ import manifiesto from "../data/retratos.json";
   Si no están —porque nunca se corrió el script, o porque esa en particular no
   existe en la fuente— se muestra un marcador con las iniciales en el color del
   arquetipo. Nunca queda un hueco roto ni un ícono de imagen fallida.
+
+  POR QUÉ VARIANTE Y NO UN NÚMERO DE PÍXELES
+
+  Antes recibía `tamano={44}` y lo aplicaba inline. Eso funcionaba hasta que
+  apareció la densidad elegible: un estilo inline le gana a cualquier regla de
+  CSS, así que con el tamaño escrito en el elemento no había forma de que el
+  modo compacto lo achicara.
+
+  Ahora la variante es una clase y el tamaño sale de una custom property, que
+  el modo compacto puede redefinir desde arriba. El componente dice para qué es
+  el retrato; cuánto mide lo decide el CSS.
 */
 
 const iniciales = (nombre) =>
@@ -27,27 +39,17 @@ const iniciales = (nombre) =>
 */
 const DISPONIBLES = new Set(manifiesto.ids ?? []);
 
-/*
-  72 px por defecto, no 44. El arte es lo más atractivo que tiene el dataset y
-  estaba mostrándose del tamaño de una estampilla.
-
-  El número está atado al ancho de la miniatura que baja fetch-imagenes.mjs
-  (160 px): 72 × 2 = 144, así que entra nítido en una pantalla de densidad 2×,
-  que son todos los teléfonos. Subirlo más sin rehacer las miniaturas no
-  agranda la imagen, la ablanda.
-*/
-export default function Retrato({ id, nombre, arquetipos = [], tamano = 72 }) {
+export default function Retrato({ id, nombre, arquetipos = [], variante = "lista" }) {
   const [falla, setFalla] = useState(false);
   const color = arquetipos.length ? colorArquetipo(arquetipos[0]) : colorArquetipo(null);
 
-  /* El tamaño es un dato del que llama, así que va inline; el resto es CSS. */
-  const caja = { width: tamano, height: tamano, minWidth: tamano };
+  const clases = cx("retrato", `retrato-${variante}`);
 
   if (falla || !DISPONIBLES.has(id)) {
     return (
       <div
-        className="retrato retrato-vacio"
-        style={{ ...caja, background: color.chip, color: color.borde, fontSize: tamano * 0.32 }}
+        className={cx(clases, "retrato-vacio")}
+        style={{ background: color.chip, color: color.borde }}
         aria-hidden="true"
       >
         {iniciales(nombre)}
@@ -63,8 +65,7 @@ export default function Retrato({ id, nombre, arquetipos = [], tamano = 72 }) {
       loading="lazy"
       decoding="async"
       onError={() => setFalla(true)}
-      className="retrato"
-      style={caja}
+      className={clases}
     />
   );
 }
