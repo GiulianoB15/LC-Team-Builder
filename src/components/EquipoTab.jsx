@@ -205,7 +205,7 @@ export default function EquipoTab({
                           id={mejor.id.id}
                           nombre={mejor.id.nombre}
                           arquetipos={mejor.id.arquetipos}
-                          tamano={34}
+                          tamano={40}
                         />
                         <div className="fila-crece">
                           <div className="id-nombre">{mejor.id.nombre}</div>

@@ -123,7 +123,7 @@ export default function FaltanTab({ ownedIdentities, onVerDetalle }) {
                 >
                   <div className="candidata-header">
                     <div className="fila">
-                      <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} tamano={34} />
+                      <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} tamano={40} />
                       <div style={{ minWidth: 0 }}>
                         <div className="id-nombre">{id.nombre}</div>
                         <div className="id-tags">

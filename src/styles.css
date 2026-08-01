@@ -28,18 +28,33 @@
 
 :root {
   /*
-    Superficies, de atrás hacia adelante. La guía de UI oscura es clara en
-    esto: lo que está encima va más claro, nunca más oscuro. Es lo que hace
-    legible la jerarquía sin agregar un color más.
-  */
-  --fondo: #0d0d0f;
-  --sup-1: #17161a;   /* tarjetas, controles */
-  --sup-2: #1e1c22;   /* elevado: barras de panel, bloques dentro de tarjeta */
-  --sup-3: #131218;   /* hundido: cajas de código, paneles plegados */
+    ESCALA DE SUPERFICIES
 
-  --borde: #2a2830;
+    Antes había dos tonos y casi no se distinguían: fondo #0d0d0f y tarjeta
+    #17161a, diez puntos de diferencia. Todo quedaba al mismo plano y nada
+    guiaba el ojo.
+
+    Ahora son cinco escalones, y la regla es la de cualquier guía de UI oscura:
+    lo que está encima va MÁS CLARO, nunca más oscuro. El fondo bajó para dejar
+    lugar a que las capas suban sin terminar en gris.
+
+      -1  hundido   cajas de código, paneles plegados: están "dentro" del papel
+       0  fondo     la página
+       1  tarjeta   lo que se apoya encima
+       2  elevado   hover, barras fijas, bloques dentro de una tarjeta
+       3  flotante  la ficha, que tapa todo lo demás
+
+    Es lo que hace legible la jerarquía sin gastar un color más.
+  */
+  --hundido: #0c0b0f;
+  --fondo: #0a0a0c;
+  --sup-1: #17161b;
+  --sup-2: #201e26;
+  --sup-3: #1c1a21;
+
+  --borde: #2c2a34;
   --borde-suave: #211f27;
-  --borde-fuerte: #3a3840;
+  --borde-fuerte: #3d3a47;
 
   --texto: #ede6da;
   --texto-2: #b3ada6;
@@ -56,9 +71,21 @@
 
   --r-chico: 4px;
   --r: 6px;
-  --r-pill: 999px;
 
-  --ancho: 720px;
+  /*
+    Dos anchos, no uno. El contenedor es ancho para que la grilla aproveche la
+    pantalla; la prosa se queda en una medida legible aparte. Un párrafo de
+    1100 px de ancho no se lee: el ojo pierde el renglón al volver.
+  */
+  --ancho: 1140px;
+  --ancho-lectura: 70ch;
+
+  /*
+    La sombra es lo que separa "más claro" de "encima". Sin ella, una capa más
+    clara puede leerse como un rectángulo pintado en vez de como algo apoyado.
+  */
+  --sombra: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --sombra-flotante: 0 12px 32px rgba(0, 0, 0, 0.55);
 
   /* Una sola duración para todo: mover cada cosa a su ritmo se nota y molesta. */
   --transicion: 120ms ease;
@@ -102,7 +129,7 @@ body {
 .header {
   border-bottom: 2px solid var(--carmin);
   padding: 24px 16px 18px;
-  background: linear-gradient(180deg, #17161a 0%, var(--fondo) 100%);
+  background: linear-gradient(180deg, var(--sup-1) 0%, var(--fondo) 100%);
 }
 
 .header-inner { max-width: var(--ancho); margin: 0 auto; }
@@ -142,9 +169,15 @@ body {
 }
 .tab-bar::-webkit-scrollbar { display: none; }
 
+/*
+  En pantalla ancha las pestañas van a la izquierda con su ancho natural:
+  cuatro botones estirados a lo largo de 1140 px quedan a kilómetros uno del
+  otro y el ojo tiene que viajar. En angosto sí se reparten, que es donde el
+  dedo agradece el área grande.
+*/
 .tab {
-  flex: 1 0 auto;
-  padding: 12px 8px;
+  flex: 0 0 auto;
+  padding: 12px 18px;
   background: transparent;
   border: none;
   color: #9a9490;
@@ -158,11 +191,20 @@ body {
 .tab:hover { color: var(--texto-2); }
 .tab.activa { color: var(--texto); border-bottom-color: var(--carmin); }
 
+@media (max-width: 720px) {
+  .tab { flex: 1 0 auto; padding: 12px 8px; }
+}
 @media (max-width: 430px) {
   .tab { font-size: 12px; padding: 11px 6px; }
 }
 
 .main { max-width: var(--ancho); margin: 0 auto; padding: 20px 16px; }
+
+/*
+  La prosa se limita aparte del contenedor. Son dos medidas distintas: la
+  grilla quiere todo el ancho disponible y un párrafo quiere ~70 caracteres.
+*/
+.ayuda, .aviso, .aviso-ok, .propuesta { max-width: var(--ancho-lectura); }
 
 .footer {
   text-align: center;
@@ -293,9 +335,16 @@ body {
 
 .boton:disabled, .boton-primario:disabled, .boton-chico:disabled { opacity: 0.5; cursor: default; }
 
-/* Discreto a propósito: no compite con la casilla, que es la acción principal. */
+/*
+  Discreto a propósito: no compite con la casilla, que es la acción principal.
+
+  Va arriba y no centrado: con el retrato grande la tarjeta creció a lo alto y
+  un botón centrado quedaba flotando en el medio de la nada, sin relación con
+  nada. Alineado con el nombre se lee como "la ficha de esto".
+*/
 .boton-ficha {
-  align-self: center;
+  align-self: flex-start;
+  margin-top: 2px;
   flex: 0 0 auto;
   font-family: var(--sans);
   font-size: 10px;
@@ -336,7 +385,7 @@ body {
   box-sizing: border-box;
   font-family: var(--mono);
   font-size: 11.5px;
-  background: var(--fondo);
+  background: var(--hundido);
   border-radius: var(--r-chico);
   padding: 8px 10px;
   margin-bottom: 8px;
@@ -497,7 +546,23 @@ body {
 
 /* --- Tarjetas de Identity / E.G.O --- */
 
-.id-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
+/*
+  `auto-fill` y no un número fijo de columnas: la grilla se acomoda sola a
+  cualquier ancho, incluida una ventana a medio maximizar, sin escribir una
+  media query por cada corte. A 1140 entran 3, a 720 entran 2 y en un
+  teléfono queda 1.
+
+  El `min(100%, 320px)` es lo que evita el desborde clásico de `auto-fill`:
+  sin él, una pantalla de 300 px seguiría reservando 320 y la fila se sale.
+
+  El hueco no baja de 12: por debajo de eso las tarjetas se funden y no se lee
+  dónde termina una.
+*/
+.id-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 12px;
+}
 
 /*
   `--acento` lo pone el componente con el color del primer arquetipo: es lo que
@@ -514,15 +579,17 @@ body {
   border-radius: var(--r);
   padding: 10px 12px;
   cursor: pointer;
-  transition: background var(--transicion), border-color var(--transicion);
+  box-shadow: var(--sombra);
+  transition: background var(--transicion), border-color var(--transicion), box-shadow var(--transicion);
 }
-.id-card:hover { background: var(--sup-2); }
+/* Al pasar el mouse la tarjeta sube un escalón: más clara y con más sombra. */
+.id-card:hover { background: var(--sup-2); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
 /* El foco cae en el checkbox de adentro; el marco tiene que acompañarlo. */
 .id-card:focus-within { border-color: var(--oro); }
 .id-card.tenida { border-color: var(--verde); }
 .id-card.elegida { border-color: var(--oro); }
 .id-card.solo-lectura { cursor: default; opacity: 0.92; }
-.id-card.solo-lectura:hover { background: var(--sup-1); }
+.id-card.solo-lectura:hover { background: var(--sup-1); box-shadow: var(--sombra); }
 
 .id-nombre { font-size: 14.5px; color: var(--texto); }
 .id-tags { font-family: var(--sans); font-size: 12px; color: var(--texto-3); margin-top: 2px; }
@@ -532,7 +599,7 @@ body {
 .retrato {
   border-radius: 5px;
   border: 1px solid var(--borde);
-  background: #0f0e12;
+  background: var(--hundido);
   display: block;
   flex-shrink: 0;
   object-fit: cover;
@@ -560,7 +627,7 @@ body {
   border: 1px solid var(--borde);
   border-radius: 10px;
   padding: 1px 8px;
-  background: #0f0e12;
+  background: var(--hundido);
 }
 .costo-pill.falta { color: #d08a6a; border-color: #7a3a24; }
 
@@ -585,6 +652,7 @@ body {
   border: 1px solid var(--borde);
   border-radius: var(--r);
   padding: 10px 12px;
+  box-shadow: var(--sombra);
 }
 .orden-item.banca { opacity: 0.62; border-style: dashed; }
 
@@ -604,7 +672,16 @@ body {
 
 /* --- Candidatas --- */
 
-.candidata-lista { display: flex; flex-direction: column; gap: 10px; }
+/*
+  Grilla y no columna: las candidatas son opciones que se comparan entre sí, no
+  una secuencia. El orden de despliegue sí es una secuencia, y por eso ese
+  sigue siendo una lista de una sola columna.
+*/
+.candidata-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 12px;
+}
 
 .candidata {
   background: var(--sup-1);
@@ -612,6 +689,7 @@ body {
   border-left: 3px solid var(--acento, var(--borde));
   border-radius: var(--r);
   padding: 12px 14px;
+  box-shadow: var(--sombra);
 }
 /* La candidata cuyo Sinner ya está cubierto no es mala, pero no agranda el equipo. */
 .candidata.tibia { opacity: 0.72; }
@@ -624,7 +702,7 @@ body {
 /* --- Compartir --- */
 
 .compartir {
-  background: var(--sup-3);
+  background: var(--hundido);
   border: 1px solid var(--borde);
   border-radius: var(--r);
   padding: 10px 12px;
@@ -649,7 +727,7 @@ body {
   font-family: var(--mono);
   font-size: 11.5px;
   color: var(--texto-2);
-  background: var(--fondo);
+  background: var(--hundido);
   border: 1px solid var(--borde);
   border-radius: var(--r-chico);
   padding: 8px 10px;
@@ -693,12 +771,13 @@ body {
 }
 
 .panel {
-  background: var(--sup-1);
-  border: 1px solid var(--borde);
+  background: var(--sup-3);
+  border: 1px solid var(--borde-fuerte);
   border-radius: var(--r);
   width: 100%;
   max-width: 760px;
   margin-bottom: 24px;
+  box-shadow: var(--sombra-flotante);
 }
 
 /* La barra queda fija arriba: en una ficha larga, «Cerrar» no puede quedar fuera de pantalla. */

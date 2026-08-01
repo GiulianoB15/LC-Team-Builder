@@ -185,7 +185,7 @@ function Encabezado({ id }) {
   const color = id.arquetipos.length ? colorArquetipo(id.arquetipos[0]).borde : null;
   return (
     <div className="detalle-encabezado" style={color ? { "--acento": color } : undefined}>
-      <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} tamano={64} />
+      <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} tamano={80} />
       <div style={{ minWidth: 0 }}>
         <div className="id-nombre">{id.nombre}</div>
         <div className="id-tags">

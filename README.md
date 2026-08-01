@@ -559,6 +559,37 @@ Un detalle deliberado: los chips **decorativos** no tienen cursor ni hover. El C
 cuelga de `[role="button"]`, que solo está cuando el chip filtra de verdad. Prometer una
 acción que no existe es peor que no ofrecerla.
 
+## Aprovechar la pantalla, y el arte
+
+Tres cambios que van juntos porque tocan lo mismo.
+
+**La grilla se acomoda sola.** Antes era una columna fija de 720 px centrada: en un
+monitor de 1400 quedaba el 44% de la pantalla vacío y las tarjetas de a una. Ahora el
+contenedor va a 1140 y la grilla usa `auto-fill`, así que entran 3 columnas en escritorio,
+2 en tablet y 1 en teléfono **sin una media query por corte** — se adapta también a una
+ventana a medio maximizar.
+
+El `minmax(min(100%, 320px), 1fr)` no es adorno: sin el `min()`, una pantalla de 300 px
+seguiría reservando 320 y la fila se saldría de cuadro.
+
+La prosa **no** sigue al contenedor. Son dos medidas distintas: la grilla quiere todo el
+ancho y un párrafo quiere unos 70 caracteres, porque más largo el ojo pierde el renglón al
+volver. Por eso `--ancho` y `--ancho-lectura` son variables separadas.
+
+**Los retratos pasaron de 44 a 72 px.** El arte es lo más atractivo que tiene el dataset y
+se estaba mostrando del tamaño de una estampilla. El número no es estético: lo fija la
+pantalla más densa donde se mira. A 72 px en un celular de densidad 2× hacen falta 144 px
+reales, así que hubo que **rehacer las miniaturas a 160 px** — subir de las 96 que había no
+agrega detalle que nunca se descargó. Cuesta ~3 MB contra 1,2 MB, y como van con
+`loading="lazy"` lo que pesa es el repo, no la visita.
+
+**Las superficies ahora son cinco y se distinguen.** Antes el fondo era `#0d0d0f` y la
+tarjeta `#17161a`: diez puntos de diferencia, o sea nada. Todo quedaba en el mismo plano.
+La escala va de hundido (cajas de código) a flotante (la ficha), el fondo bajó para dejar
+lugar a que las capas suban, y cada una lleva su sombra — sin sombra, una capa más clara
+se lee como un rectángulo pintado y no como algo apoyado. Al pasar el mouse, la tarjeta
+sube un escalón entero: más clara y con más sombra.
+
 ## Rendimiento
 
 Medido con Playwright y la CPU frenada 4× (un celular de gama media, no esta máquina):

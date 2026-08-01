@@ -27,7 +27,16 @@ const iniciales = (nombre) =>
 */
 const DISPONIBLES = new Set(manifiesto.ids ?? []);
 
-export default function Retrato({ id, nombre, arquetipos = [], tamano = 44 }) {
+/*
+  72 px por defecto, no 44. El arte es lo más atractivo que tiene el dataset y
+  estaba mostrándose del tamaño de una estampilla.
+
+  El número está atado al ancho de la miniatura que baja fetch-imagenes.mjs
+  (160 px): 72 × 2 = 144, así que entra nítido en una pantalla de densidad 2×,
+  que son todos los teléfonos. Subirlo más sin rehacer las miniaturas no
+  agranda la imagen, la ablanda.
+*/
+export default function Retrato({ id, nombre, arquetipos = [], tamano = 72 }) {
   const [falla, setFalla] = useState(false);
   const color = arquetipos.length ? colorArquetipo(arquetipos[0]) : colorArquetipo(null);
 

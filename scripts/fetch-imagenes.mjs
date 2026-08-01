@@ -27,7 +27,20 @@ const DESTINO = path.join(RAIZ, "public/retratos");
 const BASE = process.env.LIMBUS_ASSETS_BASE ?? "https://limbus-assets.eldritchtools.com/assets";
 
 const forzar = process.argv.includes("--forzar");
-const ANCHO = 96; // suficiente para la lista; 2,4 KB por imagen en WebP
+/*
+  Ancho de la miniatura. No es un número estético: lo fija la pantalla más
+  densa donde se mira. Las tarjetas muestran el retrato a 72 px y la ficha a
+  80; en un celular con densidad 2× eso son 144 y 160 px reales, así que por
+  debajo de 160 la imagen se ve blanda.
+
+  Estuvo en 96 mientras el retrato se mostraba a 44 px (44 × 2 = 88, entraba
+  justo). Al agrandarlo hubo que rehacerlas: subir de 96 no agrega detalle que
+  no se bajó nunca.
+
+  Cuesta ~3 MB en total para las 294, contra 1,2 MB de antes. Se sirven con
+  `loading="lazy"`, así que lo que pesa es el repo, no la visita.
+*/
+const ANCHO = 160;
 
 const leer = (f) => JSON.parse(readFileSync(path.join(RAIZ, "src/data", f), "utf8"));
 const { identities } = leer("identities.json");
