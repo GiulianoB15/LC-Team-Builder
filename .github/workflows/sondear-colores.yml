@@ -1,0 +1,23 @@
+name: Sondear colores de Sinner
+
+# Workflow de un solo uso. Existe porque desde el entorno de desarrollo todos
+# los hosts que no son GitHub responden 403, y hace falta ver si hay una fuente
+# publicada del color firma de cada Sinner antes de decidir de dónde sacarlo.
+#
+# No escribe ni commitea nada: imprime en el log. Se borra junto con el script
+# apenas la pregunta esté contestada.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sondear:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/sondear-colores.mjs
