@@ -1028,3 +1028,25 @@ body {
     var(--fondo);
 }
 .sinner-header:hover { filter: brightness(1.15); }
+
+/* --- Encabezado de Sinner con la elegida --- */
+
+/*
+  En «Completar equipo» el encabezado plegado tiene que decir a quién
+  elegiste: si no, para saber cómo viene el equipo habría que abrir los doce,
+  que es justo lo que el plegado venía a evitar.
+*/
+.sinner-elegida {
+  font-family: var(--sans);
+  font-size: 12px;
+  text-align: right;
+  min-width: 0;
+  /*
+    El encabezado va en mayúsculas, pero el nombre de la Identidad no: en
+    versalitas, «THE HOUSE OF SPIDERS: THE THUMB NURSEFATHER» es una pared de
+    letras. Los nombres propios se leen mejor como están escritos.
+  */
+  text-transform: none;
+  letter-spacing: 0;
+}
+.elegida-nombre { color: var(--sinner, var(--oro)); letter-spacing: 0; }

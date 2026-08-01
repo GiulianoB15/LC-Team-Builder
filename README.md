@@ -491,6 +491,23 @@ chequeo.
 `extraible: false` marca 82 de 110, así que no hay forma de deducir del dataset cuáles
 vienen de arranque. Eso queda sin tocar.
 
+## La lista de propias va agrupada por Sinner
+
+En «Completar equipo» las Identidades propias no van en una grilla corrida sino en un
+acordeón por Sinner, igual que en Colección. La regla de esa pestaña es **una por Sinner**,
+así que el Sinner es la unidad con la que uno piensa; con una colección grande, la grilla
+plana era un muro de tarjetas donde encontrar a alguien era scrollear hasta verlo.
+
+Dos diferencias con el acordeón de Colección, y las dos son a propósito:
+
+- **Solo aparecen los Sinners de los que tenés algo.** En Colección la lista es fija de 12
+  porque ahí ver el hueco es justamente el punto. Acá un Sinner sin nada no es información:
+  es un renglón que no se puede usar.
+- **El encabezado plegado dice a quién elegiste.** Sin eso habría que abrir los doce para
+  saber cómo viene el equipo, que es exactamente lo que el plegado venía a evitar. Va en
+  minúsculas aunque el encabezado sea versalita: «THE HOUSE OF SPIDERS: THE THUMB
+  NURSEFATHER» es una pared de letras.
+
 ## Completar equipo: la base puede crecer hasta 12
 
 El tope eran 3 Identidades de referencia porque así lo pedía el handoff original, no por

@@ -1,6 +1,6 @@
 import React from "react";
 import { SINNERS_TOTALES } from "../data/constants.js";
-import IdCard from "./IdCard.jsx";
+import ListaPorSinner from "./ListaPorSinner.jsx";
 import { ChipArquetipo } from "./Chips.jsx";
 import Vacio from "./Vacio.jsx";
 
@@ -32,19 +32,18 @@ export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candi
         </p>
       )}
 
-      <div className="id-grid">
-        {ownedIdentities.map((id) => (
-          <IdCard
-            key={id.id}
-            id={id}
-            checked={baseIds.includes(id.id)}
-            onChange={onToggle}
-            claseActiva="elegida"
-            mostrarSinner
-            onVerDetalle={onVerDetalle}
-          />
-        ))}
-      </div>
+      {/*
+        Agrupadas y plegadas por Sinner: la regla de esta pestaña es una por
+        Sinner, así que ese es el grupo con el que se piensa. `mostrarSinner`
+        ya no hace falta, porque el encabezado del bloque lo dice.
+      */}
+      <ListaPorSinner
+        identities={ownedIdentities}
+        seleccionadas={baseIds}
+        onToggle={onToggle}
+        claseActiva="elegida"
+        onVerDetalle={onVerDetalle}
+      />
 
       {baseIds.length > 0 && (
         <>
