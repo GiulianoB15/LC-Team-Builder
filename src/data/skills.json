@@ -1,7 +1,7 @@
 {
  "_comentario": "Generado por scripts/fetch-datos.mjs. No editar a mano.",
  "meta": {
-  "generado": "2026-07-31",
+  "generado": "2026-08-01",
   "fuente": "https://limbus-assets.eldritchtools.com/data",
   "clavesIdentity": [
    "combatPassives",

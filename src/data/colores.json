@@ -1,0 +1,55 @@
+{
+ "_comentario": "Generado por scripts/fetch-colores.mjs. No editar a mano.",
+ "fuente": "https://limbuscompany.wiki.gg",
+ "generadoEn": "2026-08-01",
+ "colores": {
+  "Yi Sang": {
+   "hex": "#d4e1e8",
+   "nombre": "Dreamy Gray"
+  },
+  "Faust": {
+   "hex": "#ffb1b4",
+   "nombre": "Cerebral Pink"
+  },
+  "Don Quixote": {
+   "hex": "#ffef23",
+   "nombre": "Oblivion Yellow"
+  },
+  "Ryōshū": {
+   "hex": "#cf0000",
+   "nombre": "Smoky Scarlet"
+  },
+  "Meursault": {
+   "hex": "#293b95",
+   "nombre": "Decay Blue"
+  },
+  "Hong Lu": {
+   "hex": "#5bffde",
+   "nombre": "Naïve Cyan"
+  },
+  "Heathcliff": {
+   "hex": "#4e3076",
+   "nombre": "Furious Violet"
+  },
+  "Ishmael": {
+   "hex": "#ff9500",
+   "nombre": "Isolate Orange"
+  },
+  "Rodion": {
+   "hex": "#820000",
+   "nombre": "Lusty Burgundy"
+  },
+  "Sinclair": {
+   "hex": "#8b9c15",
+   "nombre": "Immature Green"
+  },
+  "Outis": {
+   "hex": "#325339",
+   "nombre": "Militant Olive"
+  },
+  "Gregor": {
+   "hex": "#69350b",
+   "nombre": "Verminous Brown"
+  }
+ }
+}
