@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback } from "react";
 import { IDENTITIES, EGOS, esIdentityBase, IDS_BASE } from "../data/identities.js";
 import { SINNERS, ARQUETIPOS } from "../data/constants.js";
 import { DENSIDADES } from "../lib/preferencias.js";
+import { colorSinner } from "../data/colores.js";
 import IdCard from "./IdCard.jsx";
 import EgoCard from "./EgoCard.jsx";
 import CompartirPanel from "./CompartirPanel.jsx";
@@ -232,13 +233,21 @@ export default function ColeccionTab({
 
         const tenidas = delSinner.filter((x) => marcadas[x.id]).length;
         const abierto = estaAbierto(sinner);
+        const color = colorSinner(sinner);
 
         return (
           <div key={sinner} className="sinner-block">
+            {/*
+              El color firma del Sinner, que el juego le asigna con nombre
+              propio. Con 12 encabezados idénticos había que leer el nombre
+              para saber dónde estabas; con el color se reconoce de lejos.
+            */}
             <button
               onClick={() => alternarSinner(sinner)}
               className="sinner-header"
               aria-expanded={abierto}
+              style={{ "--sinner": color.acento, "--sinner-tenue": color.tenue }}
+              title={color.nombre ? `${sinner} — ${color.nombre}` : sinner}
             >
               <span>
                 <span className="flecha">{abierto ? "▾" : "▸"}</span> {sinner}

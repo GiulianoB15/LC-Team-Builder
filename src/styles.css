@@ -544,7 +544,6 @@ body {
   font-family: var(--serif);
   font-size: 16px;
   letter-spacing: 1.5px;
-  color: var(--oro);
   border: none;
   border-bottom: 1px solid var(--borde);
   padding: 6px 0;
@@ -558,10 +557,8 @@ body {
   position: sticky;
   top: 46px;
   z-index: 10;
-  background: var(--fondo);
-  transition: color var(--transicion);
+  transition: filter var(--transicion);
 }
-.sinner-header:hover { color: #d4b25a; }
 
 .flecha { display: inline-block; width: 14px; color: var(--texto-4); }
 .sinner-count { font-family: var(--mono); font-size: 12px; color: var(--texto-4); }
@@ -1014,3 +1011,20 @@ body {
 .page[data-densidad="compacta"] .id-grid { gap: 8px; }
 .page[data-densidad="compacta"] .id-nombre { font-size: 13.5px; }
 .page[data-densidad="compacta"] .sinner-block { margin-bottom: 14px; }
+
+/* --- Color firma del Sinner --- */
+
+/*
+  `--sinner` lo pone el componente desde colores.json, ya ajustado para fondo
+  oscuro (ver src/data/colores.js). El fallback es el oro de siempre: si el
+  archivo faltara, el encabezado sigue siendo legible en vez de quedar negro.
+*/
+.sinner-header {
+  color: var(--sinner, var(--oro));
+  border-left: 3px solid var(--sinner, transparent);
+  padding-left: 10px;
+  background:
+    linear-gradient(90deg, var(--sinner-tenue, transparent), transparent 55%),
+    var(--fondo);
+}
+.sinner-header:hover { filter: brightness(1.15); }

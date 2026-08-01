@@ -9,6 +9,7 @@ import {
   sugerirOrden, puntuarCandidata, pasivasActivasDelEquipo, estadoEgo, egosDelEquipo,
   perfilSinergia, perfilVelocidad, analizarArquetipo, sugerirBanca,
 } from "../src/lib/engine.js";
+import { COLOR_SINNER, colorSinner } from "../src/data/colores.js";
 import { toggleSeleccion } from "../src/lib/seleccion.js";
 import { migrar } from "../src/lib/storage.js";
 import { codificar, decodificar, comparar, LARGO_CODIGO } from "../src/lib/codigo.js";
@@ -771,5 +772,40 @@ const textosPasivas = [
 
 check("las pasivas conservan los <términos> que son contenido del juego",
   textosPasivas.includes("<Bloodfiend>") && textosPasivas.includes("<Lake Entity>"));
+
+
+
+/*
+  --- Color firma de cada Sinner ---
+
+  Sale de la wiki y se ajusta para fondo oscuro. Lo que se chequea no es el
+  valor —ese es dato de la fuente— sino que estén los 12 y que el ajuste no
+  los haya vuelto indistinguibles.
+*/
+check("los 12 Sinners tienen color firma",
+  SINNERS.every((s) => COLOR_SINNER[s]),
+  SINNERS.filter((s) => !COLOR_SINNER[s]).join(", "));
+
+check("todos traen hex válido y nombre propio",
+  SINNERS.every((s) => /^#[0-9a-f]{6}$/.test(COLOR_SINNER[s].hex) && COLOR_SINNER[s].nombre.length > 0));
+
+/*
+  El primer ajuste recortaba la luminosidad a un rango fijo, y con eso Rodion
+  (#820000) y Ryōshū (#cf0000) —mismo tono, los dos por debajo del piso—
+  caían al MISMO color. Se cambió por una compresión, que conserva el orden
+  relativo. Este chequeo es el que impide volver a romperlo.
+*/
+const acentos = SINNERS.map((s) => COLOR_SINNER[s].acento);
+check("los 12 acentos ajustados son distintos entre sí",
+  new Set(acentos).size === SINNERS.length,
+  `${new Set(acentos).size} distintos de ${SINNERS.length}`);
+
+check("Rodion sigue siendo más oscuro que Ryōshū, como en el original",
+  Number(/(\d+)%\)$/.exec(COLOR_SINNER["Rodion"].acento)[1]) <
+  Number(/(\d+)%\)$/.exec(COLOR_SINNER["Ryōshū"].acento)[1]));
+
+/* Un Sinner desconocido no puede dejar el encabezado sin color. */
+check("un Sinner que no está en el archivo cae en un color por defecto",
+  colorSinner("Nadie").acento === "var(--oro)");
 
 console.log(fallos === 0 ? "\nTodo verde." : `\n${fallos} chequeo(s) fallando.`);

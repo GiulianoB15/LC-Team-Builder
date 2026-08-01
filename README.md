@@ -60,6 +60,8 @@ src/
     identities.js      carga del dataset + validación de integridad
     identities.json    184 Identities  ← generado, no editar a mano
     egos.json          110 E.G.O       ← generado, no editar a mano
+    colores.js         color firma de cada Sinner, ajustado para fondo oscuro
+    colores.json       los 12 colores  ← generado, no editar a mano
   lib/
     engine.js          motor: recursos de Sin, pasivas, E.G.O, resistencias, puntajes
     codigo.js          codifica/decodifica la colección para compartirla
@@ -75,6 +77,7 @@ scripts/
   build-dataset.mjs    fusiona las fuentes y genera los JSON
   fetch-imagenes.mjs   baja los retratos y genera las miniaturas
   fetch-datos.mjs      baja pasivas y números de skill, uno por id
+  fetch-colores.mjs    baja el color firma de cada Sinner desde la wiki
   parse-pasivas-wiki.mjs  extrae las pasivas de soporte del HTML de la wiki
   smoke-test.mjs       corre los chequeos
   tests.js             los chequeos en sí
@@ -589,6 +592,43 @@ La escala va de hundido (cajas de código) a flotante (la ficha), el fondo bajó
 lugar a que las capas suban, y cada una lleva su sombra — sin sombra, una capa más clara
 se lee como un rectángulo pintado y no como algo apoyado. Al pasar el mouse, la tarjeta
 sube un escalón entero: más clara y con más sombra.
+
+## Identidad visual por Sinner
+
+Los 12 acordeones de Colección eran 12 renglones idénticos en el mismo dorado: había
+que leer el nombre para saber dónde estabas.
+
+El juego le asigna a cada Sinner **un color con nombre propio** —Yi Sang es *Dreamy Gray*,
+Gregor *Verminous Brown*, Hong Lu *Naïve Cyan*— y lo muestra en su ficha de personaje. Eso
+es el dato, no una convención inventada acá.
+
+**De dónde sale.** De `limbuscompany.wiki.gg`. No está en el dump que alimenta al resto del
+dataset, y la regla es no completar de memoria, así que hubo que ir a buscarlo. Se probaron
+tres wikis: Fandom devuelve 403 a todo pedido automatizado y Cogitopedia no publica el
+campo.
+
+**Cómo se extrae.** La infobox marca el campo con `data-source="color"` y adentro pone
+`#8b9c15 (Immature Green)` como texto. El extractor se ancla en ese atributo. El primer
+intento fue un heurístico —"un nombre de color con un hex cerca"— y sacó **11 de 12**: a
+Hong Lu se le escapó porque *Cyan* no estaba en la lista de palabras, y en dos trajo ruido
+de la plantilla de la wiki, que mete veinte hexes por página. El bajador es **doce o nada**:
+con once, un Sinner quedaría con el color por defecto sin que nadie lo note.
+
+**Por qué no se usa el hex crudo.** Los colores son del juego, pensados para el arte. Cinco
+son muy oscuros (Rodion `#820000`, Meursault `#293b95`, Outis `#325339`, Gregor `#69350b`,
+Heathcliff `#4e3076`) y sobre nuestro fondo casi desaparecen; otros cuatro son casi blancos
+y saturados, que sobre oscuro es el problema inverso. El crudo se guarda igual —es el dato—
+y aparte se calcula un acento legible.
+
+**Y por qué el ajuste no es un simple tope.** Recortar la luminosidad a un rango fijo fue lo
+primero que probé, y falla: Rodion (burdeos) y Ryōshū (escarlata) tienen el mismo tono y los
+dos caían al piso del rango, o sea que quedaban **del mismo color exacto**. Dos Sinners
+indistinguibles es peor que dos oscuros. La solución es comprimir en vez de recortar
+—`L' = 45 + L × 0.35`— que mete todo en la banda 53–76 % conservando el orden relativo. El
+tono no se toca nunca: es lo que hace que "el verde" siga siendo Sinclair.
+
+Hay un chequeo que verifica que los 12 acentos sean distintos entre sí y que Rodion siga
+siendo más oscuro que Ryōshū. Es el que impide volver a romperlo.
 
 ## Rendimiento
 
