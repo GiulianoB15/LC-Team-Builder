@@ -350,6 +350,57 @@ check("y las mejores candidatas lo aplican",
   dx.candidatas.slice(0, 3).map((c) => `${c.id.nombre}:${c.aplica}`).join(" | "));
 
 /*
+  --- La base de «Completar equipo» se puede agrandar ---
+
+  El tope era 3 porque lo pedía el handoff, no el juego. Lo que se verifica acá
+  es que agrandarla SIRVA: que la recomendación cambie de verdad al sumar
+  referencias, porque si diera siempre lo mismo el tope daría igual.
+*/
+const bleedTodo = IDENTITIES.filter((x) => x.arquetipos.includes("Bleed"));
+const cadena = [];
+for (const i of bleedTodo) if (!cadena.some((b) => b.sinner === i.sinner)) cadena.push(i);
+
+const mejorCon = (base) => {
+  const usados = new Set(base.map((i) => i.sinner));
+  return IDENTITIES.filter((i) => !usados.has(i.sinner))
+    .map((i) => ({ id: i, ...puntuarCandidata(i, base) }))
+    .sort((a, b) => b.afinidad - a.afinidad || b.score - a.score)[0];
+};
+
+/*
+  La recomendación tiene que MOVERSE al sumar referencias. No crecer: la
+  afinidad no es monótona —una base de 1 ya puede tener candidatas de afinidad
+  10— y afirmar lo contrario sería inventar una propiedad que el motor no tiene.
+  Lo que sí se sostiene es que el conjunto recomendado cambia.
+*/
+const cortes = [1, 3, 6, 8].map((n) => mejorCon(cadena.slice(0, n)));
+const distintas = new Set(cortes.map((c) => c.id.id));
+check("la recomendación cambia al agrandar la base, no queda clavada",
+  distintas.size > 1,
+  cortes.map((c, i) => `${[1,3,6,8][i]}→${c.id.nombre}`).join(" | "));
+
+/* Y en particular sigue reaccionando MÁS ALLÁ de 3, que era el tope viejo. */
+const con3 = mejorCon(cadena.slice(0, 3));
+const con8 = mejorCon(cadena.slice(0, 8));
+check("y sigue reaccionando más allá de 3, que era el tope viejo",
+  con8.id.id !== con3.id.id || con8.afinidad !== con3.afinidad,
+  `con 3: ${con3.id.nombre} (af${con3.afinidad}) | con 8: ${con8.id.nombre} (af${con8.afinidad})`);
+
+/* El borde: con los 12 Sinners ocupados no queda candidata posible. */
+const unoPorSinnerBase = SINNERS.map((s) => IDENTITIES.find((i) => i.sinner === s));
+const usados12 = new Set(unoPorSinnerBase.map((i) => i.sinner));
+check("con los 12 Sinners ocupados no hay candidatas, por definición",
+  IDENTITIES.filter((i) => !usados12.has(i.sinner)).length === 0);
+
+/* Y la selección tiene que tolerar llegar a 12 sin romper la regla de uno por Sinner. */
+let seleccion = [];
+IDENTITIES.forEach((i) => { seleccion = toggleSeleccion(seleccion, i.id, i.sinner, 12, IDENTITIES); });
+const sinnersSel = new Set(seleccion.map((id) => IDENTITIES.find((i) => i.id === id).sinner));
+check("marcando de a una se llega a 12 y nunca hay dos del mismo Sinner",
+  seleccion.length === 12 && sinnersSel.size === 12,
+  `${seleccion.length} elegidas, ${sinnersSel.size} Sinners`);
+
+/*
   --- Orden de las candidatas ---
 
   Lo que se protege acá es que la afinidad temática ordene y el resto desempate.

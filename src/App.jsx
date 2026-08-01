@@ -27,7 +27,18 @@ const TABS = [
 // Hasta 12: los primeros 6 combaten, el resto es banca y sigue aportando
 // su pasiva de soporte (§3.1 del handoff).
 const MAX_EQUIPO = 12;
-const MAX_BASE_COMPLETAR = 3;
+/*
+  El tope de la base era 3 porque así lo pedía el handoff original ("dadas 1-3
+  IDs elegidas"), no por nada del juego. Pero la recomendación se recalcula
+  sobre la base entera —arquetipos, recursos, huérfanos, resistencias— así que
+  cuantas más marques, más se ajusta: con una base de Bleed de 1 las mejores
+  candidatas empatan en afinidad 3, y con 3 aparece una de afinidad 11.
+
+  El tope real es 12, uno por Sinner, igual que el equipo. Al llegar ahí no
+  quedan candidatas por definición, y la pestaña lo dice en vez de mostrar una
+  lista vacía.
+*/
+const MAX_BASE_COMPLETAR = 12;
 
 export default function App() {
   const [tab, setTab] = useState("coleccion");

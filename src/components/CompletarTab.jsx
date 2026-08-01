@@ -1,4 +1,5 @@
 import React from "react";
+import { SINNERS_TOTALES } from "../data/constants.js";
 import IdCard from "./IdCard.jsx";
 import { ChipArquetipo } from "./Chips.jsx";
 import { styles } from "../styles.js";
@@ -15,9 +16,17 @@ export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candi
   return (
     <section>
       <p style={styles.helpText}>
-        Elegí de 1 a {max} Identidades como punto de partida. El motor recomienda con qué
-        completar, usando solo tu colección.
+        Marcá las que ya tenés decididas —de 1 a {max}, una por Sinner— y el motor recomienda
+        con qué seguir, usando solo tu colección.{" "}
+        <strong>Cuantas más marques, más se ajusta</strong>: cada una cambia el perfil de
+        arquetipos, de recursos y de resistencias contra el que se puntúa.
       </p>
+
+      {baseIds.length > 0 && (
+        <p style={styles.helpText}>
+          Elegidas: <strong>{baseIds.length}</strong> de {max}.
+        </p>
+      )}
 
       <div style={styles.idGrid}>
         {ownedIdentities.map((id) => (
@@ -36,11 +45,23 @@ export default function CompletarTab({ ownedIdentities, baseIds, onToggle, candi
       {baseIds.length > 0 && (
         <>
           <h2 style={styles.sectionTitle}>Candidatas recomendadas</h2>
+          {/*
+            Dos motivos distintos para no tener candidatas, y conviene
+            distinguirlos: con los 12 Sinners ocupados no queda ninguno libre
+            por definición, y eso no es un problema sino el final del camino.
+          */}
           {candidatas.length === 0 ? (
-            <p style={styles.helpText}>
-              No quedan Identidades disponibles en tu colección para sumar (sinners repetidos o
-              colección agotada).
-            </p>
+            baseIds.length >= SINNERS_TOTALES ? (
+              <p style={styles.helpText}>
+                Ya cubriste los {SINNERS_TOTALES} Sinners, así que no queda lugar para sumar.
+                Si querés probar otra cosa, destildá a alguna y te recomiendo el reemplazo.
+              </p>
+            ) : (
+              <p style={styles.helpText}>
+                No te quedan Identidades de los Sinners libres en tu colección. Los que faltan
+                los podés ver en «Qué me falta».
+              </p>
+            )
           ) : (
             <div style={styles.candidateList}>
               {candidatas.map(({ id, score, motivos }) => (

@@ -429,6 +429,20 @@ Se dibuja en un `<canvas>` en el navegador: sin dependencias, sin servidor y sin
 a ningún lado. Los retratos los sirve la propia app, así que no hay CORS que resolver. Si
 alguno falta se dibuja el marcador de iniciales en vez de abortar.
 
+## Completar equipo: la base puede crecer hasta 12
+
+El tope eran 3 Identidades de referencia porque así lo pedía el handoff original, no por
+nada del juego. Ahora son **hasta 12, una por Sinner**, igual que el equipo.
+
+Tiene sentido porque la recomendación se recalcula sobre la base **entera** —perfil de
+arquetipos, recursos de Sin, huérfanos y resistencias—, así que cada Identidad que sumás la
+cambia. Verificado: con una base de Bleed que crece de 1 a 8, la primera recomendación va
+cambiando en el camino, y sigue reaccionando pasado 3, que era el límite viejo.
+
+Al llegar a 12 no quedan candidatas **por definición** —no hay Sinner libre—, así que la
+pestaña lo dice en vez de mostrar una lista vacía, y distingue ese caso del otro: no tener
+Identidades de los Sinners que quedaron libres.
+
 ## Cómo se ordenan las recomendaciones
 
 **Por afinidad temática primero, y el resto desempata.** No por un puntaje único, y hay un
