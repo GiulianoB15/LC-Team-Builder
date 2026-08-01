@@ -66,7 +66,9 @@ src/
     estampa.js         dibuja el equipo en un canvas y lo baja como PNG
     seleccion.js       alta/baja de IDs con tope y una-por-Sinner
     storage.js         persistencia en localStorage, versionada y migrable (Identities y E.G.O)
+    cx.js              junta clases y descarta las que no aplican
   components/          una pestaña por archivo, más la ficha de Identidad y los chips
+  styles.css           tokens de color/tipografía y todas las clases
 public/
   retratos/            imágenes bajadas  ← generado, no editar a mano
 scripts/
@@ -521,6 +523,41 @@ un Sinner valía más que hacer lo que al equipo le falta**. Y como casi todas c
 dos cosas, las ocho visibles empataban en 7 y el orden terminaba siendo alfabético. Ahora es
 un orden lexicográfico explícito —cumple el rol, después Sinner nuevo, después si hace los
 dos roles— sin números mágicos.
+
+## Los estilos son CSS, no objetos inline
+
+Arrancaron como objetos JS en `styles.js` que se pasaban por `style={}`. Andaba, pero el
+atributo `style` solo acepta declaraciones sueltas: **no puede expresar `:hover`,
+`:focus-visible`, `@media` ni transiciones**. O sea que la respuesta al mouse y al teclado,
+y la adaptación al ancho de pantalla, eran literalmente imposibles de escribir — no por
+React, sino por el atributo.
+
+Ahora todo eso vive en `src/styles.css`, con los colores, tipografías y radios como
+custom properties en `:root`. Lo único que sigue inline es lo que se **calcula con datos**:
+el color del arquetipo y el tamaño de un retrato. Eso entra como variable
+(`style={{ "--acento": color }}`) y la regla del CSS la consume: el valor lo pone JS, la
+forma la pone CSS.
+
+Lo que apareció al hacerlo:
+
+- **`botonChico` estaba definido dos veces**, a mitad del archivo y al final. La segunda
+  pisaba a la primera, así que la primera era código muerto que nadie había notado.
+- **Convivían dos paletas** que fueron divergiendo: una fría (`#17161a`, `#2a2830`) del
+  prototipo y una cálida (`#1b1917`, `#2c2926`) que entró con la ficha. Se usaban
+  indistintamente según qué componente hubiera tocado uno último. Quedaron unificadas en
+  una sola escala de superficies.
+- **Las pestañas se desbordaban en móvil.** En 390px las cuatro etiquetas llegaban justo
+  al filo y «Qué me falta» quedaba pegada contra el borde. Ahora la barra scrollea si no
+  entran, y por debajo de 430px el tipo achica un punto.
+
+Lo que se ganó, además de poder tocarlo: hover en tarjetas, botones y chips; anillo de
+foco visible al navegar con teclado (`:focus-visible`, así que aparece al tabular y no al
+hacer click); y `prefers-reduced-motion` respetado, que para algunas personas no es una
+preferencia estética sino un problema real.
+
+Un detalle deliberado: los chips **decorativos** no tienen cursor ni hover. El CSS se
+cuelga de `[role="button"]`, que solo está cuando el chip filtra de verdad. Prometer una
+acción que no existe es peor que no ofrecerla.
 
 ## Rendimiento
 

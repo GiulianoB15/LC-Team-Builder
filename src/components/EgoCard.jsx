@@ -2,17 +2,17 @@ import React from "react";
 import { SIN_LABEL, colorArquetipo } from "../data/constants.js";
 import { ChipArquetipo } from "./Chips.jsx";
 import Retrato from "./Retrato.jsx";
-import { styles } from "../styles.js";
+import { cx } from "../lib/cx.js";
 
 /* Costo en recursos de Sin, en el orden en que viene (de mayor a menor). */
 export function CostoSin({ costo, faltantes = [] }) {
   const falta = new Set(faltantes.map((f) => f.sin));
   return (
-    <span style={styles.costoRow}>
+    <span className="costo-row">
       {costo.map((c) => (
         <span
           key={c.sin}
-          style={{ ...styles.costoPill, ...(falta.has(c.sin) ? styles.costoPillFalta : {}) }}
+          className={cx("costo-pill", falta.has(c.sin) && "falta")}
           title={falta.has(c.sin) ? "El equipo no llega a este costo" : undefined}
         >
           {SIN_LABEL[c.sin] ?? c.sin} {c.cantidad}
@@ -30,36 +30,32 @@ function EgoCard({
 
   return (
     <label
-      style={{
-        ...styles.idCard,
-        ...(checked ? styles.idCardOwned : {}),
-        ...(deshabilitado ? styles.cardSoloLectura : {}),
-        ...(acento ? { borderLeft: `3px solid ${acento}` } : {}),
-      }}
+      className={cx("id-card", checked && "tenida", deshabilitado && "solo-lectura")}
+      style={acento ? { "--acento": acento } : undefined}
     >
       <input
         type="checkbox"
         checked={checked}
         onChange={() => onChange(ego.id, ego.sinner)}
         disabled={deshabilitado}
-        style={styles.checkbox}
+        className="checkbox"
       />
       <Retrato id={ego.id} nombre={ego.nombre} arquetipos={ego.arquetipos} />
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={styles.idName}>
+      <div className="fila-crece">
+        <div className="id-nombre">
           {ego.nombre}
-          <span style={styles.rango}>{ego.rango}</span>
+          <span className="rango">{ego.rango}</span>
           {/*
             Hoy los 110 tienen pasiva, pero el badge se queda: si mañana entra
             un E.G.O nuevo antes de que la fuente lo publique, tiene que
             notarse en la tarjeta y no pasar por completo.
           */}
-          {!ego.tienePasivas && <span style={styles.sinDatos} title="Sin datos de pasiva">sin pasiva</span>}
+          {!ego.tienePasivas && <span className="sin-datos" title="Sin datos de pasiva">sin pasiva</span>}
         </div>
 
-        {mostrarSinner && <div style={styles.idTags}>{ego.sinner}</div>}
+        {mostrarSinner && <div className="id-tags">{ego.sinner}</div>}
 
-        <div style={styles.chipRow}>
+        <div className="chip-row">
           {ego.arquetipos.map((a) => (
             <ChipArquetipo
               key={a}

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { colorArquetipo } from "../data/constants.js";
 import manifiesto from "../data/retratos.json";
-import { styles } from "../styles.js";
 
 /*
   Retrato de una Identity o E.G.O.
@@ -32,17 +31,14 @@ export default function Retrato({ id, nombre, arquetipos = [], tamano = 44 }) {
   const [falla, setFalla] = useState(false);
   const color = arquetipos.length ? colorArquetipo(arquetipos[0]) : colorArquetipo(null);
 
-  const caja = {
-    ...styles.retrato,
-    width: tamano,
-    height: tamano,
-    minWidth: tamano,
-  };
+  /* El tamaño es un dato del que llama, así que va inline; el resto es CSS. */
+  const caja = { width: tamano, height: tamano, minWidth: tamano };
 
   if (falla || !DISPONIBLES.has(id)) {
     return (
       <div
-        style={{ ...caja, ...styles.retratoVacio, background: color.chip, color: color.borde, fontSize: tamano * 0.32 }}
+        className="retrato retrato-vacio"
+        style={{ ...caja, background: color.chip, color: color.borde, fontSize: tamano * 0.32 }}
         aria-hidden="true"
       >
         {iniciales(nombre)}
@@ -58,7 +54,8 @@ export default function Retrato({ id, nombre, arquetipos = [], tamano = 44 }) {
       loading="lazy"
       decoding="async"
       onError={() => setFalla(true)}
-      style={{ ...caja, objectFit: "cover", objectPosition: "top" }}
+      className="retrato"
+      style={caja}
     />
   );
 }

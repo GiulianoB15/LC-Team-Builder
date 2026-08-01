@@ -2,7 +2,7 @@ import React from "react";
 import { colorArquetipo, FACCIONES_GENERICAS } from "../data/constants.js";
 import { ChipArquetipo, ChipFaccion } from "./Chips.jsx";
 import Retrato from "./Retrato.jsx";
-import { styles } from "../styles.js";
+import { cx } from "../lib/cx.js";
 
 /*
   Tarjeta con checkbox, compartida por las pestañas.
@@ -13,9 +13,12 @@ import { styles } from "../styles.js";
   así que la tarjeta le pasa su propio id en vez de recibir un closure ya
   atado — `() => toggle(x.id)` creaba una función nueva por tarjeta y por
   render, y eso solo lo hacía peor.
+
+  `claseActiva` distingue los dos sentidos de estar marcada: en Colección
+  significa "la tengo" (verde) y en las otras dos "la elegí para esto" (oro).
 */
 function IdCard({
-  id, checked, onChange, estiloActivo, mostrarSinner, deshabilitado,
+  id, checked, onChange, claseActiva = "tenida", mostrarSinner, deshabilitado,
   onFiltrarArquetipo, onFiltrarFaccion, arquetiposActivos, faccionActiva,
   onVerDetalle, insignia,
 }) {
@@ -27,43 +30,39 @@ function IdCard({
 
   return (
     <label
-      style={{
-        ...styles.idCard,
-        ...(checked ? estiloActivo : {}),
-        ...(deshabilitado ? styles.cardSoloLectura : {}),
-        ...(acento ? { borderLeft: `3px solid ${acento}` } : {}),
-      }}
+      className={cx("id-card", checked && claseActiva, deshabilitado && "solo-lectura")}
+      style={acento ? { "--acento": acento } : undefined}
     >
       <input
         type="checkbox"
         checked={checked}
         onChange={() => onChange(id.id, id.sinner)}
         disabled={deshabilitado}
-        style={styles.checkbox}
+        className="checkbox"
       />
       <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} />
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={styles.idName}>
+      <div className="fila-crece">
+        <div className="id-nombre">
           {id.nombre}
-          <span style={styles.rareza}>{"★".repeat(id.rareza)}</span>
+          <span className="rareza">{"★".repeat(id.rareza)}</span>
           {/*
             Tres estados, y se distinguen: completa (LCTeamBuilder trae combate
             y soporte), solo soporte (la wiki únicamente publica esa), o nada.
             Mostrarlos igual haría parecer que todas están analizadas igual.
           */}
-          {insignia && <span style={styles.insignia}>{insignia}</span>}
-          {!id.tienePasivas && <span style={styles.sinDatos} title="Sin datos de pasivas">sin pasivas</span>}
+          {insignia && <span className="insignia">{insignia}</span>}
+          {!id.tienePasivas && <span className="sin-datos" title="Sin datos de pasivas">sin pasivas</span>}
           {id.tienePasivas && !id.pasivasCompletas && (
-            <span style={styles.parcial} title="Solo se conoce la pasiva de soporte; falta la de combate">
+            <span className="parcial" title="Solo se conoce la pasiva de soporte; falta la de combate">
               solo soporte
             </span>
           )}
         </div>
 
-        {mostrarSinner && <div style={styles.idTags}>{id.sinner}</div>}
+        {mostrarSinner && <div className="id-tags">{id.sinner}</div>}
 
-        <div style={styles.chipRow}>
-          {id.arquetipos.length === 0 && <span style={styles.chipVacio}>Sin arquetipo</span>}
+        <div className="chip-row">
+          {id.arquetipos.length === 0 && <span className="chip-vacio">Sin arquetipo</span>}
           {id.arquetipos.map((a) => (
             <ChipArquetipo
               key={a}
@@ -99,7 +98,7 @@ function IdCard({
             e.stopPropagation();
             onVerDetalle(id);
           }}
-          style={styles.botonFicha}
+          className="boton-ficha"
           title={`Ver la ficha de ${id.nombre}`}
           aria-label={`Ver la ficha de ${id.nombre}`}
         >

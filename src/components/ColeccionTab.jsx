@@ -5,7 +5,7 @@ import IdCard from "./IdCard.jsx";
 import EgoCard from "./EgoCard.jsx";
 import CompartirPanel from "./CompartirPanel.jsx";
 import { ChipArquetipo, ChipFaccion } from "./Chips.jsx";
-import { styles } from "../styles.js";
+import { cx } from "../lib/cx.js";
 
 const SECCIONES = [
   { key: "identities", label: "Identities" },
@@ -112,20 +112,20 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
 
   return (
     <section>
-      <div style={styles.subTabBar}>
+      <div className="subtab-bar">
         {SECCIONES.map((s) => (
           <button
             key={s.key}
             onClick={() => { setSeccion(s.key); limpiar(); }}
-            style={{ ...styles.subTab, ...(seccion === s.key ? styles.subTabActiva : {}) }}
+            className={cx("subtab", seccion === s.key && "activa")}
           >
             {s.label}
-            <span style={styles.subTabCount}>{cuenta(s.key)}</span>
+            <span className="subtab-count">{cuenta(s.key)}</span>
           </button>
         ))}
       </div>
 
-      <p style={styles.helpText}>
+      <p className="ayuda">
         {enVisita
           ? `Colección compartida: ${total} de ${lista.length} marcados. No se puede editar.`
           : null}
@@ -144,7 +144,7 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
       <CompartirPanel propia={propia} onVisitar={onVisitar} modoVisita={enVisita} />
 
       {saveError && (
-        <div style={styles.errorBanner}>No se pudo guardar el último cambio. Probá de nuevo.</div>
+        <div className="aviso-error">No se pudo guardar el último cambio. Probá de nuevo.</div>
       )}
 
       <input
@@ -152,11 +152,11 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
         value={filtro}
         onChange={(e) => setFiltro(e.target.value)}
         placeholder={esEgo ? "Buscar por nombre, Sinner o rango (HE, WAW…)" : "Buscar por nombre, Sinner o facción"}
-        style={styles.buscador}
+        className="buscador"
       />
 
       {/* Filtros rápidos: evitan tipear para lo que más se busca. */}
-      <div style={styles.filtroRow}>
+      <div className="filtro-row">
         {ARQUETIPOS.map((a) => (
           <ChipArquetipo key={a} arquetipo={a} onClick={toggleArquetipo} activo={arquetiposActivos.has(a)} />
         ))}
@@ -168,12 +168,12 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
         sinergia derivada, y un chip que no filtra nada es peor que no estarlo.
       */}
       {!esEgo && (
-        <div style={styles.filtroRow}>
+        <div className="filtro-row">
           {ROLES.map((r) => (
             <button
               key={r.key}
               onClick={() => toggleRol(r.key)}
-              style={{ ...styles.chipRol, ...(rolActivo === r.key ? styles.chipRolActivo : {}) }}
+              className={cx("chip-rol", rolActivo === r.key && "activo")}
               title={
                 r.key === "aplica" || r.key === "lee"
                   ? "Se cruza con los arquetipos elegidos arriba"
@@ -186,16 +186,16 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
         </div>
       )}
 
-      <div style={styles.barraAcciones}>
-        <span style={styles.resultado}>
+      <div className="barra-acciones">
+        <span className="resultado">
           {hayFiltro ? `${visibles.length} de ${lista.length}` : `${lista.length} en total`}
         </span>
-        <span style={styles.compartirBotones}>
-          {hayFiltro && <button onClick={limpiar} style={styles.botonChico}>Limpiar filtros</button>}
+        <span className="compartir-botones">
+          {hayFiltro && <button onClick={limpiar} className="boton-chico">Limpiar filtros</button>}
           {!hayFiltro && (
             <button
               onClick={() => setAbiertos(todosAbiertos ? new Set() : new Set(SINNERS))}
-              style={styles.botonChico}
+              className="boton-chico"
             >
               {todosAbiertos ? "Cerrar todos" : "Abrir todos"}
             </button>
@@ -212,25 +212,25 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
         const abierto = estaAbierto(sinner);
 
         return (
-          <div key={sinner} style={styles.sinnerBlock}>
+          <div key={sinner} className="sinner-block">
             <button
               onClick={() => alternarSinner(sinner)}
-              style={styles.sinnerHeaderBtn}
+              className="sinner-header"
               aria-expanded={abierto}
             >
               <span>
-                <span style={styles.flecha}>{abierto ? "▾" : "▸"}</span> {sinner}
+                <span className="flecha">{abierto ? "▾" : "▸"}</span> {sinner}
               </span>
-              <span style={styles.sinnerCount}>
+              <span className="sinner-count">
                 {tenidas}/{delSinner.length}
               </span>
             </button>
 
             {abierto && (
               delSinner.length === 0 ? (
-                <div style={styles.sinnerVacio}>Sin datos cargados todavía.</div>
+                <div className="sinner-vacio">Sin datos cargados todavía.</div>
               ) : (
-                <div style={styles.idGrid}>
+                <div className="id-grid">
                   {delSinner.map((x) =>
                     esEgo ? (
                       <EgoCard
@@ -248,7 +248,6 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
                         id={x}
                         checked={!!marcadas[x.id]}
                         onChange={toggle}
-                        estiloActivo={styles.idCardOwned}
                         /*
                           Las base no se pueden desmarcar: las tiene todo el
                           mundo, así que dejar destildarlas sería ofrecer un
@@ -272,7 +271,7 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
       })}
 
       {hayFiltro && visibles.length === 0 && (
-        <p style={styles.helpText}>Nada coincide con esos filtros.</p>
+        <p className="ayuda">Nada coincide con esos filtros.</p>
       )}
     </section>
   );

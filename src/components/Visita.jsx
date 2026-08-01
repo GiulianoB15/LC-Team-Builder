@@ -1,5 +1,4 @@
 import React from "react";
-import { styles } from "../styles.js";
 
 const contar = (mapa) => Object.values(mapa ?? {}).filter(Boolean).length;
 
@@ -12,9 +11,9 @@ export function PropuestaVisita({ propuesta, onAceptar, onDescartar }) {
 
   if (propuesta.error) {
     return (
-      <div style={styles.propuesta}>
+      <div className="propuesta">
         <div>El link traía una colección, pero no se pudo leer: {propuesta.error}</div>
-        <button onClick={onDescartar} style={styles.boton}>Cerrar</button>
+        <button onClick={onDescartar} className="boton">Cerrar</button>
       </div>
     );
   }
@@ -23,16 +22,16 @@ export function PropuestaVisita({ propuesta, onAceptar, onDescartar }) {
   const nEgos = contar(propuesta.egos);
 
   return (
-    <div style={styles.propuesta}>
+    <div className="propuesta">
       <div>
         Te compartieron una colección con <strong>{nIds}</strong> Identities y{" "}
         <strong>{nEgos}</strong> E.G.O. Verla no toca la tuya.
       </div>
-      <div style={styles.compartirBotones}>
-        <button onClick={() => onAceptar({ identities: propuesta.identities, egos: propuesta.egos })} style={styles.botonPrimario}>
+      <div className="compartir-botones">
+        <button onClick={() => onAceptar({ identities: propuesta.identities, egos: propuesta.egos })} className="boton-primario">
           Verla sin tocar la mía
         </button>
-        <button onClick={onDescartar} style={styles.boton}>No, gracias</button>
+        <button onClick={onDescartar} className="boton">No, gracias</button>
       </div>
     </div>
   );
@@ -43,18 +42,18 @@ export function BannerVisita({ visita, onSalir, onAdoptar }) {
   if (!visita) return null;
 
   return (
-    <div style={styles.bannerVisita}>
+    <div className="banner-visita">
       <div>
         Estás viendo una <strong>colección compartida</strong> ({contar(visita.identities)} Identities,{" "}
         {contar(visita.egos)} E.G.O). La tuya está intacta.
       </div>
-      <div style={styles.compartirBotones}>
-        <button onClick={onSalir} style={styles.botonPrimario}>Volver a la mía</button>
+      <div className="compartir-botones">
+        <button onClick={onSalir} className="boton-primario">Volver a la mía</button>
         <button
           onClick={() => {
             if (window.confirm("Esto reemplaza tu colección por la que estás viendo. ¿Seguro?")) onAdoptar();
           }}
-          style={styles.boton}
+          className="boton"
         >
           Adoptarla como mía
         </button>

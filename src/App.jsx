@@ -15,7 +15,7 @@ import EquipoTab from "./components/EquipoTab.jsx";
 import CompletarTab from "./components/CompletarTab.jsx";
 import FaltanTab from "./components/FaltanTab.jsx";
 import DetalleId from "./components/DetalleId.jsx";
-import { styles } from "./styles.js";
+import { cx } from "./lib/cx.js";
 
 const TABS = [
   { key: "coleccion", label: "Colección" },
@@ -237,31 +237,31 @@ export default function App() {
   );
 
   return (
-    <div style={styles.page}>
-      <header style={styles.header}>
-        <div style={styles.headerInner}>
-          <div style={styles.docketMark}>EXP. N.º 000</div>
-          <h1 style={styles.title}>LIMBUS DOCKET</h1>
-          <div style={styles.subtitle}>Registro de Identidades &amp; Orden de Despliegue</div>
+    <div className="page">
+      <header className="header">
+        <div className="header-inner">
+          <div className="docket-mark">EXP. N.º 000</div>
+          <h1 className="title">LIMBUS DOCKET</h1>
+          <div className="subtitle">Registro de Identidades &amp; Orden de Despliegue</div>
         </div>
       </header>
 
       <BannerVisita visita={visita} onSalir={salirDeVisita} onAdoptar={adoptarVisitada} />
 
-      <nav style={styles.tabBar}>
+      <nav className="tab-bar">
         {TABS.map((t) => (
           <button
             key={t.key}
             onClick={() => setTab(t.key)}
-            style={{ ...styles.tabButton, ...(tab === t.key ? styles.tabButtonActive : {}) }}
+            className={cx("tab", tab === t.key && "activa")}
           >
             {t.label}
           </button>
         ))}
       </nav>
 
-      <main style={styles.main}>
-        {!loaded && <div style={styles.loading}>Cargando expediente…</div>}
+      <main className="main">
+        {!loaded && <div className="loading">Cargando expediente…</div>}
 
         <PropuestaVisita
           propuesta={propuesta}
@@ -327,7 +327,7 @@ export default function App() {
         />
       </main>
 
-      <footer style={styles.footer}>
+      <footer className="footer">
         {META.conteo.identities} Identities y {META.conteo.egos} E.G.O · última al{" "}
         <strong>{META.ultimaIdentity}</strong>.
         <br />
@@ -343,11 +343,11 @@ export default function App() {
           </>
         )}
         Pasivas y retratos de{" "}
-        <a href="https://limbus.eldritchtools.com" style={styles.footerLink}>
+        <a href="https://limbus.eldritchtools.com">
           eldritchtools
         </a>
         ; números de skills de{" "}
-        <a href="https://github.com/LCTeamBuilder/LCTeamBuilder.github.io" style={styles.footerLink}>
+        <a href="https://github.com/LCTeamBuilder/LCTeamBuilder.github.io">
           LCTeamBuilder
         </a>{" "}
         (MIT, © 2024 SuenoImposible). No afiliado a Project Moon.

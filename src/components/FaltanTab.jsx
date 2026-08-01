@@ -4,7 +4,7 @@ import { ARQUETIPOS, SLOTS_DESPLIEGUE, colorArquetipo } from "../data/constants.
 import { analizarArquetipo } from "../lib/engine.js";
 import { ChipArquetipo } from "./Chips.jsx";
 import Retrato from "./Retrato.jsx";
-import { styles } from "../styles.js";
+import { cx } from "../lib/cx.js";
 
 /*
   El inverso de «Completar equipo»: esa arma con lo que tenés, esta te dice qué
@@ -19,9 +19,9 @@ const CANDIDATAS_VISIBLES = 8;
 
 function Barra({ cubiertos, total }) {
   return (
-    <div style={styles.barraSinners} aria-label={`${cubiertos} de ${total} Sinners`}>
+    <div className="barra-sinners" aria-label={`${cubiertos} de ${total} Sinners`}>
       {Array.from({ length: total }, (_, i) => (
-        <span key={i} style={i < cubiertos ? styles.barraLlena : styles.barraVacia} />
+        <span key={i} className={cx("barra-tramo", i < cubiertos && "llena")} />
       ))}
     </div>
   );
@@ -37,13 +37,13 @@ export default function FaltanTab({ ownedIdentities, onVerDetalle }) {
 
   return (
     <section>
-      <p style={styles.helpText}>
+      <p className="ayuda">
         Elegí un arquetipo y te digo qué te falta para armar un equipo de eso. Lo que manda
         no es cuántas Identidades tenés sino de cuántos <strong>Sinners distintos</strong>:
         se despliegan {SLOTS_DESPLIEGUE} y no puede haber dos del mismo.
       </p>
 
-      <div style={styles.filtroRow}>
+      <div className="filtro-row">
         {ARQUETIPOS.map((a) => (
           <ChipArquetipo
             key={a}
@@ -54,24 +54,24 @@ export default function FaltanTab({ ownedIdentities, onVerDetalle }) {
         ))}
       </div>
 
-      {!analisis && <p style={styles.helpText}>Elegí uno de los siete para ver el análisis.</p>}
+      {!analisis && <p className="ayuda">Elegí uno de los siete para ver el análisis.</p>}
 
       {analisis && (
         <>
-          <h2 style={styles.sectionTitle}>Cómo estás de {analisis.arquetipo}</h2>
+          <h2 className="titulo-seccion">Cómo estás de {analisis.arquetipo}</h2>
 
-          <div style={styles.resumenFaltan}>
+          <div className="resumen-faltan">
             <div>
-              <div style={styles.numeroGrande}>
+              <div className="numero-grande">
                 {analisis.sinnersCubiertos.length}
-                <span style={styles.numeroChico}> / {SLOTS_DESPLIEGUE}</span>
+                <span className="numero-chico"> / {SLOTS_DESPLIEGUE}</span>
               </div>
-              <div style={styles.reasonText}>Sinners cubiertos</div>
+              <div className="motivo">Sinners cubiertos</div>
               <Barra cubiertos={Math.min(analisis.sinnersCubiertos.length, SLOTS_DESPLIEGUE)} total={SLOTS_DESPLIEGUE} />
             </div>
             <div>
-              <div style={styles.numeroGrande}>{analisis.tuyas.length}</div>
-              <div style={styles.reasonText}>
+              <div className="numero-grande">{analisis.tuyas.length}</div>
+              <div className="motivo">
                 Identidades tuyas de {analisis.arquetipo}
                 {analisis.tuyas.length > analisis.sinnersCubiertos.length && (
                   <> — algunas comparten Sinner, así que no suman lugar</>
@@ -81,12 +81,12 @@ export default function FaltanTab({ ownedIdentities, onVerDetalle }) {
           </div>
 
           {analisis.faltanSinners === 0 ? (
-            <div style={styles.avisoOk}>
+            <div className="aviso-ok">
               ✔ Podés armar un equipo entero de {analisis.arquetipo}: tenés{" "}
               {analisis.sinnersCubiertos.length} Sinners distintos.
             </div>
           ) : (
-            <div style={styles.aviso}>
+            <div className="aviso">
               Te faltan <strong>{analisis.faltanSinners}</strong>{" "}
               {analisis.faltanSinners === 1 ? "Sinner" : "Sinners"} para llenar los{" "}
               {SLOTS_DESPLIEGUE} lugares con este arquetipo.
@@ -94,7 +94,7 @@ export default function FaltanTab({ ownedIdentities, onVerDetalle }) {
           )}
 
           {/* El rol es lo que aportó la capa de sinergia; sin eso esto sería solo un conteo. */}
-          <p style={styles.helpText}>
+          <p className="ayuda">
             De las tuyas, <strong>{analisis.aplican.length}</strong> aplican {analisis.arquetipo} y{" "}
             <strong>{analisis.leen.length}</strong> lo aprovechan.
             {analisis.rolBuscado === "aplica" && (
@@ -108,28 +108,25 @@ export default function FaltanTab({ ownedIdentities, onVerDetalle }) {
             )}
           </p>
 
-          <h2 style={styles.sectionTitle}>Qué te convendría conseguir</h2>
+          <h2 className="titulo-seccion">Qué te convendría conseguir</h2>
           {analisis.candidatas.length === 0 ? (
-            <p style={styles.helpText}>
+            <p className="ayuda">
               Ya tenés todas las Identidades de {analisis.arquetipo} que existen en el dataset.
             </p>
           ) : (
-            <div style={styles.candidateList}>
+            <div className="candidata-lista">
               {analisis.candidatas.slice(0, CANDIDATAS_VISIBLES).map(({ id, motivos, sinnerNuevo }) => (
                 <div
                   key={id.id}
-                  style={{
-                    ...styles.candidateCard,
-                    borderLeft: `3px solid ${colorArquetipo(analisis.arquetipo).borde}`,
-                    ...(sinnerNuevo ? {} : styles.candidataTibia),
-                  }}
+                  className={cx("candidata", !sinnerNuevo && "tibia")}
+                  style={{ "--acento": colorArquetipo(analisis.arquetipo).borde }}
                 >
-                  <div style={styles.candidateHeader}>
-                    <div style={{ display: "flex", gap: 8, alignItems: "center", minWidth: 0 }}>
+                  <div className="candidata-header">
+                    <div className="fila">
                       <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} tamano={34} />
                       <div style={{ minWidth: 0 }}>
-                        <div style={styles.idName}>{id.nombre}</div>
-                        <div style={styles.idTags}>
+                        <div className="id-nombre">{id.nombre}</div>
+                        <div className="id-tags">
                           {id.sinner} · {"★".repeat(id.rareza)}
                           {id.fecha ? ` · ${id.fecha}` : ""}
                         </div>
@@ -138,21 +135,21 @@ export default function FaltanTab({ ownedIdentities, onVerDetalle }) {
                     <button
                       type="button"
                       onClick={() => onVerDetalle(id)}
-                      style={styles.botonFicha}
+                      className="boton-ficha"
                       aria-label={`Ver la ficha de ${id.nombre}`}
                     >
                       ficha
                     </button>
                   </div>
                   {motivos.map((m, i) => (
-                    <div key={i} style={styles.reasonText}>{m}</div>
+                    <div key={i} className="motivo">{m}</div>
                   ))}
                 </div>
               ))}
             </div>
           )}
 
-          <p style={styles.helpText}>
+          <p className="ayuda">
             Esto sale del arquetipo oficial y del rol derivado de las pasivas. No sabe nada de
             qué banner está activo ni de cuál es el meta: te dice qué le falta a tu colección,
             no qué conviene sacar este mes.

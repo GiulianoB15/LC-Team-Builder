@@ -1,6 +1,6 @@
 import React from "react";
 import { colorArquetipo } from "../data/constants.js";
-import { styles } from "../styles.js";
+import { cx } from "../lib/cx.js";
 
 /*
   Los chips nacieron como etiqueta decorativa y después se les colgó un onClick
@@ -19,6 +19,10 @@ import { styles } from "../styles.js";
   así que van con tabIndex -1: se siguen pudiendo clickear y el lector de
   pantalla los sigue anunciando como botón, pero no se tabula por ellos. La
   barra de filtros, que es la vía completa, sí es navegable.
+
+  De paso, `role="button"` es de lo que se cuelga el CSS para dar cursor y
+  hover: los chips decorativos no responden al mouse porque no hacen nada, y
+  prometer una acción que no existe es peor que no ofrecerla.
 */
 function propsClickeable(onClick, valor, navegable) {
   if (!onClick) return {};
@@ -43,12 +47,12 @@ export function ChipArquetipo({ arquetipo, onClick, activo, navegable = true }) 
     <span
       {...propsClickeable(onClick, arquetipo, navegable)}
       aria-pressed={onClick ? !!activo : undefined}
+      className="chip"
+      /* Los siete colores salen de los datos: no pueden ser reglas fijas. */
       style={{
-        ...styles.chip,
         background: activo ? c.borde : c.chip,
         color: activo ? "#12111a" : c.borde,
         borderColor: c.borde,
-        cursor: onClick ? "pointer" : "default",
         fontWeight: activo ? 600 : 400,
       }}
     >
@@ -60,25 +64,18 @@ export function ChipArquetipo({ arquetipo, onClick, activo, navegable = true }) 
 /*
   Facción. Clickeable: tocar "Blade Lineage" filtra por esa facción, que es la
   forma más rápida de encontrar un núcleo temático sin tipear.
+
+  `ex` son afiliaciones que el personaje ya NO tiene. El juego las muestra
+  tachadas y en rojo; acá se replica el tachado, porque borrarlas perdería
+  información y mostrarlas iguales al resto diría algo falso.
 */
 export function ChipFaccion({ faccion, onClick, activo, navegable = true, ex = false }) {
   return (
     <span
       {...propsClickeable(onClick, faccion, navegable)}
       aria-pressed={onClick ? !!activo : undefined}
-      /*
-        `ex` son afiliaciones que el personaje ya NO tiene. El juego las muestra
-        tachadas y en rojo; acá se replica el tachado, porque borrarlas perdería
-        información y mostrarlas iguales al resto diría algo falso.
-      */
       title={ex ? `${faccion}: afiliación anterior, el juego la muestra tachada` : undefined}
-      style={{
-        ...styles.chip,
-        ...styles.chipFaccion,
-        ...(activo ? styles.chipFaccionActiva : {}),
-        ...(ex ? styles.chipFaccionEx : {}),
-        cursor: onClick ? "pointer" : "default",
-      }}
+      className={cx("chip", "chip-faccion", activo && "activa", ex && "ex")}
     >
       {faccion}
     </span>

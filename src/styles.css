@@ -1,0 +1,791 @@
+/*
+  Estilos de la app.
+
+  POR QUÉ DEJARON DE SER OBJETOS INLINE
+
+  Hasta acá los estilos vivían en `styles.js` como objetos que se pasaban por
+  `style={}`. Funcionaba, pero un objeto inline no puede expresar `:hover`,
+  `:focus-visible`, `@media` ni transiciones — no es una limitación de React
+  sino del atributo `style`, que solo acepta declaraciones sueltas. O sea que
+  toda la respuesta al mouse y al teclado, y toda la adaptación al ancho de
+  pantalla, eran literalmente imposibles de escribir.
+
+  De paso aparecieron dos cosas que el formato viejo escondía:
+
+  - `botonChico` estaba definido DOS veces (una a mitad del archivo y otra al
+    final). La segunda pisaba a la primera, así que la primera era código
+    muerto que nadie notó.
+  - Convivían dos paletas que fueron divergiendo: una fría (#17161a, #2a2830)
+    del prototipo y una cálida (#1b1917, #2c2926) que entró después con la
+    ficha. Se usaban indistintamente. Acá quedan unificadas en una sola escala.
+
+  QUÉ SIGUE SIENDO INLINE
+
+  Solo lo que se calcula con datos: el color del arquetipo, el ancho de un
+  retrato. Eso entra como custom property (`style={{ "--acento": color }}`) y
+  la regla de acá abajo la consume. El valor lo pone JS, la forma la pone CSS.
+*/
+
+:root {
+  /*
+    Superficies, de atrás hacia adelante. La guía de UI oscura es clara en
+    esto: lo que está encima va más claro, nunca más oscuro. Es lo que hace
+    legible la jerarquía sin agregar un color más.
+  */
+  --fondo: #0d0d0f;
+  --sup-1: #17161a;   /* tarjetas, controles */
+  --sup-2: #1e1c22;   /* elevado: barras de panel, bloques dentro de tarjeta */
+  --sup-3: #131218;   /* hundido: cajas de código, paneles plegados */
+
+  --borde: #2a2830;
+  --borde-suave: #211f27;
+  --borde-fuerte: #3a3840;
+
+  --texto: #ede6da;
+  --texto-2: #b3ada6;
+  --texto-3: #8a847e;
+  --texto-4: #5c5852;
+
+  --oro: #b8963e;
+  --carmin: #7a1f2b;
+  --verde: #4a6b4a;
+
+  --serif: "Georgia", "Iowan Old Style", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Courier New", monospace;
+
+  --r-chico: 4px;
+  --r: 6px;
+  --r-pill: 999px;
+
+  --ancho: 720px;
+
+  /* Una sola duración para todo: mover cada cosa a su ritmo se nota y molesta. */
+  --transicion: 120ms ease;
+}
+
+/*
+  Respeta a quien pidió menos movimiento en su sistema. No es opcional: para
+  algunas personas las transiciones son un problema real, no una preferencia.
+*/
+@media (prefers-reduced-motion: reduce) {
+  :root { --transicion: 0ms; }
+  * { animation: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+}
+
+/*
+  Foco visible y uniforme. `:focus-visible` y no `:focus`: el anillo aparece
+  cuando se navega con teclado y no cuando se hace click, que es exactamente
+  el comportamiento que la gente espera.
+*/
+:focus-visible {
+  outline: 2px solid var(--oro);
+  outline-offset: 2px;
+  border-radius: var(--r-chico);
+}
+
+/* --- Estructura --- */
+
+.page {
+  min-height: 100vh;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--serif);
+  padding-bottom: 40px;
+}
+
+.header {
+  border-bottom: 2px solid var(--carmin);
+  padding: 24px 16px 18px;
+  background: linear-gradient(180deg, #17161a 0%, var(--fondo) 100%);
+}
+
+.header-inner { max-width: var(--ancho); margin: 0 auto; }
+
+.docket-mark {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--oro);
+  margin-bottom: 6px;
+}
+
+.title { font-size: 28px; letter-spacing: 3px; margin: 0; color: var(--texto); }
+
+.subtitle { font-family: var(--sans); font-size: 13px; color: #9a9490; margin-top: 4px; }
+
+/*
+  Sticky: con 184 tarjetas, al scrollear las pestañas quedaban lejísimos.
+  El fondo opaco es necesario o el contenido se transparenta por debajo.
+
+  `overflow-x: auto` es el arreglo de un desborde real: en un teléfono de
+  390px las cuatro etiquetas llegaban justo al borde y «Qué me falta» quedaba
+  pegada contra el filo. Ahora, si no entran, se arrastran.
+*/
+.tab-bar {
+  display: flex;
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--borde);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--fondo);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+
+.tab {
+  flex: 1 0 auto;
+  padding: 12px 8px;
+  background: transparent;
+  border: none;
+  color: #9a9490;
+  font-family: var(--sans);
+  font-size: 13px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color var(--transicion), border-color var(--transicion);
+}
+.tab:hover { color: var(--texto-2); }
+.tab.activa { color: var(--texto); border-bottom-color: var(--carmin); }
+
+@media (max-width: 430px) {
+  .tab { font-size: 12px; padding: 11px 6px; }
+}
+
+.main { max-width: var(--ancho); margin: 0 auto; padding: 20px 16px; }
+
+.footer {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  color: var(--texto-4);
+  margin-top: 20px;
+  padding: 0 16px;
+}
+.footer a { color: var(--texto-3); }
+.footer a:hover { color: var(--oro); }
+
+.loading { font-family: var(--sans); color: #9a9490; }
+
+/* --- Texto corriente --- */
+
+.ayuda {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--texto-2);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.titulo-seccion {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: var(--oro);
+  margin: 28px 0 10px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--borde);
+  padding-bottom: 6px;
+}
+
+.titulo-con-accion {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.motivo { font-family: var(--sans); font-size: 12.5px; color: var(--texto-2); margin-top: 2px; line-height: 1.4; }
+
+/* El motivo de posición va antes que el de recursos y se distingue: es el
+   único de los dos que habla del slot y no de a quién bajar a la cancha. */
+.motivo-posicion { font-family: var(--sans); font-size: 12.5px; color: #d8c9a0; margin-top: 2px; line-height: 1.4; }
+
+/* --- Avisos --- */
+
+.aviso {
+  background: #241d10;
+  border: 1px solid #6b5220;
+  border-radius: var(--r-chico);
+  padding: 10px 12px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: #cdbb92;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.aviso-ok {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: #a8c9a0;
+  background: #1a201a;
+  border: 1px solid #2f402c;
+  border-radius: var(--r-chico);
+  padding: 8px 10px;
+  margin-top: 8px;
+  line-height: 1.45;
+}
+
+.aviso-error {
+  background: #3a1414;
+  border: 1px solid var(--carmin);
+  padding: 10px;
+  border-radius: var(--r-chico);
+  font-family: var(--sans);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.propuesta {
+  background: #1a1620;
+  border: 1px solid #6b5220;
+  border-radius: var(--r);
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: #e0d6c4;
+  line-height: 1.5;
+}
+
+.banner-visita {
+  max-width: var(--ancho);
+  margin: 12px auto 0;
+  background: #1c1a24;
+  border: 1px solid #4a4560;
+  border-left: 3px solid #8a7fb0;
+  border-radius: var(--r-chico);
+  padding: 10px 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: #cfc9dd;
+  line-height: 1.5;
+}
+
+/* --- Controles --- */
+
+.boton, .boton-primario, .boton-chico {
+  font-family: var(--sans);
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: background var(--transicion), border-color var(--transicion), color var(--transicion);
+}
+
+.boton { background: var(--sup-1); border: 1px solid var(--borde-fuerte); color: var(--texto); font-size: 13px; padding: 7px 14px; }
+.boton:hover:not(:disabled) { background: var(--sup-2); border-color: var(--oro); }
+
+.boton-primario { background: #2a1c20; border: 1px solid var(--carmin); color: var(--texto); font-size: 13px; padding: 7px 14px; }
+.boton-primario:hover:not(:disabled) { background: #3a262b; border-color: #a32d3c; }
+
+.boton-chico { background: #26231f; border: 1px solid var(--borde-fuerte); color: var(--texto); font-size: 12px; padding: 5px 10px; border-radius: var(--r-chico); }
+.boton-chico:hover:not(:disabled) { background: var(--sup-2); border-color: var(--oro); }
+
+.boton:disabled, .boton-primario:disabled, .boton-chico:disabled { opacity: 0.5; cursor: default; }
+
+/* Discreto a propósito: no compite con la casilla, que es la acción principal. */
+.boton-ficha {
+  align-self: center;
+  flex: 0 0 auto;
+  font-family: var(--sans);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--texto-3);
+  background: transparent;
+  border: 1px solid var(--borde-fuerte);
+  border-radius: 3px;
+  padding: 3px 6px;
+  cursor: pointer;
+  transition: color var(--transicion), border-color var(--transicion), background var(--transicion);
+}
+.boton-ficha:hover { color: var(--texto); border-color: var(--oro); background: var(--sup-2); }
+
+.buscador, .select, .pegar-caja {
+  font-family: var(--sans);
+  background: var(--sup-1);
+  border: 1px solid var(--borde);
+  color: var(--texto);
+  transition: border-color var(--transicion);
+}
+.buscador:hover, .select:hover, .pegar-caja:hover { border-color: var(--borde-fuerte); }
+
+.buscador {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: var(--r);
+  padding: 9px 12px;
+  font-size: 13.5px;
+  margin-bottom: 18px;
+}
+
+.select { font-size: 13px; border-radius: var(--r-chico); padding: 6px 8px; width: 100%; max-width: 360px; border-color: var(--borde-fuerte); }
+
+.pegar-caja {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  background: var(--fondo);
+  border-radius: var(--r-chico);
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  resize: vertical;
+}
+
+.checkbox { margin-top: 3px; }
+
+.barra-acciones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.resultado { font-family: var(--sans); font-size: 12px; color: var(--texto-3); }
+
+/* --- Sub-pestañas --- */
+
+.subtab-bar { display: flex; gap: 8px; margin-bottom: 16px; }
+
+.subtab {
+  flex: 1;
+  padding: 8px 10px;
+  background: var(--sup-1);
+  border: 1px solid var(--borde);
+  border-radius: var(--r);
+  color: #9a9490;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  transition: background var(--transicion), border-color var(--transicion), color var(--transicion);
+}
+.subtab:hover { background: var(--sup-2); color: var(--texto-2); }
+.subtab.activa { color: var(--texto); border-color: var(--oro); }
+
+.subtab-count { font-family: var(--mono); font-size: 11.5px; color: var(--texto-4); }
+
+/* --- Chips --- */
+
+.chip {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  letter-spacing: 0.3px;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 1px 8px;
+  white-space: nowrap;
+  line-height: 1.7;
+  transition: filter var(--transicion), background var(--transicion), border-color var(--transicion);
+}
+/* Solo los que filtran responden al mouse; los decorativos no deben prometer nada. */
+.chip[role="button"] { cursor: pointer; }
+.chip[role="button"]:hover { filter: brightness(1.35); }
+
+.chip-vacio {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  color: var(--texto-4);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-style: italic;
+}
+
+.chip-faccion { background: var(--sup-1); color: var(--texto-3); border-color: #2f2d36; }
+.chip-faccion.activa { background: var(--oro); color: #12111a; border-color: var(--oro); font-weight: 600; }
+/*
+  Afiliaciones que el personaje ya NO tiene. El juego las muestra tachadas y
+  en rojo; acá se replica el tachado, porque borrarlas perdería información y
+  mostrarlas iguales al resto diría algo falso.
+*/
+.chip-faccion.ex { text-decoration: line-through; opacity: 0.65; }
+
+.chip-rol {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--texto-2);
+  background: var(--sup-1);
+  border: 1px solid var(--borde-fuerte);
+  border-radius: 11px;
+  padding: 3px 9px;
+  cursor: pointer;
+  transition: background var(--transicion), color var(--transicion), border-color var(--transicion);
+}
+.chip-rol:hover { background: var(--sup-2); color: var(--texto); }
+.chip-rol.activo { color: #151413; background: #c9bfa8; border-color: #c9bfa8; font-weight: 600; }
+
+.chip-row { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 5px; }
+.filtro-row { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
+
+/* Insignias inline dentro del nombre. */
+.insignia, .sin-datos, .parcial {
+  font-family: var(--sans);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 1px 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.insignia { color: var(--texto-3); border-color: var(--borde-fuerte); }
+.sin-datos { color: #a8823c; border-color: #6b5220; }
+.parcial { color: #7f8fa8; border-color: #3f4d63; }
+
+.banca-tag {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--texto-3);
+  border: 1px solid var(--borde-fuerte);
+  border-radius: 10px;
+  padding: 1px 7px;
+  margin-left: 8px;
+}
+
+/* --- Bloques por Sinner --- */
+
+.sinner-block { margin-bottom: 22px; }
+
+.sinner-header {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--serif);
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  color: var(--oro);
+  border: none;
+  border-bottom: 1px solid var(--borde);
+  padding: 6px 0;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  cursor: pointer;
+  text-align: left;
+  position: sticky;
+  top: 46px;
+  z-index: 10;
+  background: var(--fondo);
+  transition: color var(--transicion);
+}
+.sinner-header:hover { color: #d4b25a; }
+
+.flecha { display: inline-block; width: 14px; color: var(--texto-4); }
+.sinner-count { font-family: var(--mono); font-size: 12px; color: var(--texto-4); }
+.sinner-vacio { font-family: var(--sans); font-size: 12.5px; color: var(--texto-4); font-style: italic; padding: 4px 0 2px; }
+
+/* --- Tarjetas de Identity / E.G.O --- */
+
+.id-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
+
+/*
+  `--acento` lo pone el componente con el color del primer arquetipo: es lo que
+  permite reconocer de qué juega una ID sin leer el texto. Cuando no hay
+  arquetipo la variable no se define y el borde cae en transparente.
+*/
+.id-card {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--sup-1);
+  border: 1px solid var(--borde);
+  border-left: 3px solid var(--acento, transparent);
+  border-radius: var(--r);
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background var(--transicion), border-color var(--transicion);
+}
+.id-card:hover { background: var(--sup-2); }
+/* El foco cae en el checkbox de adentro; el marco tiene que acompañarlo. */
+.id-card:focus-within { border-color: var(--oro); }
+.id-card.tenida { border-color: var(--verde); }
+.id-card.elegida { border-color: var(--oro); }
+.id-card.solo-lectura { cursor: default; opacity: 0.92; }
+.id-card.solo-lectura:hover { background: var(--sup-1); }
+
+.id-nombre { font-size: 14.5px; color: var(--texto); }
+.id-tags { font-family: var(--sans); font-size: 12px; color: var(--texto-3); margin-top: 2px; }
+.rareza { color: var(--oro); font-size: 11px; margin-left: 6px; letter-spacing: 1px; }
+.rango { color: var(--oro); font-size: 10.5px; margin-left: 6px; letter-spacing: 0.8px; font-family: var(--sans); }
+
+.retrato {
+  border-radius: 5px;
+  border: 1px solid var(--borde);
+  background: #0f0e12;
+  display: block;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: top;
+}
+
+.retrato-vacio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+/* --- Costos de Sin --- */
+
+.costo-row { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+
+.costo-pill {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--texto-2);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 1px 8px;
+  background: #0f0e12;
+}
+.costo-pill.falta { color: #d08a6a; border-color: #7a3a24; }
+
+.ego-ok, .ego-falta {
+  font-family: var(--sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.ego-ok { color: #7aa06a; }
+.ego-falta { color: #a86a52; }
+
+/* --- Orden de despliegue --- */
+
+.orden-lista { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+
+.orden-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--sup-1);
+  border: 1px solid var(--borde);
+  border-radius: var(--r);
+  padding: 10px 12px;
+}
+.orden-item.banca { opacity: 0.62; border-style: dashed; }
+
+.orden-numero { font-family: var(--mono); font-size: 18px; color: var(--carmin); min-width: 22px; }
+
+.selector-slots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 10px;
+  background: var(--sup-2);
+  border: 1px solid var(--borde);
+  border-radius: var(--r);
+  margin-bottom: 10px;
+}
+
+/* --- Candidatas --- */
+
+.candidata-lista { display: flex; flex-direction: column; gap: 10px; }
+
+.candidata {
+  background: var(--sup-1);
+  border: 1px solid var(--borde);
+  border-left: 3px solid var(--acento, var(--borde));
+  border-radius: var(--r);
+  padding: 12px 14px;
+}
+/* La candidata cuyo Sinner ya está cubierto no es mala, pero no agranda el equipo. */
+.candidata.tibia { opacity: 0.72; }
+.candidata.no-alcanza { opacity: 0.62; }
+
+.candidata-header { display: flex; justify-content: space-between; align-items: center; }
+.score { font-family: var(--mono); color: var(--oro); font-size: 13px; }
+.motivo-lista { margin: 8px 0 0; padding-left: 18px; }
+
+/* --- Compartir --- */
+
+.compartir {
+  background: var(--sup-3);
+  border: 1px solid var(--borde);
+  border-radius: var(--r);
+  padding: 10px 12px;
+  margin-bottom: 18px;
+}
+
+.compartir-titulo { font-family: var(--sans); font-size: 13px; color: var(--oro); cursor: pointer; letter-spacing: 0.5px; }
+.compartir-titulo:hover { color: #d4b25a; }
+
+.compartir-sub {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--oro);
+  margin: 20px 0 8px;
+}
+
+.compartir-botones { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+
+.codigo-caja {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--texto-2);
+  background: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: var(--r-chico);
+  padding: 8px 10px;
+  word-break: break-all;
+  line-height: 1.45;
+  user-select: all;
+}
+
+/* --- Qué me falta --- */
+
+.resumen-faltan {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  background: var(--sup-2);
+  border: 1px solid var(--borde);
+  border-radius: var(--r);
+  margin-top: 8px;
+}
+
+.numero-grande { font-family: var(--sans); font-size: 26px; font-weight: 700; color: var(--texto); line-height: 1.1; }
+.numero-chico { font-size: 15px; font-weight: 400; color: var(--texto-3); }
+
+.barra-sinners { display: flex; gap: 3px; margin-top: 6px; }
+.barra-tramo { width: 16px; height: 6px; border-radius: 2px; background: #332f2b; }
+.barra-tramo.llena { background: #c9bfa8; }
+
+/* --- Ficha y comparador --- */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 7, 7, 0.78);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12px;
+  z-index: 50;
+  overflow-y: auto;
+}
+
+.panel {
+  background: var(--sup-1);
+  border: 1px solid var(--borde);
+  border-radius: var(--r);
+  width: 100%;
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+/* La barra queda fija arriba: en una ficha larga, «Cerrar» no puede quedar fuera de pantalla. */
+.panel-barra {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--sup-2);
+  border-bottom: 1px solid var(--borde);
+  border-radius: var(--r) var(--r) 0 0;
+}
+
+.panel-titulo { font-family: var(--sans); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--texto-2); }
+.panel-cuerpo { padding: 12px; }
+
+.detalle-encabezado {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 6px 8px;
+  background: var(--sup-2);
+  border-left: 3px solid var(--acento, transparent);
+  border-radius: var(--r-chico);
+}
+
+.detalle-encabezados { display: flex; gap: 10px; flex-wrap: wrap; }
+.detalle-seccion { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--borde); }
+.detalle-bloque { margin-top: 10px; }
+.detalle-titulo-id { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--texto); margin-bottom: 4px; }
+.detalle-subtitulo { font-family: var(--sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.9px; color: var(--texto-3); margin-bottom: 4px; }
+
+.selector-comparar { display: flex; flex-direction: column; gap: 3px; margin-top: 10px; }
+
+/* Las tablas anchas scrollean solas; el body de la página nunca se mueve de costado. */
+.tabla-scroll { overflow-x: auto; margin-top: 8px; }
+
+.tabla { border-collapse: collapse; width: 100%; font-family: var(--sans); font-size: 12.5px; }
+.tabla th { text-align: left; padding: 5px 8px; color: var(--texto-3); font-weight: 600; border-bottom: 1px solid var(--borde); white-space: nowrap; }
+.tabla td { padding: 5px 8px; color: #d6d0c8; border-bottom: 1px solid var(--borde-suave); vertical-align: top; }
+.tabla td.etiqueta { color: var(--texto-3); white-space: nowrap; }
+/* Con dos columnas, resaltar lo que difiere es la mitad del trabajo. */
+.tabla td.distinto { background: #221f1a; color: #f0e6d2; }
+
+.pasiva {
+  padding: 6px 8px;
+  background: var(--sup-2);
+  border-radius: var(--r-chico);
+  margin-bottom: 5px;
+}
+.pasiva-nombre { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--texto); }
+.pasiva-texto { font-family: var(--sans); font-size: 12.5px; color: #c4beb6; line-height: 1.45; margin-top: 3px; white-space: pre-wrap; }
+
+.lista-sinergia { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+
+.fila-sinergia {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 5px 8px;
+  background: var(--sup-2);
+  border: 1px solid var(--borde);
+  border-radius: var(--r-chico);
+}
+
+.res-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.res-pill {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  background: var(--sup-1);
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+  padding: 6px 12px;
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+.res-detalle { color: var(--texto-3); font-size: 11.5px; }
+
+/* --- Utilidades puntuales --- */
+
+.fila { display: flex; gap: 8px; align-items: center; min-width: 0; }
+.fila-crece { min-width: 0; flex: 1; }

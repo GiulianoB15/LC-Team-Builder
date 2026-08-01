@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from "react";
 import { codificar, decodificar } from "../lib/codigo.js";
-import { styles } from "../styles.js";
 
 /*
   Exportar la colección propia como código, e importar la de otro.
@@ -45,38 +44,38 @@ export default function CompartirPanel({ propia, onVisitar, modoVisita }) {
   };
 
   return (
-    <details style={styles.compartir}>
-      <summary style={styles.compartirTitulo}>Compartir colección</summary>
+    <details className="compartir">
+      <summary className="compartir-titulo">Compartir colección</summary>
 
       {modoVisita ? (
-        <p style={styles.helpText}>
+        <p className="ayuda">
           Estás viendo una colección compartida. Volvé a la tuya para poder exportarla.
         </p>
       ) : (
         <>
-          <p style={styles.helpText}>
+          <p className="ayuda">
             Tu colección entera entra en un código de {codigo.length} caracteres. Sirve de respaldo
             y para pasársela a alguien.
           </p>
-          <div style={styles.codigoCaja}>{codigo}</div>
-          <div style={styles.compartirBotones}>
-            <button onClick={() => copiar(codigo, "codigo")} style={styles.boton}>
+          <div className="codigo-caja">{codigo}</div>
+          <div className="compartir-botones">
+            <button onClick={() => copiar(codigo, "codigo")} className="boton">
               {copiado === "codigo" ? "¡Copiado!" : "Copiar código"}
             </button>
-            <button onClick={() => copiar(link, "link")} style={styles.boton}>
+            <button onClick={() => copiar(link, "link")} className="boton">
               {copiado === "link" ? "¡Copiado!" : "Copiar link"}
             </button>
           </div>
           {copiado === "falló" && (
-            <p style={styles.helpText}>
+            <p className="ayuda">
               El navegador no dejó copiar solo. Seleccioná el código de arriba y copialo a mano.
             </p>
           )}
         </>
       )}
 
-      <h3 style={styles.compartirSub}>Ver la de otro</h3>
-      <p style={styles.helpText}>
+      <h3 className="compartir-sub">Ver la de otro</h3>
+      <p className="ayuda">
         Pegá un código para mirarla. <strong>No toca la tuya</strong>: entrás en modo visita y salís
         cuando quieras.
       </p>
@@ -85,10 +84,10 @@ export default function CompartirPanel({ propia, onVisitar, modoVisita }) {
         onChange={(e) => { setPegado(e.target.value); setError(null); }}
         placeholder="Pegá acá el código que te pasaron"
         rows={2}
-        style={styles.pegarCaja}
+        className="pegar-caja"
       />
-      {error && <div style={styles.errorBanner}>{error}</div>}
-      <button onClick={importar} style={styles.boton} disabled={!pegado.trim()}>
+      {error && <div className="aviso-error">{error}</div>}
+      <button onClick={importar} className="boton" disabled={!pegado.trim()}>
         Ver esa colección
       </button>
     </details>

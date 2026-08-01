@@ -3,7 +3,7 @@ import {
   SIN_LABEL, DAMAGE_LABEL, DAMAGE_TYPES, etiquetaResistencia, colorArquetipo, FACCIONES_GENERICAS,
 } from "../data/constants.js";
 import Retrato from "./Retrato.jsx";
-import { styles } from "../styles.js";
+import { cx } from "../lib/cx.js";
 
 /*
   Ficha completa de una Identidad, y comparador de dos.
@@ -33,10 +33,10 @@ const formatoPoder = (s) =>
   cuentan los recursos que la ID tiene o los del equipo entero (resonancia).
 */
 function CostoPasiva({ pasiva }) {
-  if (!pasiva.costo?.length) return <span style={styles.reasonText}>sin costo</span>;
+  if (!pasiva.costo?.length) return <span className="motivo">sin costo</span>;
   const tipo = pasiva.tipoCosto === "resonance" ? "resonancia" : pasiva.tipoCosto === "owned" ? "propios" : null;
   return (
-    <span style={styles.reasonText}>
+    <span className="motivo">
       {pasiva.costo.map((c) => `${c.cantidad} de ${SIN_LABEL[c.sin] ?? c.sin}`).join(", ")}
       {tipo ? ` (${tipo})` : ""}
     </span>
@@ -52,21 +52,21 @@ function Pasivas({ id }) {
   return (
     <>
       {bloques.map(([titulo, lista]) => (
-        <div key={titulo} style={{ marginTop: 10 }}>
-          <div style={styles.detalleSubtitulo}>{titulo}</div>
+        <div key={titulo} className="detalle-bloque">
+          <div className="detalle-subtitulo">{titulo}</div>
           {lista.length === 0 ? (
-            <div style={styles.reasonText}>Sin datos.</div>
+            <div className="motivo">Sin datos.</div>
           ) : (
             lista.map((p, i) => (
-              <div key={i} style={styles.pasivaBloque}>
-                <div style={styles.pasivaNombre}>{p.nombre}</div>
+              <div key={i} className="pasiva">
+                <div className="pasiva-nombre">{p.nombre}</div>
                 <CostoPasiva pasiva={p} />
                 {/*
                   El texto viene con los tokens del juego entre corchetes
                   ([Bleed], [AttackDmgUp]). Se deja crudo: es el original, y
                   reescribirlo sería inventar.
                 */}
-                <div style={styles.pasivaTexto}>{p.descripcion}</div>
+                <div className="pasiva-texto">{p.descripcion}</div>
               </div>
             ))
           )}
@@ -106,38 +106,38 @@ function filas(id) {
 
 function Skills({ id }) {
   return (
-    <div style={{ marginTop: 10 }}>
-      <div style={styles.detalleSubtitulo}>Skills</div>
-      <div style={styles.tablaScroll}>
-        <table style={styles.tabla}>
+    <div className="detalle-bloque">
+      <div className="detalle-subtitulo">Skills</div>
+      <div className="tabla-scroll">
+        <table className="tabla">
           <thead>
             <tr>
-              <th style={styles.th}>#</th>
-              <th style={styles.th}>Nombre</th>
-              <th style={styles.th}>Sin</th>
-              <th style={styles.th}>Daño</th>
-              <th style={styles.th}>Copias</th>
-              <th style={styles.th}>Poder</th>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Sin</th>
+              <th>Daño</th>
+              <th>Copias</th>
+              <th>Poder</th>
             </tr>
           </thead>
           <tbody>
             {id.skills.map((s) => (
               <tr key={s.id}>
-                <td style={styles.td}>{s.tier}</td>
-                <td style={styles.td}>{s.nombre ?? "—"}</td>
-                <td style={styles.td}>{s.sin ? SIN_LABEL[s.sin] : "—"}</td>
-                <td style={styles.td}>{s.tipoDanio ? DAMAGE_LABEL[s.tipoDanio] : "—"}</td>
-                <td style={styles.td}>{s.copias}</td>
-                <td style={styles.td}>{formatoPoder(s)}</td>
+                <td>{s.tier}</td>
+                <td>{s.nombre ?? "—"}</td>
+                <td>{s.sin ? SIN_LABEL[s.sin] : "—"}</td>
+                <td>{s.tipoDanio ? DAMAGE_LABEL[s.tipoDanio] : "—"}</td>
+                <td>{s.copias}</td>
+                <td>{formatoPoder(s)}</td>
               </tr>
             ))}
             {id.skillsDefensa.map((s) => (
               <tr key={s.id}>
-                <td style={styles.td}>D</td>
-                <td style={styles.td} colSpan={2}>
+                <td>D</td>
+                <td colSpan={2}>
                   {s.tipo === "guard" ? "Defensa (guardia)" : s.tipo === "evade" ? "Defensa (esquiva)" : "Defensa"}
                 </td>
-                <td style={styles.td} colSpan={3}>{s.sin ? SIN_LABEL[s.sin] : "—"}</td>
+                <td colSpan={3}>{s.sin ? SIN_LABEL[s.sin] : "—"}</td>
               </tr>
             ))}
           </tbody>
@@ -154,27 +154,27 @@ function Sinergia({ id }) {
   const nada = !s.aplica.length && !s.lee.length && !s.buffeaAliados && !s.posicion;
 
   return (
-    <div style={{ marginTop: 10 }}>
-      <div style={styles.detalleSubtitulo}>Rol en el equipo</div>
+    <div className="detalle-bloque">
+      <div className="detalle-subtitulo">Rol en el equipo</div>
       {nada ? (
-        <div style={styles.reasonText}>
+        <div className="motivo">
           Sus pasivas no mencionan estados de arquetipo, así que este análisis no la alcanza.
         </div>
       ) : (
-        <ul style={styles.listaSinergia}>
+        <ul className="lista-sinergia">
           {s.aplica.length > 0 && (
-            <li style={styles.filaSinergia}>Aplica <strong>{s.aplica.join(", ")}</strong></li>
+            <li className="fila-sinergia">Aplica <strong>{s.aplica.join(", ")}</strong></li>
           )}
           {s.lee.length > 0 && (
-            <li style={styles.filaSinergia}>Aprovecha <strong>{s.lee.join(", ")}</strong></li>
+            <li className="fila-sinergia">Aprovecha <strong>{s.lee.join(", ")}</strong></li>
           )}
-          {s.buffeaAliados && <li style={styles.filaSinergia}>Reparte buffs al resto del equipo</li>}
-          {s.posicion === "temprano" && <li style={styles.filaSinergia}>📍 Conviene desplegarla temprano</li>}
-          {s.posicion === "medio" && <li style={styles.filaSinergia}>📍 Conviene desplegarla al medio</li>}
-          {s.posicion === "tarde" && <li style={styles.filaSinergia}>📍 Conviene desplegarla tarde</li>}
+          {s.buffeaAliados && <li className="fila-sinergia">Reparte buffs al resto del equipo</li>}
+          {s.posicion === "temprano" && <li className="fila-sinergia">📍 Conviene desplegarla temprano</li>}
+          {s.posicion === "medio" && <li className="fila-sinergia">📍 Conviene desplegarla al medio</li>}
+          {s.posicion === "tarde" && <li className="fila-sinergia">📍 Conviene desplegarla tarde</li>}
         </ul>
       )}
-      <div style={styles.reasonText}>
+      <div className="motivo">
         Derivado del texto de las pasivas, no es un campo oficial del juego.
       </div>
     </div>
@@ -184,11 +184,11 @@ function Sinergia({ id }) {
 function Encabezado({ id }) {
   const color = id.arquetipos.length ? colorArquetipo(id.arquetipos[0]).borde : null;
   return (
-    <div style={{ ...styles.detalleEncabezado, ...(color ? { borderLeft: `3px solid ${color}` } : {}) }}>
+    <div className="detalle-encabezado" style={color ? { "--acento": color } : undefined}>
       <Retrato id={id.id} nombre={id.nombre} arquetipos={id.arquetipos} tamano={64} />
       <div style={{ minWidth: 0 }}>
-        <div style={styles.idName}>{id.nombre}</div>
-        <div style={styles.idTags}>
+        <div className="id-nombre">{id.nombre}</div>
+        <div className="id-tags">
           {id.sinner} · {"★".repeat(id.rareza)}
         </div>
       </div>
@@ -209,12 +209,12 @@ function SelectorComparar({ id, comparar, candidatas, onComparar }) {
   const resto = candidatas.filter((x) => x.sinner !== id.sinner);
 
   return (
-    <label style={styles.selectorComparar}>
-      <span style={styles.detalleSubtitulo}>Comparar con</span>
+    <label className="selector-comparar">
+      <span className="detalle-subtitulo">Comparar con</span>
       <select
         value={comparar?.id ?? ""}
         onChange={(e) => onComparar(e.target.value ? Number(e.target.value) : null)}
-        style={styles.select}
+        className="select"
       >
         <option value="">— ninguna —</option>
         <optgroup label={`Del mismo Sinner (${id.sinner})`}>
@@ -244,18 +244,18 @@ export default function DetalleId({ id, comparar, candidatas = [], onCerrar, onC
   const ids = comparar ? [id, comparar] : [id];
 
   return (
-    <div style={styles.overlay} onClick={onCerrar}>
+    <div className="overlay" onClick={onCerrar}>
       {/* El click de adentro no debe cerrar; solo el del fondo. */}
-      <div style={styles.panel} onClick={(e) => e.stopPropagation()} role="dialog" aria-label={id.nombre}>
-        <div style={styles.panelBarra}>
-          <strong style={styles.panelTitulo}>{comparar ? "Comparación" : "Ficha"}</strong>
-          <button onClick={onCerrar} style={styles.botonChico} aria-label="Cerrar">
+      <div className="panel" onClick={(e) => e.stopPropagation()} role="dialog" aria-label={id.nombre}>
+        <div className="panel-barra">
+          <strong className="panel-titulo">{comparar ? "Comparación" : "Ficha"}</strong>
+          <button onClick={onCerrar} className="boton-chico" aria-label="Cerrar">
             Cerrar
           </button>
         </div>
 
-        <div style={styles.panelCuerpo}>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+        <div className="panel-cuerpo">
+          <div className="detalle-encabezados">
             {ids.map((x) => (
               <Encabezado key={x.id} id={x} />
             ))}
@@ -267,14 +267,14 @@ export default function DetalleId({ id, comparar, candidatas = [], onCerrar, onC
             Con una sola ID la tabla es "campo: valor". Con dos, la misma tabla
             gana una columna y ya es un comparador: no hace falta otra vista.
           */}
-          <div style={styles.tablaScroll}>
-            <table style={styles.tabla}>
+          <div className="tabla-scroll">
+            <table className="tabla">
               {comparar && (
                 <thead>
                   <tr>
-                    <th style={styles.th}></th>
+                    <th></th>
                     {ids.map((x) => (
-                      <th key={x.id} style={styles.th}>{x.nombre}</th>
+                      <th key={x.id}>{x.nombre}</th>
                     ))}
                   </tr>
                 </thead>
@@ -286,9 +286,9 @@ export default function DetalleId({ id, comparar, candidatas = [], onCerrar, onC
                   const difieren = valores.length > 1 && valores[0] !== valores[1];
                   return (
                     <tr key={etiqueta}>
-                      <td style={{ ...styles.td, ...styles.tdEtiqueta }}>{etiqueta}</td>
+                      <td className="etiqueta">{etiqueta}</td>
                       {valores.map((v, j) => (
-                        <td key={j} style={{ ...styles.td, ...(difieren ? styles.tdDistinto : {}) }}>{v}</td>
+                        <td key={j} className={cx(difieren && "distinto")}>{v}</td>
                       ))}
                     </tr>
                   );
@@ -298,12 +298,12 @@ export default function DetalleId({ id, comparar, candidatas = [], onCerrar, onC
           </div>
 
           {ids.map((x) => (
-            <section key={x.id} style={styles.detalleSeccion}>
-              {comparar && <div style={styles.detalleTituloId}>{x.nombre}</div>}
+            <section key={x.id} className="detalle-seccion">
+              {comparar && <div className="detalle-titulo-id">{x.nombre}</div>}
               <Skills id={x} />
               <Sinergia id={x} />
-              <div style={{ marginTop: 10 }}>
-                <div style={styles.detalleSubtitulo}>Pasivas</div>
+              <div className="detalle-bloque">
+                <div className="detalle-subtitulo">Pasivas</div>
                 <Pasivas id={x} />
               </div>
             </section>
