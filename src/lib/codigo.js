@@ -1,4 +1,5 @@
 import { SINNERS } from "../data/constants.js";
+import { conBase } from "../data/identities.js";
 
 /*
   Código para compartir una colección.
@@ -138,7 +139,12 @@ export function decodificar(texto) {
     }
   }
 
-  return { ok: true, identities, egos };
+  /*
+    Las 12 base se dan por tenidas también en una colección ajena: un código
+    hecho antes de que la app las diera por defecto no las trae, y sin esto la
+    colección visitada se vería con 12 menos que la de su dueño.
+  */
+  return { ok: true, identities: conBase(identities), egos };
 }
 
 /*

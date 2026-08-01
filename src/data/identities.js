@@ -18,6 +18,25 @@ export const EGOS = egosDataset.egos;
 export const identityPorId = (id) => IDENTITIES.find((i) => i.id === id) ?? null;
 
 /*
+  Las 12 Identidades con las que arranca cualquiera: una por Sinner, 1★, todas
+  llamadas "LCB Sinner". No se deducen del id —terminan en 01, pero eso es una
+  coincidencia del esquema de numeración, no una garantía— sino de la etiqueta
+  `Base Identity`, que viene en el dump y aparece exactamente 12 veces.
+
+  Se dan por tenidas siempre: nadie puede NO tenerlas, así que pedirle a cada
+  persona que las marque a mano es pedirle que confirme algo obvio.
+*/
+export const IDS_BASE = IDENTITIES.filter((i) => (i.etiquetas ?? []).includes("Base Identity")).map((i) => i.id);
+export const esIdentityBase = (id) => IDS_BASE.includes(id);
+
+/* Marca las base sobre un mapa de tenidas, sin tocar el resto. */
+export function conBase(identities) {
+  const out = { ...identities };
+  IDS_BASE.forEach((id) => (out[id] = true));
+  return out;
+}
+
+/*
   Índice por nombre+sinner, para migrar guardados viejos que usaban claves de
   texto. La comparación normaliza espacios y mayúsculas: las fuentes escriben el
   mismo nombre distinto ("LCE E.G.O::Dimension Shredder" vs "LCE E.G.O:: …").

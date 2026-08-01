@@ -2,7 +2,7 @@
   Chequeos del motor y del dataset. No se corre directo: lo bundlea y ejecuta
   scripts/smoke-test.mjs, porque estos módulos importan JSON como hace Vite.
 */
-import { IDENTITIES, EGOS, META, validateIdentities, identityPorNombre } from "../src/data/identities.js";
+import { IDENTITIES, EGOS, META, validateIdentities, identityPorNombre, IDS_BASE, conBase } from "../src/data/identities.js";
 import { SINS, SINNERS, ARQUETIPOS, esPuntoBlando } from "../src/data/constants.js";
 import {
   recursosDeSin, estadoPasivas, perfilResistencias, perfilArquetipos,
@@ -133,16 +133,48 @@ check("los arquetipos de E.G.O son de los 7 oficiales",
 check("ningún E.G.O sin arquetipo tiene un estado que el mapeo conoce",
   EGOS.filter((e) => !e.arquetipos.length).every((e) => e.estados.every((s) => !META.mapeoEstados[s])));
 
+/* --- Identidades base --- */
+
+/*
+  Las 12 con las que arranca cualquiera. Se derivan de la etiqueta oficial
+  `Base Identity` del dump y NO del id: terminan en 01, pero eso es el esquema
+  de numeración, no una garantía.
+*/
+check("hay exactamente 12 Identidades base", IDS_BASE.length === 12, `son ${IDS_BASE.length}`);
+check("una por Sinner, sin repetir",
+  new Set(IDS_BASE.map((id) => porId(id).sinner)).size === SINNERS.length);
+check("todas llevan la etiqueta oficial Base Identity",
+  IDS_BASE.every((id) => porId(id).etiquetas.includes("Base Identity")));
+check("y ninguna otra la lleva",
+  IDENTITIES.filter((i) => i.etiquetas.includes("Base Identity")).length === IDS_BASE.length);
+check("conBase no pisa lo que ya estaba marcado",
+  (() => {
+    const r = conBase({ 10109: true });
+    return r[10109] === true && IDS_BASE.every((id) => r[id] === true);
+  })());
+
 /* --- Migración del guardado --- */
 
 const migrado = migrar(1, { "yisang-ring": true, "faust-lcb": true, "clave-inventada": true });
 check("migra claves v1 al id numérico del juego",
   migrado.identities[10109] === true && migrado.identities[10201] === true, JSON.stringify(migrado));
-check("descarta claves desconocidas sin romper",
-  !("clave-inventada" in migrado.identities) && Object.keys(migrado.identities).length === 2);
-check("toda migración devuelve la forma v3, con E.G.O vacíos",
+check("descarta claves desconocidas sin romper", !("clave-inventada" in migrado.identities));
+/*
+  Desde la v4 toda colección arranca con las 12 base marcadas: son las que tiene
+  cualquiera. El resultado son las 2 migradas más esas 12, y una de las
+  migradas —el LCB Sinner de Faust— ya es una de las base.
+*/
+check("la migración deja las migradas más las 12 base",
+  Object.keys(migrado.identities).length === IDS_BASE.length + 1,
+  `${Object.keys(migrado.identities).length} identities`);
+check("toda migración devuelve la forma actual, con E.G.O vacíos viniendo de v1",
   !!migrado.egos && Object.keys(migrado.egos).length === 0);
-check("migrar v2 conserva las identities", migrar(2, { 10109: true }).identities[10109] === true);
+check("migrar v2 conserva las identities y suma las base",
+  migrar(2, { 10109: true }).identities[10109] === true &&
+  IDS_BASE.every((id) => migrar(2, { 10109: true }).identities[id] === true));
+/* Un guardado v3 traía E.G.O: la migración a v4 no puede perderlos. */
+check("migrar de v3 no pierde los E.G.O",
+  migrar(3, { 10109: true }, { 20101: true }).egos[20101] === true);
 
 /* --- Selección --- */
 
@@ -547,12 +579,21 @@ check(`el código es corto y de largo fijo (${codigo.length} chars)`, codigo.len
 check("el código es seguro para una URL", /^[A-Za-z0-9_-]+$/.test(codigo));
 
 const vuelta = decodificar(codigo);
-check("decodificar devuelve exactamente lo que se codificó",
+/*
+  La ida y vuelta ya no es idéntica, a propósito: al decodificar se dan por
+  tenidas las 12 base, así que un código viejo —hecho antes de que la app las
+  marcara sola— no muestra 12 menos que la colección de su dueño. Lo que sí se
+  conserva es todo lo que se codificó, y lo único que aparece de más son esas 12.
+*/
+check("decodificar devuelve todo lo que se codificó",
   vuelta.ok &&
-  JSON.stringify(Object.keys(vuelta.identities).map(Number).sort((a, b) => a - b)) ===
-    JSON.stringify(Object.keys(coleccionEjemplo.identities).map(Number).sort((a, b) => a - b)) &&
+  Object.keys(coleccionEjemplo.identities).map(Number).every((id) => vuelta.identities[id]) &&
   JSON.stringify(Object.keys(vuelta.egos).map(Number).sort((a, b) => a - b)) ===
     JSON.stringify(Object.keys(coleccionEjemplo.egos).map(Number).sort((a, b) => a - b)));
+check("y lo único que agrega son las 12 base",
+  Object.keys(vuelta.identities).map(Number)
+    .filter((id) => !coleccionEjemplo.identities[id])
+    .every((id) => IDS_BASE.includes(id)));
 
 const todo = codificar({
   identities: Object.fromEntries(IDENTITIES.map((i) => [i.id, true])),
@@ -564,10 +605,10 @@ check("y decodifica las 184 + 110", (() => {
   return d.ok && Object.keys(d.identities).length === 184 && Object.keys(d.egos).length === 110;
 })());
 
-check("una colección vacía va y vuelve",
+check("una colección vacía va y vuelve con las 12 base y sin E.G.O",
   (() => {
     const d = decodificar(codificar({ identities: {}, egos: {} }).codigo);
-    return d.ok && Object.keys(d.identities).length === 0 && Object.keys(d.egos).length === 0;
+    return d.ok && Object.keys(d.identities).length === IDS_BASE.length && Object.keys(d.egos).length === 0;
   })());
 
 /*
@@ -577,7 +618,9 @@ check("una colección vacía va y vuelve",
 check("un código sobrevive a que el dataset sume Identities nuevas", (() => {
   const antes = codificar({ identities: { 10109: true, 11216: true }, egos: {} }).codigo;
   const d = decodificar(antes);
-  return d.ok && d.identities[10109] && d.identities[11216] && Object.keys(d.identities).length === 2;
+  const extras = IDS_BASE.filter((id) => id !== 10109 && id !== 11216).length;
+  return d.ok && d.identities[10109] && d.identities[11216] &&
+    Object.keys(d.identities).length === 2 + extras;
 })());
 
 check("un id de una versión más nueva se decodifica igual y se puede detectar",
@@ -604,7 +647,9 @@ const comp = comparar(vuelta, { identities: { 10101: true }, egos: {} }, {
   egosConocidos: new Set(EGOS.map((e) => e.id)),
 });
 check("comparar informa cuántas trae y cuántas tenés vos",
-  comp.identities === 40 && comp.egos === 15 && comp.propiasIdentities === 1);
+  comp.identities === 40 + IDS_BASE.filter((id) => !coleccionEjemplo.identities[id]).length &&
+  comp.egos === 15 && comp.propiasIdentities === 1,
+  `${comp.identities} identities, ${comp.egos} egos`);
 check("comparar detecta marcadas que tu dataset no conoce",
   comparar(decodificar(codificar({ identities: { 10117: true }, egos: {} }).codigo),
     { identities: {}, egos: {} },

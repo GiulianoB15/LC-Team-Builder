@@ -17,7 +17,7 @@ import { styles } from "../styles.js";
 function IdCard({
   id, checked, onChange, estiloActivo, mostrarSinner, deshabilitado,
   onFiltrarArquetipo, onFiltrarFaccion, arquetiposActivos, faccionActiva,
-  onVerDetalle,
+  onVerDetalle, insignia,
 }) {
   // El acento lateral toma el color del primer arquetipo: es lo que permite
   // reconocer de qué juega una ID sin leer el texto.
@@ -51,6 +51,7 @@ function IdCard({
             y soporte), solo soporte (la wiki únicamente publica esa), o nada.
             Mostrarlos igual haría parecer que todas están analizadas igual.
           */}
+          {insignia && <span style={styles.insignia}>{insignia}</span>}
           {!id.tienePasivas && <span style={styles.sinDatos} title="Sin datos de pasivas">sin pasivas</span>}
           {id.tienePasivas && !id.pasivasCompletas && (
             <span style={styles.parcial} title="Solo se conoce la pasiva de soporte; falta la de combate">

@@ -429,6 +429,34 @@ Se dibuja en un `<canvas>` en el navegador: sin dependencias, sin servidor y sin
 a ningún lado. Los retratos los sirve la propia app, así que no hay CORS que resolver. Si
 alguno falta se dibuja el marcador de iniciales en vez de abortar.
 
+## Las 12 base vienen marcadas
+
+Las «LCB Sinner» —una por Sinner, 1★— las tiene cualquiera desde que empieza a jugar, así
+que pedirle a cada persona que las marque a mano es pedirle que confirme algo obvio.
+
+**No se deducen del id.** Terminan en `01`, pero eso es el esquema de numeración, no una
+garantía. Salen de la etiqueta `Base Identity` que trae el dump y que aparece exactamente
+12 veces, una por Sinner.
+
+Se marcan en tres lugares para que no haya estados inconsistentes:
+
+- **Al guardar**, con una migración `v3 → v4`. Queda escrito en el storage, así que no hay
+  que recalcularlo en cada carga y se nota en el historial que la colección cambió por una
+  decisión nuestra.
+- **Al decodificar un código ajeno**, porque un código hecho antes de este cambio no las
+  trae y la colección visitada se vería con 12 menos que la de su dueño.
+- **En la UI**: las tarjetas quedan bloqueadas con una insignia *«por defecto»*. Dejar
+  destildarlas sería ofrecer un estado que la app revierte sola al recargar.
+
+De paso apareció un bug latente: `migrar()` devolvía siempre `egos: {}`, así que cualquier
+migración desde v2 o v3 habría borrado los E.G.O. Hasta ahora no se disparaba —un guardado
+v3 tomaba el atajo de "misma versión"— pero con la v4 sí pasa por ahí. Corregido y con
+chequeo.
+
+**Para E.G.O no hay equivalente**: hay 20 ZAYIN repartidos entre los 12 Sinners y
+`extraible: false` marca 82 de 110, así que no hay forma de deducir del dataset cuáles
+vienen de arranque. Eso queda sin tocar.
+
 ## Completar equipo: la base puede crecer hasta 12
 
 El tope eran 3 Identidades de referencia porque así lo pedía el handoff original, no por

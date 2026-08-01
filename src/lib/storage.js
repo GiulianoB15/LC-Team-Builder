@@ -1,4 +1,4 @@
-import { identityPorNombre } from "../data/identities.js";
+import { identityPorNombre, conBase } from "../data/identities.js";
 
 /*
   Persistencia de la colección en localStorage.
@@ -9,15 +9,23 @@ import { identityPorNombre } from "../data/identities.js";
     v1  { version:1, owned: {clave: true} }      mismas claves de texto
     v2  { version:2, owned: {10109: true} }      id numérico del juego
     v3  { version:3, identities:{}, egos:{} }    se suman los E.G.O
+    v4  igual que la v3                          se dan por tenidas las 12 base
 
   Las claves de texto del prototipo se resuelven por nombre contra el dataset,
   así que una migración no le borra la colección a nadie.
+
+  La v4 no cambia la FORMA, solo el contenido: marca las 12 Identidades base,
+  que son con las que arranca cualquiera. Se hace en una versión nueva y no al
+  vuelo para que quede escrito en el storage y no haya que recalcularlo cada
+  vez, y para que se note en el historial que la colección de alguien cambió
+  por una decisión nuestra y no por algo que hizo.
 */
 
 const STORAGE_KEY = "limbus:collection";
-const STORAGE_VERSION = 3;
+const STORAGE_VERSION = 4;
 
-const VACIO = { identities: {}, egos: {} };
+/* Ni siquiera una colección vacía está vacía: las 12 base las tiene todo el mundo. */
+const VACIO = { identities: conBase({}), egos: {} };
 
 /* Las 8 claves del prototipo, con el nombre y Sinner que les corresponde. */
 const CLAVES_V1 = {
@@ -53,9 +61,10 @@ export function loadCollection() {
       return migrar(0, parsed);
     }
     if (parsed?.version === STORAGE_VERSION) {
-      return { identities: normalizar(parsed.identities), egos: normalizar(parsed.egos) };
+      return { identities: conBase(normalizar(parsed.identities)), egos: normalizar(parsed.egos) };
     }
-    return migrar(parsed?.version ?? 0, parsed?.owned ?? parsed?.identities ?? {});
+    /* De la v3 para arriba los E.G.O ya existían y hay que conservarlos. */
+    return migrar(parsed?.version ?? 0, parsed?.owned ?? parsed?.identities ?? {}, parsed?.egos);
   } catch {
     // Dato corrupto: se arranca vacío en vez de romper la app.
     return VACIO;
@@ -86,11 +95,13 @@ function normalizar(mapa) {
 }
 
 /*
-  Devuelve siempre la forma de la v3. Los E.G.O no existían antes de esta
-  versión, así que en cualquier migración arrancan vacíos.
+  Devuelve siempre la forma actual. Los E.G.O no existían antes de la v3, así
+  que viniendo de v0/v1 arrancan vacíos; de v3 en adelante se conservan.
 */
-export function migrar(desdeVersion, guardadas) {
-  if (desdeVersion >= 2) return { identities: normalizar(guardadas), egos: {} };
+export function migrar(desdeVersion, guardadas, egosGuardados) {
+  if (desdeVersion >= 2) {
+    return { identities: conBase(normalizar(guardadas)), egos: normalizar(egosGuardados) };
+  }
 
   // v0 y v1 comparten forma: claves de texto del prototipo.
   const identities = {};
@@ -101,5 +112,5 @@ export function migrar(desdeVersion, guardadas) {
     const id = identityPorNombre(ref[0], ref[1]);
     if (id) identities[id.id] = true;
   });
-  return { identities, egos: {} };
+  return { identities: conBase(identities), egos: {} };
 }

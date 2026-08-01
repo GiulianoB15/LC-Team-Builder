@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback } from "react";
-import { IDENTITIES, EGOS } from "../data/identities.js";
+import { IDENTITIES, EGOS, esIdentityBase, IDS_BASE } from "../data/identities.js";
 import { SINNERS, ARQUETIPOS } from "../data/constants.js";
 import IdCard from "./IdCard.jsx";
 import EgoCard from "./EgoCard.jsx";
@@ -133,6 +133,10 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
           <>
             Marcá qué {esEgo ? "E.G.O" : "Identidades"} tenés. Se guarda automáticamente en este
             navegador. <strong>{total}</strong> de {lista.length} marcados.
+            {!esEgo && (
+              <> Las {IDS_BASE.length} <strong>LCB Sinner</strong> vienen marcadas: son con las que
+              arranca cualquiera.</>
+            )}
           </>
         )}
       </p>
@@ -245,7 +249,13 @@ export default function ColeccionTab({ owned, propia, toggleOwned, toggleOwnedEg
                         checked={!!marcadas[x.id]}
                         onChange={toggle}
                         estiloActivo={styles.idCardOwned}
-                        deshabilitado={enVisita}
+                        /*
+                          Las base no se pueden desmarcar: las tiene todo el
+                          mundo, así que dejar destildarlas sería ofrecer un
+                          estado que la app va a revertir sola al recargar.
+                        */
+                        deshabilitado={enVisita || esIdentityBase(x.id)}
+                        insignia={esIdentityBase(x.id) ? "por defecto" : null}
                         onFiltrarArquetipo={toggleArquetipo}
                         onFiltrarFaccion={toggleFaccion}
                         arquetiposActivos={arquetiposActivos}
