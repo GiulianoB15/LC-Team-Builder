@@ -689,6 +689,29 @@ tono no se toca nunca: es lo que hace que "el verde" siga siendo Sinclair.
 Hay un chequeo que verifica que los 12 acentos sean distintos entre sí y que Rodion siga
 siendo más oscuro que Ryōshū. Es el que impide volver a romperlo.
 
+## La ficha es un `<dialog>`, y por qué eso importa
+
+Era un `<div>` con `role="dialog"`. Ese atributo *decía* que era un modal sin que lo fuera:
+con la ficha abierta, apretar Tab mandaba el foco **al contenido de atrás** — medido, saltaba
+a un encabezado de Sinner tapado por el fondo oscuro. Se podía navegar a ciegas algo que no
+se ve.
+
+Chirriaba especialmente porque en los chips nos habíamos roto la cabeza con `role="button"`,
+Enter/Espacio y `tabIndex`, y después el modal quedó sin nada.
+
+**Escribir la trampa de foco a mano** es posible, pero es más código y más casos raros de los
+que parece: juntar los focusables, atajar Tab y Shift+Tab, reaccionar a que el contenido
+cambie —acá cambia, al elegir con quién comparar— y acordarse de devolver el foco al cerrar.
+
+`<dialog>` abierto con `showModal()` trae las cuatro cosas hechas por el navegador: encierra
+el foco, vuelve inerte todo lo de atrás, cierra con Escape y ofrece `::backdrop`. Por eso
+desapareció el listener de teclado que teníamos: era una reimplementación peor de algo nativo.
+
+**Una cosa sí hubo que hacer a mano.** En teoría el cierre nativo devuelve el foco a quien
+abrió el diálogo, pero acá no alcanzaba: React desmonta el `<dialog>` apenas cambia el
+estado, y en esa transición el foco se perdía y terminaba en `<body>`. Se guarda el elemento
+previo y se restaura en la limpieza del efecto.
+
 ## Un número mágico que se desfasó, y cómo dejó de poder hacerlo
 
 Los encabezados de Sinner se pegan justo debajo de la barra de pestañas, y para eso

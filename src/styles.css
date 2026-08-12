@@ -813,27 +813,36 @@ body {
 
 /* --- Ficha y comparador --- */
 
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(8, 7, 7, 0.78);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 12px;
-  z-index: 50;
-  overflow-y: auto;
-}
+/*
+  La ficha es un <dialog> abierto con showModal(), no un div con overlay. El
+  motivo está en DetalleId.jsx: el navegador encierra el foco, vuelve inerte
+  lo de atrás y devuelve el foco al cerrar, que a mano es bastante más código.
 
+  Lo que hay que hacer acá es deshacer los estilos de fábrica del elemento
+  —trae borde, relleno y fondo blanco— y quedarse con el fondo oscuro.
+*/
 .panel {
   background: var(--sup-3);
+  color: var(--texto);
   border: 1px solid var(--borde-fuerte);
   border-radius: var(--r);
-  width: 100%;
+  padding: 0;
+  width: calc(100% - 24px);
   max-width: 760px;
-  margin-bottom: 24px;
+  /* El alto lo pone el contenido, y si se pasa scrollea el panel, no la página. */
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  /* Arriba y no centrado: una ficha larga que crece hacia los dos lados marea. */
+  margin: 12px auto;
   box-shadow: var(--sombra-flotante);
 }
+
+/*
+  El fondo oscuro que tapa la página. Va con un color literal y no con una
+  variable porque `::backdrop` no siempre hereda las custom properties del
+  elemento que lo origina, y un fallo acá deja el fondo transparente.
+*/
+.panel::backdrop { background: rgba(8, 7, 7, 0.78); }
 
 /* La barra queda fija arriba: en una ficha larga, «Cerrar» no puede quedar fuera de pantalla. */
 .panel-barra {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   SIN_LABEL, DAMAGE_LABEL, DAMAGE_TYPES, etiquetaResistencia, colorArquetipo, FACCIONES_GENERICAS,
 } from "../data/constants.js";
@@ -275,85 +275,135 @@ function SelectorComparar({ id, comparar, candidatas, onComparar }) {
   );
 }
 
+/*
+  POR QUÉ ES UN <dialog> Y NO UN <div> CON OVERLAY
+
+  Era un div con `role="dialog"`, y eso decía que era un modal sin serlo: con
+  la ficha abierta, apretar Tab mandaba el foco al contenido de ATRÁS —
+  medido, saltaba a un encabezado de Sinner tapado por el fondo oscuro. O sea
+  que se podía navegar a ciegas algo que no se ve.
+
+  Escribir la trampa de foco a mano es posible pero es más código y más casos
+  raros de los que parece: hay que juntar los focusables, atajar Tab y
+  Shift+Tab, reaccionar a que el contenido cambie —acá cambia, al elegir con
+  quién comparar— y acordarse de devolver el foco al cerrar.
+
+  `<dialog>` abierto con `showModal()` trae las cuatro cosas hechas por el
+  navegador: encierra el foco, vuelve inerte todo lo de atrás, cierra con
+  Escape y devuelve el foco a quien lo abrió. Por eso desapareció el listener
+  de teclado que teníamos: era una reimplementación peor de algo nativo.
+*/
 export default function DetalleId({ id, comparar, candidatas = [], onCerrar, onComparar }) {
-  /* Escape cierra: en un panel que tapa la pantalla es lo primero que uno prueba. */
+  const dialogo = useRef(null);
+
   useEffect(() => {
-    const alTeclear = (e) => e.key === "Escape" && onCerrar();
-    window.addEventListener("keydown", alTeclear);
-    return () => window.removeEventListener("keydown", alTeclear);
-  }, [onCerrar]);
+    const d = dialogo.current;
+    if (!d) return;
+
+    /*
+      Quién tenía el foco antes de abrir. En teoría el cierre nativo lo
+      devuelve solo, pero acá no alcanza: React desmonta el <dialog> apenas
+      cambia el estado, y en esa transición el foco se pierde y termina en
+      <body>. Medido. Así que se guarda y se restaura a mano.
+    */
+    const previo = document.activeElement;
+    d.showModal();
+
+    /* El cierre nativo (Escape, o `close()`) tiene que avisarle a React. */
+    const alCerrar = () => onCerrar();
+    d.addEventListener("close", alCerrar);
+
+    return () => {
+      /*
+        Se saca el listener ANTES de cerrar, o el `close()` de la limpieza
+        rebotaría en onCerrar y volveríamos a pedir cerrar algo ya cerrado.
+      */
+      d.removeEventListener("close", alCerrar);
+      if (d.open) d.close();
+      /* `isConnected` porque el disparador puede haber desaparecido: la lista
+         se re-filtra y esa tarjeta ya no está. */
+      if (previo?.isConnected) previo.focus();
+    };
+  }, [id, onCerrar]);
 
   if (!id) return null;
   const ids = comparar ? [id, comparar] : [id];
 
   return (
-    <div className="overlay" onClick={onCerrar}>
-      {/* El click de adentro no debe cerrar; solo el del fondo. */}
-      <div className="panel" onClick={(e) => e.stopPropagation()} role="dialog" aria-label={id.nombre}>
-        <div className="panel-barra">
-          <strong className="panel-titulo">{comparar ? "Comparación" : "Ficha"}</strong>
-          <button onClick={onCerrar} className="boton-chico" aria-label="Cerrar">
-            Cerrar
-          </button>
-        </div>
+    /*
+      Con showModal(), un click en el fondo llega con target en el propio
+      <dialog>: lo de adentro lo capturan los hijos. Por eso alcanza comparar
+      contra la referencia, sin stopPropagation en cada capa.
+    */
+    <dialog
+      ref={dialogo}
+      className="panel"
+      aria-label={id.nombre}
+      onClick={(e) => { if (e.target === dialogo.current) onCerrar(); }}
+    >
+      <div className="panel-barra">
+        <strong className="panel-titulo">{comparar ? "Comparación" : "Ficha"}</strong>
+        <button onClick={onCerrar} className="boton-chico" aria-label="Cerrar">
+          Cerrar
+        </button>
+      </div>
 
-        <div className="panel-cuerpo">
-          <div className="detalle-encabezados">
-            {ids.map((x) => (
-              <Encabezado key={x.id} id={x} />
-            ))}
-          </div>
-
-          <SelectorComparar id={id} comparar={comparar} candidatas={candidatas} onComparar={onComparar} />
-
-          {/*
-            Con una sola ID la tabla es "campo: valor". Con dos, la misma tabla
-            gana una columna y ya es un comparador: no hace falta otra vista.
-          */}
-          <div className="tabla-scroll">
-            <table className="tabla">
-              {comparar && (
-                <thead>
-                  <tr>
-                    <th></th>
-                    {ids.map((x) => (
-                      <th key={x.id}>{x.nombre}</th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody>
-                {filas(ids[0]).map(([etiqueta], i) => {
-                  const valores = ids.map((x) => filas(x)[i][1]);
-                  /* Con dos columnas, resaltar lo que difiere es la mitad del trabajo. */
-                  const difieren = valores.length > 1 && valores[0] !== valores[1];
-                  return (
-                    <tr key={etiqueta}>
-                      <td className="etiqueta">{etiqueta}</td>
-                      {valores.map((v, j) => (
-                        <td key={j} className={cx(difieren && "distinto")}>{v}</td>
-                      ))}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-
+      <div className="panel-cuerpo">
+        <div className="detalle-encabezados">
           {ids.map((x) => (
-            <section key={x.id} className="detalle-seccion">
-              {comparar && <div className="detalle-titulo-id">{x.nombre}</div>}
-              <Resistencias id={x} />
-              <Skills id={x} />
-              <Sinergia id={x} />
-              <div className="detalle-bloque">
-                <div className="detalle-subtitulo">Pasivas</div>
-                <Pasivas id={x} />
-              </div>
-            </section>
+            <Encabezado key={x.id} id={x} />
           ))}
         </div>
-      </div>
+
+        <SelectorComparar id={id} comparar={comparar} candidatas={candidatas} onComparar={onComparar} />
+
+        {/*
+          Con una sola ID la tabla es "campo: valor". Con dos, la misma tabla
+          gana una columna y ya es un comparador: no hace falta otra vista.
+        */}
+        <div className="tabla-scroll">
+          <table className="tabla">
+            {comparar && (
+              <thead>
+                <tr>
+                  <th></th>
+                  {ids.map((x) => (
+                    <th key={x.id}>{x.nombre}</th>
+                  ))}
+                </tr>
+              </thead>
+            )}
+            <tbody>
+              {filas(ids[0]).map(([etiqueta], i) => {
+                const valores = ids.map((x) => filas(x)[i][1]);
+                /* Con dos columnas, resaltar lo que difiere es la mitad del trabajo. */
+                const difieren = valores.length > 1 && valores[0] !== valores[1];
+                return (
+                  <tr key={etiqueta}>
+                    <td className="etiqueta">{etiqueta}</td>
+                    {valores.map((v, j) => (
+                      <td key={j} className={cx(difieren && "distinto")}>{v}</td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+
+        {ids.map((x) => (
+          <section key={x.id} className="detalle-seccion">
+            {comparar && <div className="detalle-titulo-id">{x.nombre}</div>}
+            <Resistencias id={x} />
+            <Skills id={x} />
+            <Sinergia id={x} />
+            <div className="detalle-bloque">
+              <div className="detalle-subtitulo">Pasivas</div>
+              <Pasivas id={x} />
+            </div>
+          </section>
+        ))}
     </div>
+    </dialog>
   );
 }
