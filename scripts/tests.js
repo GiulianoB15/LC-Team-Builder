@@ -11,7 +11,7 @@ import {
 } from "../src/lib/engine.js";
 import { COLOR_SINNER, colorSinner } from "../src/data/colores.js";
 import { toggleSeleccion } from "../src/lib/seleccion.js";
-import { migrar } from "../src/lib/storage.js";
+import { migrar, loadCollection, saveCollection } from "../src/lib/storage.js";
 import { codificar, decodificar, comparar, LARGO_CODIGO } from "../src/lib/codigo.js";
 
 export let fallos = 0;
@@ -807,5 +807,76 @@ check("Rodion sigue siendo más oscuro que Ryōshū, como en el original",
 /* Un Sinner desconocido no puede dejar el encabezado sin color. */
 check("un Sinner que no está en el archivo cae en un color por defecto",
   colorSinner("Nadie").acento === "var(--oro)");
+
+
+
+/*
+  --- El equipo guardado (v5) ---
+
+  Hasta la v4 se guardaba QUÉ TENÉS pero no QUÉ ARMASTE, así que un F5 borraba
+  el equipo. Lo que se chequea no es el guardado en sí —eso es localStorage—
+  sino que una selección guardada VUELVA cumpliendo las mismas reglas que la
+  UI impone al armarla: entre una sesión y la siguiente el dataset puede
+  haberse regenerado, o alguien puede haber editado el storage a mano.
+
+  Node no tiene localStorage, así que va un doble mínimo. Se prefiere eso a
+  exportar la función interna y probarla suelta: así se ejercita el camino
+  real, ida y vuelta por JSON incluida.
+*/
+const almacen = new Map();
+globalThis.window = {
+  localStorage: {
+    getItem: (k) => (almacen.has(k) ? almacen.get(k) : null),
+    setItem: (k, v) => almacen.set(k, String(v)),
+  },
+};
+
+const primeraDe = (sinner) => IDENTITIES.find((i) => i.sinner === sinner).id;
+const guardarEquipo = (equipo) => saveCollection({ identities: {}, egos: {}, equipo, base: [] });
+
+check("una migración desde v4 deja las dos selecciones vacías, no undefined",
+  Array.isArray(migrar(4, {}, {}).equipo) && Array.isArray(migrar(4, {}, {}).base));
+
+check("y tampoco las inventa viniendo del prototipo",
+  migrar(0, { "yisang-ring": true }).equipo.length === 0);
+
+const ida = [primeraDe("Yi Sang"), primeraDe("Faust"), primeraDe("Gregor")];
+guardarEquipo(ida);
+check("un equipo guardado vuelve igual y en el mismo orden",
+  JSON.stringify(loadCollection().equipo) === JSON.stringify(ida),
+  JSON.stringify(loadCollection().equipo));
+
+/* Un id que el dataset ya no conoce no puede llegar al motor. */
+guardarEquipo([primeraDe("Yi Sang"), 999999]);
+check("se descarta un id que el dataset ya no tiene",
+  loadCollection().equipo.length === 1);
+
+/*
+  Dos del mismo Sinner es un estado que toggleSeleccion nunca produce, pero un
+  guardado viejo o tocado a mano sí podría traerlo. Si pasara, el motor
+  calcularía sobre un equipo imposible sin que nada avise.
+*/
+const repetidas = IDENTITIES.filter((i) => i.sinner === "Yi Sang").slice(0, 2).map((i) => i.id);
+guardarEquipo(repetidas);
+check("se descarta la segunda del mismo Sinner",
+  loadCollection().equipo.length === 1 && loadCollection().equipo[0] === repetidas[0]);
+
+/* El tope es el mismo que aplica la UI: uno por Sinner, 12 en total. */
+guardarEquipo(SINNERS.map(primeraDe));
+check("entran los 12, uno por Sinner", loadCollection().equipo.length === 12,
+  `entraron ${loadCollection().equipo.length}`);
+
+/* Un guardado de la v4, sin las claves nuevas, no puede romper la lectura. */
+almacen.set("limbus:collection", JSON.stringify({ version: 4, identities: {}, egos: {} }));
+const desdeV4 = loadCollection();
+check("un guardado v4 migra sin romper y con las selecciones vacías",
+  Array.isArray(desdeV4.equipo) && desdeV4.equipo.length === 0 && Array.isArray(desdeV4.base));
+
+/* Basura en las claves nuevas tampoco: se ignora en vez de propagarse. */
+almacen.set("limbus:collection", JSON.stringify({ version: 5, identities: {}, egos: {}, equipo: "no soy una lista", base: null }));
+check("basura en las claves nuevas se ignora",
+  loadCollection().equipo.length === 0 && loadCollection().base.length === 0);
+
+delete globalThis.window;
 
 console.log(fallos === 0 ? "\nTodo verde." : `\n${fallos} chequeo(s) fallando.`);

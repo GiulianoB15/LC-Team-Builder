@@ -555,7 +555,12 @@ body {
   cursor: pointer;
   text-align: left;
   position: sticky;
-  top: 46px;
+  /*
+    El alto real de la barra de pestañas, medido y publicado por App.jsx. El
+    fallback es el valor de escritorio, por si el navegador no tiene
+    ResizeObserver: mejor un par de píxeles de fuga que el encabezado tapado.
+  */
+  top: var(--alto-tabs, 42px);
   z-index: 10;
   transition: filter var(--transicion);
 }

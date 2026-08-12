@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   DAMAGE_TYPES, DAMAGE_LABEL, SIN_LABEL, SLOTS_POSIBLES, SINNERS_TOTALES, etiquetaResistencia,
 } from "../data/constants.js";
-import IdCard from "./IdCard.jsx";
+import ListaPorSinner from "./ListaPorSinner.jsx";
 import Retrato from "./Retrato.jsx";
 import { CostoSin } from "./EgoCard.jsx";
 import { descargarEquipo } from "../lib/estampa.js";
@@ -74,19 +74,18 @@ export default function EquipoTab({
         </span>
       </div>
 
-      <div className="id-grid">
-        {ownedIdentities.map((id) => (
-          <IdCard
-            key={id.id}
-            id={id}
-            checked={equipoIds.includes(id.id)}
-            onChange={onToggle}
-            claseActiva="elegida"
-            mostrarSinner
-            onVerDetalle={onVerDetalle}
-          />
-        ))}
-      </div>
+      {/*
+        Agrupadas y buscables por Sinner, igual que en «Completar equipo». Acá
+        la regla también es una por Sinner, así que el encabezado plegado ya
+        dice a quién pusiste y no hace falta `mostrarSinner` en la tarjeta.
+      */}
+      <ListaPorSinner
+        identities={ownedIdentities}
+        seleccionadas={equipoIds}
+        onToggle={onToggle}
+        claseActiva="elegida"
+        onVerDetalle={onVerDetalle}
+      />
 
       {equipoIds.length > 0 && (
         <>

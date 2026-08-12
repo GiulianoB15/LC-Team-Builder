@@ -43,7 +43,7 @@ const MAX_BASE_COMPLETAR = 12;
 
 export default function App() {
   const [tab, setTab] = useState("coleccion");
-  const [propia, setPropia] = useState({ identities: {}, egos: {} });
+  const [propia, setPropia] = useState({ identities: {}, egos: {}, equipo: [], base: [] });
   const [loaded, setLoaded] = useState(false);
   const [equipoIds, setEquipoIds] = useState([]);
   const [baseIds, setBaseIds] = useState([]);
@@ -83,9 +83,13 @@ export default function App() {
   */
   const [compacto, setCompacto] = useState(false);
   const centinela = useRef(null);
+  const barraTabs = useRef(null);
 
   useEffect(() => {
-    setPropia(loadCollection());
+    const guardada = loadCollection();
+    setPropia(guardada);
+    setEquipoIds(guardada.equipo);
+    setBaseIds(guardada.base);
     setDensidad(cargarPreferencias().densidad);
     setLoaded(true);
   }, []);
@@ -94,6 +98,30 @@ export default function App() {
     const nodo = centinela.current;
     if (!nodo || typeof IntersectionObserver === "undefined") return;
     const obs = new IntersectionObserver(([e]) => setCompacto(!e.isIntersecting));
+    obs.observe(nodo);
+    return () => obs.disconnect();
+  }, []);
+
+  /*
+    Los encabezados de Sinner se pegan JUSTO debajo de la barra de pestañas, y
+    para eso necesitan saber cuánto mide.
+
+    Estuvo escrito a mano como `top: 46px` hasta que se midió: la barra da 42
+    en escritorio y 39 en un teléfono, porque después le cambiamos el relleno
+    y nadie volvió a tocar el offset. Quedaban 4 a 7 píxeles de fuga por donde
+    se veía pasar el contenido.
+
+    Un número nuevo se volvería a desfasar con el próximo ajuste de padding,
+    así que se mide. Un ResizeObserver avisa cuando cambia —al rotar el
+    teléfono, al cruzar la media query— y el valor no puede mentir.
+  */
+  useEffect(() => {
+    const nodo = barraTabs.current;
+    if (!nodo || typeof ResizeObserver === "undefined") return;
+    const publicar = () =>
+      document.documentElement.style.setProperty("--alto-tabs", `${Math.round(nodo.getBoundingClientRect().height)}px`);
+    publicar();
+    const obs = new ResizeObserver(publicar);
     obs.observe(nodo);
     return () => obs.disconnect();
   }, []);
@@ -132,17 +160,22 @@ export default function App() {
   const enVisita = visita !== null;
 
   /*
-    Guardar es un efecto de que la colección haya cambiado, no algo que hace
-    cada handler. Separarlo permite que los toggles NO dependan de `propia`, y
-    eso es lo que los vuelve estables: si cambiaran de identidad en cada marca,
-    las 184 tarjetas se volverían a renderizar en cada click.
+    Guardar es un efecto de que algo haya cambiado, no algo que hace cada
+    handler. Separarlo permite que los toggles NO dependan de `propia`, y eso
+    es lo que los vuelve estables: si cambiaran de identidad en cada marca, las
+    184 tarjetas se volverían a renderizar en cada click.
 
-    El guard de `loaded` evita pisar lo guardado con el estado vacío inicial.
+    Dos guards, por motivos distintos:
+
+    - `loaded` evita pisar lo guardado con el estado vacío inicial.
+    - `enVisita` evita guardar mientras mirás la colección de otro. El equipo
+      que armás ahí está hecho con Identidades que no tenés, así que
+      persistirlo te pisaría el tuyo con uno que no podrías jugar.
   */
   useEffect(() => {
-    if (!loaded) return;
-    setSaveError(!saveCollection(propia));
-  }, [propia, loaded]);
+    if (!loaded || enVisita) return;
+    setSaveError(!saveCollection({ ...propia, equipo: equipoIds, base: baseIds }));
+  }, [propia, equipoIds, baseIds, loaded, enVisita]);
 
   const persist = useCallback((next) => setPropia(next), []);
 
@@ -163,17 +196,28 @@ export default function App() {
     [enVisita]
   );
 
+  /*
+    Al volver de una visita se recupera TU equipo, no se vacía. Vaciarlo era lo
+    que hacía antes —cuando no se guardaba nada y daba igual—, pero ahora eso
+    sería borrarte el trabajo por haber mirado la colección de un amigo.
+  */
   const salirDeVisita = useCallback(() => {
+    const guardada = loadCollection();
     setVisita(null);
-    setEquipoIds([]);
-    setBaseIds([]);
+    setEquipoIds(guardada.equipo);
+    setBaseIds(guardada.base);
   }, []);
 
+  /*
+    Adoptar es distinto de salir: la colección visitada pasa a ser tuya, así
+    que el equipo que armaste con ella también es jugable y se conserva. Por
+    eso acá no se llama a salirDeVisita, que restauraría el equipo anterior.
+  */
   const adoptarVisitada = useCallback(() => {
     if (!visita) return;
     persist({ identities: { ...visita.identities }, egos: { ...visita.egos } });
-    salirDeVisita();
-  }, [visita, persist, salirDeVisita]);
+    setVisita(null);
+  }, [visita, persist]);
 
   const entrarEnVisita = useCallback((coleccion) => {
     setVisita(coleccion);
@@ -281,7 +325,7 @@ export default function App() {
 
       <BannerVisita visita={visita} onSalir={salirDeVisita} onAdoptar={adoptarVisitada} />
 
-      <nav className="tab-bar">
+      <nav className="tab-bar" ref={barraTabs}>
         {TABS.map((t) => (
           <button
             key={t.key}

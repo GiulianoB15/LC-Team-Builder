@@ -67,7 +67,7 @@ src/
     codigo.js          codifica/decodifica la colección para compartirla
     estampa.js         dibuja el equipo en un canvas y lo baja como PNG
     seleccion.js       alta/baja de IDs con tope y una-por-Sinner
-    storage.js         persistencia en localStorage, versionada y migrable (Identities y E.G.O)
+    storage.js         persistencia en localStorage: colección, equipo y base, versionada y migrable
     cx.js              junta clases y descarta las que no aplican
   components/          una pestaña por archivo, más la ficha de Identidad y los chips
   styles.css           tokens de color/tipografía y todas las clases
@@ -491,10 +491,43 @@ chequeo.
 `extraible: false` marca 82 de 110, así que no hay forma de deducir del dataset cuáles
 vienen de arranque. Eso queda sin tocar.
 
+## El equipo se guarda
+
+Hasta acá se guardaba **qué tenés** pero no **qué armaste**. El equipo y la base de
+«Completar equipo» vivían en el estado del componente, así que un F5 los borraba —medido:
+elegís una Identidad, recargás, queda en cero.
+
+Es raro que haya durado tanto, porque el equipo es justamente lo único que la app
+*produce*: la colección la cargás vos, el orden y los motivos los calcula ella. Perder eso
+al cerrar la pestaña es perder el trabajo, no el insumo.
+
+Se guardan como listas de id en el mismo envoltorio versionado, migración `v4 → v5`. Ids y
+no objetos: un id sigue resolviendo contra un dataset regenerado, un objeto viejo no.
+
+**Lo que vuelve del storage se valida** con las mismas reglas que la UI impone al armarlo,
+porque entre una sesión y la siguiente el archivo puede haber cambiado: se descartan los ids
+que el dataset ya no conoce, se deja una sola por Sinner y se corta en 12. Sin eso, un
+guardado viejo podría meter dos del mismo Sinner y el motor calcularía sobre un equipo que
+la UI nunca habría dejado armar.
+
+**Dos casos de borde que importan más de lo que parece:**
+
+- **En modo visita no se guarda.** El equipo que armás mirando la colección de otro está
+  hecho con Identidades que no tenés; persistirlo te pisaría el tuyo con uno que no podrías
+  jugar.
+- **Al volver de una visita se recupera tu equipo**, no se vacía. Vaciarlo era lo que hacía
+  antes —cuando no se guardaba nada y daba igual—, pero ahora sería borrarte el trabajo por
+  haber mirado la colección de un amigo. Adoptar la colección visitada es distinto: ahí el
+  equipo pasa a ser jugable y se conserva.
+
+**Lo que NO hace todavía:** el código para compartir sigue llevando solo la colección, no el
+equipo. Cambiarlo altera el formato del código y rompería los links ya compartidos, así que
+va aparte.
+
 ## La lista de propias va agrupada por Sinner
 
-En «Completar equipo» las Identidades propias no van en una grilla corrida sino en un
-acordeón por Sinner, igual que en Colección. La regla de esa pestaña es **una por Sinner**,
+En «Armar equipo» y «Completar equipo» las Identidades propias no van en una grilla corrida
+sino en un acordeón por Sinner, igual que en Colección. La regla de esa pestaña es **una por Sinner**,
 así que el Sinner es la unidad con la que uno piensa; con una colección grande, la grilla
 plana era un muro de tarjetas donde encontrar a alguien era scrollear hasta verlo.
 
@@ -507,6 +540,15 @@ Dos diferencias con el acordeón de Colección, y las dos son a propósito:
   saber cómo viene el equipo, que es exactamente lo que el plegado venía a evitar. Va en
   minúsculas aunque el encabezado sea versalita: «THE HOUSE OF SPIDERS: THE THUMB
   NURSEFATHER» es una pared de letras.
+
+**Y tienen buscador.** Colección tenía buscador, chips de arquetipo, de rol y de facción; las
+dos pestañas donde realmente *decidís* no tenían nada, así que con más de cien Identidades
+propias elegir era scrollear hasta encontrar. Busca por nombre, Sinner, arquetipo y facción,
+y los bloques que coinciden se abren solos: filtrar y tener que abrir cada Sinner a mano
+sería pedir dos veces lo mismo.
+
+Los chips de rol se quedan en Colección a propósito: ahí explorás, acá ya sabés a quién
+querés.
 
 ## Completar equipo: la base puede crecer hasta 12
 
@@ -646,6 +688,24 @@ tono no se toca nunca: es lo que hace que "el verde" siga siendo Sinclair.
 
 Hay un chequeo que verifica que los 12 acentos sean distintos entre sí y que Rodion siga
 siendo más oscuro que Ryōshū. Es el que impide volver a romperlo.
+
+## Un número mágico que se desfasó, y cómo dejó de poder hacerlo
+
+Los encabezados de Sinner se pegan justo debajo de la barra de pestañas, y para eso
+necesitan saber cuánto mide. Estaba escrito a mano como `top: 46px`.
+
+Al medirlo daba **42 px** en escritorio y **39 px** en un teléfono: le habíamos cambiado el
+relleno a las pestañas y nadie volvió a tocar el offset. Quedaban 4 a 7 píxeles de fuga por
+donde se veía pasar el contenido entre la barra y el encabezado.
+
+Poner un número nuevo se habría vuelto a desfasar con el próximo ajuste, así que ahora se
+**mide**: un `ResizeObserver` publica el alto real como `--alto-tabs` y el CSS lo consume.
+Avisa cuando cambia —al rotar el teléfono, al cruzar la media query— y el valor no puede
+mentir. El fallback es 42 px por si el navegador no tiene `ResizeObserver`: mejor un par de
+píxeles de fuga que el encabezado tapado.
+
+Hay chequeos que comparan el `top` calculado contra el alto real de la barra a 1400, 720,
+430 y 390 px.
 
 ## Rendimiento
 
